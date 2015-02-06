@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vorto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet"> 
+    
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+
+      
+
+    <!-- SCRIPT 
+    ============================================================-->  
+   <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/docs.min.js"></script>  
+      
+  </head>
+  <body>
+ <!--HEADER ROW-->
+  <div id="header-row">
+    <div class="container">
+      <div class="row">
+              <!--LOGO-->
+              <div class="span3 vorto"><a class="brand" href="index.html">Vorto</a></div>
+              <!-- /LOGO -->
+
+            <!-- MAIN NAVIGATION -->  
+              <div class="span9">
+                <div class="navbar">
+                  <div class="navbar-inner">
+                    <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+                    <div class="nav-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav">
+						<li><a href="about.html">About</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                  </div>
+
+                  </div>
+                </div>
+              </div>
+            <!-- MAIN NAVIGATION -->  
+      </div>
+    </div>
+  </div>
+  <!-- /HEADER ROW -->
+
+  
+
+
+<div class="container content">
+
+  <!--Carousel
+  ==================================================-->
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    
+    <div class="carousel-inner">
+
+<div class="active item">
+        <div class="container">
+          <div class="row">
+            
+              <div class="span6">
+
+                 <div class="carousel-caption">
+                      <h1>What is <strong>Vorto</strong>?</h1>
+                      <p class="lead"><strong>Vorto</strong> is an open source tool that allows for creating and managing technology agnostic, abstract device descriptions, so called information models. Information models describe the attributes and the capabilities of real world devices. These information models can be managed and shared within the Vorto repository. In addition Vorto provides a code generator extension point where code generators can be plugged in. </p>
+                      <a class="btn btn-large btn-primary" href="downloads.html">Download Now</a>
+                </div>
+
+              </div>
+
+                <div class="span6"> <img src="img/WhatIsVorto.jpg"></div>
+
+          </div>
+        </div>
+       
+
+
+
+      </div>
+
+      <div class="item">
+       
+        <div class="container">
+          <div class="row">
+            
+              <div class="span6">
+
+                <div class="carousel-caption">
+                      <h2>Meta Information Model</h2>
+                      <p class="lead">While information models represent the capabilities of a particular type of device in its entirety, the <strong>Meta Information Model</strong> describes how the information models are structured. This makes sure that information models are machine readable which is amongst others essential for the code generator infrastructure.</p>
+                </div>
+
+              </div>
+
+                <div class="span6"> <img src="img/MetaInformationModel.jpg"></div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="item">
+       
+        <div class="container">
+          <div class="row">
+            
+              <div class="span6">
+
+                <div class="carousel-caption">
+                      <h2>Code Generators</h2>
+                      <p class="lead"><strong>Code generators</strong> allow for the creation of information model based code artifacts to be employed in specific solutions. Vorto provides wizards supporting the creation of new code generators. Example code generators are also part of the Vorto project.
+
+</p>
+                </div>
+
+              </div>
+
+                <div class="span6"> <img src="img/GeneratorHomepage.png"></div>
+
+          </div>
+        </div>
+
+      </div>
+
+ <div class="item">
+       
+        <div class="container">
+          <div class="row">
+            
+              <div class="span6">
+
+                <div class="carousel-caption">
+                      <h2>IoT Tool Set</h2>
+                      <p class="lead">The <strong>IoT Tool Set</strong> is an Eclipse plugin that provides a textual DSL editor for comfortably creating information models. The editor provides several features e.g. auto completion, syntax highlighting, and content assistance.</p>
+                </div>
+
+              </div>
+
+                <div class="span6"> <img src="img/ToolsetHomepage.png"></div>
+
+          </div>
+        </div>
+
+      </div>
+
+<div class="item">
+       
+        <div class="container">
+          <div class="row">
+            
+              <div class="span6">
+
+                <div class="carousel-caption">
+                      <h2>The Information Model Repository</h2>
+                      <p class="lead">The <strong>Information Model Repository</strong> is a server based technology which shall be used as the centralized storage location for information models. As soon as Release 1.0 is available the repository will be hosted by the Eclipse Foundation. 
+
+</p>
+                </div>
+
+              </div>
+
+                <div class="span6"> <img src="img/RepositoryHomepage.png"></div>
+
+          </div>
+        </div>
+
+      </div>
+
+    
+
+    </div>
+       <!-- Carousel nav -->
+      <a class="carousel-control left " href="#myCarousel" data-slide="prev"><i class="icon-chevron-left"></i></a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next"><i class="icon-chevron-right"></i></a>
+        <!-- /.Carousel nav -->
+
+        <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+         <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="4" class=""></li>
+      </ol>
+
+  </div>
+    <!-- /Carousel -->
+
+  <div class="hr-divider"></div>
+
+<!-- Feature 
+  ==============================================-->
+
+
+  <div class="row feature-box">
+      <div class="span12 cnt-title">
+        <h2><b>Vorto</b> - Advanced Device Integration</b></h2>        
+      </div>
+
+      <div class="span4">
+			<img src="img/Create.jpg"/ class="img-fea">
+        <h2>Create</h2>
+        <p>
+            The IoT Tool Set supports you in creating information models which conform to the meta-model.
+        </p>
+      </div>
+
+      <div class="span4">
+			<img src="img/Share.jpg"/>
+        <h2>Share</h2>
+        <p>
+            The Repository allows to manage, share and reuse existing information models. 
+        </p>    
+      </div>
+
+      <div class="span4">
+		<img src="img/Generate.jpg" class="img-fea"/>
+        <h2>Generate</h2>
+        <p>
+            Code generators transform information models into platform specific representations.
+        </p>
+      </div>
+  </div>
+
+
+<!-- /.Feature -->
+
+  <div class="hr-divider"></div>
+
+<!-- Row View -->
+
+    
+</div>
+
+
+<!-- /.Row View -->
+
+
+
+<!--Footer
+==========================-->
+
+<footer>
+    <div class="container">
+      <div class="row">
+            <div class="social pull-right">
+                        <a href="http://www.eclipse.org/">Eclipse Home</a> |
+                        <a href="http://marketplace.eclipse.org/">Market Place</a> |
+                        <a href="http://live.eclipse.org/">Eclipse Live</a> |
+                        <a href="http://www.planeteclipse.org/">Eclipse Planet</a> |
+                        <a href="http://www.eclipse.org/legal/privacy.php">Privacy Policy</a> |
+                        <a href="http://www.eclipse.org/legal/termsofuse.php">Terms of Use</a> |
+                        <a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a> |
+                        <a href="http://www.eclipse.org/legal/">Legal</a>
+            </div>
+      </div>
+    </div>
+</footer>
+
+<!--/.Footer-->
+
+  </body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vorto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+	
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/lightbox.css" rel="stylesheet" />
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
+
+
+    <!-- SCRIPT 
+    ============================================================-->  
+    <script src="js/jquery.min.js"></script>
+
+	<script src="js/bootstrap.min.js"></script>
+ 			
+	</script>
+</head>
+
+<body>
+
+<!--HEADER ROW-->
+ <div id="header-row">
+    <div class="container">
+
+      <div class="row">
+              <!--LOGO-->
+                          <div class="span3 vorto"><a class="brand" href="index.html">Vorto</a></div>
+              <!-- /LOGO -->
+
+
+
+            <!-- MAIN NAVIGATION -->  
+              <div class="span9">
+                <div class="navbar">
+                  <div class="navbar-inner">
+                    <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
+                    <div class="nav-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav">
+						<li><a href="about.html">About</a></li>
+                    	<li><a href="news.html">News</a></li>
+                        <li class="active"><a href="documentation.html">Documentation</a></li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="community.html">Community</a></li>
+                    </ul>
+                  </div>
+
+                  </div>
+                </div>
+              </div>
+            <!-- MAIN NAVIGATION -->  
+      </div>
+    </div>
+  </div>
+  <!-- /HEADER ROW -->
+
+
+	<!-- Navbar End -->
+<!--Container-->
+<div id="header_wrapper" class="container">
+	<ul id="nav-outline" class="side-bar">
+		<li class="title"><a href="#top">Getting Started</a></li>
+		<li><a href="#Installation">Installing the Vorto Toolset</a></li>
+		<li><a href="#Editors">Describe devices with Information Models</a></li>
+		<li><a href="#Generators">Integrate devices into target platforms</a></li>
+		<li><a href="#Repository">Manage and share Information Models</a></li>
+	</ul>	</li>
+</ul>
+</div>
+<div id="page">  
+	<div class="inner">
+		<div id="maincontainer" class="container content">
+			<!-- chapter -->
+			<section id="top" class="documentation-section">
+				<div class="row">
+					<div class="span8 offset3">
+						<h2 class="page-header">
+							Getting Started
+						</h2>
+						<p>
+							<p> 
+							</p>
+						</p>
+						<!--  section -->
+						<section id="Installation" class="documentation-section">
+						<h3>Installing the Vorto Toolset</h3>
+						<p>
+							<p>
+								<b>Prerequisites:</b>
+								<ul>
+									<li>Eclipse Kepler or Eclipse Luna</li>
+									<li>JDK 1.7</li>
+									<li>Xtext 2.7.* redistributable (http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/)</li>
+								</ul>
+							</p>
+						</p>
+						<p>
+							<p>
+							<ol>
+								<li>From your IDE, click on menu "Help -> Install New Software..."</li>
+								<li>Enter the Update site <a href="https://eclipse.org/vorto/update">https://eclipse.org/vorto/update</a> and hit enter (It may take a few seconds until you can see the list of available software).</li>
+								</li>Select the Vorto components from the software list.</li>
+								</li>Click 'Next' and verify the installation details. Click continue</li>
+								<li>A software agreement and license page is shown. Select "I accept the terms of the license agreements" and click Finish</li>
+								<li>Restart the IDE</li>
+							</ol>
+			</p>
+						</p>
+						</section>
+						<!--  section -->
+						<section id="Editors" class="documentation-section">
+							<h3>Describe devices with Information Models</h3>
+							<p>
+								The Vorto Toolset provides two types of Editors to describe the semantics of of devices. 
+								A Function Block Editor describes abstract properties, such as status, fault, configuration and events as well as operations to change the behaviour of a device.
+								An Information Model Editor aggregates various function blocks and is enriched with vendor specific meta data. 
+								<p>
+									<a href="#img1" title="click to view higher resolution"  class="zoomed">
+									  <img src="img/Toolset.png">
+									</a>
+
+									<!-- lightbox container hidden with CSS -->
+									<div><a href="#_" class="lightbox" id="img1" title="click to return">
+									  <img class="lb" src="img/Toolset_highres.jpg"/>
+									  <div class="lb_close"></div>
+									</a></div>
+
+								</p>
+							</p>
+						</section>
+						<!--  section -->
+						<section id="Generators" class="documentation-section">
+							<h3>Integrate Devices into target platforms</h3>
+							<p>
+								Information Models can easily be integrated into a any platform upon the availability of so - called platform-specific code generators. These generators understand
+								the Information Meta Model and platform specific meta data attached to the model and translates it into platform specific code, e.g. in the form of Java, XML, C++ etc. 
+								<p>
+									<a href="#img2" title="click to view higher resolution" class="zoomed">
+									  <img class="lb" src="img/Generators.png">
+									</a>
+
+									<!-- lightbox container hidden with CSS -->
+									<div><a href="#_" class="lightbox" id="img2" title="click to return">
+									  <img class="lb" src="img/Generators_highres.jpg"/>
+									  <div class="lb_close"></div>
+									</a></div>
+								</p>
+							</p>
+						</section>
+						<section id="Repository" class="documentation-section">
+							<h3>Manage and share Information Models</h3>
+							<p>
+								The <strong>Information Model Repository</strong> is a server based technology which shall be used as the centralized storage location for information models. As soon as Release 1.0 is available the repository will be hosted by the Eclipse Foundation. 
+								<p>
+									<a href="#img3" title="click to view higher resolution"  class="zoomed">
+									  <img src="img/Repository.png">
+									</a>
+
+									<!-- lightbox container hidden with CSS -->
+									<div><a href="#_" class="lightbox" id="img3" title="click to return">
+									  <img src="img/Repository_highres.jpg"/>
+									  <div class="lb_close"></div>
+									</a></div>
+								</p>
+							</p>
+						</section>
+					</div>
+				</div>
+			</section>
+			
+	</div>
+	</div></div>					
+						
+					<!--Footer
+==========================-->
+
+<footer>
+    <div class="container">
+      <div class="row">
+            <div class="social pull-right">
+                        <a href="http://www.eclipse.org/">Eclipse Home</a> |
+                        <a href="http://marketplace.eclipse.org/">Market Place</a> |
+                        <a href="http://live.eclipse.org/">Eclipse Live</a> |
+                        <a href="http://www.planeteclipse.org/">Eclipse Planet</a> |
+                        <a href="http://www.eclipse.org/legal/privacy.php">Privacy Policy</a> |
+                        <a href="http://www.eclipse.org/legal/termsofuse.php">Terms of Use</a> |
+                        <a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a> |
+                        <a href="http://www.eclipse.org/legal/">Legal</a>
+            </div>
+      </div>
+    </div>
+</footer>
+
+<!--/.Footer-->
+
+</body>
+</html>
+	
