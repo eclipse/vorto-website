@@ -139,7 +139,7 @@ Carousel
 .carousel-control.left{left:-30px;}
 
 .carousel{
-	height: 500px;
+	height: 480px;
 }
 
 .carousel img{
@@ -171,12 +171,12 @@ Carousel
 }
 
 #myCarousel {
-	margin-top: 30px;
+	margin-top: 0px;
 }
 
 .carousel-indicators {
 	position: relative;
-	bottom: 0px;
+	bottom: -10px;
 	z-index: 99;
 	width: 60%;
 	padding-left: 0;
@@ -219,10 +219,14 @@ Carousel
 /*Feature
 ==========================*/
 .feature-box{
-	margin-top: 60px;
+	margin-top: 0px;
 	text-align: center;
 }
-.cnt-title { text-align: center; margin-bottom: 50px;}
+.cnt-title { 
+	text-align: center; 
+	margin-bottom: 0px;
+}
+
 .cnt-title span { 
 	font-size: 24px;
 	font-weight: 200;
@@ -415,5 +419,31 @@ ul.side-bar li.title a{
 }
 
 .img-fea{
+	position: relative;
 	margin: 100px 0px 0px;
+	z-index: 99;
+}
+
+.hr-divider2 {
+  background: url(../img/slide-bg.png) no-repeat bottom center;
+  width: 1170px;
+  height: 1px;
+  margin-bottom: 5px;
+  display: block;
+  clear: both;
+}
+
+.thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb .zoom{
+  background: url(../img/videoOverlay.png) 0 0 no-repeat transparent;
+  position: absolute;
+  z-index: 100;
+  width: 80px;
+  height: 80px;
+  top: 150px;
+  left:150px;
 }
