@@ -53,3 +53,11 @@
   /** Remove default browser outline style */
   outline: none;
 }
+
+.lightbox iframe {
+  /*height: 315px;*/
+  position: relative;
+  top: 15%;
+  /*transform:  translateY(-50%);*/
+}
+}

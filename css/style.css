@@ -439,11 +439,18 @@ ul.side-bar li.title a{
 }
 
 .thumb .zoom{
-  background: url(../img/videoOverlay.png) 0 0 no-repeat transparent;
+  background: url(../img/videoOverlay.png) no-repeat scroll 0 0 transparent;
+  outline: medium none;
   position: absolute;
   z-index: 100;
   width: 80px;
   height: 80px;
   top: 150px;
-  left:150px;
+  left:165px;
+  opacity: 1;
+  
+}
+.thumb .zoom:hover{
+  opacity: 1;
+  
 }
