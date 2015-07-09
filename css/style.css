@@ -447,8 +447,15 @@ ul.side-bar li.title a{
   height: 80px;
   top: 150px;
   left:165px;
-  opacity: 1;
+  opacity: 0.4;
   
+}
+.thumb1 .zoom:hover { 
+opacity: 1; 
+-webkit-transform: scale(1.1);
+-ms-transform: scale(1.1);
+transform: scale(1.1);
+
 }
 .thumb2{
   position: relative;
@@ -463,6 +470,14 @@ ul.side-bar li.title a{
   height: 80px;
   top: 150px;
   left:70px;
-  opacity: 1;
+  opacity: 0.4;
   
+}
+
+.thumb2 .zoom:hover { 
+opacity: 1; 
+-webkit-transform: scale(1.1);
+-ms-transform: scale(1.1);
+transform: scale(1.1);
+
 }
