@@ -1,320 +1,604 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Eclipse Vorto - IoT Toolset for standardized device descriptions</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
-      <link href="css/lightbox.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet"> 
-    
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    
+  <!--Head section for CSS/Javascript  -->
 
-      
+<head>
+  <meta charset="utf-8">
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  <meta name="description" content="Eclipse Vorto - IoT Toolset for standardized device descriptions">
+  <meta name="author" content="">
+  <!--base to have relative path for offline navigation -->
 
-    <!-- SCRIPT 
-    ============================================================-->  
-   <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/docs.min.js"></script>  
-	<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-61866024-1', 'auto');
-  ga('send', 'pageview');
 
-</script>
-      
-  </head>
+
+
+
+ 
+  <title>Eclipse Vorto</title>
+
+  <!--Stylesheets-->
+  <!-- Bootstrap 3.3.1 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="./css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />-
+
+  <!-- Custom CSS -->
+  <link href="./css/vorto.css" rel="stylesheet">
+
+  <!-- Wow CSS -->
+  <link href="./css/animate.css" rel="stylesheet">
+  <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/animate.css" rel="stylesheet">-->
+
+
+  <!--Javascript-->
+  <!-- JQuery 2.1.1-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- Bootstrap 3.3.1 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+
+  <!-- Below css/js is only for Homepage -->  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <!-- Custom JS -->
+  <script src="./js/app.js"></script>
+
+  	<script>
+  	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	  ga('create', 'UA-61866024-1', 'auto');
+  	  ga('send', 'pageview');
+  </script>
+<script src="./js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+               $(document).ready(function(){
+                 $("a[rel^='prettyPhoto']").prettyPhoto();
+               });
+  </script>
+  <script type="text/javascript" charset="utf-8">
+    new WOW().init();
+  </script>
+
+</head>
+
+
   <body>
- <!--HEADER ROW-->
-  <div id="header-row">
-    <div class="container">
-      <div class="row">
-              <!--LOGO-->
-              <div class="span3 vorto"><a class="brand" href="index.html">Vorto</a></div>
-              <!-- /LOGO -->
+    <!--Header section Site navigation -->
 
-            <!-- MAIN NAVIGATION -->  
-              <div class="span9">
-                <div class="navbar">
-                  <div class="navbar-inner">
-                    <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
-                    <div class="nav-collapse collapse navbar-responsive-collapse">
-                    <ul class="nav">
-						<li><a href="about.html">About</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="https://github.com/eclipse/vorto/blob/master/docs/VortoUserGuide_en/vorto_user_guide_en.md" target="_blank">Documentation</a></li>
-                        <li><a href="downloads.html">Downloads</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-						<li><a href="https://wiki.eclipse.org/Vorto" target="_blank">Wiki</a></li>
-                        <li><a href="community.html">Community</a></li>
-						<li><a href="http://vorto.eclipse.org/repo" target="_blank">Model Repository</a>
-                    </ul>
-                  </div>
+<!--base to have relative path for offline navigation -->
 
-                  </div>
-                </div>
-              </div>
-            <!-- MAIN NAVIGATION -->  
-      </div>
-    </div>
-  </div>
-  <!-- /HEADER ROW -->
+
+
+
+
+
+ 
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-lp" role="navigation">
+		<div class="container">
+				<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="./index.html">Vorto</a>
+				</div>
+				<div class="collapse navbar-collapse wow fadeIn" id="navbar-collapse" data-wow-delay="3s">
+						<ul class="nav navbar-nav pull-right">
+							
+								<li >
+									
+										<a href="./news/index.html">News</a>
+
+									
+								</li>
+							
+								<li >
+									
+										<a href="./blog/index.html">Blog</a>
+
+									
+								</li>
+							
+								<li >
+									
+										<a href="./documentation/overview/introduction.html">Documentation</a>
+
+									
+								</li>
+							
+								<li >
+									
+										<a href="./downloads/index.html">Downloads</a>
+
+									
+								</li>
+							
+								<li >
+									
+										<a target="_blank" href="http://vorto.eclipse.org/repo">Model Repository</a>
+									
+								</li>
+							
+						</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+</nav>
+
+    <!-- Additional Header homepage -->
+    <header class="header">
+        <div class="tagline">
+            <div class="container">
+                <h1><span id="describe" class="wow bounceInDown">Describe.</span><span id="share" class="wow bounceInDown" data-wow-delay="1s"> Share.</span><span id="integrate"  class="wow bounceInDown" data-wow-delay="2s"> Integrate.</span></h1>
+            </div>
+        </div>
+    </header>
+
+      <!-- Content -->
+      <div class="container">
+         <!-- Top Content -->
 
   
 
 
-<div class="container content">
-
-  <!--Carousel
-  ==================================================-->
-
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    
-    <div class="carousel-inner">
-
-<div class="active item">
-        <div class="container">
-          <div class="row">
-            
-              <div class="span6">
-
-                 <div class="carousel-caption">
-                      <h1>What is <strong>Vorto</strong>?</h1>
-                      <p class="lead"><strong>Vorto</strong> is an open source tool that allows to create and manage technology agnostic, abstract device descriptions, so called information models. Information models describe the attributes and the capabilities of real world devices. These information models can be managed and shared within the Vorto repository. In addition Vorto provides a code generator extension point where code generators can be plugged in. </p>
-                      <a class="btn btn-large btn-primary" href="downloads.html">Download Now</a>
-                </div>
-
-              </div>
-
-                <div class="span6"> <img src="img/WhatIsVorto.jpg"></div>
-
-          </div>
-        </div>
-       
+  
 
 
-
-      </div>
-
-      <div class="item">
-       
-        <div class="container">
-          <div class="row">
-            
-              <div class="span6">
-
-                <div class="carousel-caption">
-                      <h2>Meta Information Model</h2>
-                      <p class="lead">While information models represent the capabilities of a particular type of device in its entirety, the <strong>Meta Information Model</strong> describes how the information models are structured. This makes sure that information models are machine readable which is amongst others essential for the code generator infrastructure.</p>
-                </div>
-
-              </div>
-
-                <div class="span6"> <img src="img/MetaInformationModel.jpg"></div>
-
-          </div>
-        </div>
-
-      </div>
+  
 
 
-      <div class="item">
-       
-        <div class="container">
-          <div class="row">
-            
-              <div class="span6">
+  
 
-                <div class="carousel-caption">
-                      <h2>Code Generators</h2>
-                      <p class="lead"><strong>Code generators</strong> allow for the creation of information model based code artifacts to be employed in specific solutions. Vorto provides wizards supporting the creation of new code generators. Example code generators are also part of the Vorto project.
 
-</p>
-                </div>
+  
 
-              </div>
 
-                <div class="span6"> <img src="img/GeneratorHomepage.png"></div>
-
-          </div>
-        </div>
-
-      </div>
-
- <div class="item">
-       
-        <div class="container">
-          <div class="row">
-            
-              <div class="span6">
-
-                <div class="carousel-caption">
-                      <h2>IoT Tool Set</h2>
-                      <p class="lead">The <strong>IoT Tool Set</strong> is an Eclipse plugin that provides a textual DSL editor for comfortably creating information models. The editor provides several features e.g. auto completion, syntax highlighting, and content assistance.</p>
-                </div>
-
-              </div>
-
-                <div class="span6"> <img src="img/ToolsetHomepage.png"></div>
-
-          </div>
-        </div>
-
-      </div>
-
-<div class="item">
-       
-        <div class="container">
-          <div class="row">
-            
-              <div class="span6">
-
-                <div class="carousel-caption">
-                      <h2>The Information Model Repository</h2>
-                      <p class="lead">The <strong>Information Model Repository</strong> is a server based technology which shall be used as the centralized storage location for information models. As soon as Release 1.0 is available the repository will be hosted by the Eclipse Foundation. 
-
-</p>
-                </div>
-
-              </div>
-
-                <div class="span6"> <a href="http://vorto.eclipse.org/repo" target="_blank"><img src="img/RepositoryHomepage.png"></a></div>
-
-          </div>
-        </div>
-
-      </div>
-
+  
+  
+  <div class="box">
     
 
-    </div>
-       <!-- Carousel nav -->
-      <a class="carousel-control left " href="#myCarousel" data-slide="prev"><i class="icon-chevron-left"></i></a>
-      <a class="carousel-control right" href="#myCarousel" data-slide="next"><i class="icon-chevron-right"></i></a>
-        <!-- /.Carousel nav -->
-
-        <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-         <li data-target="#myCarousel" data-slide-to="3" class=""></li>
-        <li data-target="#myCarousel" data-slide-to="4" class=""></li>
-      </ol>
-
+      <img class="box-img img-responsive pull-right wow fadeIn" src="./img/WhatIsVorto.jpg">
+       
+    
+    
+      <div class="wow fadeIn" data-wow-duration="4s">
+         
+      <h2 class="box-headline" id="header1">What is Vorto</h2>
+      <p><p><b>Vorto</b> is an open source tool that allows to create and manage technology agnostic, abstract device descriptions, so called information models. Information models <b>describe</b> the attributes and the capabilities of real world devices. These information models can be managed and <b>shared</b> within the Vorto Information Model Repository. Code Generators for Information Models let you <b>integrate</b> devices into different platforms. </p>
+</p>
+      </div>
   </div>
-    <!-- /Carousel -->
-
-  <div class="hr-divider2"></div>
-
-<!-- Feature 
-  ==============================================-->
+  <hr class="box-separator">
+  
 
 
-  <div class="row feature-box">
-      <div class="span12 cnt-title">
-        <h2><b>Vorto</b> - Advanced Device Integration</b></h2>        
-      </div>
-
-      <div class="span4">
+  
+  
+  <div class="box">
+    
+      <img class="box-img img-responsive pull-left wow fadeInLeft" src="./img/ToolsetHomepage.png">
+        
         <div class="thumb1">
-        <a href="#vid1" title="click to view video">
-             <img src="img/Create.jpg" class="img-fea" >
-             <div class="zoom"></div>
-        </a>
-		
-      </div>
-        <div>
-          <a href="#_" class="lightbox" id="vid1" title="click to return">
-           
-		   <iframe width="560" height="315" src="https://www.youtube.com/embed/hdHwyc6vMlQ" frameborder="0" allowfullscreen></iframe>
-          <div class="lb_close"></div>
-
-        </a>
-      </div>
-        <h2>Describe</h2>
-        <p>
-            The IoT Tool Set lets you describe your devices using Information Models.
-        </p>
-      </div>
-
-      <div class="span4">
-			<img src="img/Share.jpg"/>
-        <h2>Share</h2>
-        <p>
-            The Repository allows to manage, share and reuse existing Information Models. 
-        </p>    
-      </div>
-
-      <div class="span4">
-	  <div class="thumb2">
-        <a href="#vid2" title="click to view video">
-             <img src="img/Generate.jpg" class="img-fea" >
-             <div class="zoom"></div>
-        </a>
-		
-      </div>
-        <div>
-          <a href="#_" class="lightbox" id="vid2" title="click to return">
-           
-		   <iframe width="560" height="315" src="https://www.youtube.com/embed/wWh22q_ygRw" frameborder="0" allowfullscreen></iframe>
-          <div class="lb_close"></div>
-
-        </a>
-      </div>
-		
-        <h2>Integrate</h2>
-        <p>
-            Code Generators for Information Models let you integrate devices into different platforms.
-        </p>
+          <a title="Describe" data-rel="prettyPhoto" href="https://www.youtube.com/watch?v=hdHwyc6vMlQ" rel="prettyPhoto" >
+                 <i class="fa fa-play-circle fa-5 play-icon"></i>
+          </a>
+        </div>
+      
+    
+    
+      <div class="wow fadeIn" data-wow-duration="4s">
+         
+      <h2 class="box-headline" id="header7">Describe</h2>
+      <p><p>The IoT Tool Set lets you describe your devices using Information Models in a textual DSL editor. The editor provides several features e.g. auto completion, syntax highlighting, and content assistance.</p>
+</p>
       </div>
   </div>
+  <hr class="box-separator">
+  
 
 
-<!-- /.Feature -->
-
-
-<!-- Row View -->
-
+  
+  
+  <div class="box">
     
+
+      <img class="box-img img-responsive pull-right wow slideInRight" src="./img/RepositoryHomepage.png">
+       
+    
+    
+      <div class="wow ">
+
+         
+      <h2 class="box-headline" id="header8">Share</h2>
+      <p><p>With the Information Model Repository, you are able to manage, share and reuse existing Information Models directly from the Tool set or via the Web.</p>
+
+<p><a href="http://vorto.eclipse.org/repo" target="_blank">Information Model Repository</a></p>
+</p>
+      </div>
+  </div>
+  <hr class="box-separator">
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+  
+  <div class="box">
+    
+      <img class="box-img img-responsive pull-left wow fadeInLeft" src="./img/GeneratorHomepage.png">
+        
+        <div class="thumb2">
+          <a title="Integrate" data-rel="prettyPhoto" href="https://www.youtube.com/watch?v=wWh22q_ygRw" rel="prettyPhoto" >
+                 <i class="fa fa-play-circle fa-5 play-icon"></i>
+          </a>
+        </div>
+      
+    
+    
+      <div class="wow ">
+
+         
+      <h2 class="box-headline" id="header9">Integrate</h2>
+      <p>Code generators allow for the creation of information model based code artifacts to be employed in specific solutions. Vorto provides wizards supporting the creation of new code generators. Example code generators are also part of the Vorto project.
+</p>
+      </div>
+  </div>
+  <hr class="box-separator">
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+
+         
+
+        <div class="box">
+
+  <h2 class="box-headline" id="header10">Community</h2>
+
+ 
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+ <div class="team">
+
+     <div class="col-md-1">
+            <i class="fa fa-twitter fa-4x"></i>
+          </div>
+    <div class="col-md-2">
+            <h4>Vorto on twitter</h4>
+          </div>
+          <div class="col-md-7">
+    <section><p>Follow our <strong>latest tweets</strong> <a href="https://twitter.com/VortoIoT" target="_blank">here.</a></p>
+</section>
+ </div>
 </div>
 
 
-<!-- /.Row View -->
+
+
+ 
+ <div class="team">
+
+     <div class="col-md-1">
+            <i class="fa fa-envelope fa-4x"></i>
+          </div>
+    <div class="col-md-2">
+            <h4>Mailing List</h4>
+          </div>
+          <div class="col-md-7">
+    <section><!--base to have relative path for offline navigation -->
+
+<p>A great way to stay up to date with Vorto activity is to subscribe to the <strong>Mailing list</strong> provided by Eclipse. Sign up for the mailing list <a href="https://dev.eclipse.org/mailman/listinfo/vorto-dev" target="_blank">here.</a></p>
+</section>
+ </div>
+</div>
 
 
 
-<!--Footer
-==========================-->
 
-<footer>
-    <div class="container">
-      <div class="row">
-            <div class="social pull-right">
-                        <a href="http://www.eclipse.org/">Eclipse Home</a> |
-                        <a href="http://marketplace.eclipse.org/">Market Place</a> |
-                        <a href="http://live.eclipse.org/">Eclipse Live</a> |
-                        <a href="http://www.planeteclipse.org/">Eclipse Planet</a> |
-                        <a href="http://www.eclipse.org/legal/privacy.php">Privacy Policy</a> |
-                        <a href="http://www.eclipse.org/legal/termsofuse.php">Terms of Use</a> |
-                        <a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a> |
-                        <a href="http://www.eclipse.org/legal/">Legal</a>
-            </div>
-      </div>
+ 
+ <div class="team">
+
+     <div class="col-md-1">
+            <i class="fa fa-bug fa-4x"></i>
+          </div>
+    <div class="col-md-2">
+            <h4>Issue Tracker</h4>
+          </div>
+          <div class="col-md-7">
+    <section><p>Issues and bugs related to Vorto are tracked with the <strong>Eclipse Bugzilla</strong> tracking system.  If you find any issues, please report them  <a href="https://bugs.eclipse.org/bugs/buglist.cgi?product=vorto&amp;component=Core" target="_blank">here.</a></p>
+</section>
+ </div>
+</div>
+
+
+
+
+ 
+ <div class="team">
+
+     <div class="col-md-1">
+            <i class="fa fa-users fa-4x"></i>
+          </div>
+    <div class="col-md-2">
+            <h4>Discussion Forum</h4>
+          </div>
+          <div class="col-md-7">
+    <section><p>A general discussion forum can be found <a href="http://eclipse.org/forums/eclipse.vorto" target="_blank">here.</a></p>
+</section>
+ </div>
+</div>
+
+
+
+
+ 
+ <div class="team1">
+
+     <div class="col-md-1">
+            <i class="fa fa-link fa-4x"></i>
+          </div>
+    <div class="col-md-2">
+            <h4>Contributing</h4>
+          </div>
+          <div class="col-md-7">
+    <section><p>An overview of the <strong>contribution process</strong> is <a href="https://wiki.eclipse.org/Development_Resources/Contributing_via_Git" target="_blank">here.</a>
+The key points are:</p>
+
+<ol>
+  <li>Ensure you have signed the Eclipse Foundation Contributor License Agreement (CLA)</li>
+  <li>Fork the Vorto Repository on <a href="http://github.com/eclipse/vorto" target="_blank">Github</a></li>
+  <li>Fix the issue and add suitable tests</li>
+  <li>Ensure your contribution is collapsed into a single commit</li>
+  <li>Create a pull request for your contribution</li>
+</ol>
+</section>
+ </div>
+</div>
+
+
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+
+</div>
+
     </div>
+
+       <!-- /.container -->
+       <!-- Footer -->
+<footer>
+   <div class="container">
+   <div class="row">
+         <div class="col-md-4">
+           <h3 class="footer-links-header">Quick Links</h3>
+           <ul class="footer-links clearfix">
+             <li><a href="http://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+             <li><a href="http://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+             <li><a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+             <li><a href="http://www.eclipse.org/legal/">Legal</a></li>
+           </ul>
+           <ul class="footer-links clearfix">
+             <li><a href="http://www.eclipse.org">Eclipse Home</a></li>
+             <li><a href="http://marketplace.eclipse.org/">Market Place</a></li>
+             <li><a href="http://live.eclipse.org/">Eclipse Live</a></li>
+             <li><a href="http://www.planeteclipse.org/">Eclipse Planet</a></li>
+           </ul>
+           </div>
+         <div class="col-md-2">
+          <h3 class="footer-links-header"><a href="http://eclipse.org/forums/eclipse.vorto" target="_blank" >Vorto Forum</a></h3>
+         </div>
+         <div class="col-md-6" data-twttr-id="twttr-sandbox-0">
+           <h3 class="footer-links-header"><a href="https://twitter.com/VortoIoT">Vorto</a> on Twitter</h3>
+           <a class="twitter-timeline"  href="https://twitter.com/VortoIoT" data-widget-id="624061088770994176" nofooter noborders noheader transparent height="250">Tweets by @VortoIoT</a>
+           <script>
+             !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+            </script>>
+         </div>
+       </div>
+   </div>
 </footer>
 
 <!--/.Footer-->
