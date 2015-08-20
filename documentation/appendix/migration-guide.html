@@ -459,12 +459,12 @@
 
 <h2 id="migration-guide">Migration Guide</h2>
 
-<h2 id="vorto-01x-to-03x">Vorto 0.1.x to 0.3.x</h2>
-<p>This migration guide describes how to migrate projects created with Vorto version 0.1.x to 0.3.x. This document doesn’t describes about installation. For installation, please follow standard eclipse update manager.</p>
+<h2 id="vorto-01x-to-04x">Vorto 0.1.x to 0.4.x</h2>
+<p>This migration guide describes how to migrate projects created with Vorto version 0.1.x to 0.4.x. This document doesn’t describes about installation. For installation, please follow standard eclipse update manager.</p>
 
 <h4 id="function-block-project-migration">Function Block Project migration</h4>
 
-<p>For example if function block “Lamp” project that was created in Vorto 0.1.x can be imported/used into Vorto 0.3.x workspace, however following are the list of changes needs to be done.</p>
+<p>For example if function block “Lamp” project that was created in Vorto 0.1.x can be imported/used into Vorto 0.4.x workspace, however following are the list of changes needs to be done.</p>
 
 <ul>
   <li>Vendor to namespace</li>
@@ -475,13 +475,13 @@
 </ul>
 
 <h5 id="vendor-to-namespace">Vendor to namespace</h5>
-<p>In Vorto 0.3.x the “vendor” keyword is replaced by  “namespace” keyword in Vorto 0.3.x version.</p>
+<p>In Vorto 0.4.x the “vendor” keyword is replaced by  “namespace” keyword in Vorto 0.4.x version.</p>
 
 <table class="table table-bordered">
 	<thead>
 		<tr>
 			<th>Vorto 0.1.x</th>
-			<th>Vorto 0.3.x</th>
+			<th>Vorto 0.4.x</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -514,13 +514,13 @@
 
 <h5 id="convention-of-namespace-value">Convention of namespace value</h5>
 
-<p>In Vorto 0.3.x the “namespace” value follows new convention which is of Java package structure like “com.bosch.fb” instead of existing url type “www.bosch.com”. However the existing url convention is still valid.</p>
+<p>In Vorto 0.4.x the “namespace” value follows new convention which is of Java package structure like “com.bosch.fb” instead of existing url type “www.bosch.com”. However the existing url convention is still valid.</p>
 
 <table class="table table-bordered">
 	<thead>
 		<tr>
 			<th>Vorto 0.1.x</th>
-			<th>Vorto 0.3.x</th>
+			<th>Vorto 0.4.x</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -553,13 +553,13 @@
 
 <h5 id="namespace-version-positioning">Namespace, Version positioning</h5>
 
-<p>In Vorto 0.3.x the “namespace” and “version” statement appears outside the main functionblock block.</p>
+<p>In Vorto 0.4.x the “namespace” and “version” statement appears outside the main functionblock block.</p>
 
 <table class="table table-bordered">
 	<thead>
 		<tr>
 			<th>Vorto 0.1.x</th>
-			<th>Vorto 0.3.x</th>
+			<th>Vorto 0.4.x</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -593,7 +593,7 @@
 
 <h5 id="separate-project-for-entity-enum-types">Separate project for Entity, Enum types</h5>
 
-<p>In Vorto 0.3.x the entity and enum types are separated into defined into separate projects instead of defining within the same function block. The Enum and Entity wizard can help to create new projects respectively.</p>
+<p>In Vorto 0.4.x the entity and enum types are separated into defined into separate projects instead of defining within the same function block. The Enum and Entity wizard can help to create new projects respectively.</p>
 
 <p>The entity, enum files will have additional “namespace” and “version” statement in additional to the actual definition.</p>
 
@@ -603,7 +603,7 @@
 			<th><p>Vorto 0.1.x</p>
 					<p>(in .fbmodel file in functionblock project)</p>
 				</th>
-				<th><p>Vorto 0.3.x</p>
+				<th><p>Vorto 0.4.x</p>
 						<p>(in .type file in enum project)	</p>
 					</th>
 		</tr>
@@ -642,7 +642,7 @@
 			<th><p>Vorto 0.1.x</p>
 					<p>(in .fbmodel file in functionblock project)</p>
 				</th>
-				<th><p>Vorto 0.3.x</p>
+				<th><p>Vorto 0.4.x</p>
 						<p>(in .type file in entity project)	</p>
 					</th>
 		</tr>
@@ -679,7 +679,7 @@
 
 <h5 id="entity-and-enum-references-in-functionblock-project">Entity and enum references in functionblock project</h5>
 
-<p>In Vorto 0.3.x, in order to use the entity and enum types, it needs to be referenced explicitly referred within functionblock by “using” statement. The “using” statement has following convention using «fully qualified entity or enum type with namespace» ; «version of entity or enum type»</p>
+<p>In Vorto 0.4.x, in order to use the entity and enum types, it needs to be referenced explicitly referred within functionblock by “using” statement. The “using” statement has following convention using «fully qualified entity or enum type with namespace» ; «version of entity or enum type»</p>
 
 <p>e.g using com.bosch.type.BlinkType;1.0.0</p>
 
@@ -689,7 +689,7 @@
 			<th><p>Vorto 0.1.x</p>
 					<p>(in .fbmodel file in functionblock project)</p>
 				</th>
-				<th><p>Vorto 0.3.x</p>
+				<th><p>Vorto 0.4.x</p>
 						<p>(in .fbmodel file in functionblock project with references)	</p>
 					</th>
 		</tr>
@@ -740,7 +740,7 @@
 
 <p><img src="../../img/documentation/m2m_tc_migrate_functionblock_references.png" alt="Function Block Project References" />  </p>
 
-<p>Here is the full soruce of Lamp functionblock in Vorto 0.1.x migrated to Vorto 0.3.x.</p>
+<p>Here is the full soruce of Lamp functionblock in Vorto 0.1.x migrated to Vorto 0.4.x.</p>
 
 <p><strong>Vorto 0.1.x Lamp.fbmodel</strong></p>
 
@@ -793,7 +793,7 @@ enum BlinkType {
 }
 </code></pre>
 
-<p><strong>Vorto 0.3.x Lamp.fbmodel</strong></p>
+<p><strong>Vorto 0.4.x Lamp.fbmodel</strong></p>
 
 <pre><code>		namespace com.mycompany.fb
 	version 1.0.0
@@ -833,7 +833,7 @@ enum BlinkType {
 	}
 </code></pre>
 
-<p><strong>Vorto 0.3.x Blinktype.type</strong></p>
+<p><strong>Vorto 0.4.x Blinktype.type</strong></p>
 
 <pre><code>namespace com.bosch.type
 version 1.0.0
@@ -843,7 +843,7 @@ slow
 }
 </code></pre>
 
-<p><strong>Vorto 0.3.x Color.type</strong></p>
+<p><strong>Vorto 0.4.x Color.type</strong></p>
 
 <pre><code>namespace com.bosch.type
 version 1.0.0
@@ -854,13 +854,13 @@ entity Color {
 }
 </code></pre>
 
-<p>Vorto 0.3.x - Information Models</p>
+<p>Vorto 0.4.x - Information Models</p>
 
 <table class="table table-bordered">
 	<tbody>
 		<tr>
 			<td><i class="fa fa-info-circle info-note"></i></td>
-			<td>In Vorto 0.3.x there won't be any code generators menu appear for functionblock projects. Instead the functionblocks are ecnlosed within information models and code generation menu appears only for Information model projects.
+			<td>In Vorto 0.4.x there won't be any code generators menu appear for functionblock projects. Instead the functionblocks are ecnlosed within information models and code generation menu appears only for Information model projects.
 			</td>
 		</tr>
 	</tbody>
@@ -900,7 +900,7 @@ entity Color {
            <a class="twitter-timeline"  href="https://twitter.com/VortoIoT" data-widget-id="624061088770994176" nofooter noborders noheader transparent height="250">Tweets by @VortoIoT</a>
            <script>
              !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-            </script>>
+            </script>
          </div>
        </div>
    </div>

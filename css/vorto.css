@@ -115,7 +115,7 @@ a:hover {
 }
 
 .box-separator {
-    margin: 80px 0;
+    margin: 50px 0;
 }
 
 .separator {
@@ -299,46 +299,41 @@ footer {
 }
 
 /*Home page Image-VideoOverlay*/
+.thumb1, .thumb2{
+  position: relative;
+}
 
 .thumb1 .play-icon{
   outline: medium none;
   position: absolute;
   z-index: 100;
-  width: 80px;
-  height: 80px;
-  top: 1080px;
-  left:550px;
+  
   opacity: 0.5;
   color:  #003151;
   font-size: 4em;
+      left: 325px;
+    z-index: 100;
+    top: 125px;
 
 }
 
-.thumb1 .play-icon:hover {
+.thumb1 .play-icon:hover, .thumb2 .play-icon:hover{
 opacity: 1;
 -webkit-transform: scale(1.1);
         -ms-transform: scale(1.1);
         transform: scale(1.1);
 }
 
+
 .thumb2 .play-icon {
     color: #003151;
     font-size: 4em;
-    height: 80px;
-    left: 590px;
     opacity: 0.5;
     outline: medium none;
     position: absolute;
-    top: 2050px;
-    width: 80px;
+    left: 325px;
     z-index: 100;
-}
-
-.thumb2 .play-icon:hover {
-  opacity: 1;
-  -webkit-transform: scale(1.1);
-          -ms-transform: scale(1.1);
-          transform: scale(1.1);
+    top: 125px;
 }
 
 /*community*/
