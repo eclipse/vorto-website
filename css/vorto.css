@@ -343,7 +343,7 @@ opacity: 1;
     background: -webkit-linear-gradient(top , rgba(255, 255, 255, 1) 0%, rgba(235, 235, 235, 1) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 1px 0 rgba(0, 0, 0, 0.1) inset;
-    height: 70px;
+    height: auto;
     margin-bottom: 5px;
     padding: 8px;
     position: relative;
@@ -357,27 +357,6 @@ opacity: 1;
 }
 
 .team .fa {
-    color: #333;
-}
-.team1 {
-    background: -moz-linear-gradient(center top , rgba(255, 255, 255, 1) 0%, rgba(235, 235, 235, 1) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    background: linear-gradient(center top , rgba(255, 255, 255, 1) 0%, rgba(235, 235, 235, 1) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    background: -webkit-linear-gradient(top , rgba(255, 255, 255, 1) 0%, rgba(235, 235, 235, 1) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 1px 0 rgba(0, 0, 0, 0.1) inset;
-    height: 200px;
-    margin-bottom: 5px;
-    padding: 8px;
-    position: relative;
-}
-.team1:hover {
-    background: -moz-linear-gradient(center top , rgba(235, 235, 235, 1) 0%, rgba(255, 255, 255, 1) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 1px 0 rgba(0, 0, 0, 0.1) inset;
-    border: 0px solid #3300CC;
-}
-
-.team1.fa {
     color: #333;
 }
 
