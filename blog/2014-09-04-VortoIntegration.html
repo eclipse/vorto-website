@@ -16,7 +16,7 @@
 
 
  
-  <title>Eclipse Vorto</title>
+  <title>Vorto Toolset Integration with the Model Repository</title>
 
   <!--Stylesheets-->
   <!-- Bootstrap 3.3.1 -->
@@ -118,16 +118,14 @@
           Blogs
       </h2>
     </div>
-     <div class="page-header pull-right">
-      <a href="https://github.com/eclipse/vorto/tree/development/docs" target="_blank"><h4>Add a new blog post!</h4></a>                          
+    <div class="page-header pull-right">
+        <a href="https://github.com/eclipse/vorto/tree/development/docs" target="_blank"><h4>Add a new blog post!</h4></a>
     </div>
        </div>
   </div>
 
-  
-  
 
-    <h2><a href="/blog/2014-09-04-VortoIntegration.html">Vorto Toolset Integration with the Model Repository</a></h2>
+    <h2>Vorto Toolset Integration with the Model Repository</h2>
     <div class="postmetadata">
       <ul>
         
@@ -142,8 +140,7 @@
     </ul>
     </div>
     <section>
-	  
-        	<p>As of the current release, the following functionalities have been added to the Vorto toolset to enable developers to seamlessly integrate with the <strong>Model Repository</strong>:</p>
+	  <p>As of the current release, the following functionalities have been added to the Vorto toolset to enable developers to seamlessly integrate with the <strong>Model Repository</strong>:</p>
 
 <ul>
   <li>Search models in the repository</li>
@@ -153,120 +150,83 @@
   <li>Eclipse preferences for the URL, username and password of the <strong>Model Repository</strong>.</li>
 </ul>
 
+<!--more-->
 
-        	<a href="/blog/2014-09-04-VortoIntegration.html">Read More...</a>
-       	
-    </section>
-    
-  
-  
+<p><a href="#video-on-toolset-integration">Click here to watch a video on Toolset Integration</a></p>
 
-    <h2><a href="/blog/2014-10-07-eclipseiot.html">Eclipse IoT open source standardization project</a></h2>
-    <div class="postmetadata">
-      <ul>
-        
-          <li>
-            <i class="icon-user"></i>
-            <a href="http://projects.eclipse.org/users/olaf-weinmann">Olaf Weinmann</a>
-          </li>
-        
-        <li>
-          <i class="icon-calendar"></i> Oct 7, 2014
-        </li>
-    </ul>
-    </div>
-    <section>
-	  
-  			<p>Many technologies are available today that allow for the interconnection of devices, the management of systems of devices, and consequently the realization of solutions in the Internet of Things (IoT). However, most of the software components related to the IoT are industry-specific implementations that provide individual abstraction layers for specific groups of devices. Because of the different approaches, there is often no interoperability between the mentioned components. This in particular leads to a variety of disparate implementations related to the connectivity of one and the same device.</p>
+<h2 id="preparation">Preparation</h2>
 
-<p><a href="http://blog.bosch-si.com/categories/technology/2014/10/your-feedback-eclipse-iot-open-source-standardization-project">Read the whole blog</a></p>
+<p>Before we can use the toolset integration with the Model Repository, we must add the URL of the Model Repository in the preferences. We must also add the username and password if we want to be able to save models to the repository.</p>
 
-		
-    </section>
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+<h3 id="setting-the-preferences">Setting the preferences</h3>
+
+<ol>
+  <li>Go to <em>Window &gt; Preferences</em> then choose <em>Vorto &gt; Remote Repository</em></li>
+  <li>Enter the URL of the Model Repository</li>
+  <li>Optionally, you can also enter the username and password if you want to save models to the repository.</li>
+</ol>
+
+<p><img src="/img/blogpics/Preferences.png" alt="Preferences" /></p>
+
+<h2 id="adding-the-model-repository-view-to-the-workspace">Adding the Model Repository view to the workspace</h2>
+
+<p>There are two ways to add the <strong>Model Repository</strong> view. You can either switch to the <strong>Vorto Perspective</strong>, or you can manually add the <strong>Model Repository</strong> view to the workspace.</p>
+
+<h3 id="switching-to-the-vorto-perspective">Switching to the Vorto perspective</h3>
+
+<p>Click the Vorto perspective button on the upper right corner. When the perspective change is completed, you’ll see the <strong>Model Repository</strong> view on the bottom right corner along with the <strong>Console</strong></p>
+
+<p><img src="/img/blogpics/VortoPerspective.png" alt="VortoPerspective" /></p>
+
+<h3 id="manually-adding-the-model-repository-view-to-the-workspace">Manually adding the Model Repository view to the workspace</h3>
+
+<ol>
+  <li>Go to <em>Window &gt; Show View &gt; Other</em>.</li>
+  <li>Look for <em>Vorto</em>, click on <em>Model Repository</em></li>
+</ol>
+
+<p><img src="/img/blogpics/ShowView.png" alt="ShowView" /></p>
+
+<h2 id="searching-for-models">Searching for models</h2>
+
+<p>Searching for models is as simple as typing a filter and clicking the <strong>Search</strong> button. Without a filter, <strong>Search</strong> will return <em>ALL</em> models in the <strong>Model Repository</strong>.</p>
+
+<p><img src="/img/blogpics/ModelRepositoryView.png" alt="ModelRepositoryView" /></p>
+
+<h2 id="sharing-models">Sharing models</h2>
+
+<p>After you have created your model, you can open the context menu of the project (by right clicking on it) to see the <em>Share</em> button. This require credentials to be entered in the Vorto preferences first.</p>
+
+<p><img src="/img/blogpics/SavingModel.png" alt="SavingModel" /></p>
+
+<h2 id="using-shared-models-as-references">Using shared models as references</h2>
+
+<p>Dragging a shared model from the <strong>Model Repository</strong> view and dropping it to a local model project will add the shared model to the list of references of the local model project. It will also download the shared model from the <strong>Model Repository</strong> to the <strong>shared folder</strong> of the local model project.</p>
+
+<p><img src="/img/blogpics/SharedModelsReferences.png" alt="SharedModelsReferences" /></p>
+
+<h2 id="importing-a-shared-model-to-the-local-workspace">Importing a shared model to the local workspace</h2>
+
+<p>Dragging a shared model from the <strong>Model Repository</strong> view and dropping it to one of the three model views (<strong>Datatype Models</strong>, <strong>Function Block Models</strong>, <strong>Information Models</strong>), and not to any particular local model project will import the shared model as a project to the local workspace.</p>
+
+<p><img src="/img/blogpics/SharedModelImport.png" alt="SharedModelImport" /></p>
+
+<h2 id="video-on-toolset-integration">Video on Toolset Integration</h2>
+
+
+     
+          <div class="thumb1">
+             <a href="#" title="click to view video">
+               <img src="/img/blogpics/VortoRepoVideoImage.jpg" class="box-img img-responsive">
+             </a>
+             <a title="Vorto Toolset Integration with the Model Repository" data-rel="prettyPhoto" href="https://youtu.be/aKnW2udh9m8" rel="prettyPhoto" >
+               <i class="fa fa-play-circle fa-5 play-icon"></i>
+             </a>
+          </div>
+      
+       
+
+
 </div>
 
 <!-- Pagination -->
