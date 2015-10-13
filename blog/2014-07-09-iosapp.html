@@ -16,7 +16,7 @@
 
 
  
-  <title>Eclipse IoT open source standardization project</title>
+  <title>iOS game using Vorto</title>
 
   <!--Stylesheets-->
   <!-- Bootstrap 3.3.1 -->
@@ -133,29 +133,53 @@
   </div>
 
 
-    <h2>Eclipse IoT open source standardization project</h2>
+    <h2>iOS game using Vorto</h2>
     <div class="postmetadata">
       <ul>
         
           <li>
-            <i class="icon-user"></i>
-            <a href="http://projects.eclipse.org/users/olaf-weinmann-bosch-software-innovations-gmbh">Olaf Weinmann</a>
+            <i class="icon-user"></i>Foitzik Andreas
           </li>
-           
+        
         <li>
-          <i class="icon-calendar"></i> Oct 7, 2014
+          <i class="icon-calendar"></i> Oct 9, 2015
         </li>
     </ul>
     </div>
     <section>
 	  <!--base to have relative path for offline navigation -->
 
-<p>Many technologies are available today that allow for the interconnection of devices, the management of systems of devices, and consequently the realization of solutions in the Internet of Things (IoT). However, most of the software components related to the IoT are industry-specific implementations that provide individual abstraction layers for specific groups of devices. Because of the different approaches, there is often no interoperability between the mentioned components. This in particular leads to a variety of disparate implementations related to the connectivity of one and the same device.</p>
+<p>Welcome to this blogpost that explains how to develop an App using Vorto.</p>
 
-<p><a href="http://blog.bosch-si.com/categories/technology/2014/10/your-feedback-eclipse-iot-open-source-standardization-project" target="_blank">Read the whole blog</a></p>
+<p>This App is an iOS Game that displays different moves on a Flat Screen based on the player’s movement. The player has to follow specific moves. Two TI Sensortags are tied, one on each wrist to detect whether a move is a hit or not.</p>
+
+<p>Vorto provides a specific Information Model for these <a href="http://vorto.eclipse.org/repo/#/details/examples.informationmodels.sensors/TI_SensorTag_CC2650/1.0.0" target="_blank">TI Sensortags</a>. Based on this Information Model, the necessary Swift code is generated with an iOS Platform Generator.</p>
+
+<!--more-->
+
+<p>The generated Code can then be integrated into the iOS App. The relavant projects are available in github and can be accessed from the following links:</p>
+
+<h2 id="references">References</h2>
+<ul>
+  <li><a href="https://github.com/iot-fever/IoTFeverGame" target="_blank">iOS App</a></li>
+  <li><a href="https://github.com/iot-fever/IOS_Platform_Generator" target="_blank">iOS Platform Generator</a></li>
+</ul>
+
+<h2 id="demo-video">Demo Video</h2>
+
 
 
      
+          <div class="thumb3">
+             <a href="#" title="click to view video">
+               <img src="../img/blogpics/Iotasia2B.jpg" class="box-img img-responsive">
+             </a>
+             <a title="" data-rel="prettyPhoto" href="https://youtu.be/F76J19I3qFg&width=1500&height=1000" rel="prettyPhoto" >
+               <i class="fa fa-play-circle fa-5 play-icon"></i>
+             </a>
+          </div>
+      
+       
 
 
 </div>
