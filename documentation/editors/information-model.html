@@ -515,66 +515,72 @@ The information model DSL source file (with suffix .infomodel) is generated and 
 
     <pre><code> namespace com.mycompany.fb
  version 1.0.0
+ displayname "Switch"
+ description "Function block model for Switch"
+ category demo
+	
  functionblock Switchable {
-     displayname "Switch"
-     description "Function block model for Switch"
-     category demo
-
      status {
          optional on as boolean
      }
-
+	
      operations {
          on()
          off()
          toggle()
-     }
+     }	
+
  }
 </code></pre>
   </li>
   <li>
-    <p>Create a new function block model named <code>ColorLight</code> and update it according the following:</p>
+    <p>Create a new function block model named <code>ColorLight</code>, drag and drop the entity model <strong>Color</strong> from <strong>Data Types</strong> into this funciton block model,  and update it according the following:</p>
 
     <pre><code> namespace com.mycompany.fb
  version 1.0.0
+ displayname "ColorLight"
+ description "A light makes the environment bright and colorful"
+ category hue
+ using com.mycompany.type.Color ; 1.0.0
+	
  functionblock ColorLight {
-     displayname "ColorLight"
-     description "A light makes the environment bright and colorful"
-     category hue
-
      configuration {
          optional brightnessLevel as int
+         optional defaultColor as Color
      }
-
+	
      fault {
          mandatory bulbDefect as boolean "true if the light bulb of the lamp is defect"
      }
-
+	
      operations {
          setR(r as int)
          setG(g as int)
          setB(b as int)
      }
+	
  }
 </code></pre>
   </li>
-  <li>Drag and drop the two created and edited function blocks from the <strong>Function Block Models</strong> tab into the information model <strong>PhilipsHue</strong> in the <strong>Information Models</strong> tab to create the reference.<br />
+  <li>Drag and drop the two created and edited function blocks from the <strong>Function Block Models</strong> tab into the information model <strong>MyLightingDevice</strong> in the <strong>Information Models</strong> tab to create the reference.<br />
 <img src="../../img/documentation/m2m_tc_drag_drop_function_block_to_information_model.png" alt="Drag and drop from Function Block to Information Model" /></li>
   <li>
     <p>Update the information model according the following:</p>
 
-    <pre><code> namespace com.philips
+    <pre><code> namespace com.mycompany
  version 1.0.0
+ displayname "PhilipsHue"
+ description "Information model for PhilipsHue"
+ category demo
  using com.mycompany.fb.Switchable ; 1.0.0
  using com.mycompany.fb.ColorLight ; 1.0.0
- infomodel PhilipsHue {
-         displayname "PhilipsHue"
-         description "Information model for PhilipsHue"
-         category demo
-
-         functionblocks {
-                 switchable as Switchable colorlight as ColorLight
-         }
+	
+ infomodel MyLightingDevice {
+	
+     functionblocks {
+         switchable as Switchable
+         colorlight as ColorLight
+     }
  }
 </code></pre>
   </li>

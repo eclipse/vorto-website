@@ -15,7 +15,7 @@
 
 
  
-  <title>Defining an Information Model Mapping</title>
+  <title>Defining a Model Mapping</title>
 
   <!--Stylesheets-->
   <!-- Bootstrap 3.3.1 -->
@@ -464,41 +464,150 @@
 					     <div class="span8 offset3">
                  <!--base to have relative path for offline navigation -->
 
-<h2 id="defining-an-information-model-mapping">Defining an Information Model Mapping</h2>
+<h1 id="defining-a-model-mapping">Defining a Model Mapping</h1>
 
-<p>Vorto allows the user to define mapping rules to map information models to target platforms.</p>
+<p>Vorto allows the user to define mapping rules to map Vorto models to other target platform domain models.</p>
 
 <p><strong>Prerequisites</strong></p>
 
 <ul>
-  <li>You have created an information model (refer to <a href="../../documentation/editors/information-model.html#creating-a-new-information-model">Creating a new Information Model</a>).</li>
+  <li>You have followed previous steps to create Entity, Function Block, and Information models.</li>
   <li>You have selected the Java perspective.</li>
 </ul>
+
+<h2 id="define-a-entity-mapping">Define a Entity Mapping</h2>
+<p>In entity mapping, you can define mapping rules for entity types. 
+<strong>Proceed as follows</strong></p>
+
+<ol>
+  <li>
+    <p>Select data type project <strong>Color</strong>.</p>
+  </li>
+  <li>
+    <p>Right click and choose <strong>Vorto-&gt;Create new Mapping Model</strong>
+The <strong>Create Mapping Model</strong> dialog opens.</p>
+  </li>
+  <li>
+    <p>Enter a name for your target platform, e.g., <strong>MyIOTPlatform</strong>, and click <strong>Finish</strong>, a new mapping file will be created under folder <strong>src/mappings/</strong></p>
+  </li>
+  <li>
+    <p>Edit the mapping file according to your needs.</p>
+  </li>
+</ol>
+
+<p><strong>Example of an entity mapping file</strong></p>
+
+<pre><code>	namespace com.mycompany
+	version 1.0.0
+	displayname "Color_MyIOTPlatform"
+	description "Color to MyIOTPlatform mapping"
+	using com.mycompany.type.Color ; 1.0.0
+	
+	entitymapping Color_MyIOTPlatform {
+		targetplatform MyIOTPlatform
+	
+		from Color.version
+		to MyColor with { Revision : "Rev-" }
+	
+		from Color.r, Color.g, Color.b
+		to MyColor with { r : "Red", g : "Green", b : "Blue" }
+	}	 -----
+</code></pre>
+
+<h2 id="define-a-function-block-mapping">Define a Function Block Mapping</h2>
+<p>In function block model mapping, you can define mapping rules for function block model attributes, as well as detailed function block properties, and data types used in function blocks.</p>
+
+<p><strong>Proceed as follows</strong></p>
+
+<p>In function block mapping, you can define mapping rules for function blocks. 
+<strong>Proceed as follows</strong></p>
+
+<ol>
+  <li>
+    <p>Select data type project <strong>ColorLight</strong>.</p>
+  </li>
+  <li>
+    <p>Right click and choose <strong>Vorto-&gt;Create new Mapping Model</strong>
+The <strong>Create Mapping Model</strong> dialog opens.</p>
+  </li>
+  <li>
+    <p>Enter a name for your target platform, e.g., <strong>MyIOTPlatform</strong>, and click <strong>Finish</strong>, a new mapping file will be created under folder <strong>src/mappings/</strong></p>
+  </li>
+  <li>
+    <p>Edit the mapping file according to your needs.</p>
+  </li>
+</ol>
+
+<p><strong>Example of a function block mapping file</strong></p>
+
+<pre><code>	namespace com.mycompany
+	version 1.0.0
+	displayname "ColorLight_MyColorLight"
+	description "ColorLight to MyColorLight mapping"
+	using com.mycompany.fb.ColorLight ; 1.0.0
+	using com.mycompany.Color_MyIOTPlatform ; 1.0.0
+	
+	functionblockmapping ColorLight_MyIOTPlatform {
+		targetplatform MyIOTPlatform
+	
+		from ColorLight.displayname
+		to TargetDisplayName
+	
+		from ColorLight.configuration.defaultColor
+		to reference Color_MyIOTPlatform
+	
+		from ColorLight.operation.setR, ColorLight.operation.setG, ColorLight.operation.setB
+		to channelType with { Attribute : "color" }
+	}	
+</code></pre>
+
+<hr />
+
+<h2 id="define-an-information-model-mapping">Define an Information Model Mapping</h2>
+<p>In information model mapping, you can define mapping rules for information model attributes, as well as detailed function block properties for each function block variable, and data types used in function blocks.</p>
 
 <p><strong>Proceed as follows</strong></p>
 
 <ol>
-  <li>In the information model project you want to create the mapping for (<code>PhilipsHue</code> in the example), navigate to the folder <code>src/models</code>.</li>
-  <li>Select the folder <code>models</code> and right-click and choose <strong>New &gt; File</strong> from the context menu.<br />
-The <strong>New File</strong> dialog opens.</li>
-  <li>Enter a file name describing your actual platform with the suffix <code>.mapping</code>, e.g., <code>smarthome.mapping</code>.</li>
-  <li>Edit the mapping file according to your needs.</li>
+  <li>
+    <p>Select data type project <strong>MyLightingDevice</strong>.</p>
+  </li>
+  <li>
+    <p>Right click and choose <strong>Vorto-&gt;Create new Mapping Model</strong>
+The <strong>Create Mapping Model</strong> dialog opens.</p>
+  </li>
+  <li>
+    <p>Enter a name for your target platform, e.g., <strong>MyIOTPlatform</strong>, and click <strong>Finish</strong>, a new mapping file will be created under folder <strong>src/mappings/</strong></p>
+  </li>
+  <li>
+    <p>Edit the mapping file according to your needs.</p>
+  </li>
 </ol>
 
-<p><strong>Example of mapping file</strong></p>
+<p><strong>Example of an information model mapping file</strong></p>
 
-<pre><code>mapping {
-  model com.philips.PhilipsHue
-  target smarthome
-  from com.mycompany.fb.ColorLight.operation.setR,
-       com.mycompany.fb.ColorLight.operation.setG,
-       com.mycompany.fb.ColorLight.operation.setB
-  to channelType with {name:"color"}
-  from com.mycompany.fb.ColorLight.configuration.brightnessLevel
-  to channelType with {name: "brightness"},
-     configDescription with {name: "brightness", type: "Number"}
-}
+<pre><code>namespace com.mycompany
+version 1.0.0
+displayname "MyLightingDevice_MyIOTPlatform"
+description "MyLightingDevice to MyIOTPlatform mapping"
+using com.mycompany.MyLightingDevice ; 1.0.0
+using com.mycompany.ColorLight_MyIOTPlatform ; 1.0.0
+
+infomodelmapping MyLightingDevice_MyIOTPlatform {
+	targetplatform MyIOTPlatform
+
+	from MyLightingDevice.displayname
+	to TargetDisplayName
+
+	from MyLightingDevice.switchable
+	to MySwitch with { Icon : "switch.png" }
+
+	from MyLightingDevice.colorlight
+	to reference ColorLight_MyIOTPlatform
+}	
 </code></pre>
+
+<hr />
 
                </div>
              </div>
