@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+  <!--Head section for CSS/Javascript  -->
+
+<head>
+  <meta charset="utf-8">
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+  <meta name="description" content="IoT Toolset that lets you describe the characteristics of real world devices, share them in a central repository and generate code for different platforms">
+  <meta name="author" content="">
+  <!--base to have relative path for offline navigation -->
+
+
+
+
+
+
+ 
+  <title>Eclipse Vorto - IoT Toolset for standardized device descriptions</title>
+
+  <!--Stylesheets-->
+  <!-- Bootstrap 3.3.1 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <!-- Font Awesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="../css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+  <!-- Custom CSS -->
+  <link href="../css/vorto.css" rel="stylesheet">
+
+  <!--Javascript-->
+  <!-- JQuery 2.1.1-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- Bootstrap 3.3.1 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+               $(document).ready(function(){
+                 $("a[rel^='prettyPhoto']").prettyPhoto();
+               });
+             </script>
+</head>
+
+
+  <body>
+    <!--Header section Site navigation -->
+
+<!--base to have relative path for offline navigation -->
+
+
+
+
+
+
+ 
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+				<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="../index.html">Vorto</a>
+				</div>
+				<div class="collapse navbar-collapse wow fadeIn" id="navbar-collapse" data-wow-delay="0.2s">
+						<ul class="nav navbar-nav pull-right">
+							
+								<li >
+									
+										<a href="../news/index.html">News</a>
+
+									
+								</li>
+							
+								<li >
+									
+										<a href="../blog/index.html">Blog</a>
+
+									
+								</li>
+							
+								<li >
+									
+										<a href="../documentation/overview/introduction.html">Documentation</a>
+
+									
+								</li>
+							
+								<li >
+									
+										<a href="../downloads/index.html">Downloads</a>
+
+									
+								</li>
+							
+								<li >
+									
+										<a target="_blank" href="http://vorto.eclipse.org/repo">Model Repository</a>
+									
+								</li>
+							
+								<li >
+									
+										<a href="../overview/vorto_overview.html">Use cases</a>
+
+									
+								</li>
+							
+						</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+		</div>
+		<style>#forkongithub a{background:#8d0c0c;color:#fff;text-decoration:none;font-family:Arial, Helvetica, sans-serif;text-align:center;font-weight:bold;padding:5px 40px;font-size:12px;line-height:3rem;position:relative;transition:0.5s;}#forkongithub a:hover{background:#c11;color:#fff;}#forkongithub a::before,#forkongithub a::after{content:"";width:100%;display:block;position:absolute;top:1px;left:0;height:1px;background:#fff;}#forkongithub a::after{bottom:1px;top:auto;}@media screen and (min-width:800px){#forkongithub{position:fixed;display:block;top:0;right:0;width:50px;overflow:visible;height:200px;z-index:9999;}#forkongithub a{width:260px;position:absolute;top:40px;right:-60px;transform:rotate(45deg);-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);}}</style><span id="forkongithub"><a href="https://github.com/eclipse/vorto">Fork me on GitHub</a></span>
+		<!-- /.container -->
+</nav>
+
+      <!--base to have relative path for offline navigation -->
+
+
+
+
+
+
+ 
+<div class="container content">
+  <div class="row">
+    <div class="span12">
+    <div class="page-header pull-left">
+        <h3>
+          <a href="../blog/index.html">Go Back</a>
+      </h3>
+    </div>
+    <div class="page-header pull-right">
+        <a href="https://github.com/eclipse/vorto/tree/development/docs/blog" target="_blank"><h4>Add a new blog post!</h4></a>
+    </div>
+       </div>
+  </div>
+
+
+    <h2>IoT Fever goes Kura</h2>
+    <div class="postmetadata">
+      <ul>
+        
+           <li>
+            <i class="icon-user"></i>
+            <a href="https://github.com/gavinying">Shaodong Ying</a>
+          </li>
+
+           
+        <li>
+          <i class="icon-calendar"></i> Dec 23, 2015
+        </li>
+    </ul>
+    </div>
+    <section>
+	  <!--base to have relative path for offline navigation -->
+
+<p>The fancy IoTFever Game now goes to Kura.</p>
+
+<p><img src="https://wiki.bosch-si.com/download/attachments/151882037/2015-12-23%2014_11_39-Gamifying%20IoT%20with%20Vorto%20-%20YouTube.png?version=2&amp;modificationDate=1450851334001&amp;api=v2" alt="IoT Show Asia 2015" /></p>
+
+<p>Here is the tutorial tells you how to deploy the vorto generated code to Kura platform.
+To achieve this, we need some equipment and software tools which are listed below and some linux knowledge.</p>
+
+<!--more-->
+
+<h2 id="technical-architecture">Technical Architecture</h2>
+<p><img src="https://wiki.bosch-si.com/download/attachments/152180025/IoT%20Fever%20goes%20Kura%20-%20technical%20architecture.png?version=7&amp;modificationDate=1443516087995&amp;api=v2" alt="architecture diagram" /></p>
+
+<h2 id="equipment-required">Equipment required</h2>
+<ul>
+  <li>TI SensorTag (CC2650)							   x 2</li>
+  <li>Raspberry Pi 2 (with SD Card)                    x 1</li>
+  <li>Bluetooth USB Adapter (CSR V4.0)                 x 1</li>
+  <li>Wi-Fi USB Adapter                                x 1</li>
+  <li>DC Power (5V)                                    x 1</li>
+  <li>Keyboard/Mouse(Optional)                         x 1</li>
+  <li>LED Monitor with VGA (Optional)                  x 1</li>
+  <li>HDMI-VGA converter (Optional)                    x 1</li>
+  <li>Network Router (Optional)                        x 1</li>
+</ul>
+
+<p><img src="https://wiki.bosch-si.com/download/attachments/151882037/20151223_133416.jpg?version=2&amp;modificationDate=1450850867270&amp;api=v2" alt="Equipment required" /></p>
+
+<h2 id="software-tools-required-windows-platform">Software tools required (Windows platform)</h2>
+<ul>
+  <li>Win32DiskImager</li>
+</ul>
+
+<h2 id="setup-procedure">Setup procedure</h2>
+<ul>
+  <li>[Install Raspberry Pi] Download the official Raspbian Image from <a href="https://downloads.raspberrypi.org/raspbian/images/raspbian-2015-05-07/2015-05-05-raspbian-wheezy.zip">here</a> , extract it, use the image write tool (e.g. Win32DiskImager on Windows or dd command on Mac/Linux) to write the image onto an empty SD card; (Refer to <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">Raspberry Pi installation guide</a> for details)</li>
+  <li>[Configure Raspberry Pi]</li>
+  <li>Insert SD card, Wifi adapter, Bluetooth adapter, keyboard, mouse, connect LED monitor through HDMI-VGA converter, and plug in micro USB power connector;</li>
+  <li>Power the board on, the system should boot up;</li>
+  <li>Login as user “pi” with default password “raspberry”;``</li>
+  <li>Check the Wi-Fi adapter MAC address (e.g. B8:27:EB:F5:89:B9) with command “ifconfig”, and then record it;</li>
+  <li>[Configure network]</li>
+  <li>Setup your own local network router;</li>
+  <li>Configure the router to assign a fixed IP (e.g. 192.168.1.103) to Raspberry Pi according to the recorded MAC address;</li>
+  <li>Configure the router to assign a fixed IP (e.g. 192.168.1.106) to Ubuntu Linux PC;</li>
+  <li>[Install MQTT Server]</li>
+  <li>On Ubuntu Linux PC, install the latest version of mosquitto with below commands,</li>
+  <li>sudo apt-add-repository ppa:mosquitto-dev/mosquitto-ppa</li>
+  <li>sudo apt-get update</li>
+  <li>sudo apt-get install mosquitto mosquitto-client</li>
+  <li>[Install kura]</li>
+  <li>On Raspberry Pi, open command line terminal, and go to user home directory with command <code>cd ~</code>;</li>
+  <li>Confirm that Java 7 and above is installed with <code>java -version</code>, if not, install with <code>sudo apt-get install openjdk-7-jdk</code>;</li>
+  <li>Download kura package (Raspbian Model 2, No Net, with Web UI Stable) with <code>wget https://s3.amazonaws.com/kura_downloads/raspbian/release/1.2.2/kura_1.2.2_raspberry-pi-2-nn_armv7.deb</code></li>
+  <li>
+    <p>Install kura with below commands</p>
+
+    <pre><code>		sudo apt-get update
+		sudo dpkg -i kura__raspberry-pi_armv6.deb
+ 		sudo apt-get install  -f
+</code></pre>
+  </li>
+  <li>Reboot Raspberry Pi with <code>sudo reboot</code>;</li>
+  <li>After reboot, go to browser and access <a href="http://localhost">http://localhost</a> to confirm that kura works, and configure MQTT cloudclient to connect to local MQTT server (IP: 192.168.1.106);</li>
+  <li>[Deploy Vorto generated TI SensorTag bundle]</li>
+  <li>On Raspberry Pi, open command line terminal, and go to user home directory with command <code>cd ~</code>;</li>
+  <li>Download TI SensorTag bundle tisensortagcc2650.dp with command <code>wget https://wiki.bosch-si.com/download/attachments/151882037/tisensortagcc2650.dp .</code></li>
+  <li>Deploy the package to /opt/eclipse/kura/kura/packages with <code>mv tisensortagcc2650.dp /opt/eclipse/kura/kura/packages</code></li>
+  <li>Edit dpa.properties file with command <code>sudo echo “package_name=file\:/opt/eclipse/kura/kura/packages/tisensortagcc2650.dp”  &gt;&gt; /opt/eclipse/kura/kura/dpa.properties</code></li>
+  <li>Restart Kura, and this new bundle should be automatically started;</li>
+  <li>[Install iOS App to your phone]</li>
+  <li>Open the link, https://github.com/iot-fever/IoTFeverGame, download the source code;</li>
+  <li>Configure the MQTT server to 192.168.1.106, and MQTT topics of TI SensorTag’s acceleration value to
+    <ul>
+      <li>bosch/B8:27:EB:F5:89:B9/BLE_APP_V2/tisensortag/C4:BE:84:71:97:81/accelerometer (Left Sensor)</li>
+      <li>bosch/B8:27:EB:F5:89:B9/BLE_APP_V2/tisensortag/B0:B4:48:B9:88:80/accelerometer (Right Sensor)</li>
+    </ul>
+  </li>
+  <li>Compile it and run on your iPhone/iPad;</li>
+</ul>
+
+<h2 id="device-setting-after-setup-procedure">Device setting (After setup procedure)</h2>
+<ul>
+  <li>Raspberry Pi</li>
+  <li>MAC: B8:27:EB:F5:89:B9</li>
+  <li>IP: <strong>192.168.1.103</strong> (DHCP, assigned by router)</li>
+  <li>MQTT Server:</li>
+  <li>IP: <strong>192.168.1.106</strong> (DHCP, assigned by router)</li>
+  <li>Port: <strong>1883</strong></li>
+</ul>
+
+<h2 id="running-the-game">Running the game</h2>
+<ul>
+  <li>Power on network router;</li>
+  <li>Power on Ubuntu Linux Server, and make sure have the correct IP (e.g. 192.168.1.106), and MQTT server is running;</li>
+  <li>Power off Raspberry Pi, make sure both TI Sensor Tags’ green LEDs are blinking, which means they are on listening mode and there’s no other devices (e.g. mobile phones or tablets running TI apps) trying to connect our TI Sensor Tags;</li>
+  <li>Power on Raspberry Pi, wait until both TI Sensor Tags’ green LEDs stop blinking, which means they are bond to Raspberry Pi already, it takes 1~2 minutes;</li>
+  <li>Run the game on your iPhone/iPad, and enjoy it.</li>
+</ul>
+
+
+     
+
+
+</div>
+
+<!-- Pagination -->
+
+</div>
+
+    <!-- Footer -->
+<footer>
+   <div class="container">
+   <div class="row">
+         <div class="col-md-4">
+           <h3 class="footer-links-header">Quick Links</h3>
+           <ul class="footer-links clearfix">
+             <li><a href="http://www.eclipse.org/legal/privacy.php">Privacy Policy</a></li>
+             <li><a href="http://www.eclipse.org/legal/termsofuse.php">Terms of Use</a></li>
+             <li><a href="http://www.eclipse.org/legal/copyright.php">Copyright Agent</a></li>
+             <li><a href="http://www.eclipse.org/legal/">Legal</a></li>
+           </ul>
+           <ul class="footer-links clearfix">
+             <li><a href="http://www.eclipse.org">Eclipse Home</a></li>
+             <li><a href="http://marketplace.eclipse.org/">Market Place</a></li>
+             <li><a href="http://live.eclipse.org/">Eclipse Live</a></li>
+             <li><a href="http://www.planeteclipse.org/">Eclipse Planet</a></li>
+           </ul>
+           </div>
+         <div class="col-md-2">
+          <h3 class="footer-links-header"><a href="http://eclipse.org/forums/eclipse.vorto" target="_blank" >Vorto Forum</a></h3>
+         </div>
+         <div class="col-md-6" data-twttr-id="twttr-sandbox-0">
+           <h3 class="footer-links-header"><a href="https://twitter.com/VortoIoT">Vorto</a> on Twitter</h3>
+           <a class="twitter-timeline"  href="https://twitter.com/VortoIoT" data-widget-id="624061088770994176" nofooter noborders noheader transparent height="250">Tweets by @VortoIoT</a>
+           <script>
+             !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+            </script>
+         </div>
+       </div>
+   </div>
+</footer>
+
+<!--/.Footer-->
+
+
+  </body>
+
+</html>
