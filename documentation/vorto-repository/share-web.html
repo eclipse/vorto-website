@@ -547,110 +547,146 @@
 					     <div class="span8 offset3">
                  <!--base to have relative path for offline navigation -->
 
-<h2 id="defining-a-function-block">Defining a Function Block</h2>
+<h2 id="vorto-repository">Vorto Repository</h2>
 
-<p>This section details the following topics:</p>
+<p><a href="#overview">Overview</a></p>
 
-<p><a href="#function-blocks">Function Blocks</a></p>
+<p><a href="#search-models-in-the-repository">Search models</a></p>
 
-<p><a href="#creating-a-new-function-block">Creating a New Function Block</a></p>
+<p><a href="#share-models-to-the-repository">Share models to the repository</a></p>
 
-<p><a href="#editing-a-function-block">Editing a Function Block</a></p>
+<h2 id="overview">Overview</h2>
 
-<h2 id="function-blocks">Function Blocks</h2>
+<p>The Vorto Repository allows users to upload Data Types, Functionblocks, and Information Models.</p>
 
-<p>A function block provides an abstract view on a device to applications that want to employ the devices’ functionality. Thus, it is a consistent, self-contained set of (potentially re-usable) properties and capabilities.</p>
+<h2 id="search-models-in-the-repository">Search models in the repository</h2>
 
-<div class="thumb1">
-<a title="Defining a Function Block" data-rel="prettyPhoto" href="https://youtu.be/bcmXZN3IPmI&amp;width=1500&amp;height=1000" rel="prettyPhoto">
-<img src="../../img/documentation/definefb.jpg" class="box-img img-responsive zoom1" />
-<i class="fa fa-play-circle fa-5 play-icon"></i>
-</a>
-</div>
+<p>The user can search for the existing models in the repository and use this shared model as reference in a local model project.</p>
 
-<p>For more detailed concept of function block please refer to section <em>Function Block Specification</em> in the <em>Vorto Developer Guide</em>.</p>
+<p>There are 2 ways of accessing vorto repository.</p>
 
-<p>A function block definition is typically structured as follows:</p>
+<p><a href="#model-repository-page">1. Model Repository page</a></p>
+
+<p><a href="#vorto-perspective">2. From Vorto perspective</a></p>
+
+<h2 id="model-repository-page">Model Repository page</h2>
+
+<p><strong>Prerequisite</strong></p>
+
+<p><a href="http://vorto.eclipse.org/repo" target="_blank">Open the model repository.</a></p>
+
+<p><strong>Steps</strong></p>
 
 <ul>
-  <li><strong>Properties</strong>
-    <ul>
-      <li>Status</li>
-      <li>Configuration</li>
-      <li>Fault</li>
-      <li>Events</li>
-    </ul>
+  <li>Search for a function block e.g. <strong>Accelerometer</strong></li>
+</ul>
+
+<p><img src="../../img/documentation/vorto_repo_search.jpg" alt="Repo Search" /></p>
+
+<ul>
+  <li>Click <img src="../../img/documentation/repo_details_icon.jpg" /> to get more information on the selected model. Details of the selected model gets displayed as shown below</li>
+</ul>
+
+<p><strong>References</strong> Displays the function block model or datatype that the selected model is referencing to</p>
+
+<p><strong>Used by</strong> Displays the Information model(s) or Function block model(s) using the selected model</p>
+
+<p><img src="../../img/documentation/repo_details_main.jpg" alt="Repo details main" /></p>
+
+<ul>
+  <li>
+    <p>Choosing either one of the values in <em>References</em> or <em>Used by</em> should open more details about the selected device.</p>
   </li>
-  <li><strong>Services</strong> - they represent the functional operations offered by the device.</li>
+  <li>
+    <p>Under <em>Other formats</em> select the format of your choice. This translates the information model to the specific format, e.g. XMI, DSL or Markdown.</p>
+  </li>
 </ul>
 
-<h2 id="creating-a-new-function-block">Creating a New Function Block</h2>
+<h3 id="generate-code-from-model-repository">Generate code from model repository</h3>
 
-<p><strong>Prerequisites</strong></p>
+<p>Choose one of the existing generators to generate the souce code. Save the <em>*.zip</em> to your desired directory and import it in your eclipse workspace.</p>
 
-<ul>
-  <li>You have started your IDE.</li>
-  <li>You have selected the the Vorto perspective.</li>
-</ul>
+<p><img src="../../img/documentation/generators.jpg" alt="Generators" /></p>
 
-<p><strong>Proceed as follows</strong></p>
+<h2 id="vorto-perspective">Vorto Perspective</h2>
+
+<p>More information on how to use the vorto repository from the vorto prespective can be found here
+<a href="../../blog/2015-09-04-VortoIntegration.html">Model Repository Blog post</a></p>
+
+<h3 id="generate-code-from-vorto-perspective">Generate code from vorto perspective</h3>
+
+<p>Right-click on the selected model in the model repository and click Generate code, to generate the source code.</p>
+
+<p><img src="../../img/documentation/generate_vorto_persp.jpg" alt="Generate_vorto_persp" /></p>
+
+<p>Choose one of the existing generators to generate the souce code. The source code should be available in the java perspective.</p>
+
+<p><img src="../../img/documentation/generators_vorto_persp.jpg" alt="Generators_vorto_persp" /></p>
+
+<h2 id="share-models-to-the-repository">Share models to the repository</h2>
+
+<p><a href="#prerequisites">Prerequisites</a></p>
+
+<p><a href="#share-information-models">Share information models</a></p>
+
+<p><a href="#download-cli-tool">Download CLI tool</a></p>
+
+<p>In order to share a model to the repository, the user is required to Login to the Vorto Repository.</p>
+
+<h2 id="prerequisites"><strong>Prerequisites</strong></h2>
+
+<p>Users new to Vorto are required to <strong>Sign-Up</strong>, by providing values to all the mandatory fields and <strong>Register</strong>.</p>
+
+<p>Key in values in mandatory fields</p>
+
+<p><img src="../../img/documentation/vortoregistration.jpg" alt="Registration Screen" /></p>
+
+<p>The following screen is displayed after successful registration.</p>
+
+<p><img src="../../img/documentation/vorto_reposignup.jpg" alt="Sign-Up Confirmation" /></p>
+
+<p>The user should also receive a confirmation email notification regarding the Vorto registration.</p>
+
+<h2 id="share-information-models"><strong>Share Information models</strong></h2>
+
+<p>Information models can be shared in three different ways</p>
+
+<p><a href="#vorto-web-repository">1. Vorto Web Repository</a></p>
+
+<p><a href="#eclipse-plugin">2. Eclipse pllugin</a></p>
+
+<p><a href="#cli-tool">3. CLI tool</a></p>
+
+<h4 id="vorto-web-repository"><strong>1. Vorto Web Repository</strong></h4>
+
+<p>Existing Vorto users can login to Vorto repository. After logging in, the users can either search or share models to the repository.</p>
+
+<p>Here is a step-by-step instruction to share models to the repository:</p>
 
 <ol>
-  <li>
-    <p>Right-click in the <strong>Function Block Models</strong> tab and choose <strong>Create new Function Block</strong> from the context menu:<br />
-  <img src="../../img/documentation/m2m_tc_create_function_block_2.png" alt="Creating function block" /><br />
-   Alternatively, you can click <strong>File &gt; New &gt; Project…</strong>. in the main menu. In the opening <strong>New Project</strong> dialog select <strong>Vorto &gt; Function Block Model</strong> and click <strong>Next</strong>.<br />
-   The <strong>Create Function Block</strong> dialog opens.<br />
-   <img src="../../img/documentation/m2m_tc_create_function_block_designer_dialog_2.png" alt="Creating function block designer dialog" /></p>
-  </li>
-  <li>
-    <p>Adjust the entries for the input fields <strong>Function Block Name</strong>, <strong>Version</strong>, <strong>Description</strong> and <strong>Project Name</strong> according to your needs and click <strong>Finish</strong>.<br />
-The function block model DSL source file (with suffix .fbmodel) is generated and displayed in the function block editor. The file contains a complete structure according the DSL syntax with the values given in the preceding step.<br />
-<img src="../../img/documentation/m2m_tc_create_function_block_generated_source_1.png" alt="Generated source" /></p>
-  </li>
+  <li>Choose <strong>Share</strong> from the menu</li>
+  <li><strong>Browse</strong> for the information model/datatype/function block model file</li>
+  <li>The properties of the selected file will be displayed in the screen</li>
+  <li>Click <strong>Upload</strong> to upload the desired file.</li>
+  <li>The file can be uploaded successfully, if the file content correlates with the Vorto DSL guidelines
+<img src="../../img/documentation/uploadfile_torepo.jpg" alt="Upload File" /></li>
+  <li>The details of the uploaded file will be displayed as shown below:
+<img src="../../img/documentation/upload_success.jpg" alt="Upload success" /></li>
 </ol>
 
-<h2 id="editing-a-function-block">Editing a Function Block</h2>
+<h4 id="eclipse-plugin"><strong>2. Eclipse Plugin</strong></h4>
 
-<p><strong>Prerequisites</strong></p>
+<p>Information models can be shared using eclipse plugin.
+Key in the remote repository details using <em>Eclipse - Preferences - Vorto</em>
+<img src="../../img/documentation/eclipse_pref.jpg" alt="Eclipse preference" /></p>
 
-<p>You have created a function block project (refer to <a href="#creating-a-new-function-block">Creating a New Function Block</a>).</p>
+<p>Right-click directly from the vorto perspective to share the models</p>
 
-<p><strong>Proceed as follows</strong></p>
+<p><img src="../../img/documentation/share_presp.jpg" alt="Share from Prespective" /></p>
 
-<p>Edit the function block project by extending the generated source file in the function block DSL editor.</p>
+<h4 id="cli-tool"><strong>3. CLI tool</strong></h4>
 
-<p><strong>Example</strong></p>
-
-<pre><code>namespace com.mycompany.fb
-version 1.0.0
-displayname "Lamp"
-description "A lamp makes the environment bright"
-category demo
-
-functionblock Lamp {
-	configuration {
-		mandatory blinking as boolean "if the lamp is currently blinking or not"
-		mandatory on as boolean "if the lamp is currently switched on"
-		mandatory powerConsumption as int "the amount of power the lamp is consuming"
-	}
-
-	fault {
-		mandatory bulbDefect as boolean "true if the light bulb of the lamp is defect"
-	}
-
-	operations {
-		blink(blinkType as int) "sets the blinking type for the lamp"
-		getPowerConsumption() returns int "gets the amount of power being consumed by the lamp"
-		isOn() returns boolean "checks if the lamp is switched on"
-		off() "turns the lamp off"
-		on() "turns the lamp on"
-		stopBlinking() "stops the blinking of the lamp"
-		toggle() "switches the lamp on or off"
-		toggleWithDelay(delayInSeconds as int) "switches the lamp on or off with a delay of the specified seconds"
-	}	
-}
-</code></pre>
+<p><a href="../../documentation/cli-tool/cli-tool.html"> Find more information on how to use the CLI tool</a></p>
 
                 </div>
              </div>

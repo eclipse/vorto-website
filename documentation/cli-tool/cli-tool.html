@@ -547,110 +547,108 @@
 					     <div class="span8 offset3">
                  <!--base to have relative path for offline navigation -->
 
-<h2 id="defining-a-function-block">Defining a Function Block</h2>
+<h2 id="command-line-interface-cli-tool"><strong>C</strong>ommand <strong>L</strong>ine <strong>I</strong>nterface (CLI) Tool</h2>
 
-<p>This section details the following topics:</p>
+<p><a href="#overview">Overview</a></p>
 
-<p><a href="#function-blocks">Function Blocks</a></p>
+<p><a href="#basic-structure">Basic Structure</a></p>
 
-<p><a href="#creating-a-new-function-block">Creating a New Function Block</a></p>
+<p><a href="#installation">Installation</a></p>
 
-<p><a href="#editing-a-function-block">Editing a Function Block</a></p>
+<p><a href="#cli-commands">CLI Commands</a></p>
 
-<h2 id="function-blocks">Function Blocks</h2>
+<h2 id="overview">Overview</h2>
 
-<p>A function block provides an abstract view on a device to applications that want to employ the devices’ functionality. Thus, it is a consistent, self-contained set of (potentially re-usable) properties and capabilities.</p>
+<p>Vorto Command Line Interface (CLI) tool is REST-Client that allows you, to access your specified repository with all Vorto related functionalities.</p>
 
-<div class="thumb1">
-<a title="Defining a Function Block" data-rel="prettyPhoto" href="https://youtu.be/bcmXZN3IPmI&amp;width=1500&amp;height=1000" rel="prettyPhoto">
-<img src="../../img/documentation/definefb.jpg" class="box-img img-responsive zoom1" />
-<i class="fa fa-play-circle fa-5 play-icon"></i>
-</a>
-</div>
+<h2 id="basic-structure">Basic Structure</h2>
 
-<p>For more detailed concept of function block please refer to section <em>Function Block Specification</em> in the <em>Vorto Developer Guide</em>.</p>
+<p>The CLI-Tool is based on a simple structure.</p>
 
-<p>A function block definition is typically structured as follows:</p>
+<p>It consists of a Command Line Interface as well as a <strong>.yaml</strong> file, that stores all necessary configuration properties like <em>Username</em>, <em>Password</em>, <em>Proxy</em> and <em>Repository</em>.</p>
 
-<ul>
-  <li><strong>Properties</strong>
-    <ul>
-      <li>Status</li>
-      <li>Configuration</li>
-      <li>Fault</li>
-      <li>Events</li>
-    </ul>
-  </li>
-  <li><strong>Services</strong> - they represent the functional operations offered by the device.</li>
-</ul>
+<h2 id="installation">Installation</h2>
 
-<h2 id="creating-a-new-function-block">Creating a New Function Block</h2>
+<p>First of all, you have to download the CLI Tool from the <a href="../../downloads/index.html">download</a> page and save it to any working directory.</p>
 
-<p><strong>Prerequisites</strong></p>
+<p>A very convenient way to use the CLI Tool is, to add the path of the directory into the system’s environment PATH variable. Once you did this, you can call the CLI-Tool from any directory.</p>
 
-<ul>
-  <li>You have started your IDE.</li>
-  <li>You have selected the the Vorto perspective.</li>
-</ul>
+<p><img src="../../img/documentation/cli_evnmt_variable.jpg" alt="Environment Variable" /></p>
 
-<p><strong>Proceed as follows</strong></p>
+<p>Before you can use the CLI Tool as a REST Client, you need to initialize basic preferences. The preferences are stored in a <code>C:\Users\{$username}\.vortocli.yaml.file</code>, which is located in your home directory.</p>
 
-<ol>
-  <li>
-    <p>Right-click in the <strong>Function Block Models</strong> tab and choose <strong>Create new Function Block</strong> from the context menu:<br />
-  <img src="../../img/documentation/m2m_tc_create_function_block_2.png" alt="Creating function block" /><br />
-   Alternatively, you can click <strong>File &gt; New &gt; Project…</strong>. in the main menu. In the opening <strong>New Project</strong> dialog select <strong>Vorto &gt; Function Block Model</strong> and click <strong>Next</strong>.<br />
-   The <strong>Create Function Block</strong> dialog opens.<br />
-   <img src="../../img/documentation/m2m_tc_create_function_block_designer_dialog_2.png" alt="Creating function block designer dialog" /></p>
-  </li>
-  <li>
-    <p>Adjust the entries for the input fields <strong>Function Block Name</strong>, <strong>Version</strong>, <strong>Description</strong> and <strong>Project Name</strong> according to your needs and click <strong>Finish</strong>.<br />
-The function block model DSL source file (with suffix .fbmodel) is generated and displayed in the function block editor. The file contains a complete structure according the DSL syntax with the values given in the preceding step.<br />
-<img src="../../img/documentation/m2m_tc_create_function_block_generated_source_1.png" alt="Generated source" /></p>
-  </li>
-</ol>
+<p>You have to setup vorto via <strong>vorto config</strong>. If you want to initialize vorto with additional values (or change them afterwards) like <em>-username</em>, <em>-password</em>, <em>-proxy</em> and <em>-repo</em>, then you can extend the <strong>vorto config</strong> command with four additional flag parameters <em>-username</em>, <em>-password</em>, <em>-proxy</em> and <em>-repo</em>, or you can edit the <em>.vortocli.yaml</em> file via text editor.</p>
 
-<h2 id="editing-a-function-block">Editing a Function Block</h2>
-
-<p><strong>Prerequisites</strong></p>
-
-<p>You have created a function block project (refer to <a href="#creating-a-new-function-block">Creating a New Function Block</a>).</p>
-
-<p><strong>Proceed as follows</strong></p>
-
-<p>Edit the function block project by extending the generated source file in the function block DSL editor.</p>
-
-<p><strong>Example</strong></p>
-
-<pre><code>namespace com.mycompany.fb
-version 1.0.0
-displayname "Lamp"
-description "A lamp makes the environment bright"
-category demo
-
-functionblock Lamp {
-	configuration {
-		mandatory blinking as boolean "if the lamp is currently blinking or not"
-		mandatory on as boolean "if the lamp is currently switched on"
-		mandatory powerConsumption as int "the amount of power the lamp is consuming"
-	}
-
-	fault {
-		mandatory bulbDefect as boolean "true if the light bulb of the lamp is defect"
-	}
-
-	operations {
-		blink(blinkType as int) "sets the blinking type for the lamp"
-		getPowerConsumption() returns int "gets the amount of power being consumed by the lamp"
-		isOn() returns boolean "checks if the lamp is switched on"
-		off() "turns the lamp off"
-		on() "turns the lamp on"
-		stopBlinking() "stops the blinking of the lamp"
-		toggle() "switches the lamp on or off"
-		toggleWithDelay(delayInSeconds as int) "switches the lamp on or off with a delay of the specified seconds"
-	}	
-}
+<pre><code>vorto config -username andreas -password test1234 -repo http://vorto.eclipse.org/repo
 </code></pre>
+
+<p>Congratulations! - Setup is done and you are now able to use the Vorto CLI Tool.</p>
+
+<p><img src="../../img/documentation/yamlfile.jpg" alt="CLI Yaml file" /></p>
+
+<h2 id="cli-commands">CLI Commands</h2>
+
+<p>Now let’s continue how you can really gain a benefit from the CLI Tool.</p>
+
+<p>The Vorto CLI Tool provides a scope of seven different Vorto Commands to interact with your specified Repository.</p>
+
+<p>Each of them is based on a similar structure and offers a unique functionality.</p>
+
+<pre><code>vorto [command] [-flag1 parameter1 -flag2 parameter2 ... ]
+</code></pre>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Command</th>
+    <th>Description</th>
+    <th>Example</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>vorto config</td>
+    <td>With the vorto config command you do the basic CLI Tool setup.<br />Additional flag parameters:<br /><ul><li>username - vorto username credentials</li><li>password - vorto password credentials</li><li>proxy- network proxy</li><li>repo - specify repository (Default: http://vorto.eclipse.org/repo)</li></ul></td>
+    <td><b>vorto config -username andreas -password test1234 -repo http://vorto.eclipse.org/repo</b></td>
+   </tr>
+   <tr>
+    <td>vorto help</td>
+    <td>To get more familiar with the CLI Tool commands, it's a good approach to call the <b>vorto help</b> command.<br /><b>vorto help</b> lists you all other possible commands, including flag parameters and examples.</td>
+    <td><b>vorto help</b></td>
+   </tr>
+   <tr>
+    <td>vorto query</td>
+    <td>After everything is successfully setup, you are able to access the Repository.<br /> Via <b>vorto query</b> you can query all models of your Repository.<br />The result of this command contains all models in the Repository.</td>
+    <td><b>vorto query "*"</b></td>
+   </tr>
+    <tr>
+    <td>vorto info</td>
+    <td>If you are now interested in a certain model and you want to get more information from this specific model, you can use vorto info to get it.<br /> The result of this command is a detailed view of the requested model.</td>
+    <td><b>vorto info examples.informationmodels.sensors.TI_SensorTag_CC2650:1.0.0</b></td>
+   </tr>
+   <tr>
+    <td>vorto download</td>
+    <td>Furthermore you can start working with a certain model locally, when you download it via <b>vorto download</b>.<br /> To open and to work with it, you can use any text editor to modify this certain model and you can even upload it again.<br />Via the flag -outputPath can you specify a download directory.<br />Additional flag parameters:<br /><ul><li>output - (Default: DSL)</li><li>outputPath - path to store the download (Default: current directory)</li><li>includeDependencies - whether to include dependencies or not (Default: false)</li></ul></td>
+    <td><b>vorto download examples.informationmodels.sensors.TI_SensorTag_CC2650:1.0.0  -outputPath D:\models</b></td>
+   </tr>
+   <tr>
+    <td>vorto generators</td>
+    <td>If you want to generate platform specific code, you can get a short overview of all active code generators via <b>vorto generators</b>.</td>
+    <td><b>vorto generators</b></td>
+   </tr>
+   <tr>
+    <td>vorto generate</td>
+    <td>Afterwards you can generate <b>vorto generate</b> your platform specific code (specified by -generatorKey) in a very convenient way.<br />Additional flag parameters:<br /><ul><li>generatorKey</li><li>outputPath</li></ul></td>
+    <td><b>vorto generators</b></td>
+   </tr>
+    <tr>
+    <td>vorto share</td>
+    <td>Additionally to all this access functionality, you are also able to share your models.<br />Therefore you either have to deposit your credentials in the .vortocli.yaml file or you have to pass them as additional parameters.<br />
+    Additional flag parameters:<br /><ul><li>username - vorto username credentials (Default: value in .vortocli.yaml)</li><li>password - vorto password credentials (Default: value in .vortocli.yaml)</li></ul></td>
+    <td><b>vorto share D:\Models\ TI_SensorTag_CC2650\src\models\ TI_SensorTag_CC2650.infomodel</b><br /><b>vorto share D:\Models\ TI_SensorTag_CC2650\src\models\ TI_SensorTag_CC2650.infomodel -username andreas -password test1234</b></td>
+   </tr>
+  </tbody>
+</table>
 
                 </div>
              </div>
