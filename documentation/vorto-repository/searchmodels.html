@@ -583,93 +583,81 @@
 					     <div class="span8 offset3">
                  <!--base to have relative path for offline navigation -->
 
-<h2 id="data-type-model-dsl-reference">Data Type Model DSL Reference</h2>
+<h2 id="search-models-in-the-repository">Search models in the repository</h2>
 
-<p>The following code represents the Data Type Model DSL syntax.</p>
+<p>The user can search for the existing models in the repository and use this shared model as reference in a local model project.</p>
 
-<pre><code>model:entity | enumeration;
+<p>There are 2 ways of accessing vorto repository.</p>
 
-modelReference: 'using' qualifiedName ';' version;
+<p><a href="#model-repository-page">1. Model Repository page</a></p>
 
-qualifiedName: id ('.' id)*;
+<p><a href="#vorto-perspective">2. From Vorto perspective</a></p>
 
-entity:
-   'namespace' qualifiedName
-   'version' version
-   (modelReference)*
-   'entity' id ('extends' [entity|qualifiedName])? '{'
-    	(property)*
-   '}'
-;
+<h2 id="model-repository-page">Model Repository page</h2>
 
-enumeration:
-   'namespace' qualifiedName
-   'version' version
-   (modelReference)*
-	'enum' id '{'
-    	(enumLiteral)*
-	'}'
-;
+<p><strong>Prerequisite</strong></p>
 
-enumLiteral: id;
+<p><a href="http://vorto.eclipse.org/repo" target="_blank">Open the model repository.</a></p>
 
-property:
-    presence ('multiple')? id 'as' type (description)?
-        ('&lt;'constraintType [constraintIntervalType]
-        ("," constraintType [constraintIntervalType])*'&gt;')?
-;
+<p><strong>Steps</strong></p>
 
-type : primitiveType | entity | enumeration;  
+<ul>
+  <li>Search for a function block e.g. <strong>Accelerometer</strong></li>
+</ul>
 
-primitiveType : 'string' | 'int' | 'float' | 'boolean' | 'dateTime' |
-    'double' | 'long' | 'short' | 'base64Binary' | 'byte' ;
+<p><img src="../../img/documentation/vorto_repo_search.jpg" alt="Repo Search" /></p>
 
-presence : 'mandatory' | 'optional';
+<ul>
+  <li>Click <img src="../../img/documentation/repo_details_icon.jpg" /> to get more information on the selected model. Details of the selected model gets displayed as shown below</li>
+</ul>
 
-constraintType: 'MIN' | 'MAX' | 'STRLEN' | 'REGEX' ;
+<p><strong>References</strong> Displays the function block model or datatype that the selected model is referencing to</p>
 
-constraintIntervalType: int| signedint| float| datetime| string;
+<p><strong>Used by</strong> Displays the Information model(s) or Function block model(s) using the selected model</p>
 
-id: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+<p><img src="../../img/documentation/repo_details_main.jpg" alt="Repo details main" /></p>
 
-  string:  
-    '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
-    "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'"
-  ;
+<ul>
+  <li>
+    <p>Choosing either one of the values in <em>References</em> or <em>Used by</em> should open more details about the selected device.</p>
+  </li>
+  <li>
+    <p>Under <em>Other formats</em> select the format of your choice. This translates the information model to the specific format, e.g. XMI, DSL or Markdown.</p>
+  </li>
+</ul>
 
-  date:  
-    ('0'..'9')('0'..'9')('0'..'9')('0'..'9')('-')('0'..'9')('0'..'9')('-')
-    ('0'..'9')('0'..'9')  
-  ;
+<h3 id="discussions">Discussions</h3>
 
-  time:  
-    ('0'..'9')('0'..'9')(':')('0'..'9')('0'..'9')(':')('0'..'9')('0'..'9')
-    (timezone)?  
-  ;
+<p>Users can comment on the selected model from the <strong>Discussions</strong> tab</p>
 
-  timezone: 'Z'|(('+'|'-')('0'..'9')('0'..'9')(':')('0'..'9')('0'..'9'))  ;
+<p><img src="../../img/documentation/vorto_repo_discuss.jpg" alt="Disscuss" /></p>
 
-  datetime: date('T')time;
+<h3 id="image-for-information-model">Image for information model</h3>
 
-  int: ('0'..'9')+;
+<p>The user can upload a suitable image for the information model by clicking on the space available for image.</p>
 
-  signedint: '-'INT;
+<p><img src="../../img/documentation/addimage_repo.jpg" alt="Add Image" /></p>
 
-  float: int('.'int)?;
+<h3 id="generate-code-from-model-repository">Generate code from model repository</h3>
 
-  version: int('.' int)*('-'id)?;
-</code></pre>
+<p>Choose one of the existing generators to generate the souce code. Save the <em>*.zip</em> to your desired directory and import it in your eclipse workspace.</p>
 
-<table class="table table-bordered">
-	<tbody>
-  <tr>
-    <td><i class="fa fa-info-circle info-note">
-    <td>To find out more about which language elements are available when writing a data type DSL, have a look at the respective DSL Reference. 
-    Use the keyboard shortcut <span style="font-variant:small-caps;">Ctrl + Space</span> to get a list of available DSL elements, that can be applied in the current scope you are in.</td>
-  
-	
+<p><img src="../../img/documentation/generators.jpg" alt="Generators" /></p>
 
-</i></td></tr></tbody></table>
+<h2 id="vorto-perspective">Vorto Perspective</h2>
+
+<p>More information on how to use the vorto repository from the vorto prespective can be found here
+<a href="../../blog/2015-09-04-VortoIntegration.html">Model Repository Blog post</a></p>
+
+<h3 id="generate-code-from-vorto-perspective">Generate code from vorto perspective</h3>
+
+<p>Right-click on the selected model in the model repository and click Generate code, to generate the source code.</p>
+
+<p><img src="../../img/documentation/generate_vorto_persp.jpg" alt="Generate_vorto_persp" /></p>
+
+<p>Choose one of the existing generators to generate the souce code. The source code should be available in the java perspective.</p>
+
+<p><img src="../../img/documentation/generators_vorto_persp.jpg" alt="Generators_vorto_persp" /></p>
 
                 </div>
              </div>

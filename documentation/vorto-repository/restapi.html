@@ -583,93 +583,11 @@
 					     <div class="span8 offset3">
                  <!--base to have relative path for offline navigation -->
 
-<h2 id="data-type-model-dsl-reference">Data Type Model DSL Reference</h2>
+<h2 id="rest-api">REST API</h2>
 
-<p>The following code represents the Data Type Model DSL syntax.</p>
+<p>REST API allows to communicate with the vorto repostiory through REST calls.</p>
 
-<pre><code>model:entity | enumeration;
-
-modelReference: 'using' qualifiedName ';' version;
-
-qualifiedName: id ('.' id)*;
-
-entity:
-   'namespace' qualifiedName
-   'version' version
-   (modelReference)*
-   'entity' id ('extends' [entity|qualifiedName])? '{'
-    	(property)*
-   '}'
-;
-
-enumeration:
-   'namespace' qualifiedName
-   'version' version
-   (modelReference)*
-	'enum' id '{'
-    	(enumLiteral)*
-	'}'
-;
-
-enumLiteral: id;
-
-property:
-    presence ('multiple')? id 'as' type (description)?
-        ('&lt;'constraintType [constraintIntervalType]
-        ("," constraintType [constraintIntervalType])*'&gt;')?
-;
-
-type : primitiveType | entity | enumeration;  
-
-primitiveType : 'string' | 'int' | 'float' | 'boolean' | 'dateTime' |
-    'double' | 'long' | 'short' | 'base64Binary' | 'byte' ;
-
-presence : 'mandatory' | 'optional';
-
-constraintType: 'MIN' | 'MAX' | 'STRLEN' | 'REGEX' ;
-
-constraintIntervalType: int| signedint| float| datetime| string;
-
-id: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
-
-  string:  
-    '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
-    "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'"
-  ;
-
-  date:  
-    ('0'..'9')('0'..'9')('0'..'9')('0'..'9')('-')('0'..'9')('0'..'9')('-')
-    ('0'..'9')('0'..'9')  
-  ;
-
-  time:  
-    ('0'..'9')('0'..'9')(':')('0'..'9')('0'..'9')(':')('0'..'9')('0'..'9')
-    (timezone)?  
-  ;
-
-  timezone: 'Z'|(('+'|'-')('0'..'9')('0'..'9')(':')('0'..'9')('0'..'9'))  ;
-
-  datetime: date('T')time;
-
-  int: ('0'..'9')+;
-
-  signedint: '-'INT;
-
-  float: int('.'int)?;
-
-  version: int('.' int)*('-'id)?;
-</code></pre>
-
-<table class="table table-bordered">
-	<tbody>
-  <tr>
-    <td><i class="fa fa-info-circle info-note">
-    <td>To find out more about which language elements are available when writing a data type DSL, have a look at the respective DSL Reference. 
-    Use the keyboard shortcut <span style="font-variant:small-caps;">Ctrl + Space</span> to get a list of available DSL elements, that can be applied in the current scope you are in.</td>
-  
-	
-
-</i></td></tr></tbody></table>
+<p><img src="../../img/documentation/restapi.jpg" alt="Rest API" /></p>
 
                 </div>
              </div>

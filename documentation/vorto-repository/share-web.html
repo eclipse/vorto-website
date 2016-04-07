@@ -375,7 +375,7 @@
   
     <li  >
       
-        <a href="../../documentation/vorto-repository/share-web.html">Overview</a>
+        <a href="../../documentation/vorto-repository/overview.html">Overview</a>
       
 
     </li>
@@ -384,7 +384,25 @@
   
     <li  >
       
-        <a href="../../documentation/vorto-repository/share-web.html#search-models-in-the-repository">Search models</a>
+        <a href="../../documentation/vorto-repository/searchmodels.html#search-models-in-the-repository">Search models</a>
+      
+
+    </li>
+  
+
+  
+    <li  >
+      
+        <a href="../../documentation/vorto-repository/userregistration.html#user-registration">User Registration</a>
+      
+
+    </li>
+  
+
+  
+    <li  >
+      
+        <a href="../../documentation/vorto-repository/watchnotification.html#watch-notifications">Watch Notifications</a>
       
 
     </li>
@@ -394,6 +412,24 @@
     <li  >
       
         <a href="../../documentation/vorto-repository/share-web.html#share-models-to-the-repository">Share models to the repository</a>
+      
+
+    </li>
+  
+
+  
+    <li  >
+      
+        <a href="../../documentation/vorto-repository/generate-code.html#generate-code">Generate Code</a>
+      
+
+    </li>
+  
+
+  
+    <li  >
+      
+        <a href="../../documentation/vorto-repository/restapi.html#rest-api">REST API</a>
       
 
     </li>
@@ -547,111 +583,15 @@
 					     <div class="span8 offset3">
                  <!--base to have relative path for offline navigation -->
 
-<h2 id="vorto-repository">Vorto Repository</h2>
-
-<p><a href="#overview">Overview</a></p>
-
-<p><a href="#search-models-in-the-repository">Search models</a></p>
-
-<p><a href="#share-models-to-the-repository">Share models to the repository</a></p>
-
-<h2 id="overview">Overview</h2>
-
-<p>The Vorto Repository allows users to upload Data Types, Functionblocks, and Information Models.</p>
-
-<h2 id="search-models-in-the-repository">Search models in the repository</h2>
-
-<p>The user can search for the existing models in the repository and use this shared model as reference in a local model project.</p>
-
-<p>There are 2 ways of accessing vorto repository.</p>
-
-<p><a href="#model-repository-page">1. Model Repository page</a></p>
-
-<p><a href="#vorto-perspective">2. From Vorto perspective</a></p>
-
-<h2 id="model-repository-page">Model Repository page</h2>
-
-<p><strong>Prerequisite</strong></p>
-
-<p><a href="http://vorto.eclipse.org/repo" target="_blank">Open the model repository.</a></p>
-
-<p><strong>Steps</strong></p>
-
-<ul>
-  <li>Search for a function block e.g. <strong>Accelerometer</strong></li>
-</ul>
-
-<p><img src="../../img/documentation/vorto_repo_search.jpg" alt="Repo Search" /></p>
-
-<ul>
-  <li>Click <img src="../../img/documentation/repo_details_icon.jpg" /> to get more information on the selected model. Details of the selected model gets displayed as shown below</li>
-</ul>
-
-<p><strong>References</strong> Displays the function block model or datatype that the selected model is referencing to</p>
-
-<p><strong>Used by</strong> Displays the Information model(s) or Function block model(s) using the selected model</p>
-
-<p><img src="../../img/documentation/repo_details_main.jpg" alt="Repo details main" /></p>
-
-<ul>
-  <li>
-    <p>Choosing either one of the values in <em>References</em> or <em>Used by</em> should open more details about the selected device.</p>
-  </li>
-  <li>
-    <p>Under <em>Other formats</em> select the format of your choice. This translates the information model to the specific format, e.g. XMI, DSL or Markdown.</p>
-  </li>
-</ul>
-
-<h3 id="generate-code-from-model-repository">Generate code from model repository</h3>
-
-<p>Choose one of the existing generators to generate the souce code. Save the <em>*.zip</em> to your desired directory and import it in your eclipse workspace.</p>
-
-<p><img src="../../img/documentation/generators.jpg" alt="Generators" /></p>
-
-<h2 id="vorto-perspective">Vorto Perspective</h2>
-
-<p>More information on how to use the vorto repository from the vorto prespective can be found here
-<a href="../../blog/2015-09-04-VortoIntegration.html">Model Repository Blog post</a></p>
-
-<h3 id="generate-code-from-vorto-perspective">Generate code from vorto perspective</h3>
-
-<p>Right-click on the selected model in the model repository and click Generate code, to generate the source code.</p>
-
-<p><img src="../../img/documentation/generate_vorto_persp.jpg" alt="Generate_vorto_persp" /></p>
-
-<p>Choose one of the existing generators to generate the souce code. The source code should be available in the java perspective.</p>
-
-<p><img src="../../img/documentation/generators_vorto_persp.jpg" alt="Generators_vorto_persp" /></p>
-
 <h2 id="share-models-to-the-repository">Share models to the repository</h2>
 
-<p><a href="#prerequisites">Prerequisites</a></p>
-
-<p><a href="#share-information-models">Share information models</a></p>
-
-<p>In order to share a model to the repository, the user is required to Login to the Vorto Repository.</p>
-
-<h2 id="prerequisites"><strong>Prerequisites</strong></h2>
-
-<p>Users new to Vorto are required to <strong>Sign-Up</strong>, by providing values to all the mandatory fields and <strong>Register</strong>.</p>
-
-<p>Key in values in mandatory fields</p>
-
-<p><img src="../../img/documentation/vortoregistration.jpg" alt="Registration Screen" /></p>
-
-<p>The following screen is displayed after successful registration.</p>
-
-<p><img src="../../img/documentation/vorto_reposignup.jpg" alt="Sign-Up Confirmation" /></p>
-
-<p>The user should also receive a confirmation email notification regarding the Vorto registration.</p>
-
-<h2 id="share-information-models"><strong>Share Information models</strong></h2>
+<p>In order to share a model to the repository, the user is required to <a href="../../documentation/vorto-repository/userregistration.html"> Login</a> to the Vorto Repository.</p>
 
 <p>Information models can be shared in three different ways</p>
 
 <p><a href="#vorto-web-repository">1. Vorto Web Repository</a></p>
 
-<p><a href="#eclipse-plugin">2. Eclipse pllugin</a></p>
+<p><a href="#eclipse-plugin">2. Eclipse plugin</a></p>
 
 <p><a href="#cli-tool">3. CLI tool</a></p>
 
