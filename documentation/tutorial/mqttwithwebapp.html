@@ -611,31 +611,151 @@
 					     <div class="span8 offset3">
                  <!--base to have relative path for offline navigation -->
 
-<h2 id="uninstalling-the-vorto-plug-ins">Uninstalling the Vorto Plug-ins</h2>
-
-<p><strong>Prerequisites</strong></p>
-
-<p>You have started your IDE.</p>
-
-<p><strong>Proceed as follows</strong></p>
+<h2 id="prerequisites">Prerequisites:</h2>
 
 <ol>
-  <li>In the main menu click <strong>Help &gt; Install new Software…</strong>.<br />
-The <strong>Install</strong> dialog opens displaying the <strong>Available Software</strong>.  </li>
   <li>
-    <p>Click the <strong>What is already installed?</strong> link.<br />
-The <strong>Installation Details</strong> dialog opens.  </p>
-
-    <p><img src="../../img/documentation/m2m_tc_installed_software_1.png" alt="Installed software" />  </p>
+    <p>Install <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/mars2">Eclipse Mars DSL Tool</a></p>
   </li>
-  <li>If necessary, click the <strong>Installed Software</strong> tab.</li>
-  <li>Select the Software belonging to the Vorto plug-ins (refer to <a href="../../documentation/installation/installation.html#installing-the-vorto-plug-ins">Installing the Vorto Plug-ins</a>) and click the <strong>Uninstall…</strong> button.<br />
-The <strong>Uninstall</strong> dialog opens.</li>
-  <li>Click <strong>Finish</strong> to uninstall the Vorto plug-ins.<br />
-After the uninstallation is complete, the <strong>Software Updates</strong> dialog opens.<br />
-<img src="../../img/documentation/m2m_tc_vrm_software_updates_restart.png" alt="Restart VR Modeler after software update" />  </li>
-  <li>Click <strong>Yes</strong> to restart your IDE.<br />
-After the restart, the IDE contains no <strong>Vorto</strong> group anymore (<strong>File &gt; New &gt; Project…</strong>).</li>
+  <li>
+    <p>Install Vorto - Download from <a href="../../downloads/index.html">here</a></p>
+  </li>
+  <li>
+    <p>Java 8</p>
+  </li>
+  <li>
+    <p>Set Network preferences in eclipse IDE</p>
+  </li>
+  <li>
+    <p>Set maven settings</p>
+  </li>
+  <li>
+    <p>Configure Information Model Repository in <a href="../../blog/2015-09-04-VortoIntegration.html">preferences</a></p>
+  </li>
+</ol>
+
+<h2 id="overview">Overview</h2>
+
+<p>In this tutorial, you are going to implement a web application for the information model through a series of steps.
+The webapplication that is going to communicate with mqtt client will appear as shown below:
+<img src="../../img/documentation/tut_tisensorwebui.jpg" alt="Web UIIntro" /></p>
+
+<h3 id="lets-begin">Let’s begin!</h3>
+
+<h2 id="step-1-implement-mqtt-client-for-functionblocks">Step 1: Implement MQTT client for functionblocks</h2>
+
+<ol>
+  <li>From eclipse, switch to Vorto perspective.</li>
+  <li>Select Model Repository tab, Search for the info model <strong>TI_Sensor</strong></li>
+  <li><em>TI_SensorTag</em> info model gets listed in the search result.</li>
+  <li>Drag and drop this infomodel into the infomodel frame
+ <img src="../../img/documentation/tut_searchdraginfomodel.jpg" alt="Search Infomodel" /></li>
+  <li>Select the info model -&gt; Right-click  -&gt; Generate Code -&gt; <em>choose</em> MQTT Generator
+ <img src="../../img/documentation/tut_generatemqtt.jpg" alt="Generate MQTT" /></li>
+  <li>Switch back to java perspective. The generated project will not compile, since it requires some Java model classes for the device.</li>
+  <li>Switch back to the Vorto Repository and Generate also the <em>Javabeans</em> for the TI SensorTag</li>
+  <li>
+    <p>Update mqtt and javabeans project. The MQTT Client project should fully compile now.</p>
+
+    <p><img src="../../img/documentation/tut_tickmark.jpg" alt="mqttTick" /> Congratulations! You have just generated a MQTT client for the functionblocks, offered as functionality by the TI SensorTag.</p>
+  </li>
+</ol>
+
+<h2 id="step-2--implement-a-web-application-for-the-information-model">Step 2:  Implement a Web Application for the information model</h2>
+
+<p>In this exercise we are making our IoT app a little more sophisticated and display the MQTT sensor data in web UI Elements.</p>
+
+<ol>
+  <li>Switch to the Vorto Perspective and find the TI SensorTag information model.</li>
+  <li>Right-click and choose <em>Web UI Generator</em> from the list of Generators</li>
+  <li>Switch back to the Java Perspective. You should see another Eclipse Project added by the Web UI Generator (<em>webdevice.example</em>)</li>
+  <li>
+    <p>Convert this Project to an Eclipse Project as well. The Web application is a Spring Boot application and already fully runnable.Run the application.</p>
+
+    <p><img src="../../img/documentation/tut_springbootrun.jpg" alt="SpringBoot app" /></p>
+  </li>
+  <li>Open your browser under [http://localhost:8080/webdevice]</li>
+  <li>
+    <p>In the web application, switch to the Accelerometer tab. You will see status fields that have been generated from the Accelerometer functionblock.</p>
+
+    <p><img src="../../img/documentation/tut_tisensorwebui.jpg" alt="Web UI" /></p>
+
+    <p><img src="../../img/documentation/tut_tickmark.jpg" alt="Tick" /> Congratulations! You just implemented a small AngularJS web application with the help of Vorto. However the Accelerometer UI fields are not yet populated with the sensor data. Let’s do that in the next exercise.</p>
+  </li>
+</ol>
+
+<h2 id="step-3-sign-up-for-a-pubnub-account">Step 3: Sign up for a PubNub account</h2>
+
+<ol>
+  <li>You’ll need to <a href="https://www.pubnub.com/get-started/#">sign up for a PubNub account</a>.Once you sign up, you can get your unique PubNub keys in the <a href="https://admin.pubnub.com/#/user">PubNub Developer Portal</a>. You will use those same keys when you want to leverage our MQTT gateway.</li>
+  <li>Take note of the Publish and Subscribe keys generated under Demo Keyset screen of PubNub.</li>
+</ol>
+
+<h2 id="step-4--receive-mqtt-status-events-and-bind-it-to-the-web-ui-elements">Step 4:  Receive MQTT status events and bind it to the Web UI Elements</h2>
+
+<p>In this exercise we are going to glue the Web application together with the MQTT client, that Vorto had so nicely generated for us.</p>
+
+<ol>
+  <li>
+    <p>In the pom.xml of the web application, add a dependency to the generated MQTT client
+ <img src="../../img/documentation/tut_mqttdependency.jpg" alt="dependency" /></p>
+  </li>
+  <li>Go to the Spring Boot Application class and import the MQTT configuration for the Accelerometer (<em>@Import (MqttConfigurationAccelerometer.class</em>)).</li>
+  <li>Find the commented code that handles the incoming MQTT events and un-comment it.</li>
+  <li>Remove the annotation <em>@EnableScheduling</em>
+ <img src="../../img/documentation/tut_springbootclass.jpg" alt="Springbootclass" /></li>
+  <li>
+    <p>Edit <strong>MqttConfigurationAccelerometer.java</strong> by adding the following lines to <strong>inboundAccelerometer</strong> method</p>
+
+    <pre><code>MqttPahoMessageDrivenChannelAdapter adapter = new MqttPahoMessageDrivenChannelAdapter(this.connectionUrl, "pub-c-xxxx/sub-c-xxxx/clientAccelerometer_00c740db-9245-4e5a-8c80-8a50908ee69f");
+adapter.addTopic(this.topicName);
+</code></pre>
+  </li>
+  <li>
+    <p>The MQTT configuration of the Accelerometer requires the MQTT topic and connection url in order to receive status events properly. Therefore we must add the following configuration to the <strong>application.yml</strong> file</p>
+
+    <pre><code> 	server:
+   	port: 8080
+   	contextPath: /webdevice
+ 	publish_key  : "pub-c-xxxx"
+ 	subscribe_key : "sub-c-xxxx"
+	mqtt:
+   	connectionUrl: tcp://mqtt.pubnub.com
+   	topic:
+ 	accelerometer: pub-c-xxxx/sub-c-xxxx/accelerometerTopic
+</code></pre>
+  </li>
+  <li>Add MQTTlens extension to chrome browser.</li>
+  <li>Create a new connection in MQTTlens by adding the following details in respective fields:
+    <ul>
+      <li>Connection name : pubnub</li>
+      <li>Hostname : mqtt.pbnub.com</li>
+      <li>Client ID: pub-c-xxxx/sub-c-xxxx/123</li>
+    </ul>
+  </li>
+  <li>
+    <p>Enter the following as <strong>Subscribe</strong> Topic</p>
+
+    <pre><code> pub-c-xxxx/sub-c-xxxx/accelerometerTopic
+</code></pre>
+  </li>
+  <li>
+    <p>Enter the following as <strong>Publish</strong> Topic</p>
+
+    <pre><code>pub-c-xxxx/sub-c-xxxx/accelerometerTopic
+</code></pre>
+  </li>
+  <li>Click on <strong>Subscribe</strong>.</li>
+  <li>
+    <p>Enter the following message</p>
+
+    <pre><code>{"currentAcceleration": {"speed":"44.4"}}
+</code></pre>
+  </li>
+  <li>Click on <strong>Publish</strong></li>
+  <li>Switch back to Web UI (http://localhost:8080/webdevice/#/accelerometer)</li>
+  <li>The Speed field is updated with the value <strong>44.4</strong>
+<img src="../../img/documentation/tut_pubnubtowebui.jpg" alt="Speedfield" /></li>
 </ol>
 
                 </div>
