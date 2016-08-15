@@ -347,30 +347,16 @@
   
     <li  >
       
-        <a href="../../../documentation/code-generators/codegenerators.html">Overview</a>
+        <a href="../../../documentation/code-generators/example-codegenerators.html">Example Code Generators</a>
       
 
     </li>
   
 
   
-    <li>
-      Example Code Generators
-      <ul class="nav navmenu-nav">
-        <!-- 2nd level -->
-        <!--base to have relative path for offline navigation -->
-
-
-
-
-
-
- 
-
-  
     <li  >
       
-        <a target="_blank" href="https://github.com/eclipse/vorto/blob/master/server/generators/Readme.md">Vorto Code Generators</a>
+        <a href="../../../documentation/code-generators/using-codegenerators.html">Using Code Generators</a>
       
 
     </li>
@@ -383,49 +369,7 @@
 
   
     <li>
-      Own Code Generators
-      <ul class="nav navmenu-nav">
-        <!-- 2nd level -->
-        <!--base to have relative path for offline navigation -->
-
-
-
-
-
-
- 
-
-  
-    <li  >
-      
-        <a href="../../../documentation/code-generators/webdevice-codegenerator.html">Example 1 - Web Device  Application Code Generator</a>
-      
-
-    </li>
-  
-
-  
-    <li  >
-      
-        <a href="../../../documentation/code-generators/m2m-codegenerator.html">Example 2 - Bosch M2M Platform Code Generator</a>
-      
-
-    </li>
-  
-
-
-      </ul>
-    </li>
-  
-
-
-      </ul>
-    </li>
-  
-
-  
-    <li>
-      Developer API
+      Generator Developer Guide
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
@@ -682,7 +626,34 @@
   
     <li  >
       
-        <a href="../../../documentation/vorto-repository/cli-tool/cli-tool.html">Vorto CLI Tool</a>
+        <a href="../../../documentation/vorto-repository/cli-tool/cli-tool.html">Vorto CLI Tool Overview</a>
+      
+
+    </li>
+  
+
+  
+    <li  >
+      
+        <a href="../../../documentation/vorto-repository/cli-tool/installing-cli-tool.html">Installing the Vorto CLI Tool</a>
+      
+
+    </li>
+  
+
+  
+    <li  >
+      
+        <a href="../../../documentation/vorto-repository/cli-tool/configuring-cli-tool.html">Configuring the Vorto CLI Tool</a>
+      
+
+    </li>
+  
+
+  
+    <li  >
+      
+        <a href="../../../documentation/vorto-repository/cli-tool/cli-tool-command-summary.html">Vorto CLI Tool Command Summary</a>
       
 
     </li>
@@ -820,7 +791,7 @@
   
     <li  >
       
-        <a href="../../../documentation/appendix/informationmodel-dsl-reference.html">Information Mapping Model DSL</a>
+        <a href="../../../documentation/appendix/mappingmodel-dsl-reference.html">Information Model Mapping DSL</a>
       
 
     </li>
@@ -852,206 +823,21 @@
 
 <h2 id="vorto-command-line-interface-cli-tool">Vorto <strong>C</strong>ommand <strong>L</strong>ine <strong>I</strong>nterface (CLI) Tool</h2>
 
+<p>This section details the following topics:</p>
+
 <p><a href="#overview">Overview</a></p>
 
-<p><a href="#basic-structure">Basic Structure</a></p>
+<p><a href="./installing-cli-tool.html">Installing the Vorto CLI Tool</a></p>
 
-<p><a href="#installation">Installation</a></p>
+<p><a href="./configuring-cli-tool.html">Configuring the Vorto CLI Tool</a></p>
 
-<p><a href="#cli-commands">CLI Commands</a></p>
+<p><a href="./cli-tool-command-summary.html">Vorto CLI Tool Command Summary</a></p>
 
 <h2 id="overview">Overview</h2>
 
 <p>The Vorto Command Line Interface (CLI) tool is a REST-Client that allows you to access your specified repository with all Vorto related functionalities.</p>
 
-<h2 id="basic-structure">Basic Structure</h2>
-
 <p>The CLI-Tool is based on a simple structure. It consists of a <em>Command Line Interface</em> as well as a <code>.yaml</code> file, that stores all necessary configuration properties like <em>Username</em>, <em>Password</em>, <em>Proxy</em> and <em>Repository</em>.</p>
-
-<h2 id="installation">Installation</h2>
-
-<p>Download the CLI Tool from the <a href="../../../downloads/index.html">Vorto Downloads</a> page and save it to any working directory.</p>
-
-<p>A very convenient way to use the CLI Tool is, to add the path of the directory into the system’s environment PATH variable. Once you did this, you can call the CLI-Tool from any directory.</p>
-
-<p>For Windows, open <strong>Control Panel -&gt; Advanced System Settings -&gt; Advanced -&gt; Environment Variables</strong></p>
-
-<p><img src="../../../img/documentation/cli_evnmt_variable.jpg" alt="Environment Variable" /></p>
-
-<p>For Mac/Linux, from a terminal window execute</p>
-
-<pre><code>export path=%path%:~/Applications/&lt;&lt;vorto cli tool installed directory&gt;&gt;
-</code></pre>
-
-<p>Before you can use the CLI Tool as a REST Client, you need to initialize basic preferences. By default the preferences are stored in the file <code>.vortocli.yaml.file</code>, which is located in your home directory.</p>
-
-<p>For Windows,</p>
-
-<pre><code>C:\Users\{$username}\.vortocli.yaml.file
-</code></pre>
-
-<p>For Mac,  </p>
-
-<pre><code>/Users/{$username}/Documents/.vortocli.yaml.file
-</code></pre>
-
-<p>For Linux, </p>
-
-<pre><code>/usr/{$username}/Documents/.vortocli.yaml.file
-</code></pre>
-
-<p>You have to setup the CLI Tool in one of the following ways:</p>
-
-<ul>
-  <li>Use the <code>vorto config</code> command.<br />
-To initialize vorto with additional values (or change them afterwards) like username, password, proxy or repository, use the command flags <code>-username</code>, <code>-password</code>, <code>-proxy</code> or <code>-repo</code>.<br />
-Example: <code>vorto config -username &lt;username&gt; -password &lt;password&gt; -repo http://vorto.eclipse.org</code></li>
-  <li>Edit the <code>.vortocli.yaml</code> file with a text editor.<br />
-<img src="../../../img/documentation/yamlfile.jpg" alt="CLI Yaml file" /></li>
-</ul>
-
-<table class="table table-bordered">
-    <tbody>
-        <tr>
-            <td><i class="fa fa-info-circle info-note"></i></td>
-            <td>Enable the proxy in the configuration file <code>.vortocli.yaml</code> (Line 4) if you are accessing internet via proxy server.</td>
-        </tr>
-    </tbody>
-</table>
-
-<h2 id="cli-commands">CLI Commands</h2>
-
-<p>The Vorto CLI Tool provides a scope of different Vorto Commands to interact with your specified Repository. 
-Each of them offers a unique functionality and is based on the following syntax:</p>
-
-<pre><code>vorto [command] [-flag1 parameter1 -flag2 parameter2 ... ]
-</code></pre>
-
-<table class="table table-bordered">
-  <thead>
-  <tr>
-    <th>Command</th>
-    <th>Description</th>
-    <th>Example</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td><code>vorto config</code></td>
-    <td>With the vorto config command you do the basic CLI Tool setup.<br />Additional flag parameters:<br />
-      <ul>
-        <li><code>username</code><br />
-          Vorto Repository username credentials</li>
-        <li><code>password</code><br />
-          Vorto Repository password credentials</li>
-        <li><code>proxy</code><br />
-          network proxy</li>
-        <li><code>repo</code><br />
-          Vorto repository URL (default: <code>http://vorto.eclipse.org</code>)</li>
-      </ul>
-    </td>
-    <td>
-      For (Windows/Mac/Linux),<br />
-      <p><code>vorto config -username vortouser -password password -repo http://vorto.eclipse.org</code></p>
-    </td>
-  </tr>
-  <tr>
-    <td><code>vorto help</code></td>
-    <td>To get more familiar with the CLI Tool commands, it's a good approach to call the <code>vorto help</code> command.<br /><code>vorto help</code> lists you all other possible commands, including flag parameters and examples.</td>
-    <td>For (Windows/Mac/Linux),<br />
-      <p><code>vorto help</code>
-    
-  
-  <tr>
-    <td><code>vorto query</code></td>
-    <td>After everything is successfully setup, you are able to access the Repository.<br /> Via <code>vorto query</code> you can query models of your Repository.
-    </td>
-    <td>
-      For (Windows/Mac/Linux),<br /><br />
-      Query all models of your Repository:<br />
-      <code>vorto query "*"</code><br /><br />
-      Query all models containing the string <code>"functionblocks"</code>:<br />
-      <code>vorto query "*functionblocks*"</code></td>
-   </tr>
-    <tr>
-    <td><code>vorto info</code></td>
-    <td>If you are now interested in a certain model and you want to get more information from this specific model, you can use <code>vorto info</code> to get it.<br />
-    The result of this command is a detailed view of the requested model.</td>
-    <td>
-      For (Windows/Mac/Linux),<br />
-      <code>vorto info examples.informationmodels.TI_SensorTag:1.0.0</code></td>
-   </tr>
-   <tr>
-    <td><code>vorto download</code></td>
-    <td>Furthermore you can start working with a certain model locally, when you download it via <code>vorto download</code>.<br />
-    To open and to work with it, you can use any text editor to modify this certain model and you can even upload it again.<br />
-    Via the flag <code>-outputPath</code> you can specify a download directory.<br />
-    Additional flag parameters:<br />
-    <ul>
-      <li><code>output</code><br />
-        output format (default: <code>DSL</code>)</li>
-      <li><code>outputPath</code><br />
-        path to store the download (default: current directory)</li>
-      <li><code>includeDependencies</code><br />
-        whether to include dependencies or not (default: <code>false</code>)</li>
-    </ul>
-    </td>
-    <td>
-      For Windows,<br />
-      <code>vorto download examples.informationmodels.TI_SensorTag:1.0.0  -outputPath D:\models</code><br /><br />
-      For Mac/Linux,<br />
-      <code>vorto download examples.informationmodels.TI_SensorTag:1.0.0  -outputPath /Users/{$username}/Documents/models/</code>
-    </td>
-  </tr>
-  <tr>
-    <td><code>vorto generators</code></td>
-    <td>If you want to generate platform specific code, you can get a short overview of all active code generators via <code>vorto generators</code>.
-    </td>
-    <td>
-	For (Windows/Mac/Linux),<br />
-	<code>vorto generators</code>
-    </td>
-  </tr>
-  <tr>
-    <td><code>vorto generate</code></td>
-    <td>Afterwards you can generate <code>vorto generate</code> your platform specific code (specified by <code>-generatorKey</code>) in a very convenient way.<br />
-    Additional flag parameters:<br />
-    <ul>
-      <li><code>generatorKey</code></li>
-      <li><code>outputPath</code></li>
-    </ul>
-    </td>
-    <td>
-	For Windows, <br />	
-	<code>vorto generate examples.informationmodels.TI_SensorTag:1.0.0 -generatorKey mqtt -outputPath D:\models</code><br /><br />
-	For Mac/Linux,<br />
-	<code>vorto generate examples.informationmodels.TI_SensorTag:1.0.0 -generatorKey mqtt -outputPath /Users/{$username}/Documents/models</code>
-	</td>
-  </tr>
-  <tr>
-    <td><code>vorto share<code>
-    <td>Additionally to all this access functionality, you are also able to share your models.<br />
-    Therefore you either have to deposit your credentials in the <code>.vortocli.yaml</code> file or you have to pass them as additional parameters.<br />
-    Additional flag parameters:<br />
-    <ul>
-      <li><code>username</code><br />
-        Vorto Repository username credentials (default: value in <code>.vortocli.yaml</code>)</li>
-      <li><code>password</code><br />
-        Vorto Repository password credentials (default: value in <code>.vortocli.yaml</code>)</li>
-    </ul>
-    </td>
-    <td>
-    For Windows,<br />
-    <code>vorto share D:\Models\TI_SensorTag_CC2650\src\models\TI_SensorTag.infomodel</code><br />
-    <code>vorto share D:\Models\TI_SensorTag_CC2650\src\models\TI_SensorTag.infomodel -username vortouser -password password</code><br /><br />
-    For Mac/Linux,<br />
-    <code>vorto share /Users/{$username}/Documents/models/TI_SensorTag.infomodel</code><br /><br />
-    <code>vorto share /Users/{$username}/Documents/models/TI_SensorTag.infomodel -username vortouser -password password</code>
-    </td>
-  
-  
-
-</code></code></td></tr></p></td></tr></tbody></table>
 
                 </div>
              </div>

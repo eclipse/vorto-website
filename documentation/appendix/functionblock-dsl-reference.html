@@ -347,30 +347,16 @@
   
     <li  >
       
-        <a href="../../documentation/code-generators/codegenerators.html">Overview</a>
+        <a href="../../documentation/code-generators/example-codegenerators.html">Example Code Generators</a>
       
 
     </li>
   
 
   
-    <li>
-      Example Code Generators
-      <ul class="nav navmenu-nav">
-        <!-- 2nd level -->
-        <!--base to have relative path for offline navigation -->
-
-
-
-
-
-
- 
-
-  
     <li  >
       
-        <a target="_blank" href="https://github.com/eclipse/vorto/blob/master/server/generators/Readme.md">Vorto Code Generators</a>
+        <a href="../../documentation/code-generators/using-codegenerators.html">Using Code Generators</a>
       
 
     </li>
@@ -383,49 +369,7 @@
 
   
     <li>
-      Own Code Generators
-      <ul class="nav navmenu-nav">
-        <!-- 2nd level -->
-        <!--base to have relative path for offline navigation -->
-
-
-
-
-
-
- 
-
-  
-    <li  >
-      
-        <a href="../../documentation/code-generators/webdevice-codegenerator.html">Example 1 - Web Device  Application Code Generator</a>
-      
-
-    </li>
-  
-
-  
-    <li  >
-      
-        <a href="../../documentation/code-generators/m2m-codegenerator.html">Example 2 - Bosch M2M Platform Code Generator</a>
-      
-
-    </li>
-  
-
-
-      </ul>
-    </li>
-  
-
-
-      </ul>
-    </li>
-  
-
-  
-    <li>
-      Developer API
+      Generator Developer Guide
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
@@ -682,7 +626,34 @@
   
     <li  >
       
-        <a href="../../documentation/vorto-repository/cli-tool/cli-tool.html">Vorto CLI Tool</a>
+        <a href="../../documentation/vorto-repository/cli-tool/cli-tool.html">Vorto CLI Tool Overview</a>
+      
+
+    </li>
+  
+
+  
+    <li  >
+      
+        <a href="../../documentation/vorto-repository/cli-tool/installing-cli-tool.html">Installing the Vorto CLI Tool</a>
+      
+
+    </li>
+  
+
+  
+    <li  >
+      
+        <a href="../../documentation/vorto-repository/cli-tool/configuring-cli-tool.html">Configuring the Vorto CLI Tool</a>
+      
+
+    </li>
+  
+
+  
+    <li  >
+      
+        <a href="../../documentation/vorto-repository/cli-tool/cli-tool-command-summary.html">Vorto CLI Tool Command Summary</a>
       
 
     </li>
@@ -820,7 +791,7 @@
   
     <li  >
       
-        <a href="../../documentation/appendix/informationmodel-dsl-reference.html">Information Mapping Model DSL</a>
+        <a href="../../documentation/appendix/mappingmodel-dsl-reference.html">Information Model Mapping DSL</a>
       
 
     </li>
@@ -863,59 +834,61 @@
 <p>The following code represents the Function Block Model DSL syntax. Function block model use all variables that are defined in Data Type DSL.</p>
 
 <pre><code>functionblockmodel:
-	'namespace' qualifiedName
+    'namespace' qualifiedName
     'version' version
-     (modelReference)*
-	'functionblock' id '{'
-		functionblock
-	'}'
+    'displayname' displayname
+    ('description' description)?
+    'category' category
+    (modelReference)*
+    'functionblock' id ('extends' functionblockmodel)? '{'
+        functionblock
+    '}'
 ;
 
 functionblock:
-    'displayname' string
-    ('description' string)?
-    'category' category
-    'configuration' '{'
-        (property)*
+    'configuration' '{' 
+        (property)*  
     '}'
+
     ('status' '{'
         (property)*
     '}')?
+
     ('fault' '{'
         (property)*
-    '}')?
-
-    ('operations' '{'
-        (operation)*
     '}')?
 
     ('events' '{'
         (event)*
     '}')?
- ;
+
+    ('operations' '{'
+        (operation)*
+    '}')?
+;
 
 operation :
-	 id '(' (param)?')' ('returns'  returnType)? (string)?
+    ('breakable')? id '(' (param (paramDescription)?)? ')' ('returns'  returnType)? (returnTypeDescription)?
 ;
 
 returnType :
-	returnObjectType | returnPrimitiveType
+    returnObjectType | returnPrimitiveType
 ;
 
 returnObjectType :
-	 ('multiple')? [datatype::type | qualifiedName]
+    ('multiple')? [datatype::type | qualifiedName]
 ;
 
 returnPrimitiveType :
-	 ('multiple')? primitiveType
+    ('multiple')? primitiveType ('&lt;'constraintType [constraintIntervalType] ("," constraintType [constraintIntervalType])*'&gt;')?
 ;
 
 primitiveParam:
-	(multiple')? id 'as' primitiveType
+    (multiple')? id 'as' primitiveType ('&lt;'constraintType [constraintIntervalType] ("," constraintType [constraintIntervalType])*'&gt;')?
 ;
 
 refParam:
-	('multiple')? id 'as' [datatype::type|qualifiedName]
+    ('multiple')? id 'as' [datatype::type|qualifiedName]
 ;
 
 param:
@@ -923,14 +896,14 @@ param:
 ;
 
 event:
-	 id '{'
-		(property)*
-	'}'
+    id '{'
+        (property)*
+    '}'
 ;
 
 string:
-  '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
-  "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'"
+    '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
+    "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'"
 ;
 
 qualifiedName: id ('.' id)*;
@@ -938,7 +911,7 @@ qualifiedName: id ('.' id)*;
 version : int('.' int)*('-'id)?;
 
 id:
-  '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*
+    '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*
 ;
 </code></pre>
 
@@ -987,12 +960,11 @@ functionblock Lamp {
     "true if the light bulb of the lamp is defect"  
   }  
   operations{  
-    blink(blinkType as int) "sets the blinking type for the lamp"  
-    getPowerConsumption() returns int
-      "gets the amount of power being consumed by the lamp"  
+    blink(blinkType as int &lt;MIN 0, MAX 5&gt; "The type of blink") "sets the blinking type for the lamp"  
+    getPowerConsumption() returns int &lt;MIN 0, MAX 5&gt; "gets the amount of power being consumed by the lamp"  
     isOn() returns boolean "checks if the lamp is switched on"  
-    off() "turns the lamp off"  
-    on() "turns the lamp on"  
+    breakable off() "turns the lamp off"  
+    breakable on() "turns the lamp on"  
     stopBlinking() "stops the blinking of the lamp"  
     toggle() "switches the lamp on or off"  
     toggleWithDelay(delayInSeconds as int)
@@ -1116,12 +1088,12 @@ functionblock Lamp {
 
   }
   operations{
-    blink(blinkType as int) "sets the blinking type for the lamp"
-    getPowerConsumption() returns int
+    blink(blinkType as int &lt;MIN 0, MAX 5&gt; "The type of blink") "sets the blinking type for the lamp"
+    getPowerConsumption() returns int &lt;MIN 1, MAX 3000&gt;
       "gets the amount of power being consumed by the lamp"
     isOn() returns boolean "checks if the lamp is switched on"
-    off() "turns the lamp off"
-    on() "turns the lamp on"
+    breakable off() "turns the lamp off"
+    breakable on() "turns the lamp on"
     stopBlinking() "stops the blinking of the lamp"
     toggle() "switches the lamp on or off"
     toggleWithDelay(delayInSeconds as int)
@@ -1184,7 +1156,23 @@ functionblock Lamp {
 		<li>double</li>
 		<li>base64Binary</li>
 		<li>byte</li>
+    <li>Dictionary (with optional key and value types)</li>
+    <li>Another Entity</li>
+    <li>Another Enum</li>
 	  </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>with { [propertyAttribute] }</td>
+    <td>N</td>
+    <td>Additional property attributes</td>
+    <td>Supported property attributes:
+    <ul>
+    <li>measurementUnit : an Enum literal</li>
+    <li>readable: [true or false]</li>
+    <li>writable: [true or false]</li>
+    <li>eventable: [true or false]</li>
+    </ul>
     </td>
   </tr>
   <tr>
@@ -1214,8 +1202,19 @@ functionblock Lamp {
 optional vendingMachineIdentifier as string &lt;STRLEN 8&gt;
   "the id of the vending machine"
 
+mandatory engineTemperature as float 
+  with { measurementUnit: Temperature.Celsius, readable: true, writable: true }
+
 mandatory positiveNum as int &lt;MIN 0 , MAX 1111&gt;
   "Positive numbers that is within [0 , 1111]"
+
+mandatory lookupTable as Dictionary[string, Color] "Lookup table conversion for color"
+
+mandatory lookupRGBTable as Dictionary[Color, RGB] "Lookup table conversion for color from description to RGB"
+
+mandatory temperatureLabelConversion as Dictionary[int, string] "map of temperature to description"
+
+mandatory noKeyAndValueTypeMap as Dictionary "example of a map with no key and value types"
 
 mandatory biggerThanInt as long &lt;MAX 999999999999999999&gt;
   "Value for constraint is validated according to the property type,
@@ -1247,30 +1246,59 @@ mandatory deviceName as string &lt;REGEX '[a-zA-Z][a-zA-Z][0-9]'&gt;
   </thead>
   <tbody>
   <tr>
-    <td>One-way without parameter(s)</td>
-    <td>resetConfiguration()switchOn()</td>
+    <td>Without parameter(s)</td>
+    <td>
+      <ul>
+        <li>resetConfiguration()</li>
+        <li>switchOn()</li>
+      </ul>
+    </td>
   </tr>
   <tr>
-    <td>One-way with parameter(s)</td>
-    <td>setTemperature(temperature as int)setProductConfigurationList(multiple products as Product)</td>
+    <td>With parameter(s)</td>
+    <td>
+      <ul>
+        <li>setTemperature(temperature as int)</li>
+        <li>setProductConfigurationList(multiple products as Product)</li>
+      </ul>
+    </td>
   </tr>
   <tr>
-    <td>Request - response without parameter(s)</td>
-    <td>getProductIdsList() returns multiple stringgetProductConfiguration() returns Product</td>
+    <td>With return type</td>
+    <td>
+      <ul>
+        <li>getProductIdsList() returns multiple string</li>
+        <li>getProductConfiguration() returns Product</li>
+      </ul>
+    </td>
   </tr>
   <tr>
-    <td>Request - response with parameter(s)</td>
-    <td>withdraw(productId as string, amount as int) returns boolean</td>
+    <td>With parameter(s) and return type</td>
+    <td>
+      <ul>
+        <li>withdraw(productId as string, amount as int) returns boolean</li>
+      </ul>
+    </td>
   </tr>
   </tbody>
 </table>
 
-<p>All operations may have a &lt;description&gt; at the end of the operations definition.</p>
+<p>All operations may have a &lt;description&gt; at the end of each parameter declaration and the operations definition.</p>
 
 <p><strong>Example</strong></p>
 
 <pre><code>getProductConfigurationList() returns multiple Product
   "Gets the current configured products from the vending machine"
+getProductConfigurationList(count as int "Number of products to return", offset as int "What row to start") 
+  returns multiple Product "Gets the current configured products from the vending machine"
+</code></pre>
+
+<p>The parameters and return type can also have constraints.</p>
+
+<p><strong>Example</strong></p>
+
+<pre><code>setRedComponent(R as int &lt;MIN 0, MAX 255&gt;)
+getRedComponent() returns int &lt;MIN 0, MAX 255&gt;
 </code></pre>
 
 <h3 id="event">Event</h3>
@@ -1294,144 +1322,6 @@ mandatory deviceName as string &lt;REGEX '[a-zA-Z][a-zA-Z][0-9]'&gt;
     }  
   }  
 ...  
-</code></pre>
-
-<h3 id="entity">Entity</h3>
-
-<p>The entity element defines a new data type that can be referenced by the function block definition. In a function block model 0 or many entity elements can be defined (refer to <a href="#function-block-model">Function Block Model</a>).</p>
-
-<p><strong>Syntax</strong></p>
-
-<p>Refer to entity in <a href="#function-block-dsl-syntax">Function Block DSL Syntax</a>.</p>
-
-<p><strong>Usage</strong></p>
-
-<table class="table table-bordered">
-<thead>
-  <tr>
-    <th>Entity element</th>
-    <th>Mandatory</th>
-    <th>Description</th>
-    <th>Type</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>&lt;entity_name&gt;</td>
-    <td>Y</td>
-    <td>A descriptive name of the entity.</td>
-    <td>String (identifier, without spaces)</td>
-  </tr>
-  <tr>
-    <td>extends &lt;property_name&gt;</td>
-    <td></td>
-    <td>The entity extends the property &lt;property_name&gt;.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>&lt;optional&nbsp;|&nbsp;mandatory&gt;</td>
-    <td></td>
-    <td>Declares if the entity is optional or mandatory.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>multiple</td>
-    <td></td>
-    <td>Defines if the entity can have more than one value.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>&lt;property_name&gt;</td>
-    <td>Y</td>
-    <td>The name of the property.</td>
-    <td>String (identifier, without spaces)</td>
-  </tr>
-  <tr>
-    <td>as &lt;type&gt;</td>
-    <td>Y</td>
-    <td>The data type of the property.</td>
-    <td>Supported types:
-	  <ul>
-	    <li>boolean</li>
-		<li>dateTime</li>
-		<li>float</li>
-		<li>int</li>
-		<li>string</li>
-	  </ul>
-	</td>
-  </tr>
-  <tr>
-    <td>&lt;description&gt;</td>
-    <td></td>
-    <td>Extra information about the entity.</td>
-    <td>String enclosed in quotation marks</td>
-  </tr>
-  </tbody>
-</table>
-
-<p><strong>Example</strong></p>
-
-<pre><code>entity BlinkType {  
-  mandatory type as int "0: fast flash, 1: slow flash"  
-}  
-</code></pre>
-
-<h3 id="enum">Enum</h3>
-
-<p>An Enum is data structure using group literals as values.</p>
-
-<p><strong>Syntax</strong></p>
-
-<p>Refer to entity in <a href="#function-block-dsl-syntax">Function Block DSL Syntax</a>.</p>
-
-<p><strong>Usage</strong></p>
-
-<table class="table table-bordered">
-<thead>
-  <tr>
-    <th>Entity element</th>
-    <th>Mandatory</th>
-    <th>Description</th>
-    <th>Type</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>&lt;enum_name&gt;</td>
-    <td>Y</td>
-    <td>A descriptive name of the enum.</td>
-    <td>String (identifier, without spaces)</td>
-  </tr>
-  <tr>
-    <td>{</td>
-    <td>Y</td>
-    <td>Delimiter of the literal list (comma separated literals).</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>&lt;literal&gt;</td>
-    <td>Y</td>
-    <td>A descriptive name of an enum value.</td>
-    <td>String (identifier, without spaces)</td>
-  </tr>
-  <tr>
-    <td>}</td>
-    <td>Y</td>
-    <td>The name of the property.</td>
-    <td></td>
-  </tr>
-  </tbody>
-</table>
-
-<p><strong>Example</strong></p>
-
-<pre><code>// definition of an enum type
-enum Gender{
-  Male, Female, NA
-}
-
-// usage as a field
-mandatory sex as Gender
 </code></pre>
 
                 </div>

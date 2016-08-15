@@ -347,30 +347,16 @@
   
     <li  >
       
-        <a href="../../documentation/code-generators/codegenerators.html">Overview</a>
+        <a href="../../documentation/code-generators/example-codegenerators.html">Example Code Generators</a>
       
 
     </li>
   
 
   
-    <li>
-      Example Code Generators
-      <ul class="nav navmenu-nav">
-        <!-- 2nd level -->
-        <!--base to have relative path for offline navigation -->
-
-
-
-
-
-
- 
-
-  
     <li  >
       
-        <a target="_blank" href="https://github.com/eclipse/vorto/blob/master/server/generators/Readme.md">Vorto Code Generators</a>
+        <a href="../../documentation/code-generators/using-codegenerators.html">Using Code Generators</a>
       
 
     </li>
@@ -383,49 +369,7 @@
 
   
     <li>
-      Own Code Generators
-      <ul class="nav navmenu-nav">
-        <!-- 2nd level -->
-        <!--base to have relative path for offline navigation -->
-
-
-
-
-
-
- 
-
-  
-    <li  >
-      
-        <a href="../../documentation/code-generators/webdevice-codegenerator.html">Example 1 - Web Device  Application Code Generator</a>
-      
-
-    </li>
-  
-
-  
-    <li  >
-      
-        <a href="../../documentation/code-generators/m2m-codegenerator.html">Example 2 - Bosch M2M Platform Code Generator</a>
-      
-
-    </li>
-  
-
-
-      </ul>
-    </li>
-  
-
-
-      </ul>
-    </li>
-  
-
-  
-    <li>
-      Developer API
+      Generator Developer Guide
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
@@ -682,7 +626,34 @@
   
     <li  >
       
-        <a href="../../documentation/vorto-repository/cli-tool/cli-tool.html">Vorto CLI Tool</a>
+        <a href="../../documentation/vorto-repository/cli-tool/cli-tool.html">Vorto CLI Tool Overview</a>
+      
+
+    </li>
+  
+
+  
+    <li  >
+      
+        <a href="../../documentation/vorto-repository/cli-tool/installing-cli-tool.html">Installing the Vorto CLI Tool</a>
+      
+
+    </li>
+  
+
+  
+    <li  >
+      
+        <a href="../../documentation/vorto-repository/cli-tool/configuring-cli-tool.html">Configuring the Vorto CLI Tool</a>
+      
+
+    </li>
+  
+
+  
+    <li  >
+      
+        <a href="../../documentation/vorto-repository/cli-tool/cli-tool-command-summary.html">Vorto CLI Tool Command Summary</a>
       
 
     </li>
@@ -820,7 +791,7 @@
   
     <li  >
       
-        <a href="../../documentation/appendix/informationmodel-dsl-reference.html">Information Mapping Model DSL</a>
+        <a href="../../documentation/appendix/mappingmodel-dsl-reference.html">Information Model Mapping DSL</a>
       
 
     </li>
@@ -859,15 +830,15 @@
 <h2 id="information-model-mapping-dsl-syntax">Information Model Mapping DSL Syntax</h2>
 
 <pre><code>'mapping' '{'
-	  'model' [infomodel::informationModel|qualifiedName]
-      'target' id
-      (rule)*
+    'model' [infomodel::informationModel|qualifiedName]
+    'target' id
+    (rule)*
 '}'
 ;
 
 rule:
-  'from' informationModelElement (',' informationModelElement)*
-  'to' targetElement
+    'from' informationModelElement (',' informationModelElement)*
+    'to' targetElement
 ;
 
 informationModelElement:
@@ -876,53 +847,52 @@ informationModelElement:
 ;
 
 functionBlockElement:
-  (
-    operationElement | configurationElement | statusElement |
-    faultElement | eventElement
-  )
+    (operationElement | configurationElement | statusElement |
+        faultElement | eventElement
+    )
 ;
 
 operationElement:
-  'operation.' [functionblock::operation]
+    'operation.' [functionblock::operation]
 ;
 
 configurationElement:
-  'configuration.' [datatype::property]
+    'configuration.' [datatype::property]
 ;
 
 statusElement:
-  'status.' [datatype::property]
+    'status.' [datatype::property]
 ;
 
 faultElement:
-  'fault.' [datatype::property
+    'fault.' [datatype::property
 ;
 
 eventElement:
-  'event.' [functionblock::event]
+    'event.' [functionblock::event]
 ;
 
 targetElement:
-  (StereoType,)*
+    (StereoType,)*
 ;
 
 stereoType:
-  id (with Attribute (',' attribute)*)
+    id (with Attribute (',' attribute)*)
 ;
 
 qualifiedName: id ('.' id)*;
 
 attribute:
-  id ':' string
+    id ':' string
 ;
 
 id:
-   '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*
+    '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*
 ;
 
 string  :
-  '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
-  "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'"
+    '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
+    "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'"
 ;
 </code></pre>
 
