@@ -178,6 +178,15 @@
     </li>
   
 
+  
+    <li  >
+      
+        <a href="../../documentation/overview/getting-started.html">Getting Started</a>
+      
+
+    </li>
+  
+
 
       </ul>
     </li>
@@ -287,7 +296,7 @@
   
     <li  >
       
-        <a href="../../documentation/editors/mapping-model.html">Model Mapping</a>
+        <a href="../../documentation/editors/mapping-model.html">Mapping Models</a>
       
 
     </li>
@@ -686,16 +695,7 @@
   
     <li  >
       
-        <a href="../../documentation/tutorial/vortoin5minutes.html">Vorto in 5 Minutes</a>
-      
-
-    </li>
-  
-
-  
-    <li  >
-      
-        <a href="../../documentation/tutorial/mqttwithwebapp.html">Establish communication between Web app and Mqtt client </a>
+        <a href="../../documentation/tutorial/mqttwithwebapp.html">Visualize device data with Vorto</a>
       
 
     </li>
@@ -821,30 +821,60 @@
 					     <div class="span8 offset3">
                  <!--base to have relative path for offline navigation -->
 
-<h2 id="using-the-vorto-repository-web-interface">Using the Vorto Repository Web Interface</h2>
+<h2 id="getting-started">Getting Started</h2>
 
-<p><strong>Proceed as follows</strong></p>
+<p>This tutorial will show you how to start with <strong>Vorto</strong> with the least effort required.</p>
 
-<p>You can use the features of Vorto without installing anything by using the Vorto Repository Web interface (refer to <a href="../../documentation/vorto-repository/web-interface/login-register.html">Vorto Repository Web Interface</a>).</p>
+<p>In this tutorial, you will create a Web user interface for an information model.</p>
+
+<p><strong>Prerequisites</strong></p>
+
+<ul>
+  <li>You have installed Eclipse (refer to <a href="../../documentation/overview/system-requirements.html">System Requirements</a>).</li>
+  <li>You have installed the Vorto Toolset (refer to <a href="../../documentation/installation/installation.html">Installing the Vorto Toolset</a>).</li>
+  <li>You have started Eclipse.</li>
+</ul>
 
 <ol>
-  <li>In your browser, open the address <a href="http://vorto.eclipse.org"><code>http://vorto.eclipse.org</code></a>.<br />
-The Vorto Repository Web interface opens with the <strong>Search</strong> page.  </li>
-  <li>In the <strong>Search</strong> entry field, enter <code>TI_SensorTag</code> to find the <strong>TI_SensorTag</strong> information model.  </li>
-  <li>Click <strong>Search</strong>.<br />
-The model table is updated and the displays, maybe among others, the <strong>TI_SensorTag</strong> information model. 
-<img src="/img/tutorials/vortoin5minutes/search.png" alt="Search" /></li>
-  <li>Click the <strong>TI_SensorTag</strong> line.<br />
-The information page of the model opens with the active <strong>Model</strong> tab.<br />
-On the right hand side the <strong>Platform Generators</strong> available for this information model are displayed.</li>
-  <li>Click on the <strong>Web UI generator</strong>.<br />
-<img src="/img/tutorials/vortoin5minutes/generator.png" alt="Web UI Generator" /><br />
-The necessary files are generated in the Vorto Repository backend. After completion, the download of the generated files is initiated and the operating system’s file save dialog for the files to be downloaded opens.<br />
-<img src="/img/tutorials/vortoin5minutes/generator-output.png" alt="Generator Output" /></li>
-  <li>Save the files in a folder of your choice.</li>
+  <li>Start Eclipse.</li>
+  <li>In the main menu, click <strong>Window &gt; Perspective &gt; Open Perspective &gt; Other</strong>.<br />
+The <strong>Open Perspective</strong> dialog opens.</li>
+  <li>Select <strong>Vorto</strong> and click <strong>OK</strong>.
+The Vorto Perspective opens.<br />
+<img src="/img/tutorials/vortoin5minutes/open-perspective.png" alt="Vorto Perspective" /></li>
+  <li>In the Model Repository view, search for the information model <strong>TI_SensorTag</strong> (the information model you want to generate the code from) by entering the string <code>TI_SensorTag</code> in the <strong>Search</strong> entry field and clicking the <strong>Search</strong> button.</li>
+  <li>Select the information model <strong>TI_SensorTag</strong>, right-click and choose <strong>Generate code</strong> from the context menu.<br />
+<img src="../../img/documentation/vorto_repository_generate_code_eclipse.png" alt="Generate Code Eclipse" /><br />
+The <strong>Generator Overview</strong> dialog opens.<br />
+<img src="../../img/documentation/vorto_repository_generate_code_eclipse_dialog.png" alt="Generate Code Eclipse Dialog" /></li>
+  <li>Choose the <strong>Web UI</strong> code generator for generating the souce code for the Web user interface and click the <strong>Generate</strong> button.<br />
+The code is generated.</li>
+  <li>Select the Java perspective to check the generated code.<br />
+The following Java projects have been generated:<br />
+    <ul>
+      <li><code>java.example.model</code> (Java beans for the selected information model)</li>
+      <li><code>webdevice.example</code> (Web UI for the selected information model)  </li>
+    </ul>
+
+    <p><img src="/img/tutorials/vortoin5minutes/generated-projects.png" alt="Generated Projects" /></p>
+  </li>
+  <li>Select both projects, right-click and choose <strong>Maven &gt; Update Project…</strong> from the context menu.
+<img src="/img/tutorials/vortoin5minutes/update-maven-projects-dialog.png" alt="Update Maven Projects Dialog" /></li>
+  <li>Click <strong>OK</strong>.<br />
+Maven updates the projects.</li>
+  <li>Select the project <code>webdevice.example</code>, right-click  and choose <strong>Run As &gt; Java Application</strong> from the context menu.</li>
+  <li>In the <strong>Select type</strong> entry field, enter <code>Application</code> to filter for applications.<br />
+   <img src="/img/tutorials/vortoin5minutes/select-java-application-dialog.png" alt="Select Java Application Dialog" /></li>
+  <li>Select the <code>Application - webdevice.example</code> line and click <strong>OK</strong>.<br />
+   The Web application starts.</li>
+  <li>In the address bar of your browser, enter localhost:8080/webdevice.<br />
+   The Web UI opens.
+   <img src="/img/tutorials/vortoin5minutes/web-ui.png" alt="Web UI" width="900px" /></li>
 </ol>
 
-<p>Voila! You just created an AngularJS-based web application with REST controllers for the information model.</p>
+<p>Congratulations! You have just created a Web application with the least effort with the magic of Vorto.</p>
+
+<p><strong>Next: Why not try defining your own information models? :D</strong></p>
 
                 </div>
              </div>
