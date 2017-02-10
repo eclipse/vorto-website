@@ -13,6 +13,7 @@
 
 
 
+
  
   <title>Eclipse Vorto - IoT Toolset for standardized device descriptions</title>
 
@@ -42,6 +43,7 @@
     <!--Header section Site navigation -->
 
 <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -123,6 +125,7 @@
 
 
 
+
  
 
   
@@ -131,6 +134,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -199,6 +203,7 @@
 
 
 
+
  
 
   
@@ -230,6 +235,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -279,6 +285,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -343,6 +350,7 @@
 
 
 
+
  
 
   
@@ -374,6 +382,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -451,6 +460,7 @@
 
 
 
+
  
 
   
@@ -468,6 +478,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -563,6 +574,7 @@
 
 
 
+
  
 
   
@@ -612,6 +624,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -676,6 +689,7 @@
 
 
 
+
  
 
   
@@ -698,6 +712,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -738,6 +753,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -805,35 +821,32 @@
 					     <div class="span8 offset3">
                  <!--base to have relative path for offline navigation -->
 
-<p>##Configuring the Vorto CLI Tool</p>
+<h2 id="configuring-the-vorto-cli-tool">Configuring the Vorto CLI Tool</h2>
 
-<p>Before you can use the CLI Tool as a REST Client, you need to initialize basic preferences. By default the preferences are stored in the file <code class="highlighter-rouge">.vortocli.yaml.file</code>, which is located in your home directory.</p>
+<p>Before you can use the CLI Tool as a REST Client, you need to initialize basic preferences. By default the preferences are stored in the file <code>.vortocli.yaml.file</code>, which is located in your home directory.</p>
 
 <p>For Windows,</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>C:\Users\{$username}\.vortocli.yaml.file
+<pre><code>C:\Users\{$username}\.vortocli.yaml.file
 </code></pre>
-</div>
 
-<p>For Mac,</p>
+<p>For Mac,  </p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>/Users/{$username}/Documents/.vortocli.yaml.file
+<pre><code>/Users/{$username}/Documents/.vortocli.yaml.file
 </code></pre>
-</div>
 
-<p>For Linux,</p>
+<p>For Linux, </p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>/usr/{$username}/Documents/.vortocli.yaml.file
+<pre><code>/usr/{$username}/Documents/.vortocli.yaml.file
 </code></pre>
-</div>
 
 <p>You have to setup the CLI Tool in one of the following ways:</p>
 
 <ul>
-  <li>Use the <code class="highlighter-rouge">vorto config</code> command.<br />
-To initialize vorto with additional values (or change them afterwards) like username, password, proxy or repository, use the command flags <code class="highlighter-rouge">-username</code>, <code class="highlighter-rouge">-password</code>, <code class="highlighter-rouge">-proxy</code> or <code class="highlighter-rouge">-repo</code>.<br />
-Example: <code class="highlighter-rouge">vorto config -username &lt;username&gt; -password &lt;password&gt; -repo http://vorto.eclipse.org</code></li>
-  <li>Edit the <code class="highlighter-rouge">.vortocli.yaml</code> file with a text editor.<br />
+  <li>Use the <code>vorto config</code> command.<br />
+To initialize vorto with additional values (or change them afterwards) like username, password, proxy or repository, use the command flags <code>-username</code>, <code>-password</code>, <code>-proxy</code> or <code>-repo</code>.<br />
+Example: <code>vorto config -username &lt;username&gt; -password &lt;password&gt; -repo http://vorto.eclipse.org</code></li>
+  <li>Edit the <code>.vortocli.yaml</code> file with a text editor.<br />
 <img src="../../../img/documentation/yamlfile.jpg" alt="CLI Yaml file" /></li>
 </ul>
 
