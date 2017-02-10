@@ -13,7 +13,6 @@
 
 
 
-
  
   <title>Eclipse Vorto - IoT Toolset for standardized device descriptions</title>
 
@@ -43,7 +42,6 @@
     <!--Header section Site navigation -->
 
 <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -125,7 +123,6 @@
 
 
 
-
  
 
   
@@ -134,7 +131,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -203,7 +199,6 @@
 
 
 
-
  
 
   
@@ -235,7 +230,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -285,7 +279,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -350,7 +343,6 @@
 
 
 
-
  
 
   
@@ -382,7 +374,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -460,7 +451,6 @@
 
 
 
-
  
 
   
@@ -478,7 +468,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -574,7 +563,6 @@
 
 
 
-
  
 
   
@@ -624,7 +612,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -689,7 +676,6 @@
 
 
 
-
  
 
   
@@ -712,7 +698,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -753,7 +738,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -825,9 +809,9 @@
 
 <p>This section details the following topics:</p>
 
-<p><a href="#overview">Overview</a>  </p>
+<p><a href="#overview">Overview</a></p>
 
-<p><a href="#use-cases">Use Cases</a>  </p>
+<p><a href="#use-cases">Use Cases</a></p>
 
 <p><a href="#defining-mapping-models">Defining Mapping Models</a></p>
 
@@ -858,25 +842,26 @@
 <ul>
   <li><a href="./data-type-mapping.html">Datatypes</a></li>
   <li><a href="./function-block-mapping.html">Function Blocks</a></li>
-  <li><a href="./information-model-mapping.html">Information Models</a>   </li>
+  <li><a href="./information-model-mapping.html">Information Models</a></li>
 </ul>
 
 <h2 id="features">Features</h2>
 
-<p>The model mapping contains a direct mapping of Vorto grammar descriptions to custom defined <code>Stereotypes</code> and <code>Attributes</code> specific for the target platform.</p>
+<p>The model mapping contains a direct mapping of Vorto grammar descriptions to custom defined <code class="highlighter-rouge">Stereotypes</code> and <code class="highlighter-rouge">Attributes</code> specific for the target platform.</p>
 
-<p><code>Stereotypes</code> are custom defined keywords which are leveraged by target platform generators.</p>
+<p><code class="highlighter-rouge">Stereotypes</code> are custom defined keywords which are leveraged by target platform generators.</p>
 
-<p><code>Attributes</code> are custom defined key value pairs for a specific stereotype which is again leveraged by specific target platform generators.</p>
+<p><code class="highlighter-rouge">Attributes</code> are custom defined key value pairs for a specific stereotype which is again leveraged by specific target platform generators.</p>
 
 <p>A simple model mapping statement from Vorto to Philips Hue looks likes below</p>
 
-<pre><code>...
+<div class="highlighter-rouge"><pre class="highlight"><code>...
 from ColorLight.category to philipshue with {configuration : "devicetype"}
 ...
 </code></pre>
+</div>
 
-<p>In the above mapping <code>philipshue</code> is a custom defined stereotype, <code>configuration</code> is a custom defined attribute and the value <code>devicetype</code> is the actual value which is being mapped to Philips Hue definitions. The code generators can make use of these additional metadata which could be targeted for specific IoT solutions or platforms.</p>
+<p>In the above mapping <code class="highlighter-rouge">philipshue</code> is a custom defined stereotype, <code class="highlighter-rouge">configuration</code> is a custom defined attribute and the value <code class="highlighter-rouge">devicetype</code> is the actual value which is being mapped to Philips Hue definitions. The code generators can make use of these additional metadata which could be targeted for specific IoT solutions or platforms.</p>
 
 <h2 id="illustration">Illustration</h2>
 
@@ -884,9 +869,9 @@ from ColorLight.category to philipshue with {configuration : "devicetype"}
 
 <p>The following two examples definitions are given:</p>
 
-<p><code>ColorLight</code> functionblock definition</p>
+<p><code class="highlighter-rouge">ColorLight</code> functionblock definition</p>
 
-<pre><code>namespace com.mycompany.fb
+<div class="highlighter-rouge"><pre class="highlight"><code>namespace com.mycompany.fb
 version 1.0.0
 displayname "ColorLight"
 description "Function block model for ColorLight"
@@ -900,10 +885,11 @@ functionblock ColorLight {
 	}
 }
 </code></pre>
+</div>
 
-<p><code>ColorLightSystem</code> information model definition</p>
+<p><code class="highlighter-rouge">ColorLightSystem</code> information model definition</p>
 
-<pre><code>namespace com.mycompany.informationmodels
+<div class="highlighter-rouge"><pre class="highlight"><code>namespace com.mycompany.informationmodels
 version 1.0.0
 displayname "ColorLightSystem"
 description "Information model for ColorLightSystem"
@@ -918,21 +904,23 @@ infomodel ColorLightSystem {
 	}
 }
 </code></pre>
+</div>
 
 <p><img src="../../img/documentation/vorto_aws_without_mapping.png" alt="Colorlight Without Mapping" /></p>
 
-<p>By invoking the <em>AWS Generator</em> without any model mapping from Vorto Repository, it generates the following <em>Alexa</em> voice command vocabulary in the <code>colorlightsystemUtterances.txt</code> file.</p>
+<p>By invoking the <em>AWS Generator</em> without any model mapping from Vorto Repository, it generates the following <em>Alexa</em> voice command vocabulary in the <code class="highlighter-rouge">colorlightsystemUtterances.txt</code> file.</p>
 
-<pre><code>setBrightness {level}
+<div class="highlighter-rouge"><pre class="highlight"><code>setBrightness {level}
 
 brightness get brightness status
 </code></pre>
+</div>
 
 <p>These voice commands are provided as an input to the AWS service to set the appropriate brightness level to any device. The details of how the AWS services control the actual devices are beyond the scope of this documentation.</p>
 
-<p>Now we define a model mapping <code>ColorLightMapping</code> to enhance the <em>Alexa</em> voice commands vocabulary for the <code>ColorLight</code> functionblock. Thereby, more voice commands are recognized by AWS services to control the actual devices.</p>
+<p>Now we define a model mapping <code class="highlighter-rouge">ColorLightMapping</code> to enhance the <em>Alexa</em> voice commands vocabulary for the <code class="highlighter-rouge">ColorLight</code> functionblock. Thereby, more voice commands are recognized by AWS services to control the actual devices.</p>
 
-<pre><code>namespace examples.mappings.aws
+<div class="highlighter-rouge"><pre class="highlight"><code>namespace examples.mappings.aws
 version 1.0.0
 displayname "Color Light AWS Mapping"
 description "Maps Color Light functionblock to AWS services"
@@ -942,12 +930,13 @@ functionblockmapping ColorLightMapping {
 	from ColorLight.operation.setBrightness to alexa with {command: "set brightness to {level} ; increase brightness to {level} ; decrease brightness to {level}"}
 }
 </code></pre>
+</div>
 
 <p><img src="../../img/documentation/vorto_aws_with_mapping.png" alt="Colorlight With Mapping" /></p>
 
-<p>In the above mapping, the <em>Alexa</em> voice command is enhanced by  additional commands with <code>increase</code> and <code>decrease</code> to control the <code>ColorLight</code>. Here, <code>alexa</code> is a custom defined <code>Stereotypes</code> keyword which the <em>AWS Generator</em> interprets and makes use of the additional values defined in the model mapping. Again, <code>command</code> is a custom defined <code>Attribute</code> keyword which the <em>AWS generator</em> can understand. </p>
+<p>In the above mapping, the <em>Alexa</em> voice command is enhanced by  additional commands with <code class="highlighter-rouge">increase</code> and <code class="highlighter-rouge">decrease</code> to control the <code class="highlighter-rouge">ColorLight</code>. Here, <code class="highlighter-rouge">alexa</code> is a custom defined <code class="highlighter-rouge">Stereotypes</code> keyword which the <em>AWS Generator</em> interprets and makes use of the additional values defined in the model mapping. Again, <code class="highlighter-rouge">command</code> is a custom defined <code class="highlighter-rouge">Attribute</code> keyword which the <em>AWS generator</em> can understand.</p>
 
-<p>Once this model mapping <code>ColorLightMapping</code> is defined, it can be shared using the Vorto Repository Web interface page:</p>
+<p>Once this model mapping <code class="highlighter-rouge">ColorLightMapping</code> is defined, it can be shared using the Vorto Repository Web interface page:</p>
 
 <p><img src="../../img/documentation/vorto_share_mapping_model.png" alt="Share Model Mapping" /></p>
 
@@ -959,18 +948,19 @@ functionblockmapping ColorLightMapping {
   </tr></tbody>
 </table>
 
-<p>With this model mapping the <em>AWS Generator</em> generates the file <code>colorlightsystemUtterances.txt</code> with the following content:</p>
+<p>With this model mapping the <em>AWS Generator</em> generates the file <code class="highlighter-rouge">colorlightsystemUtterances.txt</code> with the following content:</p>
 
-<pre><code>setBrightness set brightness to {level} 
+<div class="highlighter-rouge"><pre class="highlight"><code>setBrightness set brightness to {level} 
 setBrightness  increase brightness to {level} 
 setBrightness  decrease brightness to {level}
 
 brightness get brightness status   
 </code></pre>
+</div>
 
 <p>As you can see, the Vorto model mapping definition greatly enhances the capabilities of any platform, in this case the AWS Alexa platform.</p>
 
-<div class="thumb1">
+<div class="thumb5">
 <a title="Defining a new Mapping" data-rel="prettyPhoto" href="https://youtu.be/C5c5tTFwG0U&amp;width=1500&amp;height=1000" rel="prettyPhoto">
 <img src="../../img/documentation/defineinfomap.jpg" class="box-img img-responsive zoom1" />
 <i class="fa fa-play-circle fa-5 play-icon"></i>

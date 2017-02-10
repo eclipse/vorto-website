@@ -13,7 +13,6 @@
 
 
 
-
  
   <title>Eclipse Vorto - IoT Toolset for standardized device descriptions</title>
 
@@ -43,7 +42,6 @@
     <!--Header section Site navigation -->
 
 <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -125,7 +123,6 @@
 
 
 
-
  
 
   
@@ -134,7 +131,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -203,7 +199,6 @@
 
 
 
-
  
 
   
@@ -235,7 +230,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -285,7 +279,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -350,7 +343,6 @@
 
 
 
-
  
 
   
@@ -382,7 +374,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -460,7 +451,6 @@
 
 
 
-
  
 
   
@@ -478,7 +468,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -574,7 +563,6 @@
 
 
 
-
  
 
   
@@ -624,7 +612,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -689,7 +676,6 @@
 
 
 
-
  
 
   
@@ -712,7 +698,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -753,7 +738,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -833,7 +817,7 @@
 
 <p>The following code represents the Data Type Model DSL syntax.</p>
 
-<pre><code>model:entity | enumeration;
+<div class="highlighter-rouge"><pre class="highlight"><code>model:entity | enumeration;
 
 modelReference: 'using' qualifiedName ';' version;
 
@@ -917,6 +901,7 @@ float: int('.'int)?;
 
 version: int('.' int)*('-'id)?;
 </code></pre>
+</div>
 
 <h2 id="the-datatype-dsl">The Datatype DSL</h2>
 
@@ -926,10 +911,10 @@ version: int('.' int)*('-'id)?;
 
 <h3 id="entity">Entity</h3>
 
-<p>An Entity consist of </p>
+<p>An Entity consist of</p>
 
 <ul>
-  <li>General metadata parameters (<code>namespace, version, displayname, description, category</code>).</li>
+  <li>General metadata parameters (<code class="highlighter-rouge">namespace, version, displayname, description, category</code>).</li>
   <li>Optional references to other entities or enums</li>
   <li>And a list of <a href="#properties"><strong>Properties</strong></a></li>
 </ul>
@@ -1003,22 +988,23 @@ version: int('.' int)*('-'id)?;
 
 <p><strong>Example</strong></p>
 
-<pre><code>entity Color {  
+<div class="highlighter-rouge"><pre class="highlight"><code>entity Color {  
   mandatory red as int &lt;MIN 0, MAX 255&gt; "The red component of a color"  
   mandatory green as int &lt;MIN 0, MAX 255&gt; "The green component of a color"    
   mandatory blue as int &lt;MIN 0, MAX 255&gt; "The blue component of a color"  
 }
 </code></pre>
+</div>
 
 <h4 id="properties">Properties</h4>
 
-<p>A property consist of </p>
+<p>A property consist of</p>
 
 <ul>
-  <li>An optional <em>presence</em> indicator which can either be <code>mandatory</code> or <code>optional</code></li>
-  <li>An optional <code>multiple</code> which indicates if the property is an array</li>
+  <li>An optional <em>presence</em> indicator which can either be <code class="highlighter-rouge">mandatory</code> or <code class="highlighter-rouge">optional</code></li>
+  <li>An optional <code class="highlighter-rouge">multiple</code> which indicates if the property is an array</li>
   <li>A required <em>name</em> as a string and a required <em>type</em> which can either be a <a href="#primitive-types"><strong>Primitive</strong></a> type,
-another <a href="#entity"><strong>Entity</strong></a>, or a <a href="#dictionary"><strong>Dictionary</strong></a>. Both are bridged by the keyword <code>as</code>.</li>
+another <a href="#entity"><strong>Entity</strong></a>, or a <a href="#dictionary"><strong>Dictionary</strong></a>. Both are bridged by the keyword <code class="highlighter-rouge">as</code>.</li>
   <li>An optional <a href="#attributes"><strong>Attributes</strong></a> (measurementUnit, readable, writable, eventable)</li>
   <li>An optional <a href="#constraints"><strong>Constraint</strong></a> (MIN, MAX, STRLEN, REGEX)</li>
   <li>An optional <em>Description</em>, a string which can be used to document the property.</li>
@@ -1026,39 +1012,40 @@ another <a href="#entity"><strong>Entity</strong></a>, or a <a href="#dictionary
 
 <p><strong>Example</strong></p>
 
-<pre><code>isAlive as boolean
+<div class="highlighter-rouge"><pre class="highlight"><code>isAlive as boolean
 
 mandatory multiple lidarMeasurements as float "The measurements of the LIDAR in one scan"
 
 optional engineTemperature as float with { measurementUnit: Temperature.Celsius } &lt;MIN 0, MAX 3000&gt; "The engine temperature"
 </code></pre>
+</div>
 
 <h4 id="primitive-types">Primitive Types</h4>
 
 <p>The following are the primitive types supported in Vorto</p>
 
 <ul>
-  <li><code>string</code></li>
-  <li><code>int</code></li>
-  <li><code>float</code></li>
-  <li><code>boolean</code></li>
-  <li><code>dateTime</code></li>
-  <li><code>double</code></li>
-  <li><code>long</code></li>
-  <li><code>short</code></li>
-  <li><code>base64Binary</code></li>
-  <li><code>byte</code></li>
+  <li><code class="highlighter-rouge">string</code></li>
+  <li><code class="highlighter-rouge">int</code></li>
+  <li><code class="highlighter-rouge">float</code></li>
+  <li><code class="highlighter-rouge">boolean</code></li>
+  <li><code class="highlighter-rouge">dateTime</code></li>
+  <li><code class="highlighter-rouge">double</code></li>
+  <li><code class="highlighter-rouge">long</code></li>
+  <li><code class="highlighter-rouge">short</code></li>
+  <li><code class="highlighter-rouge">base64Binary</code></li>
+  <li><code class="highlighter-rouge">byte</code></li>
 </ul>
 
 <h4 id="dictionary">Dictionary</h4>
 
-<p>A <em>Dictionary</em> is a type that contains a <em>Key</em> and a <em>Value</em>. It is declared with the keyword <code>Dictionary</code>
-followed by an optional bracket (<code>[ .. ]</code>) if you wish to indicate the <em>type</em> of its <em>key</em> and <em>value</em>. The <em>type</em> can
+<p>A <em>Dictionary</em> is a type that contains a <em>Key</em> and a <em>Value</em>. It is declared with the keyword <code class="highlighter-rouge">Dictionary</code>
+followed by an optional bracket (<code class="highlighter-rouge">[ .. ]</code>) if you wish to indicate the <em>type</em> of its <em>key</em> and <em>value</em>. The <em>type</em> can
 be a <em>primitive</em> type, an <em>Entity</em> type, an <em>Enum</em> or another <em>Dictionary</em>.</p>
 
 <p><strong>Example</strong></p>
 
-<pre><code>mandatory lookupTable as Dictionary[string, Color] "Lookup table conversion for color"
+<div class="highlighter-rouge"><pre class="highlight"><code>mandatory lookupTable as Dictionary[string, Color] "Lookup table conversion for color"
 
 mandatory lookupRGBTable as Dictionary[Color, RGB] "Lookup table conversion for color from description to RGB"
 
@@ -1066,44 +1053,47 @@ mandatory temperatureLabelConversion as Dictionary[int, string] "map of temperat
 
 mandatory noKeyAndValueTypeMap as Dictionary "example of a map with no key and value types"
 </code></pre>
+</div>
 
 <h4 id="attributes">Attributes</h4>
 
-<p>An attribute can be added by the keyword <code>with</code> followed by the attributes in between <em>curly</em> (<code>{ .. }</code>) braces. As of now,
+<p>An attribute can be added by the keyword <code class="highlighter-rouge">with</code> followed by the attributes in between <em>curly</em> (<code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">..</span><span class="w"> </span><span class="p">}</span></code>) braces. As of now,
 the following attributes are supported</p>
 
 <ul>
-  <li><code>measurementUnit</code> - Indicates a measurement unit of the property. It is an <em>Enum</em> value. For example, if the property is a temperature, the measurementUnit could be <em>Temperature.celsius</em> declared in the <em>Temperature</em> enumeration.</li>
-  <li><code>readable</code> - Indicates if the property could be read.</li>
-  <li><code>writable</code> - Indicates if the property could be written to.</li>
-  <li><code>eventable</code> - Indicates if the property generates events.</li>
+  <li><code class="highlighter-rouge">measurementUnit</code> - Indicates a measurement unit of the property. It is an <em>Enum</em> value. For example, if the property is a temperature, the measurementUnit could be <em>Temperature.celsius</em> declared in the <em>Temperature</em> enumeration.</li>
+  <li><code class="highlighter-rouge">readable</code> - Indicates if the property could be read.</li>
+  <li><code class="highlighter-rouge">writable</code> - Indicates if the property could be written to.</li>
+  <li><code class="highlighter-rouge">eventable</code> - Indicates if the property generates events.</li>
 </ul>
 
 <p><strong>Example</strong></p>
 
-<pre><code>mandatory engineTemperature as float 
+<div class="highlighter-rouge"><pre class="highlight"><code>mandatory engineTemperature as float 
   with { measurementUnit: Temperature.Celsius, readable: true, writable: true, eventable: false } 
   "The engine temperature"
 </code></pre>
+</div>
 
 <h4 id="constraints">Constraints</h4>
 
-<p>A <em>constraint</em> can be added by putting it in between <code>&lt;</code> and <code>&gt;</code> symbols and consist of the constraint name (e.g `MIN’) and
+<p>A <em>constraint</em> can be added by putting it in between <code class="highlighter-rouge">&lt;</code> and <code class="highlighter-rouge">&gt;</code> symbols and consist of the constraint name (e.g `MIN’) and
 the value of that constraint.</p>
 
 <p>The following constraints are supported</p>
 
 <ul>
-  <li><code>MIN</code> </li>
-  <li><code>MAX</code> </li>
-  <li><code>STRLEN</code></li>
-  <li><code>REGEX</code></li>
+  <li><code class="highlighter-rouge">MIN</code></li>
+  <li><code class="highlighter-rouge">MAX</code></li>
+  <li><code class="highlighter-rouge">STRLEN</code></li>
+  <li><code class="highlighter-rouge">REGEX</code></li>
 </ul>
 
 <p><strong>Example</strong></p>
 
-<pre><code>mandatory red as int &lt;MIN 0, MAX 255&gt; "The red component of a color"    
+<div class="highlighter-rouge"><pre class="highlight"><code>mandatory red as int &lt;MIN 0, MAX 255&gt; "The red component of a color"    
 </code></pre>
+</div>
 
 <h3 id="enum">Enum</h3>
 
@@ -1154,7 +1144,7 @@ the value of that constraint.</p>
 
 <p><strong>Example</strong></p>
 
-<pre><code>// definition of an enum type
+<div class="highlighter-rouge"><pre class="highlight"><code>// definition of an enum type
 enum Gender{
   Male, Female, NA
 }
@@ -1162,16 +1152,17 @@ enum Gender{
 // usage as a field
 mandatory sex as Gender
 </code></pre>
+</div>
 
 <table class="table table-bordered">
 	<tbody>
   <tr>
-    <td><i class="fa fa-info-circle info-note">
-    <td>To find out more about which language elements are available when writing a data type DSL, have a look at the respective DSL Reference. 
+    <td><i class="fa fa-info-circle info-note">&lt;/td&gt;
+    <td>To find out more about which language elements are available when writing a data type DSL, have a look at the respective DSL Reference. &lt;/br&gt;
     Use the keyboard shortcut <span style="font-variant:small-caps;">Ctrl + Space</span> to get a list of available DSL elements, that can be applied in the current scope you are in.</td>
-  
-	
-
+  &lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
 </i></td></tr></tbody></table>
 
                 </div>

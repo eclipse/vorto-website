@@ -13,7 +13,6 @@
 
 
 
-
  
   <title>Eclipse Vorto - IoT Toolset for standardized device descriptions</title>
 
@@ -43,7 +42,6 @@
     <!--Header section Site navigation -->
 
 <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -125,7 +123,6 @@
 
 
 
-
  
 
   
@@ -134,7 +131,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -203,7 +199,6 @@
 
 
 
-
  
 
   
@@ -235,7 +230,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -285,7 +279,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -350,7 +343,6 @@
 
 
 
-
  
 
   
@@ -382,7 +374,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -460,7 +451,6 @@
 
 
 
-
  
 
   
@@ -478,7 +468,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -574,7 +563,6 @@
 
 
 
-
  
 
   
@@ -624,7 +612,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -689,7 +676,6 @@
 
 
 
-
  
 
   
@@ -712,7 +698,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -753,7 +738,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -825,9 +809,9 @@
 
 <p>This section details the following topics:</p>
 
-<p><a href="#function-blocks">Function Blocks</a>  </p>
+<p><a href="#function-blocks">Function Blocks</a></p>
 
-<p><a href="#creating-a-new-function-block">Creating a New Function Block</a>  </p>
+<p><a href="#creating-a-new-function-block">Creating a New Function Block</a></p>
 
 <p><a href="#editing-a-function-block">Editing a Function Block</a></p>
 
@@ -835,7 +819,7 @@
 
 <p>A function block provides an abstract view on a device to applications that want to employ the devices’ functionality. Thus, it is a consistent, self-contained set of (potentially re-usable) properties and capabilities.</p>
 
-<div class="thumb1">
+<div class="thumb5">
 <a title="Defining a Function Block" data-rel="prettyPhoto" href="https://youtu.be/bcmXZN3IPmI&amp;width=1500&amp;height=1000" rel="prettyPhoto">
 <img src="../../img/documentation/definefb.jpg" class="box-img img-responsive zoom1" />
 <i class="fa fa-play-circle fa-5 play-icon"></i>
@@ -847,12 +831,12 @@
 <p>A function block definition is typically structured as follows:</p>
 
 <ul>
-  <li><strong>Properties</strong><br />
+  <li><strong>Properties</strong>
     <ul>
-      <li>Status  </li>
-      <li>Configuration  </li>
-      <li>Fault  </li>
-      <li>Events  </li>
+      <li>Status</li>
+      <li>Configuration</li>
+      <li>Fault</li>
+      <li>Events</li>
     </ul>
   </li>
   <li><strong>Services</strong> - they represent the functional operations offered by the device.</li>
@@ -860,10 +844,10 @@
 
 <h2 id="creating-a-new-function-block">Creating a New Function Block</h2>
 
-<p><strong>Prerequisites</strong>  </p>
+<p><strong>Prerequisites</strong></p>
 
 <ul>
-  <li>You have started your IDE.  </li>
+  <li>You have started your IDE.</li>
   <li>You have selected the the Vorto perspective.</li>
   <li>You have created a project (refer to <a href="../../documentation/editors/project.html">Defining Projects</a>)</li>
 </ul>
@@ -872,15 +856,15 @@
 
 <ol>
   <li>In the <strong>Vorto Model Project Browser</strong>, select the project in the <strong>Select Vorto Project</strong> drop-down list.<br />
-<img src="../../img/documentation/vorto_select_vorto_project.png" alt="Select a Project" />  </li>
+<img src="../../img/documentation/vorto_select_vorto_project.png" alt="Select a Project" /></li>
   <li>Right-click in the <strong>Functionblocks</strong> area and choose <strong>New Functionblock</strong> from the context menu.<br />
    The <strong>Create Function Block Model</strong> dialog opens.<br />
    <img src="../../img/documentation/m2m_tc_create_function_block_designer_dialog_2.png" alt="Creating function block designer dialog" /></li>
-  <li>Enter a name as <strong>Function Block Name</strong>, for example, <code>ColorLight</code>.  </li>
+  <li>Enter a name as <strong>Function Block Name</strong>, for example, <code class="highlighter-rouge">ColorLight</code>.</li>
   <li>Adjust the entries for the input fields <strong>Namespace</strong> and <strong>Version</strong>, if necessary.</li>
   <li>Optionally, enter a description in the <strong>Description</strong> entry field.</li>
   <li>Click <strong>Finish</strong>.<br />
-The new function block (<code>ColorLight</code>) is created. Furthermore, the function block DSL source file (<code>.fbmodel</code>) is generated and displayed in the model editor. The file contains a complete structure according to the DSL syntax with the values given in the preceding steps.<br />
+The new function block (<code class="highlighter-rouge">ColorLight</code>) is created. Furthermore, the function block DSL source file (<code class="highlighter-rouge">.fbmodel</code>) is generated and displayed in the model editor. The file contains a complete structure according to the DSL syntax with the values given in the preceding steps.<br />
 <img src="../../img/documentation/m2m_tc_create_function_block_generated_source_1.png" alt="Generated source" /></li>
 </ol>
 
@@ -896,7 +880,7 @@ The new function block (<code>ColorLight</code>) is created. Furthermore, the fu
 
 <p><strong>Example</strong></p>
 
-<pre><code>namespace com.mycompany.fb
+<div class="highlighter-rouge"><pre class="highlight"><code>namespace com.mycompany.fb
 version 1.0.0
 displayname "ColorLight"
 description "A light makes the environment bright and colorful"
@@ -921,6 +905,7 @@ functionblock ColorLight {
 
 }
 </code></pre>
+</div>
 
                 </div>
              </div>
