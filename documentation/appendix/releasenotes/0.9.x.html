@@ -849,139 +849,47 @@
 					     <div class="span8 offset3">
                  <!--base to have relative path for offline navigation -->
 
-<h2 id="vorto-cli-tool-command-summary">Vorto CLI Tool Command Summary</h2>
+<h2 id="release-notes---09x">Release Notes - 0.9.x</h2>
 
-<p>The Vorto CLI Tool provides a scope of different Vorto Commands to interact with your specified Repository. 
-Each of them offers a unique functionality and is based on the following syntax:</p>
+<p>We are proud to announce the the release of 0.9. 
+It comprises the following feature highlights:</p>
 
-<pre><code>vorto [command] [-flag1 parameter1 -flag2 parameter2 ... ]
-</code></pre>
+<ul>
+  <li><strong>Eclipse IoT Toolset</strong> that lets you describe the characteristics and functionalities of devices as Information Models</li>
+  <li><strong>Information Model Repository</strong>, acting as a device description dictionary to lookup and find device cababilities by various criteria</li>
+  <li><strong>Generator API</strong> that lets you define the translation rules from Information Models into executable, IoT platform specific source code</li>
+  <li>Many <strong>Example Code Generators</strong> to inspire you to build your own generator as well as illustrate the usage to build an IoT Application.</li>
+  <li><strong>Command Line Interface</strong> that lets you lookup, find and publish information models as well as generate code for a selected IoT platform</li>
+</ul>
 
-<table class="table table-bordered">
-  <thead>
-  <tr>
-    <th>Command</th>
-    <th>Description</th>
-    <th>Example</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td><code>vorto config</code></td>
-    <td>With the vorto config command you do the basic CLI Tool setup.<br />Additional flag parameters:<br />
-      <ul>
-        <li><code>username</code><br />
-          Vorto Repository username credentials</li>
-        <li><code>password</code><br />
-          Vorto Repository password credentials</li>
-        <li><code>proxy</code><br />
-          network proxy</li>
-        <li><code>repo</code><br />
-          Vorto repository URL (default: <code>http://vorto.eclipse.org</code>)</li>
-      </ul>
-    </td>
-    <td>
-      For (Windows/Mac/Linux),<br />
-      <p><code>vorto config -username vortouser -password password -repo http://vorto.eclipse.org</code></p>
-    </td>
-  </tr>
-  <tr>
-    <td><code>vorto help</code></td>
-    <td>To get more familiar with the CLI Tool commands, it's a good approach to call the <code>vorto help</code> command.<br /><code>vorto help</code> lists you all other possible commands, including flag parameters and examples.</td>
-    <td>For (Windows/Mac/Linux),<br />
-      <p><code>vorto help</code>&lt;/b&gt;
-    &lt;/td&gt;
-  &lt;/tr&gt;
-  <tr>
-    <td><code>vorto query</code></td>
-    <td>After everything is successfully setup, you are able to access the Repository.<br /> Via <code>vorto query</code> you can query models of your Repository.
-    </td>
-    <td>
-      For (Windows/Mac/Linux),<br /><br />
-      Query all models of your Repository:<br />
-      <code>vorto query "*"</code><br /><br />
-      Query all models containing the string <code>"functionblocks"</code>:<br />
-      <code>vorto query "*functionblocks*"</code></td>
-   </tr>
-    <tr>
-    <td><code>vorto info</code></td>
-    <td>If you are now interested in a certain model and you want to get more information from this specific model, you can use <code>vorto info</code> to get it.<br />
-    The result of this command is a detailed view of the requested model.</td>
-    <td>
-      For (Windows/Mac/Linux),<br />
-      <code>vorto info examples.informationmodels.TI_SensorTag:1.0.0</code></td>
-   </tr>
-   <tr>
-    <td><code>vorto download</code></td>
-    <td>Furthermore you can start working with a certain model locally, when you download it via <code>vorto download</code>.<br />
-    To open and to work with it, you can use any text editor to modify this certain model and you can even upload it again.<br />
-    Via the flag <code>-outputPath</code> you can specify a download directory.<br />
-    Additional flag parameters:<br />
-    <ul>
-      <li><code>output</code><br />
-        output format (default: <code>DSL</code>)</li>
-      <li><code>outputPath</code><br />
-        path to store the download (default: current directory)</li>
-      <li><code>includeDependencies</code><br />
-        whether to include dependencies or not (default: <code>false</code>)</li>
-    </ul>
-    </td>
-    <td>
-      For Windows,<br />
-      <code>vorto download examples.informationmodels.TI_SensorTag:1.0.0  -outputPath D:\models</code><br /><br />
-      For Mac/Linux,<br />
-      <code>vorto download examples.informationmodels.TI_SensorTag:1.0.0  -outputPath /Users/{$username}/Documents/models/</code>
-    </td>
-  </tr>
-  <tr>
-    <td><code>vorto generators</code></td>
-    <td>If you want to generate platform specific code, you can get a short overview of all active code generators via <code>vorto generators</code>.
-    </td>
-    <td>
-	For (Windows/Mac/Linux),<br />
-	<code>vorto generators</code>
-    </td>
-  </tr>
-  <tr>
-    <td><code>vorto generate</code></td>
-    <td>Afterwards you can generate <code>vorto generate</code> your platform specific code (specified by <code>-generatorKey</code>) in a very convenient way.<br />
-    Additional flag parameters:<br />
-    <ul>
-      <li><code>generatorKey</code></li>
-      <li><code>outputPath</code></li>
-    </ul>
-    </td>
-    <td>
-	For Windows, <br />	
-	<code>vorto generate examples.informationmodels.TI_SensorTag:1.0.0 -generatorKey mqtt -outputPath D:\models</code><br /><br />
-	For Mac/Linux,<br />
-	<code>vorto generate examples.informationmodels.TI_SensorTag:1.0.0 -generatorKey mqtt -outputPath /Users/{$username}/Documents/models</code>
-	</td>
-  </tr>
-  <tr>
-    <td><code>vorto share<code>&lt;/td&gt;
-    <td>Additionally to all this access functionality, you are also able to share your models.<br />
-    Therefore you either have to deposit your credentials in the <code>.vortocli.yaml</code> file or you have to pass them as additional parameters.<br />
-    Additional flag parameters:<br />
-    <ul>
-      <li><code>username</code><br />
-        Vorto Repository username credentials (default: value in <code>.vortocli.yaml</code>)</li>
-      <li><code>password</code><br />
-        Vorto Repository password credentials (default: value in <code>.vortocli.yaml</code>)</li>
-    </ul>
-    </td>
-    <td>
-    For Windows,<br />
-    <code>vorto share D:\Models\TI_SensorTag_CC2650\src\models\TI_SensorTag.infomodel</code><br />
-    <code>vorto share D:\Models\TI_SensorTag_CC2650\src\models\TI_SensorTag.infomodel -username vortouser -password password</code><br /><br />
-    For Mac/Linux,<br />
-    <code>vorto share /Users/{$username}/Documents/models/TI_SensorTag.infomodel</code><br /><br />
-    <code>vorto share /Users/{$username}/Documents/models/TI_SensorTag.infomodel -username vortouser -password password</code>
-    </td>
-  &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-</code></code></td></tr></p></td></tr></tbody></table>
+<h3 id="eclipse-iot-toolset">Eclipse IoT Toolset</h3>
+
+<p>With the <strong>Eclipse IoT Toolset</strong>, you can describe the characteristics and functionality of devices as Information Models, publish them to the Information Model Repository and generate code with the help of Code Generators.</p>
+
+<p><img src="../../../img/documentation/vorto_features_models.png" alt="Vorto Features Models" width="700px" /></p>
+
+<h3 id="information-model-repository">Information Model Repository</h3>
+
+<p>The <strong>Information Model Repository</strong> manages your device descriptions in a central place and exposes its functionality as a clean REST-API. Users are able to lookup and search device cababilities, checkin new models as well as translate Information Models into a selected IoT Platform source code.</p>
+
+<p><img src="../../../img/documentation/vorto_repository_search.png" alt="Search page" width="700px" /></p>
+
+<h3 id="generator-api">Generator API</h3>
+
+<p>Vorto Code Generators convert an Information Model into executable IoT platform specific source code. The <strong>Generator API</strong> lets you plug in your own code generator into the toolset. Toolset wizards help you through this process.</p>
+
+<h3 id="example-generators">Example Generators</h3>
+
+<p>In order to inspire you to build you own generator for your platform, we implemented many <strong>Example Generators</strong>, for example Bosch IoT Things, AWS, ThingWorx and many more. They illustrate the many possibilities of how code generators can be effectively used and act as a blueprint for other generator implementations.</p>
+
+<p><img src="../../../img/documentation/vorto_repository_generators.png" alt="Generators" width="700px" /></p>
+
+<h3 id="command-line-interface-cli">Command Line Interface (CLI)</h3>
+
+<p>A <strong>Command Line Interface Tool</strong> lets you explore information models, checkin new information models as well as generate code for a selected IoT platform.</p>
+
+<p><img src="../../../img/documentation/vorto_features_cli_tool.png" alt="Vorto CLI Tool" /></p>
+
 
                 </div>
              </div>
