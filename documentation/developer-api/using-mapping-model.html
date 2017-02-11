@@ -823,24 +823,24 @@
 
 <h2 id="using-a-mapping-model-in-the-code-generator">Using a Mapping Model in the Code Generator</h2>
 
-<p>If the information model’s properties cannot be directly used in a code generator, then a mapping file is needed to map information model’s properties to the platform-specific values. Vorto mapping model supports mapping Vorto models (Information Model/Function Block/Data Type) to the platform-specific models. Please refer to <a href="../../documentation/editors/information-model-mapping.html">Defining an Information Model Mapping</a> for mapping model syntax and more details. </p>
+<p>If the information model’s properties cannot be directly used in a code generator, then a mapping file is needed to map information model’s properties to the platform-specific values. Vorto mapping model supports mapping Vorto models (Information Model/Function Block/Data Type) to the platform-specific models. Please refer to <a href="../../documentation/editors/information-model-mapping.html">Defining an Information Model Mapping</a> for mapping model syntax and more details.</p>
 
-<p>Here is the rule of thumb for you to determin if you need a mapping model, when you want to add some information to assist code generation, </p>
+<p>Here is the rule of thumb for you to determin if you need a mapping model, when you want to add some information to assist code generation,</p>
 
 <ol>
-  <li>The information is model-related, but cannot be included in Vorto models; </li>
-  <li>The information is required by code generator, but cannot be included in code generator; </li>
+  <li>The information is model-related, but cannot be included in Vorto models;</li>
+  <li>The information is required by code generator, but cannot be included in code generator;</li>
 </ol>
 
-<p>Now let’s take an example to illustrate the usage of mapping models. We will create a new code generator <code>FunctionBlockListGenerator</code> to generate a html page that lists all function blocks used for a information model. Each model will display the name with a http link to Vorto repository if exists; </p>
+<p>Now let’s take an example to illustrate the usage of mapping models. We will create a new code generator <code>FunctionBlockListGenerator</code> to generate a html page that lists all function blocks used for a information model. Each model will display the name with a http link to Vorto repository if exists;</p>
 
-<p>In this case, the http link information is related to Vorto models, but it is not an innate character, so we cannot describe it in Vorto models; On the other hand, http link information is required by code generator, but it cannot be fixed in code generator; So a mapping model is a perfect solution here. </p>
+<p>In this case, the http link information is related to Vorto models, but it is not an innate character, so we cannot describe it in Vorto models; On the other hand, http link information is required by code generator, but it cannot be fixed in code generator; So a mapping model is a perfect solution here.</p>
 
 <h4 id="updating-the-code-implementation">Updating the Code Implementation</h4>
 
 <p><strong>Prerequisites</strong></p>
 
-<p>You have understood how to create a code generator plug-in project (refer to <a href="./creating-code-generator-plug-in.html">Creating a Code Generator Plug-in Project</a>). </p>
+<p>You have understood how to create a code generator plug-in project (refer to <a href="./creating-code-generator-plug-in.html">Creating a Code Generator Plug-in Project</a>).</p>
 
 <p><strong>Proceed as follows</strong></p>
 
@@ -923,12 +923,12 @@
   <li>From the context menu, choose <strong>Run As &gt; Eclipse Application</strong>.<br />
 A new Eclipse instance is started.</li>
   <li>Switch to the <strong>Vorto</strong> perspective.</li>
-  <li>In Vorto perspective, right click on any function block (e.g. <code>Accelerometer</code>). </li>
+  <li>In Vorto perspective, right click on any function block (e.g. <code>Accelerometer</code>).</li>
   <li>From the context menu, choose <strong>New Mapping Model</strong>.<br />
-<img src="../../img/documentation/New_mapping_model_wizard.png" alt="new mapping model" />  </li>
+<img src="../../img/documentation/New_mapping_model_wizard.png" alt="new mapping model" /></li>
   <li>Switch to the Java perspective.<br />
 The new file <code>com.mycompany.mapping_Accelerometer_FunctionBlockList_Mapping_1_0_0.mapping</code> is generated under the <code>mappings</code> folder.<br />
-<img src="../../img/documentation/Mapping_file_generated.png" alt="mapping model generated" />  </li>
+<img src="../../img/documentation/Mapping_file_generated.png" alt="mapping model generated" /></li>
   <li>
     <p>Implement the actual mapping file as follows:</p>
 
@@ -957,17 +957,17 @@ The new file <code>com.mycompany.mapping_Accelerometer_FunctionBlockList_Mapping
 
 <ol>
   <li>Switch to the Vorto perspective.</li>
-  <li>Right click on the information model (e.g., <code>XDK</code>). </li>
+  <li>Right click on the information model (e.g., <code>XDK</code>).</li>
   <li>From the context menu, choose <strong>Generate Code &gt; FunctionBlockListGenerator</strong>.<br />
 A new project with name <code>XDK_functionblocklist_generated</code> is generated.</li>
   <li>Open the file <code>sample.html</code> in browser. 
 It shows the list of function blocks under XDK information model, if you click on the <code>accelerometer</code> function block, it will bring you to the Accelerometer page in Vorto repository. 
-<img src="../../img/documentation/XDK_functionblocklist_generated_output_sample.png" alt="generated code" />  </li>
+<img src="../../img/documentation/XDK_functionblocklist_generated_output_sample.png" alt="generated code" /></li>
 </ol>
 
 <h4 id="further-tasks">Further tasks</h4>
 
-<p>Following the same procedures described in <a href="#creating-the-mapping-file">Creating the Mapping File</a>, you can add more mapping files for the rest of function blocks. </p>
+<p>Following the same procedures described in <a href="#creating-the-mapping-file">Creating the Mapping File</a>, you can add more mapping files for the rest of function blocks.</p>
 
                 </div>
              </div>
