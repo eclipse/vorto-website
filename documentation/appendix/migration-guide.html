@@ -13,6 +13,7 @@
 
 
 
+
  
   <title>Eclipse Vorto - IoT Toolset for standardized device descriptions</title>
 
@@ -42,6 +43,7 @@
     <!--Header section Site navigation -->
 
 <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -123,6 +125,7 @@
 
 
 
+
  
 
   
@@ -131,6 +134,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -199,6 +203,7 @@
 
 
 
+
  
 
   
@@ -230,6 +235,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -279,6 +285,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -343,6 +350,7 @@
 
 
 
+
  
 
   
@@ -374,6 +382,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -451,6 +460,7 @@
 
 
 
+
  
 
   
@@ -468,6 +478,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -563,6 +574,7 @@
 
 
 
+
  
 
   
@@ -612,6 +624,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -685,6 +698,7 @@
 
 
 
+
  
 
   
@@ -693,6 +707,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -756,6 +771,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -1110,7 +1126,7 @@
 
 <p><strong>Vorto 0.1.x Lamp.fbmodel</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>functionblock Lamp {
+<pre><code>functionblock Lamp {
 	displayname "Lamp"
 	description "A lamp makes the environment bright"
 	vendor www.bosch.com
@@ -1158,11 +1174,10 @@ enum BlinkType {
 	slow
 }
 </code></pre>
-</div>
 
 <p><strong>Vorto 0.4.x Lamp.fbmodel</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>		namespace com.mycompany.fb
+<pre><code>		namespace com.mycompany.fb
 	version 1.0.0
 	using www.bosch.com.BlinkType ; 1.0.0
 	using com.mycompany.type.Color ; 1.0.0
@@ -1199,22 +1214,20 @@ enum BlinkType {
 	}
 	}
 </code></pre>
-</div>
 
 <p><strong>Vorto 0.4.x Blinktype.type</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>namespace com.bosch.type
+<pre><code>namespace com.bosch.type
 version 1.0.0
 enum BlinkType {
 fast,
 slow
 }
 </code></pre>
-</div>
 
 <p><strong>Vorto 0.4.x Color.type</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>namespace com.bosch.type
+<pre><code>namespace com.bosch.type
 version 1.0.0
 entity Color {
 	mandatory red as string "Red color value"
@@ -1222,7 +1235,6 @@ entity Color {
 	mandatory blue as string "Blue color value"
 }
 </code></pre>
-</div>
 
 <p>Vorto 0.4.x - Information Models</p>
 

@@ -13,6 +13,7 @@
 
 
 
+
  
   <title>Eclipse Vorto - IoT Toolset for standardized device descriptions</title>
 
@@ -42,6 +43,7 @@
     <!--Header section Site navigation -->
 
 <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -123,6 +125,7 @@
 
 
 
+
  
 
   
@@ -131,6 +134,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -199,6 +203,7 @@
 
 
 
+
  
 
   
@@ -230,6 +235,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -279,6 +285,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -343,6 +350,7 @@
 
 
 
+
  
 
   
@@ -374,6 +382,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -451,6 +460,7 @@
 
 
 
+
  
 
   
@@ -468,6 +478,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -563,6 +574,7 @@
 
 
 
+
  
 
   
@@ -612,6 +624,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -685,6 +698,7 @@
 
 
 
+
  
 
   
@@ -693,6 +707,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -756,6 +771,7 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
+
 
 
 
@@ -856,12 +872,11 @@ The <strong>Eclipse Installation Details</strong> window opens.</li>
   <li>
     <p>Locate the line beginning with java.runtime.version=1.7.*. Make sure the version start with 1.7. Otherwise you can add the line below to your eclipse.ini file to specify your Java version that should be used to launch the IDE (e.g.):</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> openFile
+    <pre><code> openFile
  -vm
  C:\application\Java1.7.51\bin\javaw.exe
  --launcher.appendVmargs
 </code></pre>
-    </div>
   </li>
 </ol>
 
@@ -869,12 +884,11 @@ The <strong>Eclipse Installation Details</strong> window opens.</li>
 
 <p>It is likely the build requires more memory. Build internal uses maven to generate java artifacts and first time it usually need to download a lot of dependencies and require more memory than default setting. Please add below lines to your eclipse.ini file if such error occur.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code> -vm  
+<pre><code> -vm  
  \&lt;path\_to\_your\_java\_installation\&gt;/bin/javaw.exe
  -vmargs
  -DMAVEN_OPTS=-Xms256m -XX:MaxPermSize=1024m -Xmx1024m
 </code></pre>
-</div>
 
                 </div>
              </div>
