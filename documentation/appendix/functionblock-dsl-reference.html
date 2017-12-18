@@ -13,7 +13,6 @@
 
 
 
-
  
   <title>Eclipse Vorto - IoT Toolset for standardized device descriptions</title>
 
@@ -43,7 +42,6 @@
     <!--Header section Site navigation -->
 
 <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -125,7 +123,6 @@
 
 
 
-
  
 
   
@@ -134,7 +131,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -203,7 +199,6 @@
 
 
 
-
  
 
   
@@ -235,7 +230,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -285,7 +279,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -350,7 +343,6 @@
 
 
 
-
  
 
   
@@ -382,7 +374,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -460,7 +451,6 @@
 
 
 
-
  
 
   
@@ -478,7 +468,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -574,7 +563,6 @@
 
 
 
-
  
 
   
@@ -624,7 +612,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -698,7 +685,6 @@
 
 
 
-
  
 
   
@@ -707,7 +693,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -771,7 +756,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -851,7 +835,7 @@
 
 <p>The following code represents the Function Block Model DSL syntax. Function block model use all variables that are defined in Data Type DSL.</p>
 
-<pre><code>functionblockmodel:
+<div class="highlighter-rouge"><pre class="highlight"><code>functionblockmodel:
     'namespace' qualifiedName
     'version' version
     'displayname' displayname
@@ -886,7 +870,7 @@ functionblock:
 ;
 
 operation :
-    ('breakable')? id '(' (param (paramDescription)?)? ')' ('returns'  returnType)? (returnTypeDescription)?
+    ('presence')? ('breakable')? id '(' (param (paramDescription)?)? ')' ('returns'  returnType)? (returnTypeDescription)?
 ;
 
 returnType :
@@ -932,6 +916,7 @@ id:
     '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*
 ;
 </code></pre>
+</div>
 
 <h2 id="function-block-dsl-semantics">Function Block DSL Semantics</h2>
 
@@ -961,7 +946,7 @@ id:
 
 <p><strong>Example</strong></p>
 
-<pre><code>namespace com.mycompany.fb
+<div class="highlighter-rouge"><pre class="highlight"><code>namespace com.mycompany.fb
 version 1.0.0
 functionblock Lamp {  
   displayname "Lamp"  
@@ -990,24 +975,25 @@ functionblock Lamp {
     }  
   }  
 </code></pre>
+</div>
 
 <h3 id="function-block">Function Block</h3>
 
-<p>A <code>functionblock</code> element describes the properties and behavior of a function block. A <code>functionblock</code> element contains</p>
+<p>A <code class="highlighter-rouge">functionblock</code> element describes the properties and behavior of a function block. A <code class="highlighter-rouge">functionblock</code> element contains</p>
 
 <ul>
-  <li>General metadata parameters (<code>displayname, description, vendor, category, version</code>).</li>
-  <li>Property elements (<code>configuration, status, fault</code>).</li>
-  <li>An <code>operations</code> element.</li>
+  <li>General metadata parameters (<code class="highlighter-rouge">displayname, description, vendor, category, version</code>).</li>
+  <li>Property elements (<code class="highlighter-rouge">configuration, status, fault</code>).</li>
+  <li>An <code class="highlighter-rouge">operations</code> element.</li>
 </ul>
 
 <p><strong>Syntax</strong></p>
 
-<p>Refer to <code>FunctionBlock</code> in <a href="#function-block-dsl-syntax">Function Block DSL Syntax</a>.</p>
+<p>Refer to <code class="highlighter-rouge">FunctionBlock</code> in <a href="#function-block-dsl-syntax">Function Block DSL Syntax</a>.</p>
 
 <p><strong>Usage</strong></p>
 
-<p>The following table describes the parameters and elements of a <code>functionblock</code>. Mandatory parameters or elements are marked with <code>Y</code> in the column <strong>Mandatory</strong></p>
+<p>The following table describes the parameters and elements of a <code class="highlighter-rouge">functionblock</code>. Mandatory parameters or elements are marked with <code class="highlighter-rouge">Y</code> in the column <strong>Mandatory</strong></p>
 
 <table class="table table-bordered">
   <thead>
@@ -1081,7 +1067,7 @@ functionblock Lamp {
 
 <p><strong>Example</strong></p>
 
-<pre><code>namespace com.mycompany.fb
+<div class="highlighter-rouge"><pre class="highlight"><code>namespace com.mycompany.fb
 version 1.0.0
 functionblock Lamp {  
   displayname "Lamp"
@@ -1119,6 +1105,7 @@ functionblock Lamp {
     }
 }
 </code></pre>
+</div>
 
 <h3 id="property">Property</h3>
 
@@ -1128,7 +1115,7 @@ functionblock Lamp {
 
 <p><strong>Usage</strong></p>
 
-<p>The following table describes the property elements. Mandatory property elements are marked with <code>Y</code> in the column <strong>Mandatory</strong></p>
+<p>The following table describes the property elements. Mandatory property elements are marked with <code class="highlighter-rouge">Y</code> in the column <strong>Mandatory</strong></p>
 
 <table class="table table-bordered">
 <thead>
@@ -1214,7 +1201,7 @@ functionblock Lamp {
 
 <p><strong>Examples</strong></p>
 
-<pre><code>optional multiple products as Product
+<div class="highlighter-rouge"><pre class="highlight"><code>optional multiple products as Product
   "the products that are offered by the vending machine"
 
 optional vendingMachineIdentifier as string &lt;STRLEN 8&gt;
@@ -1242,6 +1229,7 @@ mandatory deviceName as string &lt;REGEX '[a-zA-Z][a-zA-Z][0-9]'&gt;
   "Only allow 2 uppercase or lowercase characters and 1 digit for
   device name"
 </code></pre>
+</div>
 
 <h3 id="operation">Operation</h3>
 
@@ -1305,19 +1293,21 @@ mandatory deviceName as string &lt;REGEX '[a-zA-Z][a-zA-Z][0-9]'&gt;
 
 <p><strong>Example</strong></p>
 
-<pre><code>getProductConfigurationList() returns multiple Product
+<div class="highlighter-rouge"><pre class="highlight"><code>getProductConfigurationList() returns multiple Product
   "Gets the current configured products from the vending machine"
 getProductConfigurationList(count as int "Number of products to return", offset as int "What row to start") 
   returns multiple Product "Gets the current configured products from the vending machine"
 </code></pre>
+</div>
 
 <p>The parameters and return type can also have constraints.</p>
 
 <p><strong>Example</strong></p>
 
-<pre><code>setRedComponent(R as int &lt;MIN 0, MAX 255&gt;)
+<div class="highlighter-rouge"><pre class="highlight"><code>setRedComponent(R as int &lt;MIN 0, MAX 255&gt;)
 getRedComponent() returns int &lt;MIN 0, MAX 255&gt;
 </code></pre>
+</div>
 
 <h3 id="event">Event</h3>
 
@@ -1333,7 +1323,7 @@ getRedComponent() returns int &lt;MIN 0, MAX 255&gt;
 
 <p>Example</p>
 
-<pre><code>...  
+<div class="highlighter-rouge"><pre class="highlight"><code>...  
   events {  
     ready {  
       optional since as dateTime  
@@ -1341,6 +1331,7 @@ getRedComponent() returns int &lt;MIN 0, MAX 255&gt;
   }  
 ...  
 </code></pre>
+</div>
 
                 </div>
              </div>

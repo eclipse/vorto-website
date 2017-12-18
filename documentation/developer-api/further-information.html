@@ -13,7 +13,6 @@
 
 
 
-
  
   <title>Eclipse Vorto - IoT Toolset for standardized device descriptions</title>
 
@@ -43,7 +42,6 @@
     <!--Header section Site navigation -->
 
 <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -125,7 +123,6 @@
 
 
 
-
  
 
   
@@ -134,7 +131,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -203,7 +199,6 @@
 
 
 
-
  
 
   
@@ -235,7 +230,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -285,7 +279,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -350,7 +343,6 @@
 
 
 
-
  
 
   
@@ -382,7 +374,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -460,7 +451,6 @@
 
 
 
-
  
 
   
@@ -478,7 +468,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -574,7 +563,6 @@
 
 
 
-
  
 
   
@@ -624,7 +612,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -698,7 +685,6 @@
 
 
 
-
  
 
   
@@ -707,7 +693,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -771,7 +756,6 @@
       <ul class="nav navmenu-nav">
         <!-- 2nd level -->
         <!--base to have relative path for offline navigation -->
-
 
 
 
@@ -841,19 +825,19 @@
 
 <h3 id="further-information-for-utility-classes">Further Information for Utility Classes</h3>
 
-<p><code>HelloworldGenerator</code> is a simple demo for creating a code generator, it implements <code>IVortoCodeGenerator</code> interface and directly overrides <code>generate()</code> method. It is enough for many of simple code generation tasks, but for some more complicated tasks, Vorto project provides a few utility classes to help the user implementing new code generators.</p>
+<p><code class="highlighter-rouge">HelloworldGenerator</code> is a simple demo for creating a code generator, it implements <code class="highlighter-rouge">IVortoCodeGenerator</code> interface and directly overrides <code class="highlighter-rouge">generate()</code> method. It is enough for many of simple code generation tasks, but for some more complicated tasks, Vorto project provides a few utility classes to help the user implementing new code generators.</p>
 
 <p>For example:</p>
 
 <ul>
-  <li><code>ChainedCodeGeneratorTask</code> class helps to break down a big complex task to several sub tasks</li>
-  <li><code>GeneratorTaskFromFileTemplate</code> class helps to generate code from file template</li>
-  <li><code>GenerationResultZip</code> class helps to generate compressed code.</li>
+  <li><code class="highlighter-rouge">ChainedCodeGeneratorTask</code> class helps to break down a big complex task to several sub tasks</li>
+  <li><code class="highlighter-rouge">GeneratorTaskFromFileTemplate</code> class helps to generate code from file template</li>
+  <li><code class="highlighter-rouge">GenerationResultZip</code> class helps to generate compressed code.</li>
 </ul>
 
 <p>Usually these classes work together to implement a new code generator. Here is the example code in MQTT code generator:</p>
 
-<pre><code>public IGenerationResult generate(InformationModel context, InvocationContext invocationContext) {
+<div class="highlighter-rouge"><pre class="highlight"><code>public IGenerationResult generate(InformationModel context, InvocationContext invocationContext) {
 	GenerationResultZip outputter = new GenerationResultZip(context,getServiceKey());
 	for (FunctionblockProperty property : context.getProperties()) {
 		ChainedCodeGeneratorTask&lt;FunctionblockModel&gt; generator = new
@@ -869,6 +853,7 @@
 	return outputter;
 }
 </code></pre>
+</div>
 
                 </div>
              </div>
