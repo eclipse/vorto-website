@@ -3,10 +3,10 @@
   <channel>
     <title>Eclipse Vorto</title>
     <description>Eclipse Vorto - IoT Toolset for standardized device descriptions</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 28 Dec 2017 19:42:24 -0600</pubDate>
-    <lastBuildDate>Thu, 28 Dec 2017 19:42:24 -0600</lastBuildDate>
+    <link>/vorto/</link>
+    <atom:link href="/vorto/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 28 Dec 2017 21:27:21 -0600</pubDate>
+    <lastBuildDate>Thu, 28 Dec 2017 21:27:21 -0600</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
     
   </channel>
