@@ -13,8 +13,8 @@
 
 
 
-
  
+
   <title>Eclipse Vorto - IoT Toolset for standardized device descriptions</title>
 
   <!--Stylesheets-->
@@ -48,8 +48,8 @@
 
 
 
-
  
+
 
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -125,8 +125,8 @@
 
 
 
-
  
+
 
   
     <li>
@@ -139,8 +139,8 @@
 
 
 
-
  
+
 
   
     <li  >
@@ -203,8 +203,8 @@
 
 
 
-
  
+
 
   
     <li  >
@@ -240,8 +240,8 @@
 
 
 
-
  
+
 
   
     <li  >
@@ -290,8 +290,8 @@
 
 
 
-
  
+
 
   
     <li  >
@@ -350,8 +350,8 @@
 
 
 
-
  
+
 
   
     <li  >
@@ -387,8 +387,8 @@
 
 
 
-
  
+
 
   
     <li  >
@@ -460,8 +460,8 @@
 
 
 
-
  
+
 
   
     <li  >
@@ -483,8 +483,8 @@
 
 
 
-
  
+
 
   
     <li  >
@@ -574,8 +574,8 @@
 
 
 
-
  
+
 
   
     <li  >
@@ -629,8 +629,8 @@
 
 
 
-
  
+
 
   
     <li  >
@@ -698,8 +698,8 @@
 
 
 
-
  
+
 
   
     <li>
@@ -712,8 +712,8 @@
 
 
 
-
  
+
 
   
     <li  >
@@ -776,8 +776,8 @@
 
 
 
-
  
+
 
   
     <li  >
@@ -858,19 +858,19 @@
   <li>Right click on the data type you want to create a mapping for and choose <strong>New Mapping Model</strong><br />
 The <strong>Create Mapping Model</strong> dialog opens.<br />
 <img src="../../img//documentation/vorto_create_mapping_model_dialog.png" alt="Create Mapping Model Dialog" /></li>
-  <li>Enter a name as <strong>Mapping Model Name</strong>, for example, <code>MyIOTPlatform</code>.</li>
+  <li>Enter a name as <strong>Mapping Model Name</strong>, for example, <code class="highlighter-rouge">MyIOTPlatform</code>.</li>
   <li>Adjust the entries for the input fields <strong>Namespace</strong>, <strong>Platform</strong> and <strong>Version</strong>, if necessary.</li>
   <li>Optionally, enter a description in the <strong>Description</strong> entry field.</li>
   <li>Click <strong>Finish</strong>.</li>
   <li>Switch to the Java perspective.
-The new mapping file has been created (with suffix <code>.mapping</code>). It is located in the folder <code>&lt;project&gt;/mappings</code>.<br />
+The new mapping file has been created (with suffix <code class="highlighter-rouge">.mapping</code>). It is located in the folder <code class="highlighter-rouge">&lt;project&gt;/mappings</code>.<br />
 <img src="../../img/documentation/vorto_create_data_mapping_model_source.png" alt="Generated source" /></li>
   <li>Edit the mapping file according to your needs.</li>
 </ol>
 
 <p><strong>Example of a data type mapping file</strong></p>
 
-<pre><code>namespace com.mycompany
+<div class="highlighter-rouge"><pre class="highlight"><code>namespace com.mycompany
 version 1.0.0
 displayname "Color_MyIOTPlatform"
 description "Color to MyIOTPlatform mapping"
@@ -886,6 +886,7 @@ entitymapping Color_MyIOTPlatform {
 	to MyColor with { r : "Red", g : "Green", b : "Blue" }
 }
 </code></pre>
+</div>
 
                 </div>
              </div>
