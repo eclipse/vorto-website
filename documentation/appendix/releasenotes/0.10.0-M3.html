@@ -848,40 +848,26 @@
 					     <div class="span8 offset3">
                  <!--base to have relative path for offline navigation -->
 
-<p>##Sharing Models Using the Web Interface</p>
+<h2 id="release-notes---0100-milestone-3">Release Notes - 0.10.0 milestone 3</h2>
 
-<p>You can share models (information models, function block models or data type models) by uploading them to the Vorto Repository within the Vorto Repository Web interface.</p>
+<p><strong>Fixes and Enhancements</strong></p>
 
-<p>For sharing models using the Eclipse Vorto Toolset, refer to <a href="../eclipse-vorto-integration/share-eclipse.html">Sharing Models Using the Eclipse Vorto Toolset</a>.<br />
-For sharing models using the Vorto CLI tool, refer to <a href="../../../documentation/cli-tool/cli-tool.html">Vorto CLI Tool</a>.</p>
+<ul>
+  <li>EU-GDPR Compliance of Vorto Repository, i.e. Export of user-specific Vorto models.</li>
+  <li>Eclipse Hono Generator, supporting the generation of Arduino-, Python- and Java source code.</li>
+  <li>Code Generator Configuration UI. Code Generators that are executed from the Eclipse Vorto Toolset do now provide a configuration UI that allows developers to customize the execution of the generator.</li>
+</ul>
 
-<p><strong>Prerequisites</strong></p>
+<p><strong>API Changes</strong></p>
 
-<p>You are logged in to the Vorto Repository (refer to <a href="/login-register.html">Login</a>).</p>
-
-<p><strong>Proceed as follows</strong></p>
-
-<ol>
-  <li>In the menu bar, click <strong>Share</strong>.<br />
-The Upload page opens.<br />
-<img src="../../../img/documentation/vorto_repository_share.png" alt="Share Web Interface" /></li>
-  <li>Click the <strong>Choose File</strong> button.<br />
-The operating system’s file browser opens.</li>
-  <li>Browse to the model file (or zip file containing multiple models) you want to share and click the <strong>Open</strong> button.<br />
-The file name is taken over to the <strong>Upload</strong> entry field.</li>
-  <li>Click the <strong>Upload</strong> button to upload the selected file.<br />
-The file(s) are checked. The content must correlate with the Vorto DSL guidelines. In addition, the dependencies of the files, if applicable, must be correct.</li>
-  <li>If the file(s) is (are) invalid, the <strong>Upload Results</strong> are displayed with an error message; the following image shows an invalid bulk upload.<br />
-<img src="../../../img/documentation/vorto_repository_share_bulk_upload_error.png" alt="Share Web Interface Upload Error" /><br />
-Check and revise your model file(s) and restart the sharing procedure.</li>
-  <li>
-    <p>If the file(s) is (are) valid, the <strong>Upload Results</strong> are displayed with an upload confirmation message.<br />
-<img src="../../../img/documentation/vorto_repository_share_upload.png" alt="Share Web Interface Upload" /></p>
+<ul>
+  <li>Vorto Code Generators must now implement <code class="highlighter-rouge">org.eclipse.vorto.codegen.api.IVortoCodeGenerator.getInfo()</code> that give more meta information about the specific Code Generator. This information is used by Vorto to provide a Generator Configuration UI automatically.</li>
+  <li>The Vorto Repository REST - API for publishing models is now secured exclusively with OAuth2 token - based authentication.
+    <blockquote>
+      <p>It is now only possibly to publish models to the Vorto Repository via the Vorto Repository Web UI !</p>
+    </blockquote>
   </li>
-  <li>Click the <strong>Checkin</strong> button.<br />
-The model(s) is (are) checked in to the Vorto Repository and the <strong>Upload Results</strong> are displayed with a check in confirmation message.<br />
-<img src="../../../img/documentation/vorto_repository_share_checkin.png" alt="Share Web Interface Checkin" /></li>
-</ol>
+</ul>
 
                 </div>
              </div>
