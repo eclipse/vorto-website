@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Release-notes on Eclipse Vorto</title>
+    <link>https://www.eclipse.org/vorto/release-notes/</link>
+    <description>Recent content in Release-notes on Eclipse Vorto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>The Eclipse Vorto Project</copyright>
+    <lastBuildDate>Wed, 09 Mar 2016 20:10:46 +0100</lastBuildDate>
+    
+	<atom:link href="https://www.eclipse.org/vorto/release-notes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Release Notes</title>
+      <link>https://www.eclipse.org/vorto/release-notes/</link>
+      <pubDate>Wed, 09 Mar 2016 20:10:46 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/release-notes/</guid>
+      <description>0.10.0 milestone 3 Fixes and Enhancements
+ EU-GDPR Compliance of Vorto Repository, i.e. Export of user-specific Vorto models. Eclipse Hono Generator, supporting the generation of Arduino-, Python- and Java source code. Code Generator Configuration UI. Code Generators that are executed from the Eclipse Vorto Toolset do now provide a configuration UI that allows developers to customize the execution of the generator.  API Changes
+ Vorto Code Generators must now implement org.</description>
+    </item>
+    
+  </channel>
+</rss>

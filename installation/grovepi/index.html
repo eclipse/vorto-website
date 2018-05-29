@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Getting Started</title>
+    <title>Installation Python and GrovePi required modules - Eclipse Vorto</title>
     <meta name="generator" content="Hugo 0.33" />
 
     
     <meta name="description" content="Describe. Share. Integrate.">
     
-    <link rel="canonical" href="https://www.eclipse.org/vorto/">
+    <link rel="canonical" href="https://www.eclipse.org/vorto/installation/grovepi/">
     
     <meta name="author" content="The Eclipse Vorto Project">
     
 
-    <meta property="og:url" content="https://www.eclipse.org/vorto/">
+    <meta property="og:url" content="https://www.eclipse.org/vorto/installation/grovepi/">
     <meta property="og:title" content="Eclipse Vorto">
     <meta property="og:image" content="https://www.eclipse.org/vorto/images/vorto.png">
     <meta name="apple-mobile-web-app-title" content="Eclipse Vorto">
@@ -72,9 +72,6 @@
     <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
 
     
-    <link href="https://www.eclipse.org/vorto/index.xml" rel="alternate" type="application/rss+xml" title="Eclipse Vorto" />
-    <link href="https://www.eclipse.org/vorto/index.xml" rel="feed" type="application/rss+xml" title="Eclipse Vorto" />
-    
 
   </head>
   <body class="palette-primary-blue palette-accent-teal">
@@ -103,7 +100,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Getting Started
+        Installation Python and GrovePi required modules
       </div>
     </div>
 
@@ -326,47 +323,98 @@
 
 	<article class="article">
 		<div class="wrapper">
-			
+			<h1>Installation Python and GrovePi required modules </h1>
+
+			<ul>
+<li><p>Download and install the latest version of Python 3.x from the official <a href="https://www.python.org/">Python website</a></p></li>
+
+<li><p><a href="https://packaging.python.org/tutorials/installing-packages/#install-pip-setuptools-and-wheel">Install pip</a></p></li>
+
+<li><p>Install Visual C++ Build Tools(<a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">http://landinghub.visualstudio.com/visual-cpp-build-tools</a>). This is a pre-requisite for installing netifaces.</p></li>
+
+<li><p>Install the required Python modules</p>
+
+<ul>
+<li><a href="https://www.eclipse.org/paho/clients/python/">Eclipse paho</a></li>
+
+<li><p><a href="https://pypi.python.org/pypi/netifaces">netinterfaces</a></p>
+
+<ul>
+<li><p>open terminal or console and type the following command</p>
+
+<pre><code>pip install paho-mqtt
+pip install netifaces
+</code></pre></li>
+</ul></li>
+</ul></li>
+</ul>
+
 
 			<aside class="copyright" role="note">
-				
-				&copy; 2018 The Eclipse Vorto Project &ndash;
-				
-				Documentation built with
-				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
-				using the
-				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
-			</aside>
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/vortoimages/eclipse_logo_colour.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Vorto Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://www.eclipse.org/legal/epl-2.0/" target="_blank">
+      &gt; License
+    </a>
+  </p>
+</aside>
+
 
 			<footer class="footer">
 				
 
-
-
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
-  </div>
-
   
-  
-  <div class="next">
-      <a href="https://www.eclipse.org/vorto/tags/" title="Tags">
+      <a href="https://www.eclipse.org/vorto/release-notes/" title="Release Notes">
         <span class="direction">
-          Next
+          Previous
         </span>
         <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
           <div class="stretch">
             <div class="title">
-              Tags
+              Release Notes
             </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
           </div>
         </div>
       </a>
+  
+  </div>
+
+  <div class="next">
+  
   </div>
 </nav>
+
+
 
 
 

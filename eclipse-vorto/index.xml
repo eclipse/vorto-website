@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse-vortos on Eclipse Vorto</title>
+    <link>https://www.eclipse.org/vorto/eclipse-vorto/</link>
+    <description>Recent content in Eclipse-vortos on Eclipse Vorto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>The Eclipse Vorto Project</copyright>
+    <lastBuildDate>Tue, 08 Mar 2016 21:07:13 +0100</lastBuildDate>
+    
+	<atom:link href="https://www.eclipse.org/vorto/eclipse-vorto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Eclipse Vorto</title>
+      <link>https://www.eclipse.org/vorto/eclipse-vorto/</link>
+      <pubDate>Tue, 08 Mar 2016 21:07:13 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/eclipse-vorto/</guid>
+      <description>Interaction among different stakeholders via Vorto
+ What is Vorto? Vorto provides an Eclipse Toolset that allows Device Manufacturers to easily describe device functionality and characteristics as Information Models. These models are managed in a Vorto Repository. Platform Providers provide Code generators that convert these models into device - specific &amp;ldquo;stubs&amp;rdquo; that run on the device and send Information Model compliant messages to the platform-specific IoT Backend. In order to process these messages in the IoT backend, Vorto offers a set of convenient technical components, for example parsers and validators.</description>
+    </item>
+    
+  </channel>
+</rss>

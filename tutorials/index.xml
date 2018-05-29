@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorials on Eclipse Vorto</title>
+    <link>https://www.eclipse.org/vorto/tutorials/</link>
+    <description>Recent content in Tutorials on Eclipse Vorto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>The Eclipse Vorto Project</copyright>
+    <lastBuildDate>Wed, 09 Mar 2016 20:08:11 +0100</lastBuildDate>
+    
+	<atom:link href="https://www.eclipse.org/vorto/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tutorials</title>
+      <link>https://www.eclipse.org/vorto/tutorials/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/tutorials/</guid>
+      <description>Connecting a GrovePi This tutorial explains how to generate a simple Python application for you GrovePi that sends sensor data to Eclipse Hono using MQTT.
+Prerequisites  Python 3.x
+ IDEs - for Python: Visual Studio Code with the Python extension
+ Paho Python Client
+ GrovePi Sensor Kit
+  1. Setup your device. In this example Raspberry Pi is used but you can use any device which can run python.</description>
+    </item>
+    
+  </channel>
+</rss>
