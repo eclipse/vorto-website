@@ -23,15 +23,6 @@
     </item>
     
     <item>
-      <title>Documentation</title>
-      <link>https://www.eclipse.org/vorto/documentation/</link>
-      <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
-      
-      <guid>https://www.eclipse.org/vorto/documentation/</guid>
-      <description> Datatype DSL Reference </description>
-    </item>
-    
-    <item>
       <title>Getting Started</title>
       <link>https://www.eclipse.org/vorto/getting-started/</link>
       <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
@@ -39,6 +30,16 @@
       <guid>https://www.eclipse.org/vorto/getting-started/</guid>
       <description>To get started with Vorto easily, we are going to show you how you can use the Vorto IoT Tool to describe a simple device that measures distance and integrate it with Eclipse Hono.
 Prerequisites  Maven Java 8 Eclipse for DSL Developers Eclipse Vorto Toolset Plugins  Creating a Vorto Project  Open Eclipse and switch to the Vorto Perspective. In the Vorto Model Project Browser, click the + button.</description>
+    </item>
+    
+    <item>
+      <title>Reference Documentation</title>
+      <link>https://www.eclipse.org/vorto/documentation/</link>
+      <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/documentation/</guid>
+      <description>Vorto Meta Model Information Model DSL Reference Information Model DSL import function block model DSL.
+InformationModel: &#39;namespace&#39; qualifiedName &#39;version&#39; version (modelReference)* &#39;infomodel&#39; id &#39;{&#39; &#39;displayname&#39; string (&#39;description&#39; string)? &#39;category&#39; category &#39;functionblocks&#39; &#39;{&#39; (functionblockProperty)* &#39;}&#39; ; category:id; functionblockProperty: (presence)? id &#39;as&#39; [fbs::functionblockModel|qualifiedName] (string)?; string: &#39;&amp;quot;&#39; ( &#39;\\&#39; (&#39;b&#39;|&#39;t&#39;|&#39;n&#39;|&#39;f&#39;|&#39;r&#39;|&#39;u&#39;|&#39;&amp;quot;&#39;|&amp;quot;&#39;&amp;quot;|&#39;\\&#39;) | !(&#39;\\&#39;|&#39;&amp;quot;&#39;) )* &#39;&amp;quot;&#39; | &amp;quot;&#39;&amp;quot; ( &#39;\\&#39; (&#39;b&#39;|&#39;t&#39;|&#39;n&#39;|&#39;f&#39;|&#39;r&#39;|&#39;u&#39;|&#39;&amp;quot;&#39;|&amp;quot;&#39;&amp;quot;|&#39;\\&#39;) | !(&#39;\\&#39;|&amp;quot;&#39;&amp;quot;) )* &amp;quot;&#39;&amp;quot; ; qualifiedName: id (&#39;.&#39; id)*; version : int(&#39;.&#39; int)*(&#39;-&#39;id)?; id: &#39;^&#39;?</description>
     </item>
     
     <item>
