@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/vorto/documentation/</loc>
+    <lastmod>2018-05-09T10:58:37+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/vorto/getting-started/</loc>
     <lastmod>2018-05-09T10:58:37+08:00</lastmod>
   </url>
@@ -49,6 +54,12 @@
   
   <url>
     <loc>https://www.eclipse.org/vorto/community/</loc>
+    <lastmod>2018-05-09T10:58:37+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/vorto/documentation/</loc>
     <lastmod>2018-05-09T10:58:37+08:00</lastmod>
     <priority>0</priority>
   </url>

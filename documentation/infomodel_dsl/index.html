@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>What is Vorto ? - Eclipse Vorto</title>
+    <title>Information Model DSL - Eclipse Vorto</title>
     <meta name="generator" content="Hugo 0.33" />
 
     
     <meta name="description" content="Describe. Share. Integrate.">
     
-    <link rel="canonical" href="https://www.eclipse.org/vorto/eclipse-vorto/">
+    <link rel="canonical" href="https://www.eclipse.org/vorto/documentation/infomodel_dsl/">
     
     <meta name="author" content="The Eclipse Vorto Project">
     
 
-    <meta property="og:url" content="https://www.eclipse.org/vorto/eclipse-vorto/">
+    <meta property="og:url" content="https://www.eclipse.org/vorto/documentation/infomodel_dsl/">
     <meta property="og:title" content="Eclipse Vorto">
     <meta property="og:image" content="https://www.eclipse.org/vorto/images/vorto.png">
     <meta name="apple-mobile-web-app-title" content="Eclipse Vorto">
@@ -102,7 +102,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        What is Vorto ?
+        Information Model DSL
       </div>
     </div>
 
@@ -139,7 +139,7 @@
 <main class="main">
 	<div class="drawer">
 		<nav aria-label="Navigation">
-  <a href="https://github.com/eclipse/vorto" class="project">
+  <a href="https://www.eclipse.org/vorto/" class="project">
     <div class="banner">
       
         <div class="logo">
@@ -189,14 +189,11 @@
 
 
 
-<a class="current" title="Vorto" href="https://www.eclipse.org/vorto/eclipse-vorto/">
+<a  title="What is Vorto" href="https://www.eclipse.org/vorto/introduction">
 	
-	Vorto
+	What is Vorto
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
   
@@ -293,6 +290,24 @@
 </li>
 
 
+
+<li>
+  
+    
+
+
+
+<a  title="Documentation" href="https://www.eclipse.org/vorto/documentation/">
+	
+	Documentation
+</a>
+
+
+
+  
+</li>
+
+
         </ul>
         
 
@@ -328,22 +343,107 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>What is Vorto ? </h1>
+			<h1>Information Model DSL </h1>
 
-			<p><img src="https://www.eclipse.org/vorto/images/Vorto_Ar.png" alt="Material Screenshot" /></p>
+			<p>This section describes the DSL grammer for a Vorto Information Model.
+</p>
 
-<blockquote>
-<p>Interaction among different stakeholders via Vorto</p>
-</blockquote>
+<h2 id="information-model-dsl-reference">Information Model DSL Reference</h2>
 
-<p>Vorto provides an Eclipse Toolset that allows Device Manufacturers to easily describe device functionality and characteristics as Information Models. These models are managed in a <a href="http://vorto.eclipse.org/">Vorto Repository</a>. Platform Providers provide <a href="http://vorto.eclipse.org/#/generators">Code generators</a> that convert these models into device - specific &ldquo;stubs&rdquo; that run on the device and send Information Model compliant messages to the platform-specific IoT Backend. In order to process these messages in the IoT backend, Vorto offers a set of convenient technical components, for example parsers and validators. For devices sending arbitrary, non-Vorto, messages to an IoT backend, e.g. in binary format, the Vorto Mapping Library helps to transform device messages to IoT Platform specific meta-models, e.g. to Eclipse Ditto or AWS IoT Shadow.</p>
+<p>This section details the following topics:</p>
 
-<p><img src="https://www.eclipse.org/vorto/images/vorto_technicalview.png" alt="Material Screenshot" /></p>
+<p><a href="#information-model-dsl-syntax">Information Model DSL Syntax</a></p>
 
-<blockquote>
-<p>Technical View</p>
-</blockquote>
+<p><a href="#information-model-dsl-semantics">Information Model DSL Semantics</a></p>
 
+<h2 id="information-model-dsl-syntax">Information Model DSL Syntax</h2>
+
+<p>Information Model DSL import function block model DSL.</p>
+
+<pre><code>InformationModel:
+    'namespace' qualifiedName
+    'version' version
+    (modelReference)*
+    'infomodel' id '{'
+    'displayname' string
+    ('description' string)?
+    'category' category
+    'functionblocks' '{'
+        (functionblockProperty)*
+    '}'
+;
+
+category:id;
+
+functionblockProperty: id 'as' [fbs::functionblockModel|qualifiedName]
+    (string)?;
+
+string:
+    '&quot;' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'&quot;'|&quot;'&quot;|'\\') | !('\\'|'&quot;') )* '&quot;' |
+    &quot;'&quot; ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'&quot;'|&quot;'&quot;|'\\') | !('\\'|&quot;'&quot;) )* &quot;'&quot;
+;
+
+qualifiedName: id ('.' id)*;
+
+version : int('.' int)*('-'id)?;
+
+id:
+    '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*
+;
+</code></pre>
+
+<h2 id="information-model-dsl-semantics">Information Model DSL Semantics</h2>
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>Parameter</th>
+    <th>Mandatory</th>
+    <th>Description</th>
+    <th>Example</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Name</td>
+    <td>Y</td>
+    <td>A descriptive name</td>
+    <td>Philips Hue</td>
+  </tr>
+  <tr>
+    <td>description</td>
+    <td>Y</td>
+    <td>Short description</td>
+    <td>Light Strip</td>
+  </tr>
+  <tr>
+    <td>vendor</td>
+    <td>Y</td>
+    <td>Vendor Identifier </td>
+    <td>www.philips.com</td>
+  </tr>
+  <tr>
+    <td>category</td>
+    <td>Y</td>
+    <td>Device Category</td>
+    <td>Light</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>Y</td>
+    <td>Model Version</td>
+    <td>2.0.0</td>
+  </tr>
+  <tr>
+    <td>functionblocks</td>
+    <td>N</td>
+    <td>Composition of Function blocks</td>
+    <td>ColorLight, Switch</td>
+  </tr>
+  </tbody>
+</table>
+
+<hr />
 
 			<aside class="copyright" role="note">
   <div class="logo">
@@ -386,18 +486,34 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
+      <a href="https://www.eclipse.org/vorto/documentation/function_block_dsl/" title="Function Block DSL">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Function Block DSL
+            </div>
+          </div>
+        </div>
+      </a>
+  
   </div>
 
   <div class="next">
   
-      <a href="https://www.eclipse.org/vorto/getting-started/" title="Getting Started">
+      <a href="https://www.eclipse.org/vorto/documentation/mappings_dsl/" title="Mapping DSL">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Getting Started
+              Mapping DSL
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

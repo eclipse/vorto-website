@@ -293,6 +293,24 @@
 </li>
 
 
+
+<li>
+  
+    
+
+
+
+<a  title="Documentation" href="https://www.eclipse.org/vorto/documentation/">
+	
+	Documentation
+</a>
+
+
+
+  
+</li>
+
+
         </ul>
         
 
@@ -330,7 +348,138 @@
 		<div class="wrapper">
 			<h1>Downloads </h1>
 
-			<p>To create Informations Models, you need to download the <a href="https://marketplace.eclipse.org/content/vorto-toolset">Vorto IoT Toolset plugins</a>.</p>
+			
+
+<p>To create Informations Models, you need to download the <a href="https://marketplace.eclipse.org/content/vorto-toolset">Vorto IoT Toolset plugins</a>.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>This section details the following topics:</p>
+
+<p><a href="#installing-the-vorto-toolset">Installing the Vorto Toolset</a></p>
+
+<p><a href="#upgrading-the-vorto-toolset">Upgrading the Vorto Toolset</a></p>
+
+<h2 id="installing-the-vorto-toolset">Installing the Vorto Toolset</h2>
+
+<p>This section lists the steps required to install the Vorto Toolset.</p>
+
+<p>Install the Eclipse Vorto Toolset in one of the following three ways:</p>
+
+<ul>
+<li><a href="#installing-from-the-eclipse-marketplace">Installing from the Eclipse Marketplace</a><br /></li>
+<li><a href="#installing-from-the-vorto-toolset-update-site">Installing from the Vorto Toolset Update Site</a><br /></li>
+</ul>
+
+<h3 id="installing-from-the-eclipse-marketplace">Installing from the Eclipse Marketplace.</h3>
+
+<p><strong>Proceed as follows</strong></p>
+
+<ol>
+<li>Start Eclipse.</li>
+<li>In the main menu, click <strong>Help &gt; Eclipse Marketplace&hellip;</strong>.<br />
+The <strong>Eclipse Marketplace</strong> dialog opens.</li>
+<li>In the <strong>Find</strong> entry field enter <code>Vorto</code> and click the <strong>Go</strong> button.<br />
+The Vorto Toolset is displayed.<br />
+<img src="https://www.eclipse.org/vorto/images/documentation/vorto_eclipse_vorto_download_marketplace_install_dialog.png" alt="Eclipse Marketplace Install Vorto" /></li>
+<li>Click the <strong>Install</strong> button.<br />
+The Vorto Toolset is installed.</li>
+</ol>
+
+<h3 id="installing-from-the-vorto-toolset-update-site">Installing from the Vorto Toolset Update Site</h3>
+
+<p>The Vorto Toolset is available on the Eclipse Vorto update site server. The URL to the server is <code>http://download.eclipse.org/vorto/update/milestones</code> (<em>Vorto Toolset update site</em>). You must add this repository to Eclipse or, alternatively, import the Vorto Toolset zip archive to install the Vorto Toolset.</p>
+
+<h4 id="setting-the-vorto-toolset-update-site">Setting the Vorto Toolset Update Site</h4>
+
+<p><strong>Proceed as follows</strong></p>
+
+<ol>
+<li>Start Eclipse.<br /></li>
+<li>In the main menu, click <strong>Help &gt; Install new Software&hellip;</strong>.<br />
+The <strong>Install</strong> dialog opens displaying the <strong>Available Software</strong>.</li>
+<li>Click the selection button of the <strong>Work with</strong> selection list field to check if the <em>Vorto Toolset update site</em> is already present.<br />
+<img src="https://www.eclipse.org/vorto/images/documentation/m2m_tc_vrm_software_updates_install_vorto_repository_present.png" alt="Software update repository" /><br />
+If the <em>Vorto Toolset update site</em> URL is displayed in the expanding list, you can end the procedure here.<br />
+Otherwise proceed with the next step.</li>
+<li>Add the <em>Vorto Toolset update site</em> URL:<br />
+a. Click the <strong>Add&hellip;</strong> button beside the <strong>Work with</strong> field. The <strong>Add Repository</strong> dialog opens.<br />
+b. Enter a Name (optionally, e.g., <em>Vorto</em>).<br />
+c. Enter the <em>Vorto Toolset update site</em> URL <code>http://download.eclipse.org/vorto/update/milestones</code> into the <strong>Location</strong> field.<br />
+d. Click <strong>OK</strong>.</li>
+</ol>
+
+<p>In the <strong>Install</strong> dialog, the available software list is updated and now contains the software found in the added repository and in the installed archive, respectively.</p>
+
+<h4 id="installing">Installing</h4>
+
+<p><strong>Prerequisites</strong></p>
+
+<ul>
+<li>You have started Eclipse.<br /></li>
+<li>You have set the <em>Vorto Toolset update site</em> in Eclipse (refer to <a href="#setting-the-vorto-toolset-update-site">Setting the Vorto Toolset Update Site</a>).</li>
+</ul>
+
+<p><strong>Proceed as follows</strong></p>
+
+<ol>
+<li>If not yet done click <strong>Help &gt; Install new Software&hellip;</strong> in the main menu.<br />
+The <strong>Install</strong> dialog opens displaying the <strong>Available Software</strong>.<br /></li>
+<li>In the <strong>Work with</strong> selection list, select the entry with the <em>Vorto Toolset</em> URL.<br />
+<img src="https://www.eclipse.org/vorto/images/documentation/m2m_tc_vrm_software_updates_install_vorto_repository_present.png" alt="Software update repository" /><br />
+The <strong>Available Software</strong> list is updated.<br /></li>
+<li>In the <strong>Available Software</strong> list, select <strong>Vorto</strong>.<br />
+All containing software parts are checked.<br />
+<img src="https://www.eclipse.org/vorto/images/documentation/m2m_tc_vrm_software_updates_selected_m2m_plugin_1.png" alt="Software updates selected" /><br /></li>
+<li>Click <strong>Next</strong> to verify the installation of the Vorto Toolset and its dependencies.<br />
+The <strong>Install</strong> dialog now displays the <strong>Install Details</strong>.<br />
+<img src="https://www.eclipse.org/vorto/images/documentation/m2m_tc_vrm_software_updates_install_m2m_details_1.png" alt="Software update install details" /><br /></li>
+<li>Click <strong>Next</strong>.<br />
+The <strong>Install</strong> dialog now displays the <strong>Review Licenses</strong>.<br />
+<img src="https://www.eclipse.org/vorto/images/documentation/m2m_tc_vrm_software_updates_m2m_review_license_1.png" alt="Review licenses" /><br /></li>
+<li>Select <strong>I accept the terms of the license agreements</strong> and click <strong>Finish</strong>.<br />
+The software is being installed.<br /></li>
+<li>If the <strong>Security Warning</strong> dialog opens click <strong>OK</strong>.<br />
+After the installation is complete the <strong>Software Updates</strong> dialog opens.<br />
+<img src="https://www.eclipse.org/vorto/images/documentation/m2m_tc_vrm_software_updates_restart.png" alt="Restart VR Modeler" /><br /></li>
+<li>Click <strong>Yes</strong> to restart Eclipse.<br />
+After the restart, Eclipse contains the <strong>Vorto</strong> project group with several new project wizard items (<strong>File &gt; New &gt; Project&hellip;</strong>).</li>
+</ol>
+
+<p><img src="https://www.eclipse.org/vorto/images/documentation/m2m_tc_new_vorto_function_block_model_wizard.png" alt="New function block model project" /></p>
+
+<h2 id="upgrading-the-vorto-toolset">Upgrading the Vorto Toolset</h2>
+
+<p>This section lists the steps required to upgrade the Vorto Toolset.</p>
+
+<p><strong>Prerequisites</strong></p>
+
+<ul>
+<li>You have a working installation of the previous version of the Vorto Toolset.<br /></li>
+<li>This assumes that your Eclipse version is in the Vorto supported versions, and stable releases of <em>Xtext</em> has been installed.</li>
+</ul>
+
+<p><strong>Proceed as follows</strong></p>
+
+<ol>
+<li>Start Eclipse.</li>
+<li>In the main menu, click <strong>Help &gt; Install new Software&hellip;</strong>.<br />
+The <strong>Install</strong> dialog opens displaying the <strong>Available Software</strong>.<br /></li>
+<li>In the <strong>Work with</strong> selection list, select the entry with the <em>Vorto Toolset update site</em> URL.<br />
+The <strong>Available Software</strong> list is updated.<br /></li>
+<li>In the <strong>Available Software</strong> list, select <strong>Vorto</strong>.<br />
+All containing software parts are checked.</li>
+<li>Click <strong>Next</strong> to verify the installation of <em>Vorto Toolset</em> and its dependencies.<br />
+The <strong>Install</strong> dialog now displays the <strong>Install Details</strong>.<br /></li>
+<li>If the toolset are up-to date the <strong>Finish</strong> button remains inactive. End here by clicking <strong>Cancel</strong>.</li>
+<li>Otherwise, click <strong>Next</strong>.<br />
+The <strong>Install</strong> dialog now displays the <strong>Review Licenses</strong>.</li>
+<li>Select <strong>I accept the terms of the license agreements</strong> and click <strong>Finish</strong>.<br />
+The software is being installed.<br /></li>
+<li>If the <strong>Security Warning</strong> dialog opens click <strong>OK</strong>.<br />
+After the installation is complete the <strong>Software Updates</strong> dialog opens.<br /></li>
+<li>Click <strong>Yes</strong> to restart the Eclipse.<br /></li>
+</ol>
 
 
 			<aside class="copyright" role="note">

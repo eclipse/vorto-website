@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Getting Started - Eclipse Vorto</title>
+    <title>Datatype DSL - Eclipse Vorto</title>
     <meta name="generator" content="Hugo 0.33" />
 
     
     <meta name="description" content="Describe. Share. Integrate.">
     
-    <link rel="canonical" href="https://www.eclipse.org/vorto/getting-started/">
+    <link rel="canonical" href="https://www.eclipse.org/vorto/documentation/datatype_dsl/">
     
     <meta name="author" content="The Eclipse Vorto Project">
     
 
-    <meta property="og:url" content="https://www.eclipse.org/vorto/getting-started/">
+    <meta property="og:url" content="https://www.eclipse.org/vorto/documentation/datatype_dsl/">
     <meta property="og:title" content="Eclipse Vorto">
     <meta property="og:image" content="https://www.eclipse.org/vorto/images/vorto.png">
     <meta name="apple-mobile-web-app-title" content="Eclipse Vorto">
@@ -102,7 +102,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Getting Started
+        Datatype DSL
       </div>
     </div>
 
@@ -207,14 +207,11 @@
 
 
 
-<a class="current" title="Getting started" href="https://www.eclipse.org/vorto/getting-started/">
+<a  title="Getting started" href="https://www.eclipse.org/vorto/getting-started/">
 	
 	Getting started
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
   
@@ -346,193 +343,364 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Getting Started </h1>
+			<h1>Datatype DSL </h1>
 
-			
+			<p>This section describes the DSL grammer for a Vorto Datatype.
+</p>
 
-<p>To get started with Vorto easily, we are going to show you how you can use the Vorto IoT Tool to describe a simple device that measures distance and integrate it with <a href="https://www.eclipse.org/hono">Eclipse Hono</a>.</p>
+<h2 id="datatype-dsl-reference">Datatype DSL Reference</h2>
 
-<p><img src="https://www.eclipse.org/vorto/images/getting-started-ar2.png" alt="Material Screenshot" /></p>
+<p>This section details the following topics:</p>
 
-<h2 id="prerequisites">Prerequisites</h2>
+<p><a href="#data-type-model-dsl-reference">Datatype DSL Syntax</a></p>
+
+<p><a href="#the-datatype-dsl">Datatype DSL Semantics</a></p>
+
+<h2 id="data-type-model-dsl-reference">Data Type Model DSL Reference</h2>
+
+<p>The following code represents the Data Type Model DSL syntax.</p>
+
+<pre><code>model:entity | enumeration;
+
+modelReference: 'using' qualifiedName ';' version;
+
+qualifiedName: id ('.' id)*;
+
+entity:
+   'namespace' qualifiedName
+   'version' version
+   ('displayname' displayname)?
+   ('description' description)?
+   ('category' category)?
+   (modelReference)*
+   'entity' id ('extends' [entity|qualifiedName])? '{'
+        (property)*
+   '}'
+;
+
+enumeration:
+   'namespace' qualifiedName
+   'version' version
+   (modelReference)*
+    'enum' id '{'
+        (enumLiteral)*
+    '}'
+;
+
+enumLiteral: id;
+
+property:
+    presence ('multiple')? id 'as' type 
+        ('with' '{' propertyAttributes (',' propertyAttributes)* '}')?
+        ('&lt;'constraintType [constraintIntervalType] (&quot;,&quot; constraintType [constraintIntervalType])*'&gt;')?
+        (description)?
+;
+
+propertyAttributes: booleanPropertyAttribute | enumLiteralPropertyAttribute;
+
+booleanPropertyAttribute: ('readable' | 'writable' | 'eventable') ':' (value ?= 'true' | 'false');
+
+enumLiteralPropertyAttribute: 'measurementUnit' ':' value;
+
+type : primitiveType | entity | enumeration | complexPrimitiveType;
+
+primitiveType : 'string' | 'int' | 'float' | 'boolean' | 'dateTime' |
+    'double' | 'long' | 'short' | 'base64Binary' | 'byte' ;
+
+complexPrimitiveType : 'Dictionary' ('[' type ',' type ']')?
+
+presence : 'mandatory' | 'optional';
+
+constraintType: 'MIN' | 'MAX' | 'STRLEN' | 'REGEX' ;
+
+constraintIntervalType: int| signedint| float| datetime| string;
+
+id: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+
+string:  
+    '&quot;' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'&quot;'|&quot;'&quot;|'\\') | !('\\'|'&quot;') )* '&quot;' |
+    &quot;'&quot; ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'&quot;'|&quot;'&quot;|'\\') | !('\\'|&quot;'&quot;) )* &quot;'&quot;
+;
+
+date:  
+    ('0'..'9')('0'..'9')('0'..'9')('0'..'9')('-')('0'..'9')('0'..'9')('-')
+    ('0'..'9')('0'..'9')  
+;
+
+time:  
+    ('0'..'9')('0'..'9')(':')('0'..'9')('0'..'9')(':')('0'..'9')('0'..'9')
+    (timezone)?  
+;
+
+timezone: 'Z'|(('+'|'-')('0'..'9')('0'..'9')(':')('0'..'9')('0'..'9'))  ;
+
+datetime: date('T')time;
+
+int: ('0'..'9')+;
+
+signedint: '-'INT;
+
+float: int('.'int)?;
+
+version: int('.' int)*('-'id)?;
+</code></pre>
+
+<h2 id="the-datatype-dsl">The Datatype DSL</h2>
+
+<p>An <a href="#entity"><strong>Entity</strong></a> element defines a new non-primitive data type that can be referenced by the function block. It contains <a href="#properties"><strong>Properties</strong></a> which are either of the <a href="#primitive-types"><strong>Primitive</strong></a> type, another <a href="#entity"><strong>Entity</strong></a>, or a <a href="#dictionary"><strong>Dictionary</strong></a> type. It can also <em>inherit</em> from existing entities.</p>
+
+<p>An <a href="#enum"><strong>Enum</strong></a> is an enumeration of values of the same type similar to an <em>enum</em> in Java.</p>
+
+<h3 id="entity">Entity</h3>
+
+<p>An Entity consist of</p>
 
 <ul>
-<li>Maven</li>
-<li>Java 8</li>
-<li><a href="https://www.eclipse.org/downloads/packages/eclipse-ide-java-and-dsl-developers/oxygen3a">Eclipse for DSL Developers</a></li>
-<li><a href="http://marketplace.eclipse.org/content/vorto-toolset">Eclipse Vorto Toolset Plugins</a></li>
+<li>General metadata parameters (<code>namespace, version, displayname, description, category</code>).</li>
+<li>Optional references to other entities or enums</li>
+<li>And a list of <a href="#properties"><strong>Properties</strong></a></li>
 </ul>
 
-<h2 id="creating-a-vorto-project">Creating a Vorto Project</h2>
+<p><strong>Syntax</strong></p>
 
-<ol>
-<li>Open Eclipse and switch to the <strong>Vorto Perspective</strong>.</li>
-<li>In the Vorto Model Project Browser, click the <strong>+</strong> button.</li>
-<li>This opens the <strong>New Vorto Project</strong> Dialog:
-<img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/vorto_create_new_vorto_project_dialog.png" alt="Material Screenshot" /></li>
-<li>Enter a <strong>Project Name</strong>, for example, <code>MyVortoProject</code>.</li>
-<li>Click on <strong>Finish</strong> to begin describing the device.</li>
-</ol>
+<p>Refer to entity in <a href="#data-type-model-dsl-reference">Datatype DSL Syntax</a>.</p>
 
-<p><img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/vorto_new_vorto_project_created.png" alt="Material Screenshot" /></p>
+<p><strong>Usage</strong></p>
 
-<h2 id="defining-a-function-block">Defining a Function Block</h2>
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>Entity element</th>
+    <th>Mandatory</th>
+    <th>Description</th>
+    <th>Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>&lt;entity_name&gt;</td>
+    <td>Y</td>
+    <td>A descriptive name of the entity.</td>
+    <td>String (identifier, without spaces)</td>
+  </tr>
+  <tr>
+    <td>extends &lt;other_entity_name&gt;</td>
+    <td></td>
+    <td>The entity extends the property &lt;other_entity_name&gt;.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>&lt;optional&nbsp;|&nbsp;mandatory&gt;</td>
+    <td></td>
+    <td>Declares if the property is optional or mandatory.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>multiple</td>
+    <td></td>
+    <td>Defines if the property can have more than one value.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>&lt;property_name&gt;</td>
+    <td>Y</td>
+    <td>The name of the property.</td>
+    <td>String (identifier, without spaces)</td>
+  </tr>
+  <tr>
+    <td>as &lt;type&gt;</td>
+    <td>Y</td>
+    <td>The data type of the property.</td>
+    <td>Supported types:
+    <ul>
+      <li>Primitive Types </li>
+      <li>Another Entity</li>
+      <li>Dictionary</li>
+    </ul>
+  </td>
+  </tr>
+  <tr>
+    <td>&lt;description&gt;</td>
+    <td></td>
+    <td>Extra information about the entity.</td>
+    <td>String enclosed in quotation marks</td>
+  </tr>
+  </tbody>
+</table>
 
-<blockquote>
-<p>A function block provides an abstract view on a device to applications that want to employ the devices’ functionality. Thus, it is a consistent, self-contained set of (potentially re-usable) properties and capabilities.</p>
-</blockquote>
+<p><strong>Example</strong></p>
 
-<ol>
-<li>Right-click in the <strong>Functionblocks</strong> area and choose <strong>New Functionblock</strong> from the context menu.
-<img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/m2m_tc_create_function_block_designer_dialog_2.png" alt="Material Screenshot" /></li>
-<li>Enter a name as <strong>Function Block Name</strong>, for example, Distance</li>
-<li>Adjust the entries for the input fields <strong>Namespace</strong> and <strong>Version</strong>, if necessary.</li>
-<li>Optionally, enter a description in the <strong>Description</strong> entry field.</li>
-<li>Click <strong>Finish</strong>. <img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/m2m_tc_create_function_block_generated_source_1.png" alt="Material Screenshot" /></li>
-<li>Edit the function block by adding the distance specific properties:</li>
-</ol>
-
-<p><strong>Example:</strong></p>
-
-<pre><code class="language-sh">namespace org.eclipse.vorto.fb
-version 1.0.0
-displayname &quot;Distance&quot;
-description &quot;Function block model for Distance&quot;
-functionblock Distance {
-
-    status {
-        mandatory distance as float
-        mandatory sensor_unit as string
-        optional min_value as float
-        optional max_value as float
-    }
+<pre><code>entity Color {  
+  mandatory red as int &lt;MIN 0, MAX 255&gt; &quot;The red component of a color&quot;  
+  mandatory green as int &lt;MIN 0, MAX 255&gt; &quot;The green component of a color&quot;    
+  mandatory blue as int &lt;MIN 0, MAX 255&gt; &quot;The blue component of a color&quot;  
 }
 </code></pre>
 
-<h2 id="defining-an-information-model">Defining an Information Model</h2>
+<h4 id="properties">Properties</h4>
 
-<blockquote>
-<p>Information models represent the capabilities of a particular type of device entirety. An information model contains one or more function blocks.</p>
-</blockquote>
-
-<ol>
-<li>Right-click in the <strong>Information Models</strong> area and choose <strong>New Information Model</strong> from the context menu.
-<img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/m2m_tc_create_information_model_dialog.png" alt="Material Screenshot" /></li>
-<li>Enter a name as <strong>Information Model Name</strong>, for example, DistanceSensor.</li>
-<li>Adjust the entries for the input fields <strong>Namespace</strong> and <strong>Version</strong>, if necessary.</li>
-<li>Optionally, enter a description in the <strong>Description</strong> entry field.</li>
-<li>Click <strong>Finish</strong>.<img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/m2m_tc_information_model_dsl_editor.png" alt="Material Screenshot" /></li>
-<li>Drag and drop the created and edited function block (distance) from the <strong>Functionblocks</strong> area onto the information model <strong>DistanceSensor</strong> to create the reference. <img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/m2m_tc_drag_drop_function_block_to_information_model.png" alt="Material Screenshot" /></li>
-</ol>
-
-<h2 id="generating-device-code">Generating Device Code</h2>
+<p>A property consist of</p>
 
 <ul>
-<li>Right click on the Information Model <strong>DistanceSensor</strong> in the Information Model area</li>
-<li>Click <strong>Generate Code</strong> -&gt; <strong>Eclipse Hono Generator</strong></li>
-<li>Choose <strong>Java</strong> and click <strong>Generate</strong>. This will generate a Java source code bundle and switch to the Java perspective automatically.</li>
-<li>Right click on the generated Maven Project and Choose <strong>Maven</strong> -&gt; <strong>Update Project</strong>. This downloads all the needed Maven dependencies for the project to run.</li>
+<li>An optional <em>presence</em> indicator which can either be <code>mandatory</code> or <code>optional</code></li>
+<li>An optional <code>multiple</code> which indicates if the property is an array</li>
+<li>A required <em>name</em> as a string and a required <em>type</em> which can either be a <a href="#primitive-types"><strong>Primitive</strong></a> type,
+another <a href="#entity"><strong>Entity</strong></a>, or a <a href="#dictionary"><strong>Dictionary</strong></a>. Both are bridged by the keyword <code>as</code>.</li>
+<li>An optional <a href="#attributes"><strong>Attributes</strong></a> (measurementUnit, readable, writable, eventable)</li>
+<li>An optional <a href="#constraints"><strong>Constraint</strong></a> (MIN, MAX, STRLEN, REGEX)</li>
+<li>An optional <em>Description</em>, a string which can be used to document the property.</li>
 </ul>
 
-<h2 id="registering-device-in-eclipse-hono">Registering device in Eclipse Hono</h2>
+<p><strong>Example</strong></p>
 
-<p>Eclipse Hono provides a sandbox infrastructure which we can use to demonstrate the device integration. Before we can send data from our generated project, we must register the device under a tenant:</p>
+<pre><code>isAlive as boolean
 
-<h3 id="registering-the-device-id">Registering the Device ID</h3>
+mandatory multiple lidarMeasurements as float &quot;The measurements of the LIDAR in one scan&quot;
 
-<p>Execute the following curl command to register the device in Eclipse Hono sandbox. We are using <code>1234</code> as a <strong>device ID</strong> and <code>vortodemo</code> as a <strong>Hono tenant</strong>, but feel free to change as you like:</p>
-
-<pre><code class="language-sh">curl -X POST http://hono.eclipse.org:28080/registration/vortodemo
--i -H 'Content-Type: application/json'
--d '{&quot;device-id&quot;: &quot;1234&quot;}'
+optional engineTemperature as float with { measurementUnit: Temperature.Celsius } &lt;MIN 0, MAX 3000&gt; &quot;The engine temperature&quot;
 </code></pre>
 
-<h3 id="adding-device-credentials">Adding device credentials</h3>
+<h4 id="primitive-types">Primitive Types</h4>
 
-<p>Execute the following curl command in order to set the device credentials in Eclipse Hono:</p>
+<p>The following are the primitive types supported in Vorto</p>
 
-<pre><code class="language-sh">PWD_HASH=$(echo -n &quot;S3cr3t&quot; | openssl dgst -binary -sha512 | base64 | tr -d '\n') 
-curl -X POST http://hono.eclipse.org:28080/credentials/vortodemo
--i -H 'Content-Type: application/json'
--d '&lt;JSON Request payload&gt;' 
+<ul>
+<li><code>string</code></li>
+<li><code>int</code></li>
+<li><code>float</code></li>
+<li><code>boolean</code></li>
+<li><code>dateTime</code></li>
+<li><code>double</code></li>
+<li><code>long</code></li>
+<li><code>short</code></li>
+<li><code>base64Binary</code></li>
+<li><code>byte</code></li>
+</ul>
+
+<h4 id="dictionary">Dictionary</h4>
+
+<p>A <em>Dictionary</em> is a type that contains a <em>Key</em> and a <em>Value</em>. It is declared with the keyword <code>Dictionary</code>
+followed by an optional bracket (<code>[ .. ]</code>) if you wish to indicate the <em>type</em> of its <em>key</em> and <em>value</em>. The <em>type</em> can
+be a <em>primitive</em> type, an <em>Entity</em> type, an <em>Enum</em> or another <em>Dictionary</em>.</p>
+
+<p><strong>Example</strong></p>
+
+<pre><code>mandatory lookupTable as Dictionary[string, Color] &quot;Lookup table conversion for color&quot;
+
+mandatory lookupRGBTable as Dictionary[Color, RGB] &quot;Lookup table conversion for color from description to RGB&quot;
+
+mandatory temperatureLabelConversion as Dictionary[int, string] &quot;map of temperature to description&quot;
+
+mandatory noKeyAndValueTypeMap as Dictionary &quot;example of a map with no key and value types&quot;
 </code></pre>
 
-<p>JSON Request payload:</p>
+<h4 id="attributes">Attributes</h4>
 
-<pre><code class="language-sh">{
-  &quot;device-id&quot;: &quot;1234&quot;,
-  &quot;auth-id&quot;: &quot;1234&quot;,
-  &quot;type&quot;: &quot;hashed-password&quot;,
-  &quot;secrets&quot;: [
-    {
-      &quot;hash-function&quot;: &quot;sha-512&quot;,
-      &quot;pwd-hash&quot;: &quot;'$PWD_HASH'&quot;
-    }
-  ]
+<p>An attribute can be added by the keyword <code>with</code> followed by the attributes in between <em>curly</em> (<code>{ .. }</code>) braces. As of now,
+the following attributes are supported</p>
+
+<ul>
+<li><code>measurementUnit</code> - Indicates a measurement unit of the property. It is an <em>Enum</em> value. For example, if the property is a temperature, the measurementUnit could be <em>Temperature.celsius</em> declared in the <em>Temperature</em> enumeration.</li>
+<li><code>readable</code> - Indicates if the property could be read.</li>
+<li><code>writable</code> - Indicates if the property could be written to.</li>
+<li><code>eventable</code> - Indicates if the property generates events.</li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>mandatory engineTemperature as float 
+  with { measurementUnit: Temperature.Celsius, readable: true, writable: true, eventable: false } 
+  &quot;The engine temperature&quot;
+</code></pre>
+
+<h4 id="constraints">Constraints</h4>
+
+<p>A <em>constraint</em> can be added by putting it in between <code>&lt;</code> and <code>&gt;</code> symbols and consist of the constraint name (e.g `MIN&rsquo;) and
+the value of that constraint.</p>
+
+<p>The following constraints are supported</p>
+
+<ul>
+<li><code>MIN</code></li>
+<li><code>MAX</code></li>
+<li><code>STRLEN</code></li>
+<li><code>REGEX</code></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>mandatory red as int &lt;MIN 0, MAX 255&gt; &quot;The red component of a color&quot;    
+</code></pre>
+
+<h3 id="enum">Enum</h3>
+
+<p>An Enum is an enumeration of values of the same type</p>
+
+<p><strong>Syntax</strong></p>
+
+<p>Refer to entity in <a href="#data-type-model-dsl-reference">Datatype DSL Syntax</a>.</p>
+
+<p><strong>Usage</strong></p>
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>Entity element</th>
+    <th>Mandatory</th>
+    <th>Description</th>
+    <th>Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>&lt;enum_name&gt;</td>
+    <td>Y</td>
+    <td>A descriptive name of the enum.</td>
+    <td>String (identifier, without spaces)</td>
+  </tr>
+  <tr>
+    <td>{</td>
+    <td>Y</td>
+    <td>Delimiter of the literal list (comma separated literals).</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>&lt;literal&gt;</td>
+    <td>Y</td>
+    <td>A descriptive name of an enum value.</td>
+    <td>String (identifier, without spaces)</td>
+  </tr>
+  <tr>
+    <td>}</td>
+    <td>Y</td>
+    <td>The name of the property.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+
+<p><strong>Example</strong></p>
+
+<pre><code>// definition of an enum type
+enum Gender{
+  Male, Female, NA
 }
+
+// usage as a field
+mandatory sex as Gender
 </code></pre>
 
-<h2 id="editing-device-configuration">Editing device configuration</h2>
+<table class="table table-bordered">
+    <tbody>
+  <tr>
+    <td><i class="fa fa-info-circle info-note"></i></td>
+    <td>To find out more about which language elements are available when writing a data type DSL, have a look at the respective DSL Reference. </br>
+    Use the keyboard shortcut <span style="font-variant:small-caps;">Ctrl + Space</span> to get a list of available DSL elements, that can be applied in the current scope you are in.</td>
+  </tr>
+    </tbody>
+</table>
 
-<p>Now let&rsquo;s go back to our generated project and update the <code>src/main/java/device/distancesensor/Distancesensor.java</code> accordingly:</p>
-
-<pre><code>// Hono MQTT Endpoint
-private static final String MQTT_ENDPOINT = &quot;ssl://hono.eclipse.org:8883&quot;;
-
-// Your Tenant
-private static final String HONO_TENANT = &quot;vortodemo&quot;;
-
-// Your DeviceId
-private static final String DEVICE_ID = &quot;1234&quot;;
-
-// Device authentication ID
-private static final String AUTH_ID = &quot;1234@&quot;+HONO_TENANT;
-
-// Ditto Namespace
-private static final String DITTO_NAMESPACE = &quot;org.eclipse.vorto&quot;;
-
-// Device authentication Password
-private static final String PASSWORD = &quot;S3cr3t&quot;;
-</code></pre>
-
-<p><strong>Download Certificate</strong></p>
-
-<blockquote>
-<p>Copy and paste the <a href="https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem.txt">certificate</a> into <code>src/main/resources/certificate/hono.crt</code> of your project.</p>
-</blockquote>
-
-<h2 id="running-and-verifying-data-in-hono">Running and verifying data in Hono</h2>
-
-<ul>
-<li>Right click on <code>Distancesensor.java</code> in you IDE and <strong>Run as Java Application`</strong> to start sending data to Eclipse Hono. You should be seeing the following output in the console:</li>
-</ul>
-
-<p><img src="https://www.eclipse.org/vorto/images/run_java.PNG" alt="Material Screenshot" /></p>
-
-<ul>
-<li>Follow <a href="https://www.eclipse.org/hono/dev-guide/java_client_consumer/">Consuming Messages from Java for Hono</a> to receive the device data in the Eclipse Hono backend.</li>
-</ul>
-
-<h2 id="what-s-next">What&rsquo;s next?</h2>
-
-<ul>
-<li><p><strong>Forward</strong> the device data to <a href="https://ditto.eclipse.org">Eclipse Ditto</a> in order to update the digital twin representation for the device.</p>
-
-<blockquote>
-<p>The JSON data, sent by the device is already compliant to the Eclipse Ditto protocol. Therefore, you can directly modify the thing in Eclipse Ditto by sending the device JSON data via Websockets. Please take a look at the <a href="https://ditto.eclipse.org">Eclipse Ditto Sandbox</a> for more information.</p>
-</blockquote></li>
-
-<li><p><strong>Share</strong> your Vorto Information Model in the <a href="http://vorto.eclipse.org">Vorto Repository</a>, that way other IoT developers can integrate your device in their IoT solutions.</p>
-
-<blockquote>
-<p>Log in to <a href="http://vorto.eclipse.org">Vorto Repository</a> with your Github account and click on <strong>Share</strong> and follow the instructions.</p>
-</blockquote></li>
-
-<li><p><a href="../tutorials/#connecting-a-esp8266-arduino">Connect an ESP8266 - based device to Eclipse Hono</a></p></li>
-
-<li><p><a href="../tutorials/#connecting-a-grovepi">Connect a GrovePi to Eclipse Hono</a></p></li>
-</ul>
-
+<hr />
 
 			<aside class="copyright" role="note">
   <div class="logo">
@@ -575,7 +743,7 @@ private static final String PASSWORD = &quot;S3cr3t&quot;;
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://www.eclipse.org/vorto/documentation/" title="Documentation">
+      <a href="https://www.eclipse.org/vorto/documentation/metamodel_uml/" title="Vorto Meta Model">
         <span class="direction">
           Previous
         </span>
@@ -585,7 +753,7 @@ private static final String PASSWORD = &quot;S3cr3t&quot;;
           </div>
           <div class="stretch">
             <div class="title">
-              Documentation
+              Vorto Meta Model
             </div>
           </div>
         </div>
@@ -595,14 +763,14 @@ private static final String PASSWORD = &quot;S3cr3t&quot;;
 
   <div class="next">
   
-      <a href="https://www.eclipse.org/vorto/tutorials/" title="Tutorials">
+      <a href="https://www.eclipse.org/vorto/documentation/function_block_dsl/" title="Function Block DSL">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Tutorials
+              Function Block DSL
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

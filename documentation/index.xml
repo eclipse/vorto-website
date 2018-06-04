@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Documentations on Eclipse Vorto</title>
+    <link>https://www.eclipse.org/vorto/documentation/</link>
+    <description>Recent content in Documentations on Eclipse Vorto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>The Eclipse Vorto Project</copyright>
+    <lastBuildDate>Wed, 09 May 2018 10:58:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://www.eclipse.org/vorto/documentation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Documentation</title>
+      <link>https://www.eclipse.org/vorto/documentation/</link>
+      <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/documentation/</guid>
+      <description> Datatype DSL Reference </description>
+    </item>
+    
+  </channel>
+</rss>

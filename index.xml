@@ -23,6 +23,15 @@
     </item>
     
     <item>
+      <title>Documentation</title>
+      <link>https://www.eclipse.org/vorto/documentation/</link>
+      <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/documentation/</guid>
+      <description> Datatype DSL Reference </description>
+    </item>
+    
+    <item>
       <title>Getting Started</title>
       <link>https://www.eclipse.org/vorto/getting-started/</link>
       <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
@@ -38,7 +47,7 @@ Prerequisites  Maven Java 8 Eclipse for DSL Developers Eclipse Vorto Toolset Plu
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
       <guid>https://www.eclipse.org/vorto/tutorials/</guid>
-      <description>Connecting a GrovePi This tutorial explains how to generate a simple Python application for you GrovePi that sends sensor data to Eclipse Hono using MQTT.
+      <description>Connecting a GrovePi to Eclipse Hono This tutorial explains how to generate a simple Python application for you GrovePi that sends sensor data to Eclipse Hono using MQTT.
 Prerequisites  Python 3.x
  IDEs - for Python: Visual Studio Code with the Python extension
  Paho Python Client
@@ -52,7 +61,14 @@ Prerequisites  Python 3.x
       <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
       
       <guid>https://www.eclipse.org/vorto/downloads/</guid>
-      <description>To create Informations Models, you need to download the Vorto IoT Toolset plugins.</description>
+      <description>To create Informations Models, you need to download the Vorto IoT Toolset plugins.
+Installation This section details the following topics:
+Installing the Vorto Toolset
+Upgrading the Vorto Toolset
+Installing the Vorto Toolset This section lists the steps required to install the Vorto Toolset.
+Install the Eclipse Vorto Toolset in one of the following three ways:
+ Installing from the Eclipse Marketplace
+ Installing from the Vorto Toolset Update Site</description>
     </item>
     
     <item>
