@@ -8,17 +8,17 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/getting-started/</loc>
+    <loc>https://www.eclipse.org/vorto/gettingstarted/</loc>
     <lastmod>2018-05-09T10:58:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/documentation/</loc>
-    <lastmod>2018-05-09T10:58:37+08:00</lastmod>
+    <loc>https://www.eclipse.org/vorto/tutorials/grovepi/</loc>
+    <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/tutorials/</loc>
+    <loc>https://www.eclipse.org/vorto/tutorials/arduino/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
@@ -38,6 +38,31 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/vorto/documentation/metamodel_uml/</loc>
+    <lastmod>2016-03-09T20:08:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/vorto/documentation/infomodel_dsl/</loc>
+    <lastmod>2016-03-09T20:08:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/vorto/documentation/function_block_dsl/</loc>
+    <lastmod>2016-03-09T20:08:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/vorto/documentation/datatype_dsl/</loc>
+    <lastmod>2016-03-09T20:08:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/vorto/documentation/mappings_dsl/</loc>
+    <lastmod>2016-03-09T20:08:11+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/vorto/</loc>
     <lastmod>2018-05-28T21:07:13+01:00</lastmod>
   </url>
@@ -53,38 +78,14 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/community/</loc>
-    <lastmod>2018-05-09T10:58:37+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://www.eclipse.org/vorto/documentation/</loc>
-    <lastmod>2018-05-09T10:58:37+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/vorto/downloads/</loc>
-    <lastmod>2018-05-09T10:58:37+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/vorto/getting-started/</loc>
-    <lastmod>2018-05-09T10:58:37+08:00</lastmod>
+    <lastmod>2016-03-09T20:08:11+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.eclipse.org/vorto/installation/</loc>
     <lastmod>2018-05-28T20:08:11+01:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/vorto/release-notes/</loc>
-    <lastmod>2016-03-09T20:10:46+01:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -13,17 +13,25 @@
     
     
     <item>
-      <title>Tutorials</title>
-      <link>https://www.eclipse.org/vorto/tutorials/</link>
+      <title>Connecting a GrovePi to Hono</title>
+      <link>https://www.eclipse.org/vorto/tutorials/grovepi/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/tutorials/</guid>
-      <description>Connecting a GrovePi to Eclipse Hono This tutorial explains how to generate a simple Python application for you GrovePi that sends sensor data to Eclipse Hono using MQTT.
-Prerequisites  Python 3.x
- IDEs - for Python: Visual Studio Code with the Python extension
- Paho Python Client
- GrovePi Sensor Kit
-  1. Setup your device. In this example Raspberry Pi is used but you can use any device which can run python.</description>
+      <guid>https://www.eclipse.org/vorto/tutorials/grovepi/</guid>
+      <description>&lt;p&gt;This tutorial explains how to generate a simple Python application for you GrovePi that sends sensor data to Eclipse Hono using MQTT.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Connecting a ESP8266 (Arduino) to Hono</title>
+      <link>https://www.eclipse.org/vorto/tutorials/arduino/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/tutorials/arduino/</guid>
+      <description>&lt;p&gt;This tutorial explains how to generate an Arduino sketch for a given Information Model and send the device data to Eclipse Hono via MQTT.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Function Block DSL - Eclipse Vorto</title>
+    <meta name="generator" content="Hugo 0.33" />
+
+    
+    <meta name="description" content="Describe. Share. Integrate.">
+    
+    <link rel="canonical" href="https://www.eclipse.org/vorto/documentation/function_block_dsl/">
+    
+    <meta name="author" content="The Eclipse Vorto Project">
+    
+
+    <meta property="og:url" content="https://www.eclipse.org/vorto/documentation/function_block_dsl/">
+    <meta property="og:title" content="Eclipse Vorto">
+    <meta property="og:image" content="https://www.eclipse.org/vorto/images/vorto.png">
+    <meta name="apple-mobile-web-app-title" content="Eclipse Vorto">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.eclipse.org/vorto/images/vorto.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.eclipse.org/vorto/images/vorto.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://www.eclipse.org/vorto/fonts/icon.eot');
+        src: url('https://www.eclipse.org/vorto/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://www.eclipse.org/vorto/fonts/icon.woff')
+               format('woff'),
+             url('https://www.eclipse.org/vorto/fonts/icon.ttf')
+               format('truetype'),
+             url('https://www.eclipse.org/vorto/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://www.eclipse.org/vorto/stylesheets/application.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/vorto/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/vorto/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://www.eclipse.org/vorto/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" href="https://www.eclipse.org/vorto/css/vorto.css">
+    
+    <link rel="stylesheet" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css">
+    
+    <script src="https://www.eclipse.org/vorto/javascripts/modernizr.js"></script>
+    <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-blue palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Function Block DSL
+      </div>
+    </div>
+
+    
+    <div class="button button-twitter" role="button" aria-label="Twitter">
+       <a href="https://twitter.com/VortoIoT" title="@VortoIoT on Twitter" target="_blank" class="toggle-button icon icon-twitter"></a>
+    </div>
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/eclipse/vorto" title="@eclipse/vorto on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://www.eclipse.org/vorto/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://www.eclipse.org/vorto/images/vorto.png">
+        </div>
+      
+      <div class="name">
+        <strong>Eclipse Vorto </strong>
+        
+          <br>
+          eclipse/vorto
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="http://vorto.eclipse.org" title="Repository" data-action="download">
+              <i class="icon icon-search"></i> Repository
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/eclipse/vorto" target="_blank" title="Vorto on GitHub" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="What is Vorto" href="https://www.eclipse.org/vorto/introduction">
+	
+	What is Vorto
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Getting started" href="https://www.eclipse.org/vorto/gettingstarted/">
+	
+	Getting started
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Tutorials" href="https://www.eclipse.org/vorto/tutorials/">
+	
+	Tutorials
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Downloads" href="https://www.eclipse.org/vorto/downloads/">
+	
+	Downloads
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Community" href="https://www.eclipse.org/vorto/community/">
+	
+	Community
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Release Notes" href="https://www.eclipse.org/vorto/release-notes/">
+	
+	Release Notes
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Reference Documentation" href="https://www.eclipse.org/vorto/documentation/">
+	
+	Reference Documentation
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">Build Status</span>
+        
+        <ul>
+          
+          <li>
+            <a href="https://ci.eclipse.org/vorto" title="Eclipse Build Status" target="_blank">Jenkins@Eclipse</a>
+          </li>
+          
+          <li>
+            <a href="https://travis-ci.org/eclipse/vorto" title="Travis Build Status" target="_blank">
+              <img src="https://travis-ci.org/eclipse/vorto.svg?branch=development" />
+            </a>
+          </li>
+          <li>
+            <a href="https://maven-badges.herokuapp.com/maven-central/org.eclipse.vorto/org.eclipse.vorto.parent" title="Travis Build Status" target="_blank">
+              <img src="https://maven-badges.herokuapp.com/maven-central/org.eclipse.vorto/org.eclipse.vorto.parent/badge.svg" />
+            </a>
+          </li>
+        </ul>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Function Block DSL </h1>
+
+			<p>This section describes the DSL grammer for a Vorto Function Block.
+</p>
+
+<h2 id="function-block-model-dsl-reference">Function Block Model DSL Reference</h2>
+
+<p>The following code represents the Function Block Model DSL syntax. Function block model use all variables that are defined in Data Type DSL.</p>
+
+<pre><code>functionblockmodel:
+    'namespace' qualifiedName
+    'version' version
+    'displayname' displayname
+    ('description' description)?
+    'category' category
+    (modelReference)*
+    'functionblock' id ('extends' functionblockmodel)? '{'
+        functionblock
+    '}'
+;
+
+functionblock:
+    'configuration' '{' 
+        (property)*  
+    '}'
+
+    ('status' '{'
+        (property)*
+    '}')?
+
+    ('fault' '{'
+        (property)*
+    '}')?
+
+    ('events' '{'
+        (event)*
+    '}')?
+
+    ('operations' '{'
+        (operation)*
+    '}')?
+;
+
+operation :
+    (presence)? ('breakable')? id '(' (param (paramDescription)?)? ')' ('returns'  returnType)? (returnTypeDescription)?
+;
+
+returnType :
+    returnObjectType | returnPrimitiveType
+;
+
+returnObjectType :
+    ('multiple')? [datatype::type | qualifiedName]
+;
+
+returnPrimitiveType :
+    ('multiple')? primitiveType ('&lt;'constraintType [constraintIntervalType] (&quot;,&quot; constraintType [constraintIntervalType])*'&gt;')?
+;
+
+primitiveParam:
+    (multiple')? id 'as' primitiveType ('&lt;'constraintType [constraintIntervalType] (&quot;,&quot; constraintType [constraintIntervalType])*'&gt;')?
+;
+
+refParam:
+    ('multiple')? id 'as' [datatype::type|qualifiedName]
+;
+
+param:
+    primitiveParam | refParam
+;
+
+event:
+    id '{'
+        (property)*
+    '}'
+;
+
+string:
+    '&quot;' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'&quot;'|&quot;'&quot;|'\\') | !('\\'|'&quot;') )* '&quot;' |
+    &quot;'&quot; ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'&quot;'|&quot;'&quot;|'\\') | !('\\'|&quot;'&quot;) )* &quot;'&quot;
+;
+
+qualifiedName: id ('.' id)*;
+
+version : int('.' int)*('-'id)?;
+
+id:
+    '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*
+;
+</code></pre>
+
+<h3 id="function-block-model">Function Block Model</h3>
+
+<p>A function block model describes a function block with its properties and behavior. For this it can contain a functionblock element (refer to <a href="#function-block">Function Block</a>) and no or several entity elements (refer to <a href="#entity">Entity</a>).</p>
+
+<p><strong>Syntax</strong></p>
+
+<p>Refer to functionblockmodel in <a href="#function-block-dsl-syntax">Function Block DSL Syntax</a>.</p>
+
+<p><strong>Example</strong></p>
+
+<pre><code>namespace com.mycompany.fb
+version 1.0.0
+functionblock Lamp {  
+  displayname &quot;Lamp&quot;  
+  description &quot;A lamp makes the environment bright&quot;  
+  category demo  
+  configuration{  
+    mandatory blinking as boolean &quot;if the lamp is currently blinking or not&quot;  
+    mandatory on as boolean &quot;if the lamp is currently switched on&quot;  
+  }  
+  status {
+    mandatory powerConsumption as int
+      &quot;the amount of power the lamp is consuming&quot; 
+  }
+  fault{  
+    mandatory bulbDefect as boolean
+        &quot;true if the light bulb of the lamp is defect&quot;  
+  }  
+  operations{  
+    blink(blinkType as int &lt;MIN 0, MAX 5&gt; &quot;The type of blink&quot;) &quot;sets the blinking type for the lamp&quot;  
+    getPowerConsumption() returns int &lt;MIN 0, MAX 5&gt; &quot;gets the amount of power being consumed by the lamp&quot;  
+    isOn() returns boolean &quot;checks if the lamp is switched on&quot;  
+    breakable off() &quot;turns the lamp off&quot;  
+    breakable on() &quot;turns the lamp on&quot;  
+    stopBlinking() &quot;stops the blinking of the lamp&quot;  
+    toggle() &quot;switches the lamp on or off&quot;  
+    toggleWithDelay(delayInSeconds as int)
+      &quot;switches the lamp on or off with a delay of the specified seconds&quot;  
+    }  
+  }  
+</code></pre>
+
+<h3 id="function-block">Function Block</h3>
+
+<p>A <code>functionblock</code> element describes the properties and behavior of a function block. A <code>functionblock</code> element contains</p>
+
+<ul>
+<li>General metadata parameters (<code>displayname, description, vendor, category, version</code>).</li>
+<li>Property elements (<code>configuration, status, fault</code>).</li>
+<li>An <code>operations</code> element.</li>
+</ul>
+
+<p><strong>Syntax</strong></p>
+
+<p>Refer to <code>FunctionBlock</code> in <a href="#function-block-dsl-syntax">Function Block DSL Syntax</a>.</p>
+
+<p><strong>Usage</strong></p>
+
+<p>The following table describes the parameters and elements of a <code>functionblock</code>. Mandatory parameters or elements are marked with <code>Y</code> in the column <strong>Mandatory</strong></p>
+
+<table  class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Parameter/Element</th>
+    <th>Mandatory</th>
+    <th>Description</th>
+    <th>Type</th>
+    <th>Examples</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td border="2">displayname</td>
+    <td border="2"></td>
+    <td border="2">A descriptive and user friendly name of the function block.</td>
+    <td border="2">String enclosed in quotation marks</td>
+    <td border="2">displayname "Vending Machine"</td>
+  </tr>
+  <tr>
+    <td>description</td>
+    <td></td>
+    <td>Extra information about the function block.</td>
+    <td>String enclosed in quotation marks</td>
+    <td>description "A vending machine withdraws food or drinks"</td>
+  </tr>
+  <tr>
+    <td>category</td>
+    <td>Y</td>
+    <td>The category should be used to logically group function blocks that semantically belong to the same domain.</td>
+    <td>top level category (mandatory) and a sub category (optional), separated by aslash (/)</td>
+    <td>IAP/smarthome</br>indego</td>
+  </tr>
+  <tr>
+    <td>configuration</td>
+    <td>Y</td>
+    <td>Contains one or many configuration properties for the function block.</td>
+    <td>complex type containing properties (see grammar for Property)</td>
+    <td>...</br>configuration {</br>&nbsp;&nbsp;// properties</br>}</td>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td></td>
+    <td>Contains one or many status properties for the function block.</td>
+    <td>complex type (see grammar for Property)</td>
+    <td>...</br>status {</br>&nbsp;&nbsp;// properties</br>}</td>
+  </tr>
+  <tr>
+    <td>fault</td>
+    <td></td>
+    <td>Contains one or many fault properties for the function block.</td>
+    <td>complex type (see grammar for Property)</td>
+    <td>...</br>fault {</br>&nbsp;&nbsp;// properties</br>}</td>
+  </tr>
+  <tr>
+    <td>operations</td>
+    <td></td>
+    <td>Contains one or many operations for the function block.</td>
+    <td>complex type (see grammar for Operation)</td>
+    <td>...</br>operations {</br>&nbsp;&nbsp;// operations</br>}</td>
+  </tr>
+  <tr>
+    <td>events</td>
+    <td></td>
+    <td>Contains one or many events for the function block.</td>
+    <td>complex type (see grammar for Event)</td>
+    <td>...</br>events {</br>&nbsp;&nbsp;// events go here</br>}</td>
+  </tr>
+  </tbody>
+</table>
+
+<p><strong>Example</strong></p>
+
+<pre><code>namespace com.mycompany.fb
+version 1.0.0
+functionblock Lamp {  
+  displayname &quot;Lamp&quot;
+  description &quot;A lamp makes the environment bright&quot;
+  category demo
+  configuration{
+    mandatory blinking as boolean &quot;if the lamp is currently blinking or not&quot;
+    mandatory on as boolean &quot;if the lamp is currently switched on&quot;
+  }
+
+  status {
+    mandatory powerConsumption as int
+      &quot;the amount of power the lamp is consuming&quot;
+  }
+
+  fault{
+    mandatory bulbDefect as boolean
+      &quot;true if the light bulb of the lamp is defect&quot;
+  }
+  events{
+    defect{
+      mandatory on as boolean &quot;if on is true&quot;
+      mandatory powerConsumption as int &quot;if powerConsumption is 0&quot;
+    }
+
+  }
+  operations{
+    blink(blinkType as int &lt;MIN 0, MAX 5&gt; &quot;The type of blink&quot;) &quot;sets the blinking type for the lamp&quot;
+    getPowerConsumption() returns int &lt;MIN 1, MAX 3000&gt;
+      &quot;gets the amount of power being consumed by the lamp&quot;
+    isOn() returns boolean &quot;checks if the lamp is switched on&quot;
+    breakable off() &quot;turns the lamp off&quot;
+    breakable on() &quot;turns the lamp on&quot;
+    stopBlinking() &quot;stops the blinking of the lamp&quot;
+    toggle() &quot;switches the lamp on or off&quot;
+    toggleWithDelay(delayInSeconds as int)
+      &quot;switches the lamp on or off with a delay of the specified seconds&quot;
+    }
+}
+</code></pre>
+
+<h3 id="property">Property</h3>
+
+<p><strong>Syntax</strong></p>
+
+<p>Refer to property in <a href="#function-block-dsl-syntax">Function Block DSL Syntax</a>.</p>
+
+<p><strong>Usage</strong></p>
+
+<p>The following table describes the property elements. Mandatory property elements are marked with <code>Y</code> in the column <strong>Mandatory</strong></p>
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>Property element</th>
+    <th>Mandatory</th>
+    <th>Description</th>
+    <th>Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>optional&nbsp;|&nbsp;mandatory</td>
+    <td>Y</td>
+    <td>Declares if the property is optional or mandatory.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>multiple</td>
+    <td></td>
+    <td>Defines if the property can have more than one value.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>&lt;property_name&gt;</td>
+    <td>Y</td>
+    <td>A descriptive name of the property.</td>
+    <td>String (identifier, without spaces)</td>
+  </tr>
+  <tr>
+    <td>as &lt;type&gt;</td>
+    <td>Y</td>
+    <td>The data type of the property.</td>
+    <td>Supported types:</br>
+      <ul>
+        <li>boolean</li>
+        <li>dateTime</li>
+        <li>float</li>
+        <li>int</li>
+        <li>string</li>
+        <li>long</li>
+        <li>short</li>
+        <li>double</li>
+        <li>base64Binary</li>
+        <li>byte</li>
+    <li>Dictionary (with optional key and value types)</li>
+    <li>Another Entity</li>
+    <li>Another Enum</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>with { [propertyAttribute] }</td>
+    <td>N</td>
+    <td>Additional property attributes</td>
+    <td>Supported property attributes:</br>
+    <ul>
+    <li>measurementUnit : an Enum literal</li>
+    <li>readable: [true or false]</li>
+    <li>writable: [true or false]</li>
+    <li>eventable: [true or false]</li>
+    </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>&lt;constraints&gt;</td>
+    <td></td>
+    <td>Key value pair(s) enclosed by &lt;&gt;, following the pattern:</br>&lt;CONSTRAINT_KEYWORD value&gt;</td>
+    <td>&lt;STRLEN value>, defining the length of a string</br>
+        &lt;MIN value&gt;, defining the maximum of a numeric property</br>
+        &lt;MAX value&gt;, defining the minimum of a numeric property</br>
+        &lt;REGEX value&gt;, defining the regular expression pattern of the property</br>
+        &lt;REGEX value&gt;, defining the regular expression pattern of the string property. Value format expected should be of XML schema pattern format, e.g: [A-Z], [0-9], ([a-z][A-Z])+</td>
+  </tr>
+  <tr>
+    <td>&lt;description&gt;</td>
+    <td></td>
+    <td>Extra information about the property.</td>
+    <td>String enclosed in quotation marks</td>
+  </tr>
+  </tbody>
+</table>
+
+<p><strong>Examples</strong></p>
+
+<pre><code>optional multiple products as Product
+  &quot;the products that are offered by the vending machine&quot;
+
+optional vendingMachineIdentifier as string &lt;STRLEN 8&gt;
+  &quot;the id of the vending machine&quot;
+
+mandatory engineTemperature as float 
+  with { measurementUnit: Temperature.Celsius, readable: true, writable: true }
+
+mandatory positiveNum as int &lt;MIN 0 , MAX 1111&gt;
+  &quot;Positive numbers that is within [0 , 1111]&quot;
+
+mandatory lookupTable as Dictionary[string, Color] &quot;Lookup table conversion for color&quot;
+
+mandatory lookupRGBTable as Dictionary[Color, RGB] &quot;Lookup table conversion for color from description to RGB&quot;
+
+mandatory temperatureLabelConversion as Dictionary[int, string] &quot;map of temperature to description&quot;
+
+mandatory noKeyAndValueTypeMap as Dictionary &quot;example of a map with no key and value types&quot;
+
+mandatory biggerThanInt as long &lt;MAX 999999999999999999&gt;
+  &quot;Value for constraint is validated according to the property type,
+  in this case, Long instead of Int&quot;
+
+mandatory deviceName as string &lt;REGEX '[a-zA-Z][a-zA-Z][0-9]'&gt;
+  &quot;Only allow 2 uppercase or lowercase characters and 1 digit for
+  device name&quot;
+</code></pre>
+
+<h3 id="operation">Operation</h3>
+
+<p>An operation can be seen as a function the function block can perform. Function block operations support the one-way as well as request-response operation pattern and are composed inside the operations element of a functionblock.</p>
+
+<p><strong>Syntax</strong></p>
+
+<p>Refer to operation in <a href="#function-block-dsl-syntax">Function Block DSL Syntax</a>.</p>
+
+<p><strong>Usage</strong></p>
+
+<p>The following table shows the operation types.</p>
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>Operation type</th>
+    <th>Examples</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Without parameter(s)</td>
+    <td>
+      <ul>
+        <li>resetConfiguration()</li>
+        <li>switchOn()</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>With parameter(s)</td>
+    <td>
+      <ul>
+        <li>setTemperature(temperature as int)</li>
+        <li>setProductConfigurationList(multiple products as Product)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>With return type</td>
+    <td>
+      <ul>
+        <li>getProductIdsList() returns multiple string</li>
+        <li>getProductConfiguration() returns Product</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>With parameter(s) and return type</td>
+    <td>
+      <ul>
+        <li>withdraw(productId as string, amount as int) returns boolean</li>
+      </ul>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<p>All operations may have a &lt;description&gt; at the end of each parameter declaration and the operations definition.</p>
+
+<p><strong>Example</strong></p>
+
+<pre><code>getProductConfigurationList() returns multiple Product
+  &quot;Gets the current configured products from the vending machine&quot;
+getProductConfigurationList(count as int &quot;Number of products to return&quot;, offset as int &quot;What row to start&quot;) 
+  returns multiple Product &quot;Gets the current configured products from the vending machine&quot;
+</code></pre>
+
+<p>The parameters and return type can also have constraints.</p>
+
+<p><strong>Example</strong></p>
+
+<pre><code>setRedComponent(R as int &lt;MIN 0, MAX 255&gt;)
+getRedComponent() returns int &lt;MIN 0, MAX 255&gt;
+</code></pre>
+
+<h3 id="event">Event</h3>
+
+<p>An event can be seen as a combination of zero or more properties. The events element of a functionblock can contain 0 or many event elements.</p>
+
+<p><strong>Syntax</strong></p>
+
+<p>Refer to event in <a href="#function-block-dsl-syntax">Function Block DSL Syntax</a>.</p>
+
+<p><strong>Usage</strong></p>
+
+<p>Refer to <em>Usage</em> in <a href="#property">Property</a>.</p>
+
+<p>Example</p>
+
+<pre><code>...  
+  events {  
+    ready {  
+      optional since as dateTime  
+    }  
+  }  
+...
+</code></pre>
+
+<hr />
+
+			<aside class="copyright" role="note">
+  <div class="logo">
+    <a href="https://www.eclipse.org" target="_blank">
+      <img src="https://www.eclipse.org/vorto/images/eclipse_logo_colour.png" />
+    </a>
+  </div>
+  <p class="notice">
+    
+    &copy; 2018 The Eclipse Vorto Project &ndash;
+    
+    Documentation built with
+    <a href="https://www.gohugo.io" target="_blank">Hugo</a>
+    using the
+    <a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+  </p>
+  <p class="quickLinks">
+    <a href="http://www.eclipse.org/legal/privacy.php" target="_blank">
+      &gt; Privacy Policy
+    </a>
+    <a href="http://www.eclipse.org/legal/termsofuse.php" target="_blank">
+      &gt; Terms of Use
+    </a>
+    <a href="http://www.eclipse.org/legal/copyright.php" target="_blank">
+      &gt; Copyright Agent
+    </a>
+    <a href="http://www.eclipse.org/legal" target="_blank">
+      &gt; Legal
+    </a>
+    <a href="https://www.eclipse.org/legal/epl-2.0/" target="_blank">
+      &gt; License
+    </a>
+  </p>
+</aside>
+
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://www.eclipse.org/vorto/documentation/infomodel_dsl/" title="Information Model DSL">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Information Model DSL
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://www.eclipse.org/vorto/documentation/datatype_dsl/" title="Datatype DSL">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Datatype DSL
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/www.eclipse.org\/vorto\/';
+      var repo_id  = 'eclipse\/vorto';
+    
+    </script>
+
+    <script src="https://www.eclipse.org/vorto/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

@@ -24,36 +24,34 @@
     
     <item>
       <title>Getting Started</title>
-      <link>https://www.eclipse.org/vorto/getting-started/</link>
+      <link>https://www.eclipse.org/vorto/gettingstarted/</link>
       <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/getting-started/</guid>
+      <guid>https://www.eclipse.org/vorto/gettingstarted/</guid>
       <description>To get started with Vorto easily, we are going to show you how you can use the Vorto IoT Tool to describe a simple device that measures distance and integrate it with Eclipse Hono.
 Prerequisites  Maven Java 8 Eclipse for DSL Developers Eclipse Vorto Toolset Plugins  Creating a Vorto Project  Open Eclipse and switch to the Vorto Perspective. In the Vorto Model Project Browser, click the + button.</description>
     </item>
     
     <item>
-      <title>Reference Documentation</title>
-      <link>https://www.eclipse.org/vorto/documentation/</link>
-      <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
+      <title>Connecting a GrovePi to Hono</title>
+      <link>https://www.eclipse.org/vorto/tutorials/grovepi/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/documentation/</guid>
-      <description>Vorto Meta Model Information Model DSL Reference Information Model DSL import function block model DSL.
-InformationModel: &#39;namespace&#39; qualifiedName &#39;version&#39; version (modelReference)* &#39;infomodel&#39; id &#39;{&#39; &#39;displayname&#39; string (&#39;description&#39; string)? &#39;category&#39; category &#39;functionblocks&#39; &#39;{&#39; (functionblockProperty)* &#39;}&#39; ; category:id; functionblockProperty: (presence)? id &#39;as&#39; [fbs::functionblockModel|qualifiedName] (string)?; string: &#39;&amp;quot;&#39; ( &#39;\\&#39; (&#39;b&#39;|&#39;t&#39;|&#39;n&#39;|&#39;f&#39;|&#39;r&#39;|&#39;u&#39;|&#39;&amp;quot;&#39;|&amp;quot;&#39;&amp;quot;|&#39;\\&#39;) | !(&#39;\\&#39;|&#39;&amp;quot;&#39;) )* &#39;&amp;quot;&#39; | &amp;quot;&#39;&amp;quot; ( &#39;\\&#39; (&#39;b&#39;|&#39;t&#39;|&#39;n&#39;|&#39;f&#39;|&#39;r&#39;|&#39;u&#39;|&#39;&amp;quot;&#39;|&amp;quot;&#39;&amp;quot;|&#39;\\&#39;) | !(&#39;\\&#39;|&amp;quot;&#39;&amp;quot;) )* &amp;quot;&#39;&amp;quot; ; qualifiedName: id (&#39;.&#39; id)*; version : int(&#39;.&#39; int)*(&#39;-&#39;id)?; id: &#39;^&#39;?</description>
+      <guid>https://www.eclipse.org/vorto/tutorials/grovepi/</guid>
+      <description>&lt;p&gt;This tutorial explains how to generate a simple Python application for you GrovePi that sends sensor data to Eclipse Hono using MQTT.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Tutorials</title>
-      <link>https://www.eclipse.org/vorto/tutorials/</link>
+      <title>Connecting a ESP8266 (Arduino) to Hono</title>
+      <link>https://www.eclipse.org/vorto/tutorials/arduino/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/tutorials/</guid>
-      <description>Connecting a GrovePi to Eclipse Hono This tutorial explains how to generate a simple Python application for you GrovePi that sends sensor data to Eclipse Hono using MQTT.
-Prerequisites  Python 3.x
- IDEs - for Python: Visual Studio Code with the Python extension
- Paho Python Client
- GrovePi Sensor Kit
-  1. Setup your device. In this example Raspberry Pi is used but you can use any device which can run python.</description>
+      <guid>https://www.eclipse.org/vorto/tutorials/arduino/</guid>
+      <description>&lt;p&gt;This tutorial explains how to generate an Arduino sketch for a given Information Model and send the device data to Eclipse Hono via MQTT.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -92,6 +90,56 @@ Vorto Wiki Access Vorto wiki here.</description>
       <description>0.10.0 milestone 3 Fixes and Enhancements
  EU-GDPR Compliance of Vorto Repository, i.e. Export of user-specific Vorto models. Eclipse Hono Generator, supporting the generation of Arduino-, Python- and Java source code. Code Generator Configuration UI. Code Generators that are executed from the Eclipse Vorto Toolset do now provide a configuration UI that allows developers to customize the execution of the generator.  API Changes
  Vorto Code Generators must now implement org.</description>
+    </item>
+    
+    <item>
+      <title>Vorto Meta Model</title>
+      <link>https://www.eclipse.org/vorto/documentation/metamodel_uml/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/documentation/metamodel_uml/</guid>
+      <description>&lt;p&gt;This image describes the Vorto Meta Model.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Information Model DSL</title>
+      <link>https://www.eclipse.org/vorto/documentation/infomodel_dsl/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/documentation/infomodel_dsl/</guid>
+      <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Information Model.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Function Block DSL</title>
+      <link>https://www.eclipse.org/vorto/documentation/function_block_dsl/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/documentation/function_block_dsl/</guid>
+      <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Function Block.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Datatype DSL</title>
+      <link>https://www.eclipse.org/vorto/documentation/datatype_dsl/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/documentation/datatype_dsl/</guid>
+      <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Datatype&amp;hellip;.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Mapping DSL</title>
+      <link>https://www.eclipse.org/vorto/documentation/mappings_dsl/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/documentation/mappings_dsl/</guid>
+      <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Mapping.
+&lt;/p&gt;</description>
     </item>
     
     <item>

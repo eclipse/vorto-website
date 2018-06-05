@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Installation Python and GrovePi required modules - Eclipse Vorto</title>
+    <title>Mapping DSL - Eclipse Vorto</title>
     <meta name="generator" content="Hugo 0.33" />
 
     
     <meta name="description" content="Describe. Share. Integrate.">
     
-    <link rel="canonical" href="https://www.eclipse.org/vorto/installation/grovepi/">
+    <link rel="canonical" href="https://www.eclipse.org/vorto/documentation/mappings_dsl/">
     
     <meta name="author" content="The Eclipse Vorto Project">
     
 
-    <meta property="og:url" content="https://www.eclipse.org/vorto/installation/grovepi/">
+    <meta property="og:url" content="https://www.eclipse.org/vorto/documentation/mappings_dsl/">
     <meta property="og:title" content="Eclipse Vorto">
     <meta property="og:image" content="https://www.eclipse.org/vorto/images/vorto.png">
     <meta name="apple-mobile-web-app-title" content="Eclipse Vorto">
@@ -102,7 +102,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Installation Python and GrovePi required modules
+        Mapping DSL
       </div>
     </div>
 
@@ -343,32 +343,123 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Installation Python and GrovePi required modules </h1>
+			<h1>Mapping DSL </h1>
 
-			<ul>
-<li><p>Download and install the latest version of Python 3.x from the official <a href="https://www.python.org/">Python website</a></p></li>
+			<p>This section describes the DSL grammer for a Vorto Mapping.
+</p>
 
-<li><p><a href="https://packaging.python.org/tutorials/installing-packages/#install-pip-setuptools-and-wheel">Install pip</a></p></li>
+<h2 id="information-model-mapping-dsl-reference">Information Model Mapping DSL Reference</h2>
 
-<li><p>Install Visual C++ Build Tools(<a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">http://landinghub.visualstudio.com/visual-cpp-build-tools</a>). This is a pre-requisite for installing netifaces.</p></li>
+<pre><code>'functionblockmapping' '{'
+    'targetplatform' id
+    (rule)*
+'}'
+;
 
-<li><p>Install the required Python modules</p>
+rule:
+    'from' informationModelElement (',' informationModelElement)*
+    'to' targetElement
+;
 
-<ul>
-<li><a href="https://www.eclipse.org/paho/clients/python/">Eclipse paho</a></li>
+informationModelElement:
+    [functionblock::functionblockModel|qualifiedName] '.'
+    functionBlockElement;
+;
 
-<li><p><a href="https://pypi.python.org/pypi/netifaces">netinterfaces</a></p>
+functionBlockElement:
+    (operationElement | configurationElement | statusElement |
+        faultElement | eventElement
+    )
+;
 
-<ul>
-<li><p>open terminal or console and type the following command</p>
+operationElement:
+    'operation.' [functionblock::operation]
+;
 
-<pre><code>pip install paho-mqtt
-pip install netifaces
-</code></pre></li>
-</ul></li>
-</ul></li>
-</ul>
+configurationElement:
+    'configuration.' [datatype::property]
+;
 
+statusElement:
+    'status.' [datatype::property]
+;
+
+faultElement:
+    'fault.' [datatype::property
+;
+
+eventElement:
+    'event.' [functionblock::event]
+;
+
+targetElement:
+    stereoType | referencetype
+;
+
+stereoType:
+    id (with Attribute (',' attribute)*)
+;
+
+referenceType:
+    'reference' [mapping::MappingModel]
+;
+
+qualifiedName: id ('.' id)*;
+
+attribute:
+    id ':' string
+;
+
+id:
+    '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*
+;
+
+string  :
+    '&quot;' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'&quot;'|&quot;'&quot;|'\\') | !('\\'|'&quot;') )* '&quot;' |
+    &quot;'&quot; ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'&quot;'|&quot;'&quot;|'\\') | !('\\'|&quot;'&quot;) )* &quot;'&quot;
+;
+</code></pre>
+
+<h3 id="mapping-dsl-semantics">Mapping DSL Semantics</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+        <th>Parameter</th>
+        <th>Mandatory</th>
+        <th>Description</th>
+        <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>model</td>
+        <td>Y</td>
+        <td>Information Model Name   </td>
+        <td>PhilipsHue</td>
+    </tr>
+    <tr>
+        <td>target</td>
+        <td>Y</td>
+        <td>Target platform mapping is used for</td>
+        <td>smarthome</td>
+    </tr>
+    <tr>
+        <td>from</td>
+        <td>Y</td>
+        <td>Information model element</td>
+        <td>ColorLight.operation.setR</td>
+    </tr>
+    <tr>
+        <td>to</td>
+        <td>Y</td>
+        <td>Target plaform platform element</td>
+        <td>channelType</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
 
 			<aside class="copyright" role="note">
   <div class="logo">
@@ -411,7 +502,7 @@ pip install netifaces
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://www.eclipse.org/vorto/documentation/mappings_dsl/" title="Mapping DSL">
+      <a href="https://www.eclipse.org/vorto/documentation/datatype_dsl/" title="Datatype DSL">
         <span class="direction">
           Previous
         </span>
@@ -421,7 +512,7 @@ pip install netifaces
           </div>
           <div class="stretch">
             <div class="title">
-              Mapping DSL
+              Datatype DSL
             </div>
           </div>
         </div>
@@ -430,6 +521,22 @@ pip install netifaces
   </div>
 
   <div class="next">
+  
+      <a href="https://www.eclipse.org/vorto/installation/grovepi/" title="Installation Python and GrovePi required modules">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Installation Python and GrovePi required modules
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
   
   </div>
 </nav>

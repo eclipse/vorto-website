@@ -7,19 +7,59 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>The Eclipse Vorto Project</copyright>
-    <lastBuildDate>Wed, 09 May 2018 10:58:37 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 09 Mar 2016 20:08:11 +0100</lastBuildDate>
     
 	<atom:link href="https://www.eclipse.org/vorto/documentation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Reference Documentation</title>
-      <link>https://www.eclipse.org/vorto/documentation/</link>
-      <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
+      <title>Vorto Meta Model</title>
+      <link>https://www.eclipse.org/vorto/documentation/metamodel_uml/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/documentation/</guid>
-      <description>Vorto Meta Model Information Model DSL Reference Information Model DSL import function block model DSL.
-InformationModel: &#39;namespace&#39; qualifiedName &#39;version&#39; version (modelReference)* &#39;infomodel&#39; id &#39;{&#39; &#39;displayname&#39; string (&#39;description&#39; string)? &#39;category&#39; category &#39;functionblocks&#39; &#39;{&#39; (functionblockProperty)* &#39;}&#39; ; category:id; functionblockProperty: (presence)? id &#39;as&#39; [fbs::functionblockModel|qualifiedName] (string)?; string: &#39;&amp;quot;&#39; ( &#39;\\&#39; (&#39;b&#39;|&#39;t&#39;|&#39;n&#39;|&#39;f&#39;|&#39;r&#39;|&#39;u&#39;|&#39;&amp;quot;&#39;|&amp;quot;&#39;&amp;quot;|&#39;\\&#39;) | !(&#39;\\&#39;|&#39;&amp;quot;&#39;) )* &#39;&amp;quot;&#39; | &amp;quot;&#39;&amp;quot; ( &#39;\\&#39; (&#39;b&#39;|&#39;t&#39;|&#39;n&#39;|&#39;f&#39;|&#39;r&#39;|&#39;u&#39;|&#39;&amp;quot;&#39;|&amp;quot;&#39;&amp;quot;|&#39;\\&#39;) | !(&#39;\\&#39;|&amp;quot;&#39;&amp;quot;) )* &amp;quot;&#39;&amp;quot; ; qualifiedName: id (&#39;.&#39; id)*; version : int(&#39;.&#39; int)*(&#39;-&#39;id)?; id: &#39;^&#39;?</description>
+      <guid>https://www.eclipse.org/vorto/documentation/metamodel_uml/</guid>
+      <description>&lt;p&gt;This image describes the Vorto Meta Model.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Information Model DSL</title>
+      <link>https://www.eclipse.org/vorto/documentation/infomodel_dsl/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/documentation/infomodel_dsl/</guid>
+      <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Information Model.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Function Block DSL</title>
+      <link>https://www.eclipse.org/vorto/documentation/function_block_dsl/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/documentation/function_block_dsl/</guid>
+      <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Function Block.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Datatype DSL</title>
+      <link>https://www.eclipse.org/vorto/documentation/datatype_dsl/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/documentation/datatype_dsl/</guid>
+      <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Datatype&amp;hellip;.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Mapping DSL</title>
+      <link>https://www.eclipse.org/vorto/documentation/mappings_dsl/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/documentation/mappings_dsl/</guid>
+      <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Mapping.
+&lt;/p&gt;</description>
     </item>
     
   </channel>

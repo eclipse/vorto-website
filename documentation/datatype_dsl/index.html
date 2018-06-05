@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Community - Eclipse Vorto</title>
+    <title>Datatype DSL - Eclipse Vorto</title>
     <meta name="generator" content="Hugo 0.33" />
 
     
     <meta name="description" content="Describe. Share. Integrate.">
     
-    <link rel="canonical" href="https://www.eclipse.org/vorto/community/">
+    <link rel="canonical" href="https://www.eclipse.org/vorto/documentation/datatype_dsl/">
     
     <meta name="author" content="The Eclipse Vorto Project">
     
 
-    <meta property="og:url" content="https://www.eclipse.org/vorto/community/">
+    <meta property="og:url" content="https://www.eclipse.org/vorto/documentation/datatype_dsl/">
     <meta property="og:title" content="Eclipse Vorto">
     <meta property="og:image" content="https://www.eclipse.org/vorto/images/vorto.png">
     <meta name="apple-mobile-web-app-title" content="Eclipse Vorto">
@@ -102,7 +102,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Community
+        Datatype DSL
       </div>
     </div>
 
@@ -261,14 +261,11 @@
 
 
 
-<a class="current" title="Community" href="https://www.eclipse.org/vorto/community/">
+<a  title="Community" href="https://www.eclipse.org/vorto/community/">
 	
 	Community
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
   
@@ -346,41 +343,356 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Community </h1>
+			<h1>Datatype DSL </h1>
 
-			
+			<p>This section describes the DSL grammer for a Vorto Datatype&hellip;.
+</p>
 
-<h2 id="mailing-list">Mailing List</h2>
+<h2 id="datatype-dsl-reference">Datatype DSL Reference</h2>
 
-<p>A great way to stay up to date with Vorto activity is to subscribe to the Mailing list provided by Eclipse. Sign up for the mailing list <a href="https://dev.eclipse.org/mailman/listinfo/vorto-dev">here</a>.</p>
+<p>The following code represents the Data Type Model DSL syntax.</p>
 
-<h2 id="discussion-forum">Discussion Forum</h2>
+<pre><code>model:entity | enumeration;
 
-<p>A general discussion forum can be found <a href="http://www.eclipse.org/forums/index.php?t=thread&amp;frm_id=303">here</a>.</p>
+modelReference: 'using' qualifiedName ';' version;
 
-<h2 id="issue-tracker">Issue Tracker</h2>
+qualifiedName: id ('.' id)*;
 
-<p>Issues and bugs related to Vorto are tracked with the Github Issue tracking system. If you find any issues, please report them <a href="https://github.com/eclipse/vorto/issues">here</a>.</p>
+entity:
+   'namespace' qualifiedName
+   'version' version
+   ('displayname' displayname)?
+   ('description' description)?
+   ('category' category)?
+   (modelReference)*
+   'entity' id ('extends' [entity|qualifiedName])? '{'
+        (property)*
+   '}'
+;
 
-<h2 id="vorto-wiki">Vorto Wiki</h2>
+enumeration:
+   'namespace' qualifiedName
+   'version' version
+   (modelReference)*
+    'enum' id '{'
+        (enumLiteral)*
+    '}'
+;
 
-<p>Access Vorto wiki <a href="https://wiki.eclipse.org/Vorto">here</a>.</p>
+enumLiteral: id;
 
-<h2 id="vorto-on-twitter">Vorto on twitter</h2>
+property:
+    presence ('multiple')? id 'as' type 
+        ('with' '{' propertyAttributes (',' propertyAttributes)* '}')?
+        ('&lt;'constraintType [constraintIntervalType] (&quot;,&quot; constraintType [constraintIntervalType])*'&gt;')?
+        (description)?
+;
 
-<p>Follow our latest tweets <a href="https://twitter.com/VortoIoT">here</a>.</p>
+propertyAttributes: booleanPropertyAttribute | enumLiteralPropertyAttribute;
 
-<h2 id="contributing">Contributing</h2>
+booleanPropertyAttribute: ('readable' | 'writable' | 'eventable') ':' (value ?= 'true' | 'false');
 
-<p>An overview of the contribution process is <a href="https://wiki.eclipse.org/Development_Resources/Contributing_via_Git">here</a>. The key points are:</p>
+enumLiteralPropertyAttribute: 'measurementUnit' ':' value;
 
-<ol>
-<li>Ensure you have signed the Eclipse Foundation Contributor License Agreement (CLA)</li>
-<li>Fork the Vorto Repository on <a href="https://github.com/eclipse/vorto">Github</a></li>
-<li>Fix the issue and add suitable tests</li>
-<li>Create a pull request for your contribution</li>
-</ol>
+type : primitiveType | entity | enumeration | complexPrimitiveType;
 
+primitiveType : 'string' | 'int' | 'float' | 'boolean' | 'dateTime' |
+    'double' | 'long' | 'short' | 'base64Binary' | 'byte' ;
+
+complexPrimitiveType : 'Dictionary' ('[' type ',' type ']')?
+
+presence : 'mandatory' | 'optional';
+
+constraintType: 'MIN' | 'MAX' | 'STRLEN' | 'REGEX' ;
+
+constraintIntervalType: int| signedint| float| datetime| string;
+
+id: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+
+string:  
+    '&quot;' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'&quot;'|&quot;'&quot;|'\\') | !('\\'|'&quot;') )* '&quot;' |
+    &quot;'&quot; ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'&quot;'|&quot;'&quot;|'\\') | !('\\'|&quot;'&quot;) )* &quot;'&quot;
+;
+
+date:  
+    ('0'..'9')('0'..'9')('0'..'9')('0'..'9')('-')('0'..'9')('0'..'9')('-')
+    ('0'..'9')('0'..'9')  
+;
+
+time:  
+    ('0'..'9')('0'..'9')(':')('0'..'9')('0'..'9')(':')('0'..'9')('0'..'9')
+    (timezone)?  
+;
+
+timezone: 'Z'|(('+'|'-')('0'..'9')('0'..'9')(':')('0'..'9')('0'..'9'))  ;
+
+datetime: date('T')time;
+
+int: ('0'..'9')+;
+
+signedint: '-'INT;
+
+float: int('.'int)?;
+
+version: int('.' int)*('-'id)?;
+</code></pre>
+
+<h3 id="the-datatype-dsl">The Datatype DSL</h3>
+
+<p>An <a href="#entity"><strong>Entity</strong></a> element defines a new non-primitive data type that can be referenced by the function block. It contains <a href="#properties"><strong>Properties</strong></a> which are either of the <a href="#primitive-types"><strong>Primitive</strong></a> type, another <a href="#entity"><strong>Entity</strong></a>, or a <a href="#dictionary"><strong>Dictionary</strong></a> type. It can also <em>inherit</em> from existing entities.</p>
+
+<p>An <a href="#enum"><strong>Enum</strong></a> is an enumeration of values of the same type similar to an <em>enum</em> in Java.</p>
+
+<h4 id="entity">Entity</h4>
+
+<p>An Entity consist of</p>
+
+<ul>
+<li>General metadata parameters (<code>namespace, version, displayname, description, category</code>).</li>
+<li>Optional references to other entities or enums</li>
+<li>And a list of <a href="#properties"><strong>Properties</strong></a></li>
+</ul>
+
+<p><strong>Syntax</strong></p>
+
+<p>Refer to entity in <a href="#data-type-model-dsl-reference">Datatype DSL Syntax</a>.</p>
+
+<p><strong>Usage</strong></p>
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>Entity element</th>
+    <th>Mandatory</th>
+    <th>Description</th>
+    <th>Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>&lt;entity_name&gt;</td>
+    <td>Y</td>
+    <td>A descriptive name of the entity.</td>
+    <td>String (identifier, without spaces)</td>
+  </tr>
+  <tr>
+    <td>extends &lt;other_entity_name&gt;</td>
+    <td></td>
+    <td>The entity extends the property &lt;other_entity_name&gt;.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>&lt;optional&nbsp;|&nbsp;mandatory&gt;</td>
+    <td></td>
+    <td>Declares if the property is optional or mandatory.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>multiple</td>
+    <td></td>
+    <td>Defines if the property can have more than one value.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>&lt;property_name&gt;</td>
+    <td>Y</td>
+    <td>The name of the property.</td>
+    <td>String (identifier, without spaces)</td>
+  </tr>
+  <tr>
+    <td>as &lt;type&gt;</td>
+    <td>Y</td>
+    <td>The data type of the property.</td>
+    <td>Supported types:
+    <ul>
+      <li>Primitive Types </li>
+      <li>Another Entity</li>
+      <li>Dictionary</li>
+    </ul>
+  </td>
+  </tr>
+  <tr>
+    <td>&lt;description&gt;</td>
+    <td></td>
+    <td>Extra information about the entity.</td>
+    <td>String enclosed in quotation marks</td>
+  </tr>
+  </tbody>
+</table>
+
+<p><strong>Example</strong></p>
+
+<pre><code>entity Color {  
+  mandatory red as int &lt;MIN 0, MAX 255&gt; &quot;The red component of a color&quot;  
+  mandatory green as int &lt;MIN 0, MAX 255&gt; &quot;The green component of a color&quot;    
+  mandatory blue as int &lt;MIN 0, MAX 255&gt; &quot;The blue component of a color&quot;  
+}
+</code></pre>
+
+<h4 id="properties">Properties</h4>
+
+<p>A property consist of</p>
+
+<ul>
+<li>An optional <em>presence</em> indicator which can either be <code>mandatory</code> or <code>optional</code></li>
+<li>An optional <code>multiple</code> which indicates if the property is an array</li>
+<li>A required <em>name</em> as a string and a required <em>type</em> which can either be a <a href="#primitive-types"><strong>Primitive</strong></a> type,
+another <a href="#entity"><strong>Entity</strong></a>, or a <a href="#dictionary"><strong>Dictionary</strong></a>. Both are bridged by the keyword <code>as</code>.</li>
+<li>An optional <a href="#attributes"><strong>Attributes</strong></a> (measurementUnit, readable, writable, eventable)</li>
+<li>An optional <a href="#constraints"><strong>Constraint</strong></a> (MIN, MAX, STRLEN, REGEX)</li>
+<li>An optional <em>Description</em>, a string which can be used to document the property.</li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>isAlive as boolean
+
+mandatory multiple lidarMeasurements as float &quot;The measurements of the LIDAR in one scan&quot;
+
+optional engineTemperature as float with { measurementUnit: Temperature.Celsius } &lt;MIN 0, MAX 3000&gt; &quot;The engine temperature&quot;
+</code></pre>
+
+<h4 id="primitive-types">Primitive Types</h4>
+
+<p>The following are the primitive types supported in Vorto</p>
+
+<ul>
+<li><code>string</code></li>
+<li><code>int</code></li>
+<li><code>float</code></li>
+<li><code>boolean</code></li>
+<li><code>dateTime</code></li>
+<li><code>double</code></li>
+<li><code>long</code></li>
+<li><code>short</code></li>
+<li><code>base64Binary</code></li>
+<li><code>byte</code></li>
+</ul>
+
+<h4 id="dictionary">Dictionary</h4>
+
+<p>A <em>Dictionary</em> is a type that contains a <em>Key</em> and a <em>Value</em>. It is declared with the keyword <code>Dictionary</code>
+followed by an optional bracket (<code>[ .. ]</code>) if you wish to indicate the <em>type</em> of its <em>key</em> and <em>value</em>. The <em>type</em> can
+be a <em>primitive</em> type, an <em>Entity</em> type, an <em>Enum</em> or another <em>Dictionary</em>.</p>
+
+<p><strong>Example</strong></p>
+
+<pre><code>mandatory lookupTable as Dictionary[string, Color] &quot;Lookup table conversion for color&quot;
+
+mandatory lookupRGBTable as Dictionary[Color, RGB] &quot;Lookup table conversion for color from description to RGB&quot;
+
+mandatory temperatureLabelConversion as Dictionary[int, string] &quot;map of temperature to description&quot;
+
+mandatory noKeyAndValueTypeMap as Dictionary &quot;example of a map with no key and value types&quot;
+</code></pre>
+
+<h4 id="attributes">Attributes</h4>
+
+<p>An attribute can be added by the keyword <code>with</code> followed by the attributes in between <em>curly</em> (<code>{ .. }</code>) braces. As of now,
+the following attributes are supported</p>
+
+<ul>
+<li><code>measurementUnit</code> - Indicates a measurement unit of the property. It is an <em>Enum</em> value. For example, if the property is a temperature, the measurementUnit could be <em>Temperature.celsius</em> declared in the <em>Temperature</em> enumeration.</li>
+<li><code>readable</code> - Indicates if the property could be read.</li>
+<li><code>writable</code> - Indicates if the property could be written to.</li>
+<li><code>eventable</code> - Indicates if the property generates events.</li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>mandatory engineTemperature as float 
+  with { measurementUnit: Temperature.Celsius, readable: true, writable: true, eventable: false } 
+  &quot;The engine temperature&quot;
+</code></pre>
+
+<h4 id="constraints">Constraints</h4>
+
+<p>A <em>constraint</em> can be added by putting it in between <code>&lt;</code> and <code>&gt;</code> symbols and consist of the constraint name (e.g `MIN&rsquo;) and
+the value of that constraint.</p>
+
+<p>The following constraints are supported</p>
+
+<ul>
+<li><code>MIN</code></li>
+<li><code>MAX</code></li>
+<li><code>STRLEN</code></li>
+<li><code>REGEX</code></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code>mandatory red as int &lt;MIN 0, MAX 255&gt; &quot;The red component of a color&quot;    
+</code></pre>
+
+<h3 id="enum">Enum</h3>
+
+<p>An Enum is an enumeration of values of the same type</p>
+
+<p><strong>Syntax</strong></p>
+
+<p>Refer to entity in <a href="#data-type-model-dsl-reference">Datatype DSL Syntax</a>.</p>
+
+<p><strong>Usage</strong></p>
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>Entity element</th>
+    <th>Mandatory</th>
+    <th>Description</th>
+    <th>Type</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>&lt;enum_name&gt;</td>
+    <td>Y</td>
+    <td>A descriptive name of the enum.</td>
+    <td>String (identifier, without spaces)</td>
+  </tr>
+  <tr>
+    <td>{</td>
+    <td>Y</td>
+    <td>Delimiter of the literal list (comma separated literals).</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>&lt;literal&gt;</td>
+    <td>Y</td>
+    <td>A descriptive name of an enum value.</td>
+    <td>String (identifier, without spaces)</td>
+  </tr>
+  <tr>
+    <td>}</td>
+    <td>Y</td>
+    <td>The name of the property.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+
+<p><strong>Example</strong></p>
+
+<pre><code>// definition of an enum type
+enum Gender{
+  Male, Female, NA
+}
+
+// usage as a field
+mandatory sex as Gender
+</code></pre>
+
+<table class="table table-bordered">
+    <tbody>
+  <tr>
+    <td><i class="fa fa-info-circle info-note"></i></td>
+    <td>To find out more about which language elements are available when writing a data type DSL, have a look at the respective DSL Reference. </br>
+    Use the keyboard shortcut <span style="font-variant:small-caps;">Ctrl + Space</span> to get a list of available DSL elements, that can be applied in the current scope you are in.</td>
+  </tr>
+    </tbody>
+</table>
+
+<hr />
 
 			<aside class="copyright" role="note">
   <div class="logo">
@@ -423,7 +735,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://www.eclipse.org/vorto/downloads/" title="Downloads">
+      <a href="https://www.eclipse.org/vorto/documentation/function_block_dsl/" title="Function Block DSL">
         <span class="direction">
           Previous
         </span>
@@ -433,7 +745,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Downloads
+              Function Block DSL
             </div>
           </div>
         </div>
@@ -443,14 +755,14 @@
 
   <div class="next">
   
-      <a href="https://www.eclipse.org/vorto/release-notes/" title="Release Notes">
+      <a href="https://www.eclipse.org/vorto/documentation/mappings_dsl/" title="Mapping DSL">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Release Notes
+              Mapping DSL
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

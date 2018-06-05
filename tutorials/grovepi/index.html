@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Installation Python and GrovePi required modules - Eclipse Vorto</title>
+    <title>Connecting a GrovePi to Hono - Eclipse Vorto</title>
     <meta name="generator" content="Hugo 0.33" />
 
     
     <meta name="description" content="Describe. Share. Integrate.">
     
-    <link rel="canonical" href="https://www.eclipse.org/vorto/installation/grovepi/">
+    <link rel="canonical" href="https://www.eclipse.org/vorto/tutorials/grovepi/">
     
     <meta name="author" content="The Eclipse Vorto Project">
     
 
-    <meta property="og:url" content="https://www.eclipse.org/vorto/installation/grovepi/">
+    <meta property="og:url" content="https://www.eclipse.org/vorto/tutorials/grovepi/">
     <meta property="og:title" content="Eclipse Vorto">
     <meta property="og:image" content="https://www.eclipse.org/vorto/images/vorto.png">
     <meta name="apple-mobile-web-app-title" content="Eclipse Vorto">
@@ -102,7 +102,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Installation Python and GrovePi required modules
+        Connecting a GrovePi to Hono
       </div>
     </div>
 
@@ -343,32 +343,194 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Installation Python and GrovePi required modules </h1>
+			<h1>Connecting a GrovePi to Hono </h1>
 
-			<ul>
-<li><p>Download and install the latest version of Python 3.x from the official <a href="https://www.python.org/">Python website</a></p></li>
+			<p>This tutorial explains how to generate a simple Python application for you GrovePi that sends sensor data to Eclipse Hono using MQTT.</p>
 
-<li><p><a href="https://packaging.python.org/tutorials/installing-packages/#install-pip-setuptools-and-wheel">Install pip</a></p></li>
+<p></p>
 
-<li><p>Install Visual C++ Build Tools(<a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">http://landinghub.visualstudio.com/visual-cpp-build-tools</a>). This is a pre-requisite for installing netifaces.</p></li>
-
-<li><p>Install the required Python modules</p>
+<h3 id="prerequisites">Prerequisites</h3>
 
 <ul>
-<li><a href="https://www.eclipse.org/paho/clients/python/">Eclipse paho</a></li>
+<li><p><a href="https://www.python.org/">Python 3.x</a></p></li>
 
-<li><p><a href="https://pypi.python.org/pypi/netifaces">netinterfaces</a></p>
+<li><p>IDEs - for Python: <a href="https://code.visualstudio.com/docs/languages/python">Visual Studio Code with the Python extension</a></p></li>
 
-<ul>
-<li><p>open terminal or console and type the following command</p>
+<li><p><a href="https://eclipse.org/paho/clients/python/">Paho Python Client</a></p></li>
 
-<pre><code>pip install paho-mqtt
-pip install netifaces
-</code></pre></li>
-</ul></li>
-</ul></li>
+<li><p><a href="https://www.dexterindustries.com/grovepi/">GrovePi Sensor Kit</a></p></li>
 </ul>
 
+<h3 id="1-setup-your-device">1.  Setup your device.</h3>
+
+<p>In this example Raspberry Pi is used but you can use any device which can run python.</p>
+
+<ul>
+<li><a href="https://www.raspberrypi.org/learning/software-guide/">Install raspbian on the Raspberry Pi</a>.</li>
+<li><a href="https://www.raspberrypi.org/learning/software-guide/wifi/">Connect the pi to wifi</a>.</li>
+<li><a href="https://www.raspberrypi.org/documentation/remote-access/ssh/">Enable ssh connection on your pi</a> .</li>
+<li><a href="https://www.eclipse.org/vorto/installation/grovepi/">Install python and required modules</a>.
+
+<br /></li>
+</ul>
+
+<h3 id="2-setup-your-development-environment-on-your-development-machine">2. Setup your development environment (on your development machine).</h3>
+
+<ul>
+<li><a href="https://code.visualstudio.com/docs/languages/python">Install Visual Studio Code with the Python extension</a>.</li>
+<li><a href="https://www.eclipse.org/vorto/installation/grovepi/">Install python and required modules</a>.
+<br /></li>
+</ul>
+
+<h3 id="3-generate-application-code-using-the-python-generator">3.  Generate application code using the Python generator.</h3>
+
+<ul>
+<li>Go to the Information Model of your device in the Vorto Repository, e.g. <a href="http://vorto.eclipse.org/#/details/demo.iot.device/DistanceSensor/1.0.1?s=distancesensor">distance sensor</a>.</li>
+<li>On the right side, select the <strong>Eclipse Hono Generator</strong> and choose <strong>Python</strong></li>
+<li>Click <strong>Generate</strong></li>
+<li>Store the ZIP file and extract the source code.</li>
+<li><a href="https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem.txt">Get the certificate</a> and copy and paste the content in a .crt file where you stored your source code</li>
+</ul>
+
+<h3 id="4-registering-to-eclipse-hono">4. Registering to Eclipse Hono</h3>
+
+<p>Eclipse Hono provides a sandbox environment, which we can use in this tutorial to integrate the GrovePi with. So before we can send any data, we must register the device in Eclipse Hono. We use <code>vortodemo</code> as a <strong>Hono tenant</strong> and <code>1234</code> as a <strong>device ID</strong>:</p>
+
+<p><strong>Registering our Device</strong></p>
+
+<pre><code class="language-sh">curl -X POST http://hono.eclipse.org:28080/registration/vortodemo
+-i -H 'Content-Type: application/json'
+-d '{&quot;device-id&quot;: &quot;1234&quot;}'
+</code></pre>
+
+<p><strong>Adding device credentials</strong></p>
+
+<pre><code class="language-sh">PWD_HASH=$(echo -n &quot;S3cr3t&quot; | openssl dgst -binary -sha512 | base64 | tr -d '\n') 
+curl -X POST http://hono.eclipse.org:28080/credentials/vortodemo
+-i -H 'Content-Type: application/json'
+-d 'JSON request payload' 
+</code></pre>
+
+<p>JSON request payload:</p>
+
+<pre><code class="language-sh">{
+  &quot;device-id&quot;: &quot;1234&quot;,
+  &quot;auth-id&quot;: &quot;1234&quot;,
+  &quot;type&quot;: &quot;hashed-password&quot;,
+  &quot;secrets&quot;: [
+    {
+      &quot;hash-function&quot;: &quot;sha-512&quot;,
+      &quot;pwd-hash&quot;: &quot;'$PWD_HASH'&quot;
+    }
+  ]
+}
+</code></pre>
+
+<h3 id="5-install-grovepi-python-dependencies-on-the-raspberry-pi">5.  Install GrovePi Python dependencies on the Raspberry Pi.</h3>
+
+<ul>
+<li>Install necessary dependencies for GrovePi on the Raspberry Pi. To do so, just execute the commands</li>
+</ul>
+
+<pre><code class="language-sh">sudo curl https://raw.githubusercontent.com/DexterInd/Raspbian_For_Robots/master
+upd_script/fetch_grovepi.sh | bash
+       
+sudo reboot
+</code></pre>
+
+<ul>
+<li>You can find full instructions <a href="https://www.dexterindustries.com/GrovePi/get-started-with-the-grovepi/setting-software/">here</a>.
+<br /></li>
+</ul>
+
+<h3 id="6-connect-the-sensor-to-the-raspberry-pi">6.  Connect the sensor to the Raspberry Pi.</h3>
+
+<ul>
+<li>Select a sensor from the kit.</li>
+<li>Connect the selected sensor to the Raspberry Pi. In this tutorial, ultrasonic sensor is used, which measures a non-contact distance. The ultrasonic sensor is connected to <strong>pin “3”</strong> on the GrovePi.
+<br /></li>
+</ul>
+
+<h3 id="7-update-the-application-code">7.  Update the application code.</h3>
+
+<p>The ZIP file contains the necessary libraries for your project and a sample Python main program. The main program is named after the thing type and stored in the main directory of the project. Open this file in your editor of choice to make the necessary adjustments.</p>
+
+<p>Code sections which can be customized for your needs are marked with</p>
+
+<pre><code class="language-sh">        ### BEGIN SAMPLE CODE
+</code></pre>
+
+<p>and</p>
+
+<pre><code class="language-sh">    
+        ### END SAMPLE CODE
+</code></pre>
+
+<ul>
+<li>Import the GrovePi dependencies:</li>
+</ul>
+
+<pre><code class="language-sh">      from grovepi import *
+</code></pre>
+
+<ul>
+<li>Update the Device Configuration values like:
+<br /></li>
+</ul>
+
+<pre><code class="language-sh">      hono_tenant = &quot;vortodemo&quot;
+      hono_password = &quot;S3cr3t&quot;
+      hono_endpoint = &quot;ssl://hono.eclipse.org:8883&quot;
+      hono_deviceId = &quot;1234&quot;
+      hono_clientId = hono_deviceId
+      hono_authId = hono_deviceId + &quot;@&quot; + hono_tenant
+      hono_certificatePath = &quot;PATH TO YOUR CERTIFICATE&quot;
+      ditto_namespace = &quot;org.eclipse.vorto&quot;
+</code></pre>
+
+<ul>
+<li>Define a constant and assign the pin number of the pin to which the sensor is physically connected:</li>
+</ul>
+
+<pre><code class="language-sh">      # constants
+      ultrasonic_ranger = 3
+</code></pre>
+
+<ul>
+<li><p>The function <code>periodicAction</code> is called periodically every <code>timePeriod</code> seconds. It is meant to periodically read your sensor’s values and transmit them using the thing type as a data model layer and the Paho MQTT Client.</p></li>
+
+<li><p>Read the data and assign it to the functional block properties:</p></li>
+</ul>
+
+<pre><code class="language-sh">      infomodel.distance.sensor_value = ultrasonicRead(ultrasonic_ranger)
+      infomodel.distance.sensor_units = &quot;cm&quot;
+</code></pre>
+
+<ul>
+<li>The variable <code>timePeriod</code> is set further down in the file. In this example, the variable <code>timePeriod</code> is set to 10.
+<br /></li>
+</ul>
+
+<h3 id="8-run-the-application-on-the-device">8.  Run the application on the device.</h3>
+
+<ul>
+<li>Copy the code to the device (<a href="https://www.raspberrypi.org/documentation/remote-access/ssh/scp.md">How to copy files to Raspberry Pi?</a>).</li>
+<li>Open the Terminal and navigate to the source code folder.</li>
+<li>Run the application by typing the following command:</li>
+</ul>
+
+<pre><code class="language-sh">      python GENERATED_MAIN_PYTHON_FILE.py
+</code></pre>
+
+<p><code>example output:</code></p>
+
+<p><img src="https://www.eclipse.org/vorto/images/tutorials/grovepi/output_screenhot_grovepi.png" alt="grovePi Screenshot" /></p>
+
+<ul>
+<li>Follow <a href="https://www.eclipse.org/hono/dev-guide/java_client_consumer/">Consuming Messages from Java for Hono</a> to receive the device data in Eclipse Hono.</li>
+</ul>
+
+<hr />
 
 			<aside class="copyright" role="note">
   <div class="logo">
@@ -411,7 +573,7 @@ pip install netifaces
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://www.eclipse.org/vorto/documentation/mappings_dsl/" title="Mapping DSL">
+      <a href="https://www.eclipse.org/vorto/gettingstarted/" title="Getting Started">
         <span class="direction">
           Previous
         </span>
@@ -421,7 +583,7 @@ pip install netifaces
           </div>
           <div class="stretch">
             <div class="title">
-              Mapping DSL
+              Getting Started
             </div>
           </div>
         </div>
@@ -430,6 +592,22 @@ pip install netifaces
   </div>
 
   <div class="next">
+  
+      <a href="https://www.eclipse.org/vorto/tutorials/arduino/" title="Connecting a ESP8266 (Arduino) to Hono">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Connecting a ESP8266 (Arduino) to Hono
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
   
   </div>
 </nav>

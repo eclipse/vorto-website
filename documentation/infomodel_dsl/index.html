@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Installation Python and GrovePi required modules - Eclipse Vorto</title>
+    <title>Information Model DSL - Eclipse Vorto</title>
     <meta name="generator" content="Hugo 0.33" />
 
     
     <meta name="description" content="Describe. Share. Integrate.">
     
-    <link rel="canonical" href="https://www.eclipse.org/vorto/installation/grovepi/">
+    <link rel="canonical" href="https://www.eclipse.org/vorto/documentation/infomodel_dsl/">
     
     <meta name="author" content="The Eclipse Vorto Project">
     
 
-    <meta property="og:url" content="https://www.eclipse.org/vorto/installation/grovepi/">
+    <meta property="og:url" content="https://www.eclipse.org/vorto/documentation/infomodel_dsl/">
     <meta property="og:title" content="Eclipse Vorto">
     <meta property="og:image" content="https://www.eclipse.org/vorto/images/vorto.png">
     <meta name="apple-mobile-web-app-title" content="Eclipse Vorto">
@@ -102,7 +102,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Installation Python and GrovePi required modules
+        Information Model DSL
       </div>
     </div>
 
@@ -343,32 +343,101 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Installation Python and GrovePi required modules </h1>
+			<h1>Information Model DSL </h1>
 
-			<ul>
-<li><p>Download and install the latest version of Python 3.x from the official <a href="https://www.python.org/">Python website</a></p></li>
+			<p>This section describes the DSL grammer for a Vorto Information Model.
+</p>
 
-<li><p><a href="https://packaging.python.org/tutorials/installing-packages/#install-pip-setuptools-and-wheel">Install pip</a></p></li>
+<h2 id="information-model-dsl-reference">Information Model DSL Reference</h2>
 
-<li><p>Install Visual C++ Build Tools(<a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">http://landinghub.visualstudio.com/visual-cpp-build-tools</a>). This is a pre-requisite for installing netifaces.</p></li>
+<p>T
+Information Model DSL import function block model DSL.</p>
 
-<li><p>Install the required Python modules</p>
+<pre><code>InformationModel:
+    'namespace' qualifiedName
+    'version' version
+    (modelReference)*
+    'infomodel' id '{'
+    'displayname' string
+    ('description' string)?
+    'category' category
+    'functionblocks' '{'
+        (functionblockProperty)*
+    '}'
+;
 
-<ul>
-<li><a href="https://www.eclipse.org/paho/clients/python/">Eclipse paho</a></li>
+category:id;
 
-<li><p><a href="https://pypi.python.org/pypi/netifaces">netinterfaces</a></p>
+functionblockProperty: 
+    (presence)? id 'as' [fbs::functionblockModel|qualifiedName]
+    (string)?;
 
-<ul>
-<li><p>open terminal or console and type the following command</p>
+string:
+    '&quot;' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'&quot;'|&quot;'&quot;|'\\') | !('\\'|'&quot;') )* '&quot;' |
+    &quot;'&quot; ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'&quot;'|&quot;'&quot;|'\\') | !('\\'|&quot;'&quot;) )* &quot;'&quot;
+;
 
-<pre><code>pip install paho-mqtt
-pip install netifaces
-</code></pre></li>
-</ul></li>
-</ul></li>
-</ul>
+qualifiedName: id ('.' id)*;
 
+version : int('.' int)*('-'id)?;
+
+id:
+    '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*
+;
+</code></pre>
+
+<h3 id="information-model-dsl-semantics">Information Model DSL Semantics</h3>
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>Parameter</th>
+    <th>Mandatory</th>
+    <th>Description</th>
+    <th>Example</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Name</td>
+    <td>Y</td>
+    <td>A descriptive name</td>
+    <td>Philips Hue</td>
+  </tr>
+  <tr>
+    <td>description</td>
+    <td>Y</td>
+    <td>Short description</td>
+    <td>Light Strip</td>
+  </tr>
+  <tr>
+    <td>vendor</td>
+    <td>Y</td>
+    <td>Vendor Identifier </td>
+    <td>www.philips.com</td>
+  </tr>
+  <tr>
+    <td>category</td>
+    <td>Y</td>
+    <td>Device Category</td>
+    <td>Light</td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>Y</td>
+    <td>Model Version</td>
+    <td>2.0.0</td>
+  </tr>
+  <tr>
+    <td>functionblocks</td>
+    <td>N</td>
+    <td>Composition of Function blocks</td>
+    <td>ColorLight, Switch</td>
+  </tr>
+  </tbody>
+</table>
+
+<hr />
 
 			<aside class="copyright" role="note">
   <div class="logo">
@@ -411,7 +480,7 @@ pip install netifaces
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://www.eclipse.org/vorto/documentation/mappings_dsl/" title="Mapping DSL">
+      <a href="https://www.eclipse.org/vorto/documentation/metamodel_uml/" title="Vorto Meta Model">
         <span class="direction">
           Previous
         </span>
@@ -421,7 +490,7 @@ pip install netifaces
           </div>
           <div class="stretch">
             <div class="title">
-              Mapping DSL
+              Vorto Meta Model
             </div>
           </div>
         </div>
@@ -430,6 +499,22 @@ pip install netifaces
   </div>
 
   <div class="next">
+  
+      <a href="https://www.eclipse.org/vorto/documentation/function_block_dsl/" title="Function Block DSL">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Function Block DSL
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
   
   </div>
 </nav>
