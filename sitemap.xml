@@ -13,12 +13,17 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/tutorials/grovepi/</loc>
+    <loc>https://www.eclipse.org/vorto/tutorials/arduino/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/tutorials/arduino/</loc>
+    <loc>https://www.eclipse.org/vorto/tutorials/grovepi/</loc>
+    <lastmod>2018-03-09T20:08:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/vorto/tutorials/payloadmapping/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
@@ -35,6 +40,11 @@
   <url>
     <loc>https://www.eclipse.org/vorto/release-notes/</loc>
     <lastmod>2016-03-09T20:10:46+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/vorto/documentation/mappingengine/</loc>
+    <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>

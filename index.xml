@@ -33,9 +33,20 @@ Prerequisites  Maven Java 8 Eclipse for DSL Developers Eclipse Vorto Toolset Plu
     </item>
     
     <item>
-      <title>Connecting a GrovePi to Hono</title>
-      <link>https://www.eclipse.org/vorto/tutorials/grovepi/</link>
+      <title>Connecting an ESP8266 to Eclipse Hono</title>
+      <link>https://www.eclipse.org/vorto/tutorials/arduino/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/tutorials/arduino/</guid>
+      <description>&lt;p&gt;This tutorial explains how to generate an Arduino sketch for a given Information Model and send the device data to Eclipse Hono via MQTT.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Connecting a GrovePi to Eclipse Hono</title>
+      <link>https://www.eclipse.org/vorto/tutorials/grovepi/</link>
+      <pubDate>Fri, 09 Mar 2018 20:08:11 +0100</pubDate>
       
       <guid>https://www.eclipse.org/vorto/tutorials/grovepi/</guid>
       <description>&lt;p&gt;This tutorial explains how to generate a simple Python application for you GrovePi that sends sensor data to Eclipse Hono using MQTT.&lt;/p&gt;
@@ -44,12 +55,14 @@ Prerequisites  Maven Java 8 Eclipse for DSL Developers Eclipse Vorto Toolset Plu
     </item>
     
     <item>
-      <title>Connecting a ESP8266 (Arduino) to Hono</title>
-      <link>https://www.eclipse.org/vorto/tutorials/arduino/</link>
+      <title>Mapping device payload to standardized Vorto Function Blocks</title>
+      <link>https://www.eclipse.org/vorto/tutorials/payloadmapping/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/tutorials/arduino/</guid>
-      <description>&lt;p&gt;This tutorial explains how to generate an Arduino sketch for a given Information Model and send the device data to Eclipse Hono via MQTT.&lt;/p&gt;
+      <guid>https://www.eclipse.org/vorto/tutorials/payloadmapping/</guid>
+      <description>&lt;p&gt;IoT Devices may not always send their data to the cloud in the structure and protocol that is required by the IoT platform that the devices are integrating with, e.g. AWS IoT, Azure IoT or Eclipse IoT. Eclipse Vorto provides the tools and libraries for you to achieve that.&lt;/p&gt;
+
+&lt;p&gt;In this tutorial you are going to learn, how you create a Vorto Mapping Specification that maps a AWS IoT Button JSON payload to standardized &lt;a href=&#34;https://github.com/IPSO-Alliance/pub&#34;&gt;IPSO&lt;/a&gt; Vorto Function Blocks and execute the mapping specification with the Vorto Mapping Engine. You will integrate the AWS IoT Button payload with the Eclipse Ditto Digital Twin service but also learn how to extend the Vorto Mapping Engine to map to other IoT platforms.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
@@ -90,6 +103,17 @@ Vorto Wiki Access Vorto wiki here.</description>
       <description>0.10.0 milestone 3 Fixes and Enhancements
  EU-GDPR Compliance of Vorto Repository, i.e. Export of user-specific Vorto models. Eclipse Hono Generator, supporting the generation of Arduino-, Python- and Java source code. Code Generator Configuration UI. Code Generators that are executed from the Eclipse Vorto Toolset do now provide a configuration UI that allows developers to customize the execution of the generator.  API Changes
  Vorto Code Generators must now implement org.</description>
+    </item>
+    
+    <item>
+      <title>Payload Mapping</title>
+      <link>https://www.eclipse.org/vorto/documentation/mappingengine/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/documentation/mappingengine/</guid>
+      <description>&lt;p&gt;The payload mapping feature in Eclipse Vorto can be used to transform arbitrary payload to standardized Vorto messages and vice versa.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

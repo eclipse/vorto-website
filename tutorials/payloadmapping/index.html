@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Release Notes - Eclipse Vorto</title>
+    <title>Mapping device payload to standardized Vorto Function Blocks - Eclipse Vorto</title>
     <meta name="generator" content="Hugo 0.33" />
 
     
     <meta name="description" content="Describe. Share. Integrate.">
     
-    <link rel="canonical" href="https://www.eclipse.org/vorto/release-notes/">
+    <link rel="canonical" href="https://www.eclipse.org/vorto/tutorials/payloadmapping/">
     
     <meta name="author" content="The Eclipse Vorto Project">
     
 
-    <meta property="og:url" content="https://www.eclipse.org/vorto/release-notes/">
+    <meta property="og:url" content="https://www.eclipse.org/vorto/tutorials/payloadmapping/">
     <meta property="og:title" content="Eclipse Vorto">
     <meta property="og:image" content="https://www.eclipse.org/vorto/images/vorto.png">
     <meta name="apple-mobile-web-app-title" content="Eclipse Vorto">
@@ -102,7 +102,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Release Notes
+        Mapping device payload to standardized Vorto Function Blocks
       </div>
     </div>
 
@@ -279,14 +279,11 @@
 
 
 
-<a class="current" title="Release Notes" href="https://www.eclipse.org/vorto/release-notes/">
+<a  title="Release Notes" href="https://www.eclipse.org/vorto/release-notes/">
 	
 	Release Notes
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
   
@@ -346,140 +343,252 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Release Notes </h1>
+			<h1>Mapping device payload to standardized Vorto Function Blocks </h1>
 
-			
+			<p>IoT Devices may not always send their data to the cloud in the structure and protocol that is required by the IoT platform that the devices are integrating with, e.g. AWS IoT, Azure IoT or Eclipse IoT. Eclipse Vorto provides the tools and libraries for you to achieve that.</p>
 
-<h2 id="0-10-0-milestone-3">0.10.0 milestone 3</h2>
+<p>In this tutorial you are going to learn, how you create a Vorto Mapping Specification that maps a AWS IoT Button JSON payload to standardized <a href="https://github.com/IPSO-Alliance/pub">IPSO</a> Vorto Function Blocks and execute the mapping specification with the Vorto Mapping Engine. You will integrate the AWS IoT Button payload with the Eclipse Ditto Digital Twin service but also learn how to extend the Vorto Mapping Engine to map to other IoT platforms.</p>
 
-<p><strong>Fixes and Enhancements</strong></p>
+<p></p>
 
-<ul>
-<li>EU-GDPR Compliance of Vorto Repository, i.e. Export of user-specific Vorto models.</li>
-<li>Eclipse Hono Generator, supporting the generation of Arduino-, Python- and Java source code.</li>
-<li>Code Generator Configuration UI. Code Generators that are executed from the Eclipse Vorto Toolset do now provide a configuration UI that allows developers to customize the execution of the generator.</li>
-</ul>
-
-<p><strong>API Changes</strong></p>
+<h2 id="prerequisite">Prerequisite</h2>
 
 <ul>
-<li>Vorto Code Generators must now implement <code>org.eclipse.vorto.codegen.api.IVortoCodeGenerator.getInfo()</code> that give more meta information about the specific Code Generator. This information is used by Vorto to provide a Generator Configuration UI automatically.</li>
-<li>The Vorto Repository REST - API for publishing models is now secured exclusively with OAuth2 token - based authentication.
-&gt; It is now only possibly to publish models to the Vorto Repository via the Vorto Repository Web UI !</li>
+<li><a href="https://www.eclipse.org/vorto/documentation/mappingengine/">Payload Mapping Engine Documentation</a></li>
+<li><a href="https://marketplace.eclipse.org/content/vorto-toolset">Eclipse IoT Vorto Toolset</a></li>
+<li>Maven</li>
 </ul>
 
-<h2 id="0-10-0-milestone-2">0.10.0 milestone 2</h2>
+<h3 id="1-create-aws-iot-button-information-model">1. Create AWS IoT Button Information Model</h3>
 
-<p><strong>Fixes and Enhancements</strong></p>
+<p>Let&rsquo;s start by creating an information model for the AWS IoT Button using the Vorto IoT Toolset:</p>
+
+<pre><code>namespace devices.aws.button
+version 1.0.0
+displayname &quot;AWSIoTButton&quot;
+description &quot;Model description for the AWS IoT Button.&quot;
+using com.ipso.smartobjects.Push_button ; 0.0.1
+using com.ipso.smartobjects.Voltage ; 0.0.1
+
+infomodel AWSIoTButton {
+
+    functionblocks {
+        button as Push_button
+        batteryVoltage as Voltage
+    }
+}
+</code></pre>
+
+<p>As you can see, it is just as easy as referencing the existing <a href="http://vorto.eclipse.org/#/?s=com.ipso.smartobjects&amp;t=Functionblock">IPSO Vorto Function Blocks</a> from the Information Model.</p>
+
+<p>Now, you can login to the Vorto Repository and <strong>Share</strong> the Information Model.</p>
+
+<p>Click on <strong>Details</strong> to open the information model in the <a href="http://vorto.eclipse.org/#/details/devices.aws.button/AWSIoTButton/1.0.0">Vorto Repository</a>.</p>
+
+<h3 id="2-define-the-payload-mapping">2. Define the Payload Mapping</h3>
+
+<p>Now it&rsquo;s time to define the actual payload mapping specification that defines how the actual AWS IoT Button payload maps to the standardized Vorto Function Blocks.</p>
+
+<p>Mapping Specifications are written as *.mapping files and use xpath-like expressions that are applied on the source device payload.</p>
+
+<p>For example, the AWS IoT button sends the following JSON payload:</p>
+
+<pre><code>{&quot;clickType&quot; : &quot;DOUBLE&quot;, &quot;batteryVoltage&quot;: &quot;2322mV&quot;}  
+</code></pre>
+
+<p>Let&rsquo;s take this example and reduce the complexity in the example by merely creating a mapping specification for the batteryVoltage payload:</p>
+
+<ol>
+<li><p>Create a mapping file <em>awsiotbutton-ipso-battery.mapping</em> and add the following mapping rules:</p>
+
+<pre><code>namespace devices.aws.button
+version 1.0.0
+displayname &quot;PayloadMapping BatteryVoltage&quot;
+description &quot;Payload Mapping for the AWS IoT Button BatteryVoltage&quot;
+
+using com.ipso.smartobjects.Voltage;0.0.1
+
+functionblockmapping PayloadVoltageMapping {
+    targetplatform aws-ipso
+
+    from Voltage.status.sensor_value to source with {xpath: &quot;number:toFloat(string:substring(batteryVoltage,0,string:length(batteryVoltage)-2))&quot;}
+    from Voltage.status.sensor_units to source with {xpath: &quot;string:substring(batteryVoltage,string:length(batteryVoltage)-2)&quot;}
+</code></pre>
+
+<p>}</p></li>
+</ol>
+
+<p>You may have spotted, that we are using a set of different xpath functions to define the mapping rule. You can find more information about all available functions and how to use them in the <a href="https://github.com/eclipse/vorto/blob/0.10.0.M3/server/repo/repository-mapping/docs/built_in_converters.md">Function Reference Documentation</a></p>
+
+<ol>
+<li><p>Create another mapping file <em>awsiotbutton-ipso.mapping</em> that references this mapping file to correlate it to the AWS IoT Button:</p>
+
+<pre><code>namespace devices.aws.button.mapping
+version 1.0.0
+displayname &quot;AWSIoTButtonPayloadMapping&quot;
+description &quot;Payload Mapping for AWSIoTButton&quot;
+category payloadmapping
+
+using devices.aws.button.AWSIoTButton;1.0.0
+using devices.aws.button.mapping.BatteryVoltagePayloadMapping;1.0.0
+
+infomodelmapping AWSIoTButtonPayloadMapping {
+    targetplatform aws-ipso
+    from AWSIoTButton.functionblocks.batteryVoltage to reference BatteryVoltagePayloadMapping
+}
+</code></pre></li>
+
+<li><p>Log in to the <a href="http://vorto.eclipse.org">Vorto Repository</a> and publish the mapping files by selecting <strong>Share</strong>.</p></li>
+
+<li><p>Once successfully checked in, you can have a look at the models in the repository. For sake of completion, we have added the mapping specification for button functionality as well:</p>
 
 <ul>
-<li>Vorto Mapping library that is able to convert arbitrary device payload to specific IoT platform format, e.g. to Eclipse Ditto.</li>
-<li>More code generators, that generate device code that integrates with Eclipse Hono via MQTT.</li>
-<li>Many bugfixes</li>
-</ul>
+<li><a href="http://vorto.eclipse.org/#/details/devices.aws.button.mapping/ButtonPayloadMapping/1.0.0">Button Mapping Specification for AWS IoT Button</a></li>
+<li><a href="http://vorto.eclipse.org/#/details/devices.aws.button.mapping/BatteryVoltagePayloadMapping/1.0.0">Voltage Mapping Specification for AWS IoT Button</a></li>
+</ul></li>
+</ol>
 
-<h2 id="0-10-0-milestone-1">0.10.0 milestone 1</h2>
+<h3 id="3-execute-the-payload-mapping">3. Execute the Payload Mapping</h3>
 
-<p>We are proud to announce Eclipse Vorto 0.10.0 milestone 1.</p>
+<p>Now, let&rsquo;s process the mapping specification with the Vorto Mapping Engine. The Mapping Engine performs a two-phase mapping:</p>
 
-<p>Here are a few major highlights:</p>
+<p><strong>Phase 1 (Normalization):</strong> Maps the arbitrary device payload to standardized Vorto Function Block payload.</p>
 
-<ul>
-<li><strong>Web Editor</strong> that allows to create information-, function block- and datatype models via a web-based editor.</li>
-<li>More <strong>Code Generators</strong> have been added to the list of existing generators.</li>
-<li><strong>Repository Java client</strong> API</li>
-<li>Many bug fixes and improvements</li>
-</ul>
+<p><strong>Phase 2 (Target Platform Mapping):</strong> Maps the Vorto Function Block payload to the target IoT platform - specific data model.</p>
 
-<h3 id="web-editor">Web Editor</h3>
+<p>The Vorto Mapping Engine supports Eclipse Ditto as the target platform mapping out-of-the-box. However, we will show you later, how can you easily plug in your own IoT platform data model mapper (see appendix).</p>
 
-<p>With the <strong>Web Editor</strong>, users can describe devices online and publish these as information models to the Vorto Repository.</p>
+<ol>
+<li><p>First, add the following Maven dependency to your Maven Project:</p>
 
-<p><img src="https://www.eclipse.org/vorto/images/release_notes/0.10.0-m2/webeditor_details.png" alt="WebEditor" /></p>
+<pre><code>&lt;dependency&gt;
+   &lt;groupId&gt;org.eclipse.vorto&lt;/groupId&gt;
+   &lt;artifactId&gt;repository-mapping&lt;/artifactId&gt;
+   &lt;version&gt;0.10.0.M3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
 
-<h3 id="code-generators">Code Generators</h3>
+<li><p>Code snippet that transforms a sample AWS IoT Button JSON to Eclipse Vorto/Eclipse Ditto compliant data:</p>
 
-<p>We have a few new Code Generators for easier device integration. Those are</p>
+<pre><code>IMappingSpecification spec = MappingSpecificationBuilder.create()
+.infomodelId(&quot;devices.aws.button.AWSIoTButton:1.0.0&quot;)
+.targetPlatformKey(&quot;aws-ipso&quot;)
+.build();
 
-<ul>
-<li>Alexa Skill-set Generator for Bosch IoT Suite</li>
-<li>Device Simulator Generator for Bosch IoT Suite</li>
-<li>Eclipse Kura Generator</li>
-<li>Web-based UI Dashboard Generator</li>
-</ul>
+IDataMapper&lt;DittoData&gt; mapper = IDataMapper.newBuilder().withSpecification(spec).buildDittoMapper();
 
-<hr />
+String sampleDevicePayload = &quot;{\&quot;clickType\&quot; : \&quot;DOUBLE\&quot;, \&quot;batteryVoltage\&quot;: \&quot;2322mV\&quot;}&quot;;
 
-<h3 id="alexa-skill-set-device-simulator-for-bosch-iot-suite-generators">Alexa Skill-set &amp; Device Simulator for Bosch IoT Suite Generators</h3>
+DittoData mappedResult = mapper.map(DataInput.newInstance().fromJson(sampleDevicePayload),
+        MappingContext.empty());
 
-<p>The Alexa Skill set Generator for Bosch IoT Suite generates an Alexa Skill Interaction model and Lambda function that fetches the device data from Bosch IoT Suite.</p>
+System.out.println(mappedResult.toJson());
+</code></pre></li>
 
-<p>The Device Simulator Generator for Bosch IoT Suite generates a simulator that creates test data for a given information model and publishes the data to the Bosch IoT Suite.</p>
+<li><p>The console shows the following mapped result:</p>
 
-<p><img src="https://www.eclipse.org/vorto/images/release_notes/0.10.0-m2/webeditor_details.png" alt="Generators" /></p>
+<pre><code>{
+    &quot;button&quot;:{
+        &quot;properties&quot;:{
+            &quot;configuration&quot;:{},
+            &quot;status&quot;:{
+                &quot;digital_input_count&quot;:2,
+                &quot;digital_input_state&quot;:true
+            }
+        }
+    },
+    &quot;voltage&quot;:{
+        &quot;properties&quot;:{
+            &quot;configuration&quot;:{},
+            &quot;status&quot;:{
+                &quot;sensor_units&quot;:&quot;mV&quot;,
+                &quot;sensor_value&quot;:2322.0
+            }
+        }
+    }
+}
+</code></pre></li>
+</ol>
 
-<hr />
+<h3 id="4-test-the-integration">4. Test the integration</h3>
 
-<h3 id="eclipse-kura-generator">Eclipse Kura Generator</h3>
+<p>We are now ready to send the mapped JSON payload and modify an <a href="https://ditto.eclipse.org/">Eclipse Ditto</a> managed thing:</p>
 
-<p>Eclipse Kura generator supports the generation of a Kura gateway OSGI bundle that reads device data via bluetooth LE technology and sends the data to either Kura built-in Cloud Services or the Bosch IoT Suite.</p>
+<pre><code> curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \ 
+            &quot;button&quot;:{ \
+                &quot;properties&quot;:{ \ 
+                    &quot;configuration&quot;:{}, \ 
+                    &quot;status&quot;:{ \ 
+                        &quot;digital_input_count&quot;:2, \ 
+                        &quot;digital_input_state&quot;:true \ 
+                    } \ 
+                } \ 
+            }, \ 
+            &quot;voltage&quot;:{ \ 
+                &quot;properties&quot;:{ \ 
+                    &quot;configuration&quot;:{}, \ 
+                    &quot;status&quot;:{ \ 
+                        &quot;sensor_units&quot;:&quot;mV&quot;, \ 
+                        &quot;sensor_value&quot;:2322.0 \ 
+                    } \ 
+                } \ 
+            } \ 
+        }' 'https://ditto.eclipse.org/api/1/things/org.eclipse.vorto%3aws-iot-button/features'
+</code></pre>
 
-<p><img src="https://www.eclipse.org/vorto/images/release_notes/0.10.0-m2/webeditor_details.png" alt="Generators" /></p>
+<p><strong>Voila!</strong> Your digital twin of the AWS IoT Button is now stored as standardized data, described as Vorto Function Blocks.</p>
 
-<hr />
+<h3 id="appendix-plug-in-other-iot-platform-data-mapper">Appendix: Plug-in other IoT Platform Data Mapper</h3>
 
-<h3 id="web-based-device-dashboard-generator">Web-based Device Dashboard Generator</h3>
+<p>The Vorto Mapping Engine is IoT platform agnostic, thus allowing you to extend it in order to integrate devices in a standardized way with other IoT platforms, like AWS IoT Shadow or Azure IoT.</p>
 
-<p>The Web - based Device Dashboard generator creates a Spring Boot Web application that is able to visualise the device data with various UI components as well as consume the data from a IoT Cloud backend, e.g. Bosch IoT Suite.</p>
+<p>Let&rsquo;s take a look what you need to do in order to do that:</p>
 
-<p><img src="https://www.eclipse.org/vorto/images/release_notes/0.10.0-m2/webeditor_details.png" alt="Generators" /></p>
+<ol>
+<li><p>Add the Mapping Engine to your Maven project, if you have not already done so:</p>
 
-<hr />
+<pre><code>&lt;dependency&gt;
+   &lt;groupId&gt;org.eclipse.vorto&lt;/groupId&gt;
+   &lt;artifactId&gt;repository-mapping&lt;/artifactId&gt;
+   &lt;version&gt;0.10.0.M3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></li>
 
-<h3 id="repository-java-client">Repository Java Client</h3>
+<li><p>Extend the <em>org.eclipse.vorto.service.mapping.AbstractDataMapper</em> and override the <em>doMap()</em> method</p>
 
-<p>With the Repository Java Client you can find information models and process its content as well as generate code for various IoT platforms. <a href="https://github.com/eclipse/vorto/tree/development/server/repo/repository-java-client/Readme.md">Click here for more info</a>.</p>
+<pre><code>import java.util.HashMap;
+import java.util.Map;
 
-<h2 id="0-9-x">0.9.x</h2>
+import org.eclipse.vorto.service.mapping.AbstractDataMapper;
+import org.eclipse.vorto.service.mapping.MappingContext;
+import org.eclipse.vorto.service.mapping.normalized.FunctionblockData;
+import org.eclipse.vorto.service.mapping.normalized.InfomodelData;
+import org.eclipse.vorto.service.mapping.spec.IMappingSpecification;
 
-<p>We are proud to announce the release of 0.9. Here are some of the major highlights:</p>
+public class MyPlatformMapper extends AbstractDataMapper&lt;MyPlatformModel&gt; {
 
-<ul>
-<li><strong>Eclipse IoT Toolset</strong> that lets you describe the characteristics and functionalities of devices as Information Models</li>
-<li><strong>Information Model Repository</strong>, acting as a device description dictionary to lookup and find device cababilities by various criteria</li>
-<li><strong>Generator API</strong> that lets you define the translation rules from Information Models into executable, IoT platform specific source code</li>
-<li>Many <strong>Code Generators</strong> to inspire you to build your own generator as well as illustrate the usage to build an IoT Application.</li>
-<li><strong>Command Line Interface</strong> that lets you lookup, find and publish information models as well as generate code for a selected IoT platform</li>
-</ul>
+    public MyPlatformMapper(IMappingSpecification spec) {
+        super(spec);
+    }
 
-<h3 id="eclipse-iot-toolset">Eclipse IoT Toolset</h3>
+    @Override
+    protected MyPlatformModel doMap(InfomodelData normalized, MappingContext mappingContext){
+        // add your code here that maps the already normalized Vorto model to the platform specific model
+    }
 
-<p>With the <strong>Eclipse IoT Toolset</strong>, you can describe the characteristics and functionality of devices as Information Models, publish them to the Information Model Repository and generate code with the help of Code Generators.</p>
 
-<p><img src="https://www.eclipse.org/vorto/images/release_notes/0.9.x/vorto_features_models.png" alt="Vorto Features Models" /></p>
+}
+</code></pre></li>
 
-<h3 id="information-model-repository">Information Model Repository</h3>
+<li><p>Use the Mapper to convert arbitrary device data to the specific platform data model:</p>
 
-<p>The <strong>Information Model Repository</strong> manages your device descriptions in a central place and exposes its functionality as a clean REST-API. Users are able to lookup and search device cababilities, checkin new models as well as translate Information Models into a selected IoT Platform source code.</p>
+<pre><code>IDataMapper&lt;MyPlatformModel&gt; mapper = new MyPlatformMapper(mappingSpecification);
 
-<p><img src="https://www.eclipse.org/vorto/images/release_notes/0.9.x/vorto_repository_search.png" alt="Search page" /></p>
+String sampleDeviceData = &quot;{\&quot;clickType\&quot; : \&quot;DOUBLE\&quot;, \&quot;batteryVoltage\&quot;: \&quot;2322mV\&quot;}&quot;;
 
-<h3 id="generator-api">Generator API</h3>
-
-<p>Vorto Code Generators convert an Information Model into executable IoT platform specific source code. The <strong>Generator API</strong> lets you plug in your own code generator into the toolset. Toolset wizards help you through this process.</p>
-
-<h3 id="code-generators-1">Code Generators</h3>
-
-<p>In order to inspire you to build you own generator for your platform, we implemented many <strong>Code Generators</strong>, for example Bosch IoT Things, AWS, ThingWorx and many more. They illustrate the many possibilities of how code generators can be effectively used and act as a blueprint for other generator implementations.</p>
-
-<p><img src="https://www.eclipse.org/vorto/images/release_notes/0.9.x/vorto_repository_generators.png" alt="Generators" /></p>
-
-<h3 id="command-line-interface-cli">Command Line Interface (CLI)</h3>
-
-<p>A <strong>Command Line Interface Tool</strong> lets you explore information models, checkin new information models as well as generate code for a selected IoT platform.</p>
-
-<p><img src="https://www.eclipse.org/vorto/images/release_notes/0.9.x/vorto_features_cli_tool.png" alt="Vorto CLI Tool" /></p>
-
+MyPlatformModel result = mapper.map(DataInput.newInstance().fromJson(sampleDeviceData), MappingContext.empty());
+</code></pre></li>
+</ol>
 
 			<aside class="copyright" role="note">
   <div class="logo">
@@ -522,7 +631,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://www.eclipse.org/vorto/community/" title="Community">
+      <a href="https://www.eclipse.org/vorto/tutorials/grovepi/" title="Connecting a GrovePi to Eclipse Hono">
         <span class="direction">
           Previous
         </span>
@@ -532,7 +641,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Community
+              Connecting a GrovePi to Eclipse Hono
             </div>
           </div>
         </div>
@@ -542,14 +651,14 @@
 
   <div class="next">
   
-      <a href="https://www.eclipse.org/vorto/documentation/mappingengine/" title="Payload Mapping">
+      <a href="https://www.eclipse.org/vorto/downloads/" title="Downloads">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Payload Mapping
+              Downloads
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
