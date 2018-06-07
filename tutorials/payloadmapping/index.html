@@ -409,7 +409,7 @@ description &quot;Payload Mapping for the AWS IoT Button BatteryVoltage&quot;
 using com.ipso.smartobjects.Voltage;0.0.1
 
 functionblockmapping PayloadVoltageMapping {
-    targetplatform aws-ipso
+    targetplatform aws_ipso
 
     from Voltage.status.sensor_value to source with {xpath: &quot;number:toFloat(string:substring(batteryVoltage,0,string:length(batteryVoltage)-2))&quot;}
     from Voltage.status.sensor_units to source with {xpath: &quot;string:substring(batteryVoltage,string:length(batteryVoltage)-2)&quot;}
@@ -433,7 +433,7 @@ using devices.aws.button.AWSIoTButton;1.0.0
 using devices.aws.button.mapping.BatteryVoltagePayloadMapping;1.0.0
 
 infomodelmapping AWSIoTButtonPayloadMapping {
-    targetplatform aws-ipso
+    targetplatform aws_ipso
     from AWSIoTButton.functionblocks.batteryVoltage to reference BatteryVoltagePayloadMapping
 }
 </code></pre></li>
@@ -472,7 +472,7 @@ infomodelmapping AWSIoTButtonPayloadMapping {
 
 <pre><code>IMappingSpecification spec = MappingSpecificationBuilder.create()
 .infomodelId(&quot;devices.aws.button.AWSIoTButton:1.0.0&quot;)
-.targetPlatformKey(&quot;aws-ipso&quot;)
+.targetPlatformKey(&quot;aws_ipso&quot;)
 .build();
 
 IDataMapper&lt;DittoData&gt; mapper = IDataMapper.newBuilder().withSpecification(spec).buildDittoMapper();
