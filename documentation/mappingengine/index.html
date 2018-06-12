@@ -463,13 +463,13 @@
 <p>Function Block Temperature Mapping</p>
 
 <pre><code>...
-from Temperature.status.sensorValue to source with {xpath:&quot;/value&quot;, condition:&quot;xpath:eval(&quot;/header/type&quot;, this) == 'T'&quot;}
+from Temperature.status.sensorValue to source with {xpath:&quot;/value&quot;, condition:&quot;xpath:eval('/header/type', this) == 'T'&quot;}
 </code></pre>
 
 <p>Function Block Illuminance Mapping</p>
 
 <pre><code>...
-from Illuminance.status.sensorValue to source with {xpath:&quot;/value&quot;, condition:&quot;xpath:eval(&quot;/header/type&quot;, this) == 'I'&quot;}
+from Illuminance.status.sensorValue to source with {xpath:&quot;/value&quot;, condition:&quot;xpath:eval('/header/type', this) == 'I'&quot;}
 </code></pre>
 
 <h3 id="useful-links">Useful Links</h3>
