@@ -87,10 +87,8 @@ The Eclipse Marketplace dialog opens. In the Find entry field enter Vorto and cl
       <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
       
       <guid>https://www.eclipse.org/vorto/community/</guid>
-      <description>Mailing List A great way to stay up to date with Vorto activity is to subscribe to the Mailing list provided by Eclipse. Sign up for the mailing list here.
-Discussion Forum A general discussion forum can be found here.
-Issue Tracker Issues and bugs related to Vorto are tracked with the Github Issue tracking system. If you find any issues, please report them here.
-Vorto Wiki Access Vorto wiki here.</description>
+      <description>Presentations Here you can find links to arbitrary material covering Eclipse Vorto which has been presented at events, conferences and meet-ups.
+&amp;ldquo;Eclipse Vorto: A Smart Approach to Connecting Industrial Products&amp;rdquo; (OMA Seminar October 2016)  Speaker : Alexander Edelmann (Bosch Software Innovations) Slides  &amp;ldquo;Eclipse Vorto: Device Payload Mapping&amp;rdquo; (Singapore Meetup 2018)  Speaker : Alexander Edelmann (Bosch Software Innovations) Slides  &amp;ldquo;Eclipse Vorto: Rapid Prototyping&amp;rdquo; (Eclipse Virtual IoT Meetup, July 2017)  Speaker : Alexander Edelmann (Bosch Software Innovations) Video  Mailing List A great way to stay up to date with Vorto activity is to subscribe to the Mailing list provided by Eclipse.</description>
     </item>
     
     <item>
