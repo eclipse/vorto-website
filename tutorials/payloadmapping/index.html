@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Mapping device payload to standardized Vorto Function Blocks - Eclipse Vorto</title>
-    <meta name="generator" content="Hugo 0.37.1" />
+    <meta name="generator" content="Hugo 0.41" />
 
     
     <meta name="description" content="Describe. Share. Integrate.">
@@ -162,7 +162,7 @@
         <ul class="repo">
           <li class="repo-download">
             <a href="http://vorto.eclipse.org" title="Repository" data-action="download">
-              <i class="icon icon-search"></i> Repository
+              <i class="icon icon-search"></i> Sandbox
             </a>
           </li>
           <li class="repo-stars">
@@ -243,9 +243,27 @@
 
 
 
-<a  title="Downloads" href="https://www.eclipse.org/vorto/downloads/">
+<a  title="User Guide" href="https://www.eclipse.org/vorto/userguide/">
 	
-	Downloads
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="https://www.eclipse.org/vorto/developerguide">
+	
+	Developer Guide
 </a>
 
 
@@ -297,7 +315,7 @@
 
 
 
-<a  title="Reference Documentation" href="https://www.eclipse.org/vorto/documentation/">
+<a  title="Reference Documentation" href="https://www.eclipse.org/vorto/appendix/">
 	
 	Reference Documentation
 </a>
@@ -354,101 +372,95 @@
 <h2 id="prerequisite">Prerequisite</h2>
 
 <ul>
-<li><a href="https://www.eclipse.org/vorto/documentation/mappingengine/">Payload Mapping Engine Documentation</a></li>
-<li><a href="https://marketplace.eclipse.org/content/vorto-toolset">Eclipse IoT Vorto Toolset</a></li>
+<li><a href="https://www.eclipse.org/vorto/userguide/mappingengine/">Payload Mapping Engine Documentation</a></li>
 <li>Maven</li>
 </ul>
 
-<h3 id="1-create-aws-iot-button-information-model">1. Create AWS IoT Button Information Model</h3>
+<h2 id="1-create-aws-iot-button-information-model">1. Create AWS IoT Button Information Model</h2>
 
-<p>Let&rsquo;s start by creating an information model for the AWS IoT Button using the Vorto IoT Toolset:</p>
+<p>Let&rsquo;s start by creating an information model for the AWS IoT Button using the <a href="http://vorto.eclipse.org">Vorto IoT Repository</a></p>
 
-<pre><code>namespace devices.aws.button
-version 1.0.0
-displayname &quot;AWSIoTButton&quot;
-description &quot;Model description for the AWS IoT Button.&quot;
-using com.ipso.smartobjects.Push_button ; 0.0.1
-using com.ipso.smartobjects.Voltage ; 0.0.1
+<ol>
+<li>Click the <strong>Create new Model</strong> Button and choose the type you want to create from the context menu.
+<figure class="screenshot">
+<img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/create_function_block_designer_btn.png">
+</figure></li>
+<li>Enter a name, for example, AWSIoTButton as a <strong>Information Model</strong>.</li>
+<li>Adjust the entries for the input fields <strong>Namespace</strong> and <strong>Version</strong>, if necessary.</li>
+<li>Click <strong>Create</strong>.
+<figure class="screenshot">
+<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/create_model_awsIotButton.png">
+</figure></li>
+<li>In the Model Editor add the AWSIoTButton specific properties and click <strong>Save</strong>:
+<figure class="screenshot">
+<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/edit_model.png">
+</figure>
+&gt; <a target="_blank" href="http://vorto.eclipse.org/#/details/devices.aws.button/AWSIoTButton/1.0.0">Source Code</a></li>
+</ol>
 
-infomodel AWSIoTButton {
-
-    functionblocks {
-        button as Push_button
-        batteryVoltage as Voltage
-    }
-}
-</code></pre>
-
-<p>As you can see, it is just as easy as referencing the existing <a href="http://vorto.eclipse.org/#/?s=com.ipso.smartobjects&amp;t=Functionblock">IPSO Vorto Function Blocks</a> from the Information Model.</p>
-
-<p>Now, you can login to the Vorto Repository and <strong>Share</strong> the Information Model.</p>
-
-<p>Click on <strong>Details</strong> to open the information model in the <a href="http://vorto.eclipse.org/#/details/devices.aws.button/AWSIoTButton/1.0.0">Vorto Repository</a>.</p>
-
-<h3 id="2-define-the-payload-mapping">2. Define the Payload Mapping</h3>
+<h2 id="2-define-the-payload-mapping">2. Define the Payload Mapping</h2>
 
 <p>Now it&rsquo;s time to define the actual payload mapping specification that defines how the actual AWS IoT Button payload maps to the standardized Vorto Function Blocks.</p>
-
-<p>Mapping Specifications are written as *.mapping files and use xpath-like expressions that are applied on the source device payload.</p>
 
 <p>For example, the AWS IoT button sends the following JSON payload:</p>
 
 <pre><code>{&quot;clickType&quot; : &quot;DOUBLE&quot;, &quot;batteryVoltage&quot;: &quot;2322mV&quot;}  
 </code></pre>
 
-<p>Let&rsquo;s take this example and reduce the complexity in the example by merely creating a mapping specification for the batteryVoltage payload:</p>
+<p>Let&rsquo;s take this example and create a mapping specification for the batteryVoltage payload:</p>
 
 <ol>
-<li><p>Create a mapping file <em>awsiotbutton-ipso-battery.mapping</em> and add the following mapping rules:</p>
+<li>Click the <strong>Create new Model</strong> Button and choose the type you want to create from the context menu.
+<figure class="screenshot">
+<img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/create_function_block_designer_btn.png">
+</figure></li>
+<li>Enter a name, for example, PayloadVoltageMapping as a <strong>Mapping</strong>.</li>
+<li>Adjust the entries for the input fields <strong>Namespace</strong> and <strong>Version</strong>, if necessary.</li>
+<li>Click <strong>Create</strong>.
+<figure class="screenshot">
+<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/create_mapping_payloadVoltageMapping.png">
+</figure></li>
 
-<pre><code>namespace devices.aws.button
-version 1.0.0
-displayname &quot;PayloadMapping BatteryVoltage&quot;
-description &quot;Payload Mapping for the AWS IoT Button BatteryVoltage&quot;
+<li><p>In the Model Editor add the following mapping rules and click <strong>Save</strong>:</p>
 
-using com.ipso.smartobjects.Voltage;0.0.1
-
-functionblockmapping PayloadVoltageMapping {
-    targetplatform aws_ipso
-
-    from Voltage.status.sensor_value to source with {xpath: &quot;number:toFloat(string:substring(batteryVoltage,0,string:length(batteryVoltage)-2))&quot;}
-    from Voltage.status.sensor_units to source with {xpath: &quot;string:substring(batteryVoltage,string:length(batteryVoltage)-2)&quot;}
-</code></pre>
-
-<p>}</p></li>
+<p><figure class="screenshot">
+<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/edit_mapping.png">
+</figure>
+&gt; <a target="_blank" href="http://vorto.eclipse.org/#/details/devices.aws.button.mapping/BatteryVoltagePayloadMapping/1.0.0">Source Code</a></p></li>
 </ol>
 
 <p>You may have spotted, that we are using a set of different xpath functions to define the mapping rule. You can find more information about all available functions and how to use them in the <a href="https://github.com/eclipse/vorto/blob/0.10.0.M3/server/repo/repository-mapping/docs/built_in_converters.md">Function Reference Documentation</a></p>
 
+<p><strong>Create another mapping to correlate it to the AWS IoT Button:</strong></p>
+
 <ol>
-<li><p>Create another mapping file <em>awsiotbutton-ipso.mapping</em> that references this mapping file to correlate it to the AWS IoT Button:</p>
+<li>Click the <strong>Create new Model</strong> Button and choose the type you want to create from the context menu.
+<figure class="screenshot">
+<img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/create_function_block_designer_btn.png">
+</figure></li>
+<li>Enter a name, for example, AWSIoTButtonPayloadMapping as a <strong>Mapping</strong>.</li>
+<li>Adjust the entries for the input fields <strong>Namespace</strong> and <strong>Version</strong>, if necessary.</li>
+<li>Click <strong>Create</strong>.
+<figure class="screenshot">
+<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/create_mapping_AWSIoTButtonPayloadMapping.png">
+</figure></li>
 
-<pre><code>namespace devices.aws.button.mapping
-version 1.0.0
-displayname &quot;AWSIoTButtonPayloadMapping&quot;
-description &quot;Payload Mapping for AWSIoTButton&quot;
-category payloadmapping
+<li><p>In the Model Editor add add the following mapping rules and click <strong>Save</strong>:</p>
 
-using devices.aws.button.AWSIoTButton;1.0.0
-using devices.aws.button.mapping.BatteryVoltagePayloadMapping;1.0.0
+<p><figure class="screenshot">
+<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/edit_mapping_BatteryVoltage.png">
+</figure>
+&gt; <a target="_blank" href="http://vorto.eclipse.org/#/details/devices.aws.button.mapping/AWSIoTButtonPayloadMapping/1.0.0">Source Code</a></p></li>
+</ol>
 
-infomodelmapping AWSIoTButtonPayloadMapping {
-    targetplatform aws_ipso
-    from AWSIoTButton.functionblocks.batteryVoltage to reference BatteryVoltagePayloadMapping
-}
-</code></pre></li>
-
-<li><p>Log in to the <a href="http://vorto.eclipse.org">Vorto Repository</a> and publish the mapping files by selecting <strong>Share</strong>.</p></li>
-
-<li><p>Once successfully checked in, you can have a look at the models in the repository. For sake of completion, we have added the mapping specification for button functionality as well:</p>
+<p>For sake of completion, we have added the mapping specification for button functionality as well:</p>
 
 <ul>
 <li><a href="http://vorto.eclipse.org/#/details/devices.aws.button.mapping/ButtonPayloadMapping/1.0.0">Button Mapping Specification for AWS IoT Button</a></li>
 <li><a href="http://vorto.eclipse.org/#/details/devices.aws.button.mapping/BatteryVoltagePayloadMapping/1.0.0">Voltage Mapping Specification for AWS IoT Button</a></li>
-</ul></li>
-</ol>
+</ul>
 
-<h3 id="3-execute-the-payload-mapping">3. Execute the Payload Mapping</h3>
+<h2 id="3-execute-the-payload-mapping">3. Execute the Payload Mapping</h2>
 
 <p>Now, let&rsquo;s process the mapping specification with the Vorto Mapping Engine. The Mapping Engine performs a two-phase mapping:</p>
 
@@ -464,7 +476,7 @@ infomodelmapping AWSIoTButtonPayloadMapping {
 <pre><code>&lt;dependency&gt;
    &lt;groupId&gt;org.eclipse.vorto&lt;/groupId&gt;
    &lt;artifactId&gt;repository-mapping&lt;/artifactId&gt;
-   &lt;version&gt;0.10.0.M3&lt;/version&gt;
+   &lt;version&gt;0.10.0.M4&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre></li>
 
@@ -510,7 +522,7 @@ System.out.println(mappedResult.toJson());
 </code></pre></li>
 </ol>
 
-<h3 id="4-test-the-integration">4. Test the integration</h3>
+<h2 id="4-test-the-integration">4. Test the integration</h2>
 
 <p>We are now ready to send the mapped JSON payload and modify an <a href="https://ditto.eclipse.org/">Eclipse Ditto</a> managed thing:</p>
 
@@ -550,7 +562,7 @@ System.out.println(mappedResult.toJson());
 <pre><code>&lt;dependency&gt;
    &lt;groupId&gt;org.eclipse.vorto&lt;/groupId&gt;
    &lt;artifactId&gt;repository-mapping&lt;/artifactId&gt;
-   &lt;version&gt;0.10.0.M3&lt;/version&gt;
+   &lt;version&gt;0.10.0.M4&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre></li>
 
@@ -651,14 +663,14 @@ MyPlatformModel result = mapper.map(DataInput.newInstance().fromJson(sampleDevic
 
   <div class="next">
   
-      <a href="https://www.eclipse.org/vorto/downloads/" title="Downloads">
+      <a href="https://www.eclipse.org/vorto/developerguide/" title="Developer Guide">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Downloads
+              Developer Guide
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

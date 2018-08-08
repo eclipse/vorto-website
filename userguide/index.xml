@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Userguides on Eclipse Vorto</title>
+    <link>https://www.eclipse.org/vorto/userguide/</link>
+    <description>Recent content in Userguides on Eclipse Vorto</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Mar 2016 20:08:11 +0100</lastBuildDate>
+    
+	<atom:link href="https://www.eclipse.org/vorto/userguide/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vorto DSL Help</title>
+      <link>https://www.eclipse.org/vorto/userguide/quickhelp_dsl/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/userguide/quickhelp_dsl/</guid>
+      <description>&lt;p&gt;This section gets you started with using the Vorto DSL to describe devices as well as use the Mapping DSL to map device descriptions to spec platform models, e.g. LwM2M or even IoT Digital Twin Services.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Vorto Model States</title>
+      <link>https://www.eclipse.org/vorto/userguide/model_states/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/userguide/model_states/</guid>
+      <description>&lt;p&gt;Vorto Models have a lifecycle and undergo various states. This section gives you an overview of these states and the actions that are possible.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Generators</title>
+      <link>https://www.eclipse.org/vorto/userguide/generators/</link>
+      <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/userguide/generators/</guid>
+      <description>&lt;p&gt;This section gives an overview of currently available Vorto Code Generators.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Payload Mapping</title>
+      <link>https://www.eclipse.org/vorto/userguide/mappingengine/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/userguide/mappingengine/</guid>
+      <description>&lt;p&gt;The payload mapping feature in Eclipse Vorto can be used to transform arbitrary payload to standardized Vorto messages and vice versa.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -18,7 +18,7 @@
       
       <guid>https://www.eclipse.org/vorto/introduction/</guid>
       <description>Interaction among different stakeholders via Vorto
- Vorto provides an Eclipse Toolset that allows Device Manufacturers to easily describe device functionality and characteristics as Information Models. These models are managed in a Vorto Repository. Platform Providers provide Code generators that convert these models into device - specific &amp;ldquo;stubs&amp;rdquo; that run on the device and send Information Model compliant messages to the platform-specific IoT Backend. In order to process these messages in the IoT backend, Vorto offers a set of convenient technical components, for example parsers and validators.</description>
+ Vorto provides Web Editors that allow Device Manufacturers to easily describe device functionality and characteristics using a simple Vorto language (Vorto DSL) and save them as Information Models in the Vorto Repository. Platform Providers provide Code generators that convert these models into device - specific &amp;ldquo;stubs&amp;rdquo; that run on the device and send Information Model compliant messages to IoT Digital Twin services. In order to process these messages in the IoT platform, Vorto offers a set of convenient technical components, for example parsers and validators.</description>
     </item>
     
     <item>
@@ -28,7 +28,8 @@
       
       <guid>https://www.eclipse.org/vorto/gettingstarted/</guid>
       <description>To get started with Vorto easily, we are going to show you how you can use the Vorto IoT Tool to describe a simple device that measures distance and integrate it with Eclipse Hono.
-Prerequisites  Maven Java 8 Eclipse for DSL Developers Eclipse Vorto Toolset Plugins  Creating a Vorto Project  Open Eclipse and switch to the Vorto Perspective. In the Vorto Model Project Browser, click the + button.</description>
+Different types of Models Infomation Model Information Models represent the capabilities of a particular type of device in its entirety. An Information Model is assembled from abstract and re-usable Function Blocks.
+Function Block A Function Block provides an abstract view on a device to applications that want to employ the devices’ functionality.</description>
     </item>
     
     <item>
@@ -67,18 +68,14 @@ Prerequisites  Maven Java 8 Eclipse for DSL Developers Eclipse Vorto Toolset Plu
     </item>
     
     <item>
-      <title>Downloads</title>
-      <link>https://www.eclipse.org/vorto/downloads/</link>
+      <title>Developer Guide</title>
+      <link>https://www.eclipse.org/vorto/developerguide/</link>
       <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/downloads/</guid>
-      <description>Installing the Vorto Toolset This section lists the steps required to install the Vorto Toolset.
-Install the Eclipse Vorto Toolset in one of the following ways:
- Installing from the Eclipse Marketplace
- Installing from the Vorto Toolset Update Site
-  Installing from the Eclipse Marketplace. Proceed as follows
- Start Eclipse. In the main menu, click Help &amp;gt; Eclipse Marketplace&amp;hellip;.
-The Eclipse Marketplace dialog opens. In the Find entry field enter Vorto and click the Go button.</description>
+      <guid>https://www.eclipse.org/vorto/developerguide/</guid>
+      <description>Repository API Search and access Vorto models as well as invoke Vorto Code Generators with the Repository Java Client
+Repository Import API If you want to manage other existing (standardized) device descriptions with the Vorto Repository, you can implement a custom importer using the Importer API.
+Device Payload Mapping API Map arbitrary device payload, expressed as JSON or binary, to standardized data, that is described by Vorto Information Models. See Payload Mapping Documentation for more information.</description>
     </item>
     
     <item>
@@ -97,17 +94,46 @@ The Eclipse Marketplace dialog opens. In the Find entry field enter Vorto and cl
       <pubDate>Wed, 09 Mar 2016 20:10:46 +0100</pubDate>
       
       <guid>https://www.eclipse.org/vorto/release-notes/</guid>
-      <description>0.10.0 milestone 3 Fixes and Enhancements
- EU-GDPR Compliance of Vorto Repository, i.e. Export of user-specific Vorto models. Eclipse Hono Generator, supporting the generation of Arduino-, Python- and Java source code. Code Generator Configuration UI. Code Generators that are executed from the Eclipse Vorto Toolset do now provide a configuration UI that allows developers to customize the execution of the generator.  API Changes
- Vorto Code Generators must now implement org.</description>
+      <description>0.10.0 milestone 4 Fixes and Enhancements
+ Simple Web Editor to create and edit Vorto Models directly from the Vorto Repository Importer API that lets you import and manage other (standardized) device descriptions with the Vorto Repository  LwM2M/IPSO Importer that imports LwM2M Smart Objects  Model Attachment Management Model State Management Various DSL Enhancements. More details  multiple keyword in Information Model DSL to express multiplicity of function blocks extension keyword in Function Block DSL to overwrite properties from an inherited Function Block Possibility to declare Function Blocks as either mandatory or optional in Information Models  Many UI/UX Improvements Many Bugfixes  0.</description>
+    </item>
+    
+    <item>
+      <title>Vorto DSL Help</title>
+      <link>https://www.eclipse.org/vorto/userguide/quickhelp_dsl/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/userguide/quickhelp_dsl/</guid>
+      <description>&lt;p&gt;This section gets you started with using the Vorto DSL to describe devices as well as use the Mapping DSL to map device descriptions to spec platform models, e.g. LwM2M or even IoT Digital Twin Services.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Vorto Model States</title>
+      <link>https://www.eclipse.org/vorto/userguide/model_states/</link>
+      <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/userguide/model_states/</guid>
+      <description>&lt;p&gt;Vorto Models have a lifecycle and undergo various states. This section gives you an overview of these states and the actions that are possible.
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Code Generators</title>
+      <link>https://www.eclipse.org/vorto/userguide/generators/</link>
+      <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/userguide/generators/</guid>
+      <description>&lt;p&gt;This section gives an overview of currently available Vorto Code Generators.
+&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Payload Mapping</title>
-      <link>https://www.eclipse.org/vorto/documentation/mappingengine/</link>
+      <link>https://www.eclipse.org/vorto/userguide/mappingengine/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/documentation/mappingengine/</guid>
+      <guid>https://www.eclipse.org/vorto/userguide/mappingengine/</guid>
       <description>&lt;p&gt;The payload mapping feature in Eclipse Vorto can be used to transform arbitrary payload to standardized Vorto messages and vice versa.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -115,67 +141,52 @@ The Eclipse Marketplace dialog opens. In the Find entry field enter Vorto and cl
     
     <item>
       <title>Vorto Meta Model</title>
-      <link>https://www.eclipse.org/vorto/documentation/metamodel_uml/</link>
+      <link>https://www.eclipse.org/vorto/appendix/metamodel_uml/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/documentation/metamodel_uml/</guid>
+      <guid>https://www.eclipse.org/vorto/appendix/metamodel_uml/</guid>
       <description>&lt;p&gt;This image describes the Vorto Meta Model.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Information Model DSL</title>
-      <link>https://www.eclipse.org/vorto/documentation/infomodel_dsl/</link>
+      <link>https://www.eclipse.org/vorto/appendix/infomodel_dsl/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/documentation/infomodel_dsl/</guid>
+      <guid>https://www.eclipse.org/vorto/appendix/infomodel_dsl/</guid>
       <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Information Model.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Function Block DSL</title>
-      <link>https://www.eclipse.org/vorto/documentation/function_block_dsl/</link>
+      <link>https://www.eclipse.org/vorto/appendix/function_block_dsl/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/documentation/function_block_dsl/</guid>
+      <guid>https://www.eclipse.org/vorto/appendix/function_block_dsl/</guid>
       <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Function Block.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Datatype DSL</title>
-      <link>https://www.eclipse.org/vorto/documentation/datatype_dsl/</link>
+      <link>https://www.eclipse.org/vorto/appendix/datatype_dsl/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/documentation/datatype_dsl/</guid>
+      <guid>https://www.eclipse.org/vorto/appendix/datatype_dsl/</guid>
       <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Datatype&amp;hellip;.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Mapping DSL</title>
-      <link>https://www.eclipse.org/vorto/documentation/mappings_dsl/</link>
+      <link>https://www.eclipse.org/vorto/appendix/mappings_dsl/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/documentation/mappings_dsl/</guid>
+      <guid>https://www.eclipse.org/vorto/appendix/mappings_dsl/</guid>
       <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Mapping.
 &lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Installation Python and GrovePi required modules</title>
-      <link>https://www.eclipse.org/vorto/installation/grovepi/</link>
-      <pubDate>Mon, 28 May 2018 20:08:11 +0100</pubDate>
-      
-      <guid>https://www.eclipse.org/vorto/installation/grovepi/</guid>
-      <description> Download and install the latest version of Python 3.x from the official Python website
- Install pip
- Install Visual C++ Build Tools(http://landinghub.visualstudio.com/visual-cpp-build-tools). This is a pre-requisite for installing netifaces.
- Install the required Python modules
- Eclipse paho netinterfaces
- open terminal or console and type the following command
-pip install paho-mqtt pip install netifaces     </description>
     </item>
     
   </channel>

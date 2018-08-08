@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Connecting a GrovePi to Eclipse Hono - Eclipse Vorto</title>
-    <meta name="generator" content="Hugo 0.37.1" />
+    <meta name="generator" content="Hugo 0.41" />
 
     
     <meta name="description" content="Describe. Share. Integrate.">
@@ -162,7 +162,7 @@
         <ul class="repo">
           <li class="repo-download">
             <a href="http://vorto.eclipse.org" title="Repository" data-action="download">
-              <i class="icon icon-search"></i> Repository
+              <i class="icon icon-search"></i> Sandbox
             </a>
           </li>
           <li class="repo-stars">
@@ -243,9 +243,27 @@
 
 
 
-<a  title="Downloads" href="https://www.eclipse.org/vorto/downloads/">
+<a  title="User Guide" href="https://www.eclipse.org/vorto/userguide/">
 	
-	Downloads
+	User Guide
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Developer Guide" href="https://www.eclipse.org/vorto/developerguide">
+	
+	Developer Guide
 </a>
 
 
@@ -297,7 +315,7 @@
 
 
 
-<a  title="Reference Documentation" href="https://www.eclipse.org/vorto/documentation/">
+<a  title="Reference Documentation" href="https://www.eclipse.org/vorto/appendix/">
 	
 	Reference Documentation
 </a>
@@ -369,7 +387,7 @@
 <li><a href="https://www.raspberrypi.org/learning/software-guide/">Install raspbian on the Raspberry Pi</a>.</li>
 <li><a href="https://www.raspberrypi.org/learning/software-guide/wifi/">Connect the pi to wifi</a>.</li>
 <li><a href="https://www.raspberrypi.org/documentation/remote-access/ssh/">Enable ssh connection on your pi</a> .</li>
-<li><a href="https://www.eclipse.org/vorto/installation/grovepi/">Install python and required modules</a>.
+<li><a href="#installation-of-grovepi-required-modules">Install python and required modules</a>.
 
 <br /></li>
 </ul>
@@ -378,7 +396,7 @@
 
 <ul>
 <li><a href="https://code.visualstudio.com/docs/languages/python">Install Visual Studio Code with the Python extension</a>.</li>
-<li><a href="https://www.eclipse.org/vorto/installation/grovepi/">Install python and required modules</a>.
+<li><a href="#installation-of-grovepi-required-modules">Install python and required modules</a>.
 <br /></li>
 </ul>
 
@@ -528,6 +546,32 @@ sudo reboot
 
 <ul>
 <li>Follow <a href="https://www.eclipse.org/hono/dev-guide/java_client_consumer/">Consuming Messages from Java for Hono</a> to receive the device data in Eclipse Hono.</li>
+</ul>
+
+<h2 id="installation-of-grovepi-required-modules">Installation of GrovePi required Modules</h2>
+
+<ul>
+<li><p>Download and install the latest version of Python 3.x from the official <a href="https://www.python.org/">Python website</a></p></li>
+
+<li><p><a href="https://packaging.python.org/tutorials/installing-packages/#install-pip-setuptools-and-wheel">Install pip</a></p></li>
+
+<li><p>Install Visual C++ Build Tools(<a href="http://landinghub.visualstudio.com/visual-cpp-build-tools">http://landinghub.visualstudio.com/visual-cpp-build-tools</a>). This is a pre-requisite for installing netifaces.</p></li>
+
+<li><p>Install the required Python modules</p>
+
+<ul>
+<li><a href="https://www.eclipse.org/paho/clients/python/">Eclipse paho</a></li>
+
+<li><p><a href="https://pypi.python.org/pypi/netifaces">netinterfaces</a></p>
+
+<ul>
+<li><p>open terminal or console and type the following command</p>
+
+<pre><code>pip install paho-mqtt
+pip install netifaces
+</code></pre></li>
+</ul></li>
+</ul></li>
 </ul>
 
 <h2 id="what-s-next">What&rsquo;s next?</h2>

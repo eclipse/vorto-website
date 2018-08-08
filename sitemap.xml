@@ -28,7 +28,7 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/downloads/</loc>
+    <loc>https://www.eclipse.org/vorto/developerguide/</loc>
     <lastmod>2018-05-09T10:58:37+08:00</lastmod>
   </url>
   
@@ -43,32 +43,47 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/documentation/mappingengine/</loc>
+    <loc>https://www.eclipse.org/vorto/userguide/quickhelp_dsl/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/documentation/metamodel_uml/</loc>
+    <loc>https://www.eclipse.org/vorto/userguide/model_states/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/documentation/infomodel_dsl/</loc>
+    <loc>https://www.eclipse.org/vorto/userguide/generators/</loc>
+    <lastmod>2018-05-09T10:58:37+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/vorto/userguide/mappingengine/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/documentation/function_block_dsl/</loc>
+    <loc>https://www.eclipse.org/vorto/appendix/metamodel_uml/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/documentation/datatype_dsl/</loc>
+    <loc>https://www.eclipse.org/vorto/appendix/infomodel_dsl/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/documentation/mappings_dsl/</loc>
+    <loc>https://www.eclipse.org/vorto/appendix/function_block_dsl/</loc>
+    <lastmod>2016-03-09T20:08:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/vorto/appendix/datatype_dsl/</loc>
+    <lastmod>2016-03-09T20:08:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/vorto/appendix/mappings_dsl/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
@@ -78,24 +93,13 @@
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/installation/grovepi/</loc>
-    <lastmod>2018-05-28T20:08:11+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/vorto/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.eclipse.org/vorto/documentation/</loc>
+    <loc>https://www.eclipse.org/vorto/appendix/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/installation/</loc>
-    <lastmod>2018-05-28T20:08:11+01:00</lastmod>
+    <loc>https://www.eclipse.org/vorto/categories/</loc>
     <priority>0</priority>
   </url>
   
@@ -106,6 +110,12 @@
   
   <url>
     <loc>https://www.eclipse.org/vorto/tutorials/</loc>
+    <lastmod>2016-03-09T20:08:11+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/vorto/userguide/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
     <priority>0</priority>
   </url>
