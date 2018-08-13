@@ -6,6 +6,7 @@
     <description>Recent content in Tutorials on Eclipse Vorto</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>The Eclipse Vorto Project</copyright>
     <lastBuildDate>Wed, 09 Mar 2016 20:08:11 +0100</lastBuildDate>
     
 	<atom:link href="https://www.eclipse.org/vorto/tutorials/index.xml" rel="self" type="application/rss+xml" />
@@ -41,7 +42,7 @@
       <guid>https://www.eclipse.org/vorto/tutorials/payloadmapping/</guid>
       <description>&lt;p&gt;IoT Devices may not always send their data to the cloud in the structure and protocol that is required by the IoT platform that the devices are integrating with, e.g. AWS IoT, Azure IoT or Eclipse IoT. Eclipse Vorto provides the tools and libraries for you to achieve that.&lt;/p&gt;
 
-&lt;p&gt;In this tutorial you are going to learn, how you create a Vorto Mapping Specification that maps a AWS IoT Button JSON payload to standardized &lt;a href=&#34;https://github.com/IPSO-Alliance/pub&#34;&gt;IPSO&lt;/a&gt; Vorto Function Blocks and execute the mapping specification with the Vorto Mapping Engine. You will integrate the AWS IoT Button payload with the Eclipse Ditto Digital Twin service but also learn how to extend the Vorto Mapping Engine to map to other IoT platforms.&lt;/p&gt;
+&lt;p&gt;In this tutorial you are going to learn, how you create a Vorto Mapping Specification that maps a Distance Sensor JSON payload to standardized &lt;a href=&#34;https://github.com/IPSO-Alliance/pub&#34;&gt;IPSO&lt;/a&gt; Vorto Function Blocks and execute the mapping specification with the Vorto Mapping Engine. You will integrate the Distance Sensor payload with the Eclipse Ditto Digital Twin service but also learn how to extend the Vorto Mapping Engine to map to other IoT platforms.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

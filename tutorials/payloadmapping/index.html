@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Mapping device payload to standardized Vorto Function Blocks - Eclipse Vorto</title>
-    <meta name="generator" content="Hugo 0.41" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     
     <meta name="description" content="Describe. Share. Integrate.">
@@ -345,8 +345,8 @@
             </a>
           </li>
           <li>
-            <a href="https://maven-badges.herokuapp.com/maven-central/org.eclipse.vorto/org.eclipse.vorto.parent" title="Travis Build Status" target="_blank">
-              <img src="https://maven-badges.herokuapp.com/maven-central/org.eclipse.vorto/org.eclipse.vorto.parent/badge.svg" />
+            <a href="https://maven-badges.herokuapp.com/maven-central/org.eclipse.vorto/parent" title="Travis Build Status" target="_blank">
+              <img src="https://maven-badges.herokuapp.com/maven-central/org.eclipse.vorto/parent/badge.svg" />
             </a>
           </li>
         </ul>
@@ -365,100 +365,73 @@
 
 			<p>IoT Devices may not always send their data to the cloud in the structure and protocol that is required by the IoT platform that the devices are integrating with, e.g. AWS IoT, Azure IoT or Eclipse IoT. Eclipse Vorto provides the tools and libraries for you to achieve that.</p>
 
-<p>In this tutorial you are going to learn, how you create a Vorto Mapping Specification that maps a AWS IoT Button JSON payload to standardized <a href="https://github.com/IPSO-Alliance/pub">IPSO</a> Vorto Function Blocks and execute the mapping specification with the Vorto Mapping Engine. You will integrate the AWS IoT Button payload with the Eclipse Ditto Digital Twin service but also learn how to extend the Vorto Mapping Engine to map to other IoT platforms.</p>
+<p>In this tutorial you are going to learn, how you create a Vorto Mapping Specification that maps a Distance Sensor JSON payload to standardized <a href="https://github.com/IPSO-Alliance/pub">IPSO</a> Vorto Function Blocks and execute the mapping specification with the Vorto Mapping Engine. You will integrate the Distance Sensor payload with the Eclipse Ditto Digital Twin service but also learn how to extend the Vorto Mapping Engine to map to other IoT platforms.</p>
 
 <p></p>
 
 <h2 id="prerequisite">Prerequisite</h2>
 
 <ul>
-<li><a href="https://www.eclipse.org/vorto/userguide/mappingengine/">Payload Mapping Engine Documentation</a></li>
+<li><a href="https://www.eclipse.org/vorto/userguide/mappingengine/">Introduction to Vorto Payload Mapping</a></li>
 <li>Maven</li>
 </ul>
 
-<h2 id="1-create-aws-iot-button-information-model">1. Create AWS IoT Button Information Model</h2>
+<h2 id="1-create-a-payload-mapping-specification">1. Create a Payload Mapping Specification</h2>
 
-<p>Let&rsquo;s start by creating an information model for the AWS IoT Button using the <a href="http://vorto.eclipse.org">Vorto IoT Repository</a></p>
+<p>In this step, we are going to create a mapping specification for the <a href="http://vorto.eclipse.org/#/details/org.eclipse.vorto.tutorial/DistanceSensor/1.0.0">Distance Sensor</a>, that maps a very simple distance JSON payload to IPSO compliant data representation that can be immediately processed by the Eclipse Ditto Service.</p>
 
-<ol>
-<li>Click the <strong>Create new Model</strong> Button and choose the type you want to create from the context menu.
-<figure class="screenshot">
-<img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/create_function_block_designer_btn.png">
-</figure></li>
-<li>Enter a name, for example, AWSIoTButton as a <strong>Information Model</strong>.</li>
-<li>Adjust the entries for the input fields <strong>Namespace</strong> and <strong>Version</strong>, if necessary.</li>
-<li>Click <strong>Create</strong>.
-<figure class="screenshot">
-<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/create_model_awsIotButton.png">
-</figure></li>
-<li>In the Model Editor add the AWSIoTButton specific properties and click <strong>Save</strong>:
-<figure class="screenshot">
-<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/edit_model.png">
-</figure>
-&gt; <a target="_blank" href="http://vorto.eclipse.org/#/details/devices.aws.button/AWSIoTButton/1.0.0">Source Code</a></li>
-</ol>
+<p>For example, the Distance Sensor sends the following JSON payload:</p>
 
-<h2 id="2-define-the-payload-mapping">2. Define the Payload Mapping</h2>
-
-<p>Now it&rsquo;s time to define the actual payload mapping specification that defines how the actual AWS IoT Button payload maps to the standardized Vorto Function Blocks.</p>
-
-<p>For example, the AWS IoT button sends the following JSON payload:</p>
-
-<pre><code>{&quot;clickType&quot; : &quot;DOUBLE&quot;, &quot;batteryVoltage&quot;: &quot;2322mV&quot;}  
+<pre><code>{&quot;distance&quot;: &quot;100m&quot;} 
 </code></pre>
 
-<p>Let&rsquo;s take this example and create a mapping specification for the batteryVoltage payload:</p>
+<p>Let&rsquo;s take this example and create a mapping specification for it:</p>
 
 <ol>
-<li>Click the <strong>Create new Model</strong> Button and choose the type you want to create from the context menu.
+<li>In the Vorto Repository, click the <strong>Create Model</strong> Button and select <strong>Mapping</strong>.
 <figure class="screenshot">
 <img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/create_function_block_designer_btn.png">
 </figure></li>
-<li>Enter a name, for example, PayloadVoltageMapping as a <strong>Mapping</strong>.</li>
+<li>Enter a name, for example <em>DistancePayloadMapping</em>.</li>
 <li>Adjust the entries for the input fields <strong>Namespace</strong> and <strong>Version</strong>, if necessary.</li>
 <li>Click <strong>Create</strong>.
 <figure class="screenshot">
-<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/create_mapping_payloadVoltageMapping.png">
+<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/create_mapping_payloadDistanceMapping.png">
 </figure></li>
 
 <li><p>In the Model Editor add the following mapping rules and click <strong>Save</strong>:</p>
 
 <p><figure class="screenshot">
-<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/edit_mapping.png">
+<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/edit_mapping.png"><br />
 </figure>
-&gt; <a target="_blank" href="http://vorto.eclipse.org/#/details/devices.aws.button.mapping/BatteryVoltagePayloadMapping/1.0.0">Source Code</a></p></li>
+&gt; <a target="_blank" href="http://vorto.eclipse.org/#/details/org.eclipse.vorto.tutorial.mapping/DistancePayloadMapping/1.0.0">Source Code</a></p></li>
 </ol>
 
-<p>You may have spotted, that we are using a set of different xpath functions to define the mapping rule. You can find more information about all available functions and how to use them in the <a href="https://github.com/eclipse/vorto/blob/0.10.0.M3/server/repo/repository-mapping/docs/built_in_converters.md">Function Reference Documentation</a></p>
+<p>You may have spotted, that we are using a set of different xpath functions to define the mapping rule. You can find more information about all available functions and how to use them in the <a href="https://github.com/eclipse/vorto/blob/0.10.0.M4/mapping-engine/docs/built_in_converters.md">Function Reference Documentation</a></p>
 
-<p><strong>Create another mapping to correlate it to the AWS IoT Button:</strong></p>
+<p><strong>Create another mapping to correlate it to the Distance Sensor:</strong></p>
+
+<p>Up to now, we have merely created a specification for the payload of the distance data. Now, we must assign it to the actual Distance Sensor Device Information Model:</p>
 
 <ol>
-<li>Click the <strong>Create new Model</strong> Button and choose the type you want to create from the context menu.
+<li>In the Vorto Repository, click the <strong>Create Model</strong> Button and select <strong>Mapping</strong>.
 <figure class="screenshot">
 <img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/create_function_block_designer_btn.png">
 </figure></li>
-<li>Enter a name, for example, AWSIoTButtonPayloadMapping as a <strong>Mapping</strong>.</li>
+<li>Enter a name, for example <em>DistanceSensorPayloadMapping</em></li>
 <li>Adjust the entries for the input fields <strong>Namespace</strong> and <strong>Version</strong>, if necessary.</li>
 <li>Click <strong>Create</strong>.
 <figure class="screenshot">
-<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/create_mapping_AWSIoTButtonPayloadMapping.png">
+<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/create_mapping_payloadDistanceSensorMapping.png">
 </figure></li>
 
 <li><p>In the Model Editor add add the following mapping rules and click <strong>Save</strong>:</p>
 
 <p><figure class="screenshot">
-<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/edit_mapping_BatteryVoltage.png">
+<img src="https://www.eclipse.org/vorto/images/tutorials/payload_mapping/edit_mapping_Sensor.png">
 </figure>
-&gt; <a target="_blank" href="http://vorto.eclipse.org/#/details/devices.aws.button.mapping/AWSIoTButtonPayloadMapping/1.0.0">Source Code</a></p></li>
+&gt; <a target="_blank" href="http://vorto.eclipse.org/#/details/org.eclipse.vorto.tutorial.mapping/DistanceSensorPayloadMapping/1.0.0">Source Code</a></p></li>
 </ol>
-
-<p>For sake of completion, we have added the mapping specification for button functionality as well:</p>
-
-<ul>
-<li><a href="http://vorto.eclipse.org/#/details/devices.aws.button.mapping/ButtonPayloadMapping/1.0.0">Button Mapping Specification for AWS IoT Button</a></li>
-<li><a href="http://vorto.eclipse.org/#/details/devices.aws.button.mapping/BatteryVoltagePayloadMapping/1.0.0">Voltage Mapping Specification for AWS IoT Button</a></li>
-</ul>
 
 <h2 id="3-execute-the-payload-mapping">3. Execute the Payload Mapping</h2>
 
@@ -476,20 +449,20 @@
 <pre><code>&lt;dependency&gt;
    &lt;groupId&gt;org.eclipse.vorto&lt;/groupId&gt;
    &lt;artifactId&gt;repository-mapping&lt;/artifactId&gt;
-   &lt;version&gt;0.10.0.M4&lt;/version&gt;
+   &lt;version&gt;${vorto.version}&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre></li>
 
-<li><p>Code snippet that transforms a sample AWS IoT Button JSON to Eclipse Vorto/Eclipse Ditto compliant data:</p>
+<li><p>Code snippet that transforms a sample Distance Sensor JSON to Eclipse Vorto/Eclipse Ditto compliant data:</p>
 
 <pre><code>IMappingSpecification spec = MappingSpecificationBuilder.create()
-.infomodelId(&quot;devices.aws.button.AWSIoTButton:1.0.0&quot;)
-.targetPlatformKey(&quot;aws_ipso&quot;)
+.infomodelId(&quot;org.eclipse.vorto.tutorial.DistanceSensor:1.0.0&quot;)
+.targetPlatformKey(&quot;distance_ipso&quot;)
 .build();
 
 IDataMapper&lt;DittoData&gt; mapper = IDataMapper.newBuilder().withSpecification(spec).buildDittoMapper();
 
-String sampleDevicePayload = &quot;{\&quot;clickType\&quot; : \&quot;DOUBLE\&quot;, \&quot;batteryVoltage\&quot;: \&quot;2322mV\&quot;}&quot;;
+String sampleDevicePayload = &quot;{\&quot;distance\&quot;: \&quot;100m\&quot;}&quot;;
 
 DittoData mappedResult = mapper.map(DataInput.newInstance().fromJson(sampleDevicePayload),
         MappingContext.empty());
@@ -500,21 +473,11 @@ System.out.println(mappedResult.toJson());
 <li><p>The console shows the following mapped result:</p>
 
 <pre><code>{
-    &quot;button&quot;:{
+    &quot;distance&quot;:{
         &quot;properties&quot;:{
-            &quot;configuration&quot;:{},
             &quot;status&quot;:{
-                &quot;digital_input_count&quot;:2,
-                &quot;digital_input_state&quot;:true
-            }
-        }
-    },
-    &quot;voltage&quot;:{
-        &quot;properties&quot;:{
-            &quot;configuration&quot;:{},
-            &quot;status&quot;:{
-                &quot;sensor_units&quot;:&quot;mV&quot;,
-                &quot;sensor_value&quot;:2322.0
+                &quot;sensorValue&quot;: 100,
+                &quot;sensorUnits&quot;: &quot;m&quot;
             }
         }
     }
@@ -527,28 +490,18 @@ System.out.println(mappedResult.toJson());
 <p>We are now ready to send the mapped JSON payload and modify an <a href="https://ditto.eclipse.org/">Eclipse Ditto</a> managed thing:</p>
 
 <pre><code> curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \ 
-            &quot;button&quot;:{ \
+            &quot;distance&quot;:{ \
                 &quot;properties&quot;:{ \ 
-                    &quot;configuration&quot;:{}, \ 
                     &quot;status&quot;:{ \ 
-                        &quot;digital_input_count&quot;:2, \ 
-                        &quot;digital_input_state&quot;:true \ 
-                    } \ 
-                } \ 
-            }, \ 
-            &quot;voltage&quot;:{ \ 
-                &quot;properties&quot;:{ \ 
-                    &quot;configuration&quot;:{}, \ 
-                    &quot;status&quot;:{ \ 
-                        &quot;sensor_units&quot;:&quot;mV&quot;, \ 
-                        &quot;sensor_value&quot;:2322.0 \ 
+                        &quot;sensorValue&quot;:100, \ 
+                        &quot;sensorUnits&quot;:&quot;m&quot; \ 
                     } \ 
                 } \ 
             } \ 
-        }' 'https://ditto.eclipse.org/api/1/things/org.eclipse.vorto%3aws-iot-button/features'
+        }' 'https://ditto.eclipse.org/api/1/things/org.eclipse.vorto.tutorial%3distancesensor/features'
 </code></pre>
 
-<p><strong>Voila!</strong> Your digital twin of the AWS IoT Button is now stored as standardized data, described as Vorto Function Blocks.</p>
+<p><strong>Voila!</strong> Your digital twin of the Distance Sensor is now stored as standardized data, described as Vorto Function Blocks.</p>
 
 <h3 id="appendix-plug-in-other-iot-platform-data-mapper">Appendix: Plug-in other IoT Platform Data Mapper</h3>
 
@@ -562,7 +515,7 @@ System.out.println(mappedResult.toJson());
 <pre><code>&lt;dependency&gt;
    &lt;groupId&gt;org.eclipse.vorto&lt;/groupId&gt;
    &lt;artifactId&gt;repository-mapping&lt;/artifactId&gt;
-   &lt;version&gt;0.10.0.M4&lt;/version&gt;
+   &lt;version&gt;${vorto.version}&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre></li>
 
@@ -596,7 +549,7 @@ public class MyPlatformMapper extends AbstractDataMapper&lt;MyPlatformModel&gt; 
 
 <pre><code>IDataMapper&lt;MyPlatformModel&gt; mapper = new MyPlatformMapper(mappingSpecification);
 
-String sampleDeviceData = &quot;{\&quot;clickType\&quot; : \&quot;DOUBLE\&quot;, \&quot;batteryVoltage\&quot;: \&quot;2322mV\&quot;}&quot;;
+String sampleDeviceData = &quot;{\&quot;distance\&quot;: \&quot;100m\&quot;}&quot;;
 
 MyPlatformModel result = mapper.map(DataInput.newInstance().fromJson(sampleDeviceData), MappingContext.empty());
 </code></pre></li>

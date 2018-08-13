@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Connecting a GrovePi to Eclipse Hono - Eclipse Vorto</title>
-    <meta name="generator" content="Hugo 0.41" />
+    <meta name="generator" content="Hugo 0.30.2" />
 
     
     <meta name="description" content="Describe. Share. Integrate.">
@@ -345,8 +345,8 @@
             </a>
           </li>
           <li>
-            <a href="https://maven-badges.herokuapp.com/maven-central/org.eclipse.vorto/org.eclipse.vorto.parent" title="Travis Build Status" target="_blank">
-              <img src="https://maven-badges.herokuapp.com/maven-central/org.eclipse.vorto/org.eclipse.vorto.parent/badge.svg" />
+            <a href="https://maven-badges.herokuapp.com/maven-central/org.eclipse.vorto/parent" title="Travis Build Status" target="_blank">
+              <img src="https://maven-badges.herokuapp.com/maven-central/org.eclipse.vorto/parent/badge.svg" />
             </a>
           </li>
         </ul>
@@ -403,10 +403,10 @@
 <h3 id="3-generate-application-code-using-the-python-generator">3.  Generate application code using the Python generator.</h3>
 
 <ul>
-<li>Go to the Information Model of your device in the Vorto Repository, e.g. <a href="http://vorto.eclipse.org/#/details/demo.iot.device/DistanceSensor/1.0.1?s=distancesensor">distance sensor</a>.</li>
-<li>On the right side, select the <strong>Eclipse Hono Generator</strong> and choose <strong>Python</strong></li>
+<li>Open the <a href="http://vorto.eclipse.org/#/details/org.eclipse.vorto.tutorial/DistanceSensor/1.0.0">Distance Sensor</a> in the Vorto Repository.</li>
+<li>Click <strong>Eclipse Hono Generator</strong> and choose <strong>Python</strong>.</li>
 <li>Click <strong>Generate</strong></li>
-<li>Store the ZIP file and extract the source code.</li>
+<li>Download the ZIP file and extract the source code.</li>
 <li><a href="https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem.txt">Get the certificate</a> and copy and paste the content in a .crt file where you stored your source code</li>
 </ul>
 
@@ -520,8 +520,8 @@ sudo reboot
 <li><p>Read the data and assign it to the functional block properties:</p></li>
 </ul>
 
-<pre><code class="language-sh">      infomodel.distance.sensor_value = ultrasonicRead(ultrasonic_ranger)
-      infomodel.distance.sensor_units = &quot;cm&quot;
+<pre><code class="language-sh">      infomodel.distance.sensorValue = ultrasonicRead(ultrasonic_ranger)
+      infomodel.distance.sensorUnits = &quot;cm&quot;
 </code></pre>
 
 <ul>
