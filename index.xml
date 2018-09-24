@@ -17,8 +17,8 @@
       <pubDate>Mon, 28 May 2018 21:07:13 +0100</pubDate>
       
       <guid>https://www.eclipse.org/vorto/introduction/</guid>
-      <description>Interaction among different stakeholders via Vorto
- Vorto provides Web Editors that allow Device Manufacturers to easily describe device functionality and characteristics using a simple Vorto language (Vorto DSL) and save them as Information Models in the Vorto Repository. Platform Providers provide Code generators that convert these models into device - specific &amp;ldquo;stubs&amp;rdquo; that run on the device and send Information Model compliant messages to IoT Digital Twin services. In order to process these messages in the IoT platform, Vorto offers a set of convenient technical components, for example parsers and validators.</description>
+      <description>TL;DR Vorto provides a way to fully describe an IoT device&amp;rsquo;s functionality and use that information to reduce integration time with IoT Platforms, e.g. by generating firmware, payload transformation logic and more.
+ The indented use of the Vorto project is that a IoT Device is described using Vorto DSL. By providing a unified way to describe an IoT Device, a variety of services can be employed that draw on the information contained in the model.</description>
     </item>
     
     <item>
