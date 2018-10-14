@@ -94,7 +94,8 @@ Device Payload Mapping API Map arbitrary device payload, expressed as JSON or bi
       <pubDate>Wed, 09 Mar 2016 20:10:46 +0100</pubDate>
       
       <guid>https://www.eclipse.org/vorto/release-notes/</guid>
-      <description>0.10.0 milestone 6 Fixes and Enhancements
+      <description>0.10.0 milestone 7 Fixes and Enhancements
+ Anonymous read-access to Vorto Models Payload Mapping Specification Editor, which allows to simply create &amp;amp; test device payload mapping specifications  0.10.0 milestone 6 Fixes and Enhancements
  Support for Vorto DSL Configuration properties in Bosch IoT Suite Generators (incl. Eclipse Hono) Security Fixes, such as XXE when uploading malicious LwM2M XMLs UX related Improvements
   0.10.0 milestone 5 Fixes
  Fixes bug when generating Eclipse Hono Java Code for a single Function Block Fixes bug when requesting image attachments from Repository via REST Fixes bug in Payload Mapping Library for retrieving Mapping Specifications from Repository Minor Repository UI/UX Improvements  0.</description>

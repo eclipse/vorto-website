@@ -448,24 +448,21 @@
 
 <pre><code>&lt;dependency&gt;
    &lt;groupId&gt;org.eclipse.vorto&lt;/groupId&gt;
-   &lt;artifactId&gt;mapping-engine&lt;/artifactId&gt;
+   &lt;artifactId&gt;mapping-engine-all&lt;/artifactId&gt;
    &lt;version&gt;${vorto.version}&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre></li>
 
+<li><p>Download the Mapping Specification via the Payload Mapping Specification Editor in the Vorto Repository</p></li>
+
 <li><p>Code snippet that transforms a sample Distance Sensor JSON to Eclipse Vorto/Eclipse Ditto compliant data:</p>
 
-<pre><code>IMappingSpecification spec = MappingSpecificationBuilder.create()
-.infomodelId(&quot;org.eclipse.vorto.tutorial.DistanceSensor:1.0.0&quot;)
-.targetPlatformKey(&quot;distance_ipso&quot;)
-.build();
-
-IDataMapper&lt;DittoData&gt; mapper = IDataMapper.newBuilder().withSpecification(spec).buildDittoMapper();
+<pre><code>//load mapping specification from inputstream, e.g. classpath
+MappingEngine engine = MappingEngine.createFromInputStream(is);
 
 String sampleDevicePayload = &quot;{\&quot;distance\&quot;: \&quot;100m\&quot;}&quot;;
 
-DittoData mappedResult = mapper.map(DataInput.newInstance().fromJson(sampleDevicePayload),
-        MappingContext.empty());
+InfomodelData mappedResult mappingEngine.map(DataInput.newInstance().fromJson(sampleDevicePayload));
 
 System.out.println(mappedResult.toJson());
 </code></pre></li>
@@ -474,12 +471,10 @@ System.out.println(mappedResult.toJson());
 
 <pre><code>{
     &quot;distance&quot;:{
-        &quot;properties&quot;:{
             &quot;status&quot;:{
                 &quot;sensorValue&quot;: 100,
                 &quot;sensorUnits&quot;: &quot;m&quot;
             }
-        }
     }
 }
 </code></pre></li>
@@ -502,58 +497,6 @@ System.out.println(mappedResult.toJson());
 </code></pre>
 
 <p><strong>Voila!</strong> Your digital twin of the Distance Sensor is now stored as standardized data, described as Vorto Function Blocks.</p>
-
-<h3 id="appendix-plug-in-other-iot-platform-data-mapper">Appendix: Plug-in other IoT Platform Data Mapper</h3>
-
-<p>The Vorto Mapping Engine is IoT platform agnostic, thus allowing you to extend it in order to integrate devices in a standardized way with other IoT platforms, like AWS IoT Shadow or Azure IoT.</p>
-
-<p>Let&rsquo;s take a look what you need to do in order to do that:</p>
-
-<ol>
-<li><p>Add the Mapping Engine to your Maven project, if you have not already done so:</p>
-
-<pre><code>&lt;dependency&gt;
-   &lt;groupId&gt;org.eclipse.vorto&lt;/groupId&gt;
-   &lt;artifactId&gt;mapping-engine&lt;/artifactId&gt;
-   &lt;version&gt;${vorto.version}&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre></li>
-
-<li><p>Extend the <em>org.eclipse.vorto.service.mapping.AbstractDataMapper</em> and override the <em>doMap()</em> method</p>
-
-<pre><code>import java.util.HashMap;
-import java.util.Map;
-
-import org.eclipse.vorto.service.mapping.AbstractDataMapper;
-import org.eclipse.vorto.service.mapping.MappingContext;
-import org.eclipse.vorto.service.mapping.normalized.FunctionblockData;
-import org.eclipse.vorto.service.mapping.normalized.InfomodelData;
-import org.eclipse.vorto.service.mapping.spec.IMappingSpecification;
-
-public class MyPlatformMapper extends AbstractDataMapper&lt;MyPlatformModel&gt; {
-
-    public MyPlatformMapper(IMappingSpecification spec) {
-        super(spec);
-    }
-
-    @Override
-    protected MyPlatformModel doMap(InfomodelData normalized, MappingContext mappingContext){
-        // add your code here that maps the already normalized Vorto model to the platform specific model
-    }
-
-
-}
-</code></pre></li>
-
-<li><p>Use the Mapper to convert arbitrary device data to the specific platform data model:</p>
-
-<pre><code>IDataMapper&lt;MyPlatformModel&gt; mapper = new MyPlatformMapper(mappingSpecification);
-
-String sampleDeviceData = &quot;{\&quot;distance\&quot;: \&quot;100m\&quot;}&quot;;
-
-MyPlatformModel result = mapper.map(DataInput.newInstance().fromJson(sampleDeviceData), MappingContext.empty());
-</code></pre></li>
-</ol>
 
 			<aside class="copyright" role="note">
   <div class="logo">
