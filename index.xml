@@ -17,8 +17,8 @@
       <pubDate>Mon, 28 May 2018 21:07:13 +0100</pubDate>
       
       <guid>https://www.eclipse.org/vorto/introduction/</guid>
-      <description>TL;DR Vorto provides a way to fully describe an IoT device&amp;rsquo;s functionality and use that information to reduce integration time with IoT Platforms, e.g. by generating firmware, payload transformation logic and more.
- The indented use of the Vorto project is that a IoT Device is described using Vorto DSL. By providing a unified way to describe an IoT Device, a variety of services can be employed that draw on the information contained in the model.</description>
+      <description>TL;DR Vorto provides a Vorto Repository managing IoT device descriptions and providing code generators to integrate devices easily with various IoT platforms, e.g. Bosch IoT Suite, AWS IoT, Samsung ARTIK and more.
+ The indented use of the Vorto project is that a IoT Device is described using Vorto DSL. By providing a unified way to describe an IoT Device, a variety of services can be employed that draw on the information contained in the description.</description>
     </item>
     
     <item>
