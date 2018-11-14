@@ -99,6 +99,15 @@ Device Payload Mapping API Map arbitrary device payload, expressed as JSON or bi
     </item>
     
     <item>
+      <title>Blogs</title>
+      <link>https://www.eclipse.org/vorto/blogs/</link>
+      <pubDate>Wed, 09 Mar 2016 20:10:46 +0100</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/blogs/</guid>
+      <description>Avoid tight-coupling of devices in IoT solutions Read the blog post</description>
+    </item>
+    
+    <item>
       <title>Vorto DSL Help</title>
       <link>https://www.eclipse.org/vorto/userguide/quickhelp_dsl/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>

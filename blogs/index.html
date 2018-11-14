@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Information Model DSL - Eclipse Vorto</title>
+    <title>Blogs - Eclipse Vorto</title>
     <meta name="generator" content="Hugo 0.37.1" />
 
     
     <meta name="description" content="Describe. Share. Integrate.">
     
-    <link rel="canonical" href="https://www.eclipse.org/vorto/appendix/infomodel_dsl/">
+    <link rel="canonical" href="https://www.eclipse.org/vorto/blogs/">
     
     <meta name="author" content="The Eclipse Vorto Project">
     
 
-    <meta property="og:url" content="https://www.eclipse.org/vorto/appendix/infomodel_dsl/">
+    <meta property="og:url" content="https://www.eclipse.org/vorto/blogs/">
     <meta property="og:title" content="Eclipse Vorto">
     <meta property="og:image" content="https://www.eclipse.org/vorto/images/vorto.png">
     <meta name="apple-mobile-web-app-title" content="Eclipse Vorto">
@@ -102,7 +102,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Information Model DSL
+        Blogs
       </div>
     </div>
 
@@ -297,11 +297,14 @@
 
 
 
-<a  title="Blogs" href="https://www.eclipse.org/vorto/blogs/">
+<a class="current" title="Blogs" href="https://www.eclipse.org/vorto/blogs/">
 	
 	Blogs
 </a>
 
+
+<ul id="scrollspy">
+</ul>
 
 
   
@@ -379,101 +382,14 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Information Model DSL </h1>
+			<h1>Blogs </h1>
 
-			<p>This section describes the DSL grammer for a Vorto Information Model.
-</p>
+			
 
-<h2 id="information-model-dsl-reference">Information Model DSL Reference</h2>
+<h2 id="avoid-tight-coupling-of-devices-in-iot-solutions">Avoid tight-coupling of devices in IoT solutions</h2>
 
-<p>T
-Information Model DSL import function block model DSL.</p>
+<p><a href="https://blog.bosch-si.com/developer/avoid-tight-coupling-of-devices-in-iot-solutions/">Read the blog post</a></p>
 
-<pre><code>InformationModel:
-    'namespace' qualifiedName
-    'version' version
-    (modelReference)*
-    'infomodel' id '{'
-    'displayname' string
-    ('description' string)?
-    ('category' category)?
-    'functionblocks' '{'
-        (functionblockProperty)*
-    '}'
-;
-
-category:id;
-
-functionblockProperty: 
-    ('mandatory' | 'optional')? ('multiple')? id 'as' [fbs::functionblockModel|qualifiedName]
-    (description)?;
-
-string:
-    '&quot;' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'&quot;'|&quot;'&quot;|'\\') | !('\\'|'&quot;') )* '&quot;' |
-    &quot;'&quot; ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'&quot;'|&quot;'&quot;|'\\') | !('\\'|&quot;'&quot;) )* &quot;'&quot;
-;
-
-qualifiedName: id ('.' id)*;
-
-version : int('.' int)*('-'id)?;
-
-id:
-    '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*
-;
-</code></pre>
-
-<h3 id="information-model-dsl-semantics">Information Model DSL Semantics</h3>
-
-<table class="table table-bordered">
-<thead>
-  <tr>
-    <th>Parameter</th>
-    <th>Mandatory</th>
-    <th>Description</th>
-    <th>Example</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>Name</td>
-    <td>Y</td>
-    <td>A descriptive name</td>
-    <td>Philips Hue</td>
-  </tr>
-  <tr>
-    <td>namespace</td>
-    <td>Y</td>
-    <td>Namespace Identifier </td>
-    <td>com.bosch</td>
-  </tr>
-  <tr>
-    <td>version</td>
-    <td>Y</td>
-    <td>Model Version</td>
-    <td>2.0.0</td>
-  </tr>
-  <tr>
-    <td>description</td>
-    <td>Y</td>
-    <td>Short description</td>
-    <td>Light Strip</td>
-  </tr>
-  <tr>
-    <td>category</td>
-    <td>N</td>
-    <td>Custom tag to categorize the model</td>
-    <td>Light, Smarthome, PayloadMapping</td>
-  </tr>
-  <tr>
-    <td>functionblocks</td>
-    <td>Y</td>
-    <td>References the Function Blocks that define the capabilities of the device</td>
-    <td>Gyrometer, Distance</td>
-  </tr>
-  </tbody>
-</table>
-
-<hr />
 
 			<aside class="copyright" role="note">
   <div class="logo">
@@ -516,7 +432,7 @@ id:
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://www.eclipse.org/vorto/appendix/metamodel_uml/" title="Vorto Meta Model">
+      <a href="https://www.eclipse.org/vorto/release-notes/" title="Release Notes">
         <span class="direction">
           Previous
         </span>
@@ -526,7 +442,7 @@ id:
           </div>
           <div class="stretch">
             <div class="title">
-              Vorto Meta Model
+              Release Notes
             </div>
           </div>
         </div>
@@ -536,14 +452,14 @@ id:
 
   <div class="next">
   
-      <a href="https://www.eclipse.org/vorto/appendix/function_block_dsl/" title="Function Block DSL">
+      <a href="https://www.eclipse.org/vorto/userguide/quickhelp_dsl/" title="Vorto DSL Help">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Function Block DSL
+              Vorto DSL Help
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
