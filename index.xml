@@ -84,7 +84,7 @@ Device Payload Mapping API Map arbitrary device payload, expressed as JSON or bi
       <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
       
       <guid>https://www.eclipse.org/vorto/community/</guid>
-      <description>Presentations Here you can find links to arbitrary material covering Eclipse Vorto which has been presented at events, conferences and meet-ups.
+      <description>Publications &amp;ldquo;Avoid tight-coupling of devices in IoT solutions&amp;rdquo;  Author: Alexander Edelmann (Bosch Software Innovations) Click to read  Presentations Here you can find links to arbitrary material covering Eclipse Vorto which has been presented at events, conferences and meet-ups.
 &amp;ldquo;Eclipse Vorto: A Smart Approach to Connecting Industrial Products&amp;rdquo; (OMA Seminar October 2016)  Speaker : Alexander Edelmann (Bosch Software Innovations) Slides  &amp;ldquo;Eclipse Vorto: Device Payload Mapping&amp;rdquo; (Singapore Meetup 2018)  Speaker : Alexander Edelmann (Bosch Software Innovations) Slides  &amp;ldquo;Eclipse Vorto: Rapid Prototyping&amp;rdquo; (Eclipse Virtual IoT Meetup, July 2017)  Speaker : Alexander Edelmann (Bosch Software Innovations) Video  Mailing List A great way to stay up to date with Vorto activity is to subscribe to the Mailing list provided by Eclipse.</description>
     </item>
     
@@ -96,15 +96,6 @@ Device Payload Mapping API Map arbitrary device payload, expressed as JSON or bi
       <guid>https://www.eclipse.org/vorto/release-notes/</guid>
       <description>0.10.0 milestone 8 Fixes and Enhancements
  Email Notifications for Workflow actions, e.g. Pending Reviews, as well as comments Added more advanced Vorto DSL Validator Checks when importing Vorto Models or when creating/editing models via the Vorto Web Editor Various Bugfixes Generator Plugin SDK, which allows to build and deploy Vorto Generator plugins as standalone (micro)services and hook them into the Vorto repository.  0.10.0 milestone 7 Fixes and Enhancements</description>
-    </item>
-    
-    <item>
-      <title>Blogs</title>
-      <link>https://www.eclipse.org/vorto/blogs/</link>
-      <pubDate>Wed, 09 Mar 2016 20:10:46 +0100</pubDate>
-      
-      <guid>https://www.eclipse.org/vorto/blogs/</guid>
-      <description>Avoid tight-coupling of devices in IoT solutions Read the blog post</description>
     </item>
     
     <item>
