@@ -73,9 +73,7 @@ Function Block A Function Block provides an abstract view on a device to applica
       <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
       
       <guid>https://www.eclipse.org/vorto/developerguide/</guid>
-      <description>Repository API Search and access Vorto models as well as invoke Vorto Code Generators with the Repository Java Client
-Repository Import API If you want to manage other existing (standardized) device descriptions with the Vorto Repository, you can implement a custom importer using the Importer API.
-Device Payload Mapping API Map arbitrary device payload, expressed as JSON or binary, to standardized data, that is described by Vorto Information Models. See Payload Mapping Documentation for more information.</description>
+      <description>Vorto Repository Plugin SDK   Code Generator Plugin Learn how to write your own generator and deploy and hook it into the Vorto Repository as a (micro) service Read more   Importer Plugin Importers convert device descriptions from other formats to the Vorto language. Learn how to write such an importer plugin and run and hook it as a (micro)service into the Vorto Repository. Coming soon   Repository Import API If you want to manage other existing (standardized) device descriptions with the Vorto Repository, you can implement a custom importer using the Importer API.</description>
     </item>
     
     <item>
