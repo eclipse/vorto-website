@@ -63,8 +63,18 @@
   </url>
   
   <url>
+    <loc>https://www.eclipse.org/vorto/userguide/create_model/</loc>
+    <lastmod>2018-12-02T10:58:37+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.eclipse.org/vorto/appendix/metamodel_uml/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.eclipse.org/vorto/userguide/model_versioning/</loc>
+    <lastmod>2018-12-02T11:58:37+08:00</lastmod>
   </url>
   
   <url>
