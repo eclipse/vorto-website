@@ -374,9 +374,22 @@
 
 <p>The following table gives an overview of what actions are possible for models in a specific state:</p>
 
-<figure class="screenshot">
-    <img src="https://www.eclipse.org/vorto/images/documentation/model_states_permissions.png">
-</figure>
+<h3 id="draft">Draft</h3>
+
+<p>A model in Draft state is a model under construction, here people can try out their ideas and test their behaviour.</p>
+
+<h3 id="review">Review</h3>
+
+<p>As soon as a developer is happy with the state a model is in, he can request a Review. Then a model supervisor will go through and confirm that all model guidlines are followed. The supervisor can either reject it, or allow it to go on to the Released state.
+To request a review all dependent models have to be released.</p>
+
+<h3 id="released">Released</h3>
+
+<p>A released model, is a model one can build upon. The release state ensures there are not changes introduced which could break comability, if there is a requirement for change a new version of the model should be created and the old one deprecated.</p>
+
+<h3 id="deprecated">Deprecated</h3>
+
+<p>If a model is not up to date anymore and it already has been released, it can be deprecated to mark the broken state. A deprecated model signals to other users that this model should not be used anymore and if possible replaced by a newer version.</p>
 
 			<aside class="copyright" role="note">
   <div class="logo">
