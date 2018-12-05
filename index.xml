@@ -145,8 +145,8 @@ Function Block A Function Block provides an abstract view on a device to applica
       <pubDate>Sun, 02 Dec 2018 10:58:37 +0800</pubDate>
       
       <guid>https://www.eclipse.org/vorto/userguide/create_model/</guid>
-      <description>This section would lead you through the steps to create a new model, say either a Information model or function block or data type. Prerequisite Any user who wants to create a new model need to be logged in to Vorto repository. If the user is not logged in yet, click on the button login on the top right hand coner.
-Create a model  click on create new model button that leads to the following dialog box.</description>
+      <description>This section would lead you through the various ways to create a new model, say either a Information model or function block or data type. Prerequisite The user needs to be logged in to repository to create models.
+Create a model  There are 2 ways to create new models in the repository   Using the Web Editor with the repository Using any 3rd party tool and importing the models, refer: Model Importing  Here we will be seeing the steps to create models through the Web Editor</description>
     </item>
     
     <item>
@@ -167,6 +167,16 @@ Create a model  click on create new model button that leads to the following dia
       <guid>https://www.eclipse.org/vorto/userguide/model_versioning/</guid>
       <description>This section would lead you through the steps to create a new version of an existing model.
 Prerequisite  Any user who wants to version an existing model need to be logged in to Vorto repository. The user needs to select a specific model that he/she wants to version.  Creating a New Version of an Model  In the model details page, click on the Create Version button. This will lead to the Create Model Version Dialog dialog box as shown below.</description>
+    </item>
+    
+    <item>
+      <title>Steps to Import Model</title>
+      <link>https://www.eclipse.org/vorto/userguide/import_model/</link>
+      <pubDate>Sun, 02 Dec 2018 10:58:37 +0800</pubDate>
+      
+      <guid>https://www.eclipse.org/vorto/userguide/import_model/</guid>
+      <description>&lt;p&gt;In this page you will shown how to import an existing model.
+&lt;/p&gt;</description>
     </item>
     
     <item>

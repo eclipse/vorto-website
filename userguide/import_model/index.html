@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Steps to Version an existing Model - Eclipse Vorto</title>
+    <title>Steps to Import Model - Eclipse Vorto</title>
     <meta name="generator" content="Hugo 0.37.1" />
 
     
     <meta name="description" content="Describe. Share. Integrate.">
     
-    <link rel="canonical" href="https://www.eclipse.org/vorto/userguide/model_versioning/">
+    <link rel="canonical" href="https://www.eclipse.org/vorto/userguide/import_model/">
     
     <meta name="author" content="The Eclipse Vorto Project">
     
 
-    <meta property="og:url" content="https://www.eclipse.org/vorto/userguide/model_versioning/">
+    <meta property="og:url" content="https://www.eclipse.org/vorto/userguide/import_model/">
     <meta property="og:title" content="Eclipse Vorto">
     <meta property="og:image" content="https://www.eclipse.org/vorto/images/vorto.png">
     <meta name="apple-mobile-web-app-title" content="Eclipse Vorto">
@@ -102,7 +102,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Steps to Version an existing Model
+        Steps to Import Model
       </div>
     </div>
 
@@ -361,35 +361,74 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Steps to Version an existing Model </h1>
+			<h1>Steps to Import Model </h1>
 
-			
-
-<p>This section would lead you through the steps to create a new version of an existing model.</p>
+			<p>In this page you will shown how to import an existing model.
+</p>
 
 <h2 id="prerequisite">Prerequisite</h2>
 
-<ul>
-<li>Any user who wants to version an existing model need to be logged in to Vorto repository.</li>
-<li>The user needs to select a specific model that he/she wants to version.</li>
-</ul>
+<p>The user must be a logged in user to carry out the import function.</p>
 
-<h2 id="creating-a-new-version-of-an-model">Creating a New Version of an Model</h2>
+<h2 id="steps-to-import-any-type-of-model">Steps to Import any type of model</h2>
 
 <ul>
-<li>In the model details page, click on the <strong>Create Version</strong> button. This will lead to the <strong>Create Model Version Dialog</strong> dialog box as shown below.</li>
+<li>Let&rsquo;s say that the user uses any 3rd party editor and with the DSL documentations comes up with a new model(s) and wants to have it into the repository. He/She needs to do the following two steps</li>
 </ul>
 
-<h2 id="create-model-version-dialog">Create model version dialog:</h2>
+<ol>
+<li>Select and upload model(s) for validation</li>
+<li>Decide to Import the validated model(s)</li>
+</ol>
+
+<blockquote>
+<p>The file name extensions could be: <em>.mapping</em>, <em>.infomodel</em>, <em>.type</em>, <em>.fbmodel</em></p>
+</blockquote>
+
+<h3 id="steps-to-select-and-upload-model-s">Steps to select and upload model(s):</h3>
+
+<p>Let&rsquo;s say in our case: function block model with .fbmodel extension</p>
+
+<ul>
+<li>Click on the <strong>Import</strong> tab, which leads to the following screenshot.</li>
+</ul>
+
+<h4 id="model-selection-and-upload">Model Selection and Upload</h4>
 
 <figure class="screenshot">
-    <img src="https://www.eclipse.org/vorto/images/documentation/model_version_dialog.png" />
+    <img src="https://www.eclipse.org/vorto/images/documentation/model_import_single.png" />
 </figure>
 
 <ul>
-<li>Fill in the new version number and click on <strong>Create Version</strong> button.</li>
+<li>Choose the <strong>model type</strong> in this case it is <em>Vorto</em></li>
+<li>Choose the <em>file</em> that needs to be imported by the <em>browse</em> button</li>
 </ul>
 
+<blockquote>
+<p>We can also upload many models at once by packaging all the models as a single <strong>.zip</strong> file</p>
+</blockquote>
+
+<ul>
+<li>if every detail is correct, then click <strong>Upload</strong> button</li>
+</ul>
+
+<h4 id="validation-response">Validation Response</h4>
+
+<figure class="screenshot">
+    <img src="https://www.eclipse.org/vorto/images/documentation/model_upload_validation.png" />
+</figure>
+
+<h3 id="step-to-import-the-validated-model">Step to Import the validated model</h3>
+
+<ul>
+<li>if the user has decided to <em>import</em> after the reviewing the validated response, he/she may click on <strong>Import</strong> button.</li>
+</ul>
+
+<h4 id="successful-import-response">Successful Import Response</h4>
+
+<figure class="screenshot">
+    <img src="https://www.eclipse.org/vorto/images/documentation/import_model_success.png" />
+</figure>
 
 			<aside class="copyright" role="note">
   <div class="logo">
@@ -432,7 +471,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://www.eclipse.org/vorto/appendix/metamodel_uml/" title="Vorto Meta Model">
+      <a href="https://www.eclipse.org/vorto/userguide/model_versioning/" title="Steps to Version an existing Model">
         <span class="direction">
           Previous
         </span>
@@ -442,7 +481,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Vorto Meta Model
+              Steps to Version an existing Model
             </div>
           </div>
         </div>
@@ -452,14 +491,14 @@
 
   <div class="next">
   
-      <a href="https://www.eclipse.org/vorto/userguide/import_model/" title="Steps to Import Model">
+      <a href="https://www.eclipse.org/vorto/appendix/infomodel_dsl/" title="Information Model DSL">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Steps to Import Model
+              Information Model DSL
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
