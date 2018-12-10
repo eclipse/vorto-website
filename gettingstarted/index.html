@@ -370,52 +370,27 @@
 
 			
 
-<p>To get started with Vorto easily, we are going to show you how you can use the Vorto IoT Tool to describe a simple device that measures distance and integrate it with <a href="https://www.eclipse.org/hono">Eclipse Hono</a>.</p>
+<p>Vorto provides a simple language to describe the capabilities and functionality of devices as Information Models. But how can these models be consumed to help IoT solution development ?</p>
+
+<p>I think, it will get clearer, if we walk you through an easy example. In this example we are going to describe a TI Sensor Tag device using abstract Vorto Function Blocks which on the other hand define specific piece of functionality and data. You can translate Function Blocks of the device to source code that may run on the device and integrate it with the <a href="https://www.eclipse.org/ditto">Eclipse Ditto</a> Digital Twin service using a MQTT Connector, provided by the <a href="https://www.eclipse.org/hono">Eclipse Hono</a> platform.</p>
+
+<p>An IoT Application (which is not part of this tutorial) then consumes the device data from Eclipse Ditto and process the humidity data. In fact the IoT Application does not make any assumption of whether this humidity data originates from a TI SensorTag or any other device or service, capable of providing humidity data, as long as it is described as a Humidity Vorto Function Block. The following illustration shows the entire components and data flow:</p>
 
 <p><img src="https://www.eclipse.org/vorto/images/getting-started-ar2.png" alt="Material Screenshot" /></p>
 
-<h2 id="different-types-of-models">Different types of Models</h2>
-
-<h3 id="infomation-model">Infomation Model</h3>
-
-<p>Information Models represent the capabilities of a particular type of device in its entirety. An Information Model is assembled from abstract and re-usable Function Blocks.</p>
-
-<h3 id="function-block">Function Block</h3>
-
-<p>A Function Block provides an abstract view on a device to applications that want to employ the devices’ functionality. Thus, it is a consistent, self-contained set of (potentially re-usable) properties and capabilities.
-The properties that a Function Block may define are classified as follows:</p>
-
-<ul>
-<li><strong>Status</strong> Properties - These <em>read-only</em> properties indicating the current state of the device.</li>
-<li><strong>Configuration</strong> Properties - <em>Read- and Writable</em> properties required to be set in order for the device to work properly.</li>
-<li><strong>Fault</strong> Properties - <em>Read-only</em> properties indicating fault states of the device.</li>
-<li><strong>Event</strong> Properties - <em>Read-only</em> properties that are published by the device, e.g. on state changes</li>
-<li><strong>Operations</strong> - Indicate functionality that can be invoked on the device, that may lead to device state changes or merely give additional meta-data information.</li>
-</ul>
-
-<p><a href="https://www.eclipse.org/vorto/userguide/quickhelp_dsl/">Get more information</a> on the Vorto Meta-Model and DSL.</p>
-
-<h2 id="defining-a-model">Defining a Model</h2>
+<p>So, let&rsquo;s get started with this, by splitting up our work into several steps:</p>
 
 <ol>
-<li>Click the <strong>Create new Model</strong> Button and choose the type you want to create from the context menu.
-<figure class="screenshot">
-<img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/create_function_block_designer_btn.png">
-</figure></li>
-<li>Enter a name, for example, Distance as a <strong>Function Block</strong>.</li>
-<li>Adjust the entries for the input fields <strong>Namespace</strong> and <strong>Version</strong>, if necessary.</li>
-<li>Optionally, enter a description in the <strong>Description</strong> entry field.</li>
-<li>Click <strong>Create</strong>.
-<figure class="screenshot">
-<img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/create_function_block_designer_name.png">
-</figure></li>
-<li>In the Model Editor add the distance specific properties and click <strong>Save</strong>:
-<figure class="screenshot">
-<img src="https://www.eclipse.org/vorto/images/tutorials/getting_started/create_function_block_editor.png">
-</figure></li>
+<li>Describe the TI Sensor Tag as an Information Model using re-usable, abstract Function Blocks</li>
+<li>Generating Code from Model, integrating the TI Sensor Tag with Eclipse Hono &amp; Eclipse Ditto</li>
+<li>Test the integration with Eclipse Hono</li>
 </ol>
 
-<h2 id="generating-device-code">Generating Device Code</h2>
+<h2 id="step-1-creating-ti-sensor-tag-information-model">Step 1: Creating TI Sensor Tag Information Model</h2>
+
+<p><a href="https://www.eclipse.org/vorto/tutorials/tisensor/">Click here</a> that walks you through the process of creating an Information Model.</p>
+
+<h2 id="step-2-generating-device-code">Step 2: Generating Device Code</h2>
 
 <ol>
 <li>Click on one of the Generators, here Eclipse Hono.
@@ -428,7 +403,7 @@ The properties that a Function Block may define are classified as follows:</p>
 </figure></li>
 </ol>
 
-<h2 id="registering-device-in-eclipse-hono">Registering device in Eclipse Hono</h2>
+<h2 id="test-the-integration-with-eclipse-hono">Test the Integration with Eclipse Hono</h2>
 
 <p>Eclipse Hono provides a sandbox infrastructure which we can use to demonstrate the device integration. Before we can send data from our generated project, we must register the device under a tenant:</p>
 
@@ -466,7 +441,7 @@ curl -X POST http://hono.eclipse.org:28080/credentials/vortodemo
 }
 </code></pre>
 
-<h2 id="editing-device-configuration">Editing device configuration</h2>
+<h3 id="editing-device-configuration">Editing device configuration</h3>
 
 <p>Now let&rsquo;s go back to our generated project and update the <code>src/main/java/device/distancesensor/Distancesensor.java</code> accordingly:</p>
 
@@ -495,7 +470,7 @@ private static final String PASSWORD = &quot;S3cr3t&quot;;
 <p>Copy and paste the <a href="https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem.txt">certificate</a> into <code>src/main/resources/certificate/hono.crt</code> of your project.</p>
 </blockquote>
 
-<h2 id="running-and-verifying-data-in-hono">Running and verifying data in Hono</h2>
+<h3 id="running-and-verifying-data-in-hono">Running and verifying data in Hono</h3>
 
 <ul>
 <li>Right click on <code>Distancesensor.java</code> in you IDE and <strong>Run as Java Application`</strong> to start sending data to Eclipse Hono. You should be seeing the following output in the console:</li>
