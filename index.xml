@@ -27,8 +27,8 @@
       <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
       
       <guid>https://www.eclipse.org/vorto/gettingstarted/</guid>
-      <description>Vorto provides a simple language to describe the capabilities and functionality of devices as Information Models. But how can these models be consumed to help IoT solution development ?
-I think, it will get clearer, if we walk you through an easy example. In this example we are going to describe a TI Sensor Tag device using abstract Vorto Function Blocks which on the other hand define specific piece of functionality and data.</description>
+      <description>Vorto provides a simple language (Vorto DSL) to describe the capabilities and functionality of a device as an Information Model. Information Models are assembled from re-usable, abstract and technology-agnostic Function Blocks. IoT Solutions process the Function Block specific data, to be able to stay agnostic of the actual device(s). Take a look at the Blog Post to find out about the Vorto benefits.
+Let me walk you through an easy example, where we are going to describe a TI Sensor Tag device using abstract Vorto Function Blocks which on the other hand define specific piece of functionality and data of the sensors provided by the TI SensorTag.</description>
     </item>
     
     <item>

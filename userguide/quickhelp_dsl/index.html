@@ -511,6 +511,19 @@ functionblock Accelerometer {
         optional yValue as float &quot;The measured value along the Y axis.&quot;
         optional zValue as float &quot;The measured value along the Z axis.&quot;
     }
+
+    event {
+        DataChanged {
+            xValue as float
+            yValue as float
+            zValue as float
+        }
+        SensorCalibrated {}
+    }
+
+    operations {
+        reset() returns boolean
+    }
 }
 </code></pre>
 
