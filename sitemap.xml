@@ -3,134 +3,134 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.eclipse.org/vorto/introduction/</loc>
+    <loc>http://localhost:1313/introduction/</loc>
     <lastmod>2018-05-28T21:07:13+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/gettingstarted/</loc>
+    <loc>http://localhost:1313/gettingstarted/</loc>
     <lastmod>2018-05-09T10:58:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/tutorials/arduino/</loc>
+    <loc>http://localhost:1313/tutorials/arduino/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/tutorials/grovepi/</loc>
+    <loc>http://localhost:1313/tutorials/grovepi/</loc>
     <lastmod>2018-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/tutorials/tisensor/</loc>
+    <loc>http://localhost:1313/tutorials/tisensor/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/developerguide/</loc>
+    <loc>http://localhost:1313/developerguide/</loc>
     <lastmod>2018-05-09T10:58:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/community/</loc>
+    <loc>http://localhost:1313/community/</loc>
     <lastmod>2018-05-09T10:58:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/release-notes/</loc>
+    <loc>http://localhost:1313/release-notes/</loc>
     <lastmod>2016-03-09T20:10:46+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/userguide/quickhelp_dsl/</loc>
+    <loc>http://localhost:1313/userguide/quickhelp_dsl/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/userguide/model_states/</loc>
+    <loc>http://localhost:1313/userguide/model_states/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/userguide/generators/</loc>
+    <loc>http://localhost:1313/userguide/generators/</loc>
     <lastmod>2018-05-09T10:58:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/userguide/mappingengine/</loc>
+    <loc>http://localhost:1313/userguide/mappingengine/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/userguide/create_model/</loc>
+    <loc>http://localhost:1313/userguide/create_model/</loc>
     <lastmod>2018-12-02T10:58:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/appendix/metamodel_uml/</loc>
+    <loc>http://localhost:1313/appendix/metamodel_uml/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/userguide/model_versioning/</loc>
+    <loc>http://localhost:1313/userguide/model_versioning/</loc>
     <lastmod>2018-12-02T11:58:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/userguide/import_model/</loc>
+    <loc>http://localhost:1313/userguide/import_model/</loc>
     <lastmod>2018-12-02T10:58:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/appendix/infomodel_dsl/</loc>
+    <loc>http://localhost:1313/appendix/infomodel_dsl/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/appendix/function_block_dsl/</loc>
+    <loc>http://localhost:1313/appendix/function_block_dsl/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/appendix/datatype_dsl/</loc>
+    <loc>http://localhost:1313/appendix/datatype_dsl/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/appendix/mappings_dsl/</loc>
+    <loc>http://localhost:1313/appendix/mappings_dsl/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2018-05-28T21:07:13+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/appendix/</loc>
+    <loc>http://localhost:1313/appendix/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/tutorials/</loc>
+    <loc>http://localhost:1313/tutorials/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.eclipse.org/vorto/userguide/</loc>
+    <loc>http://localhost:1313/userguide/</loc>
     <lastmod>2016-03-09T20:08:11+01:00</lastmod>
     <priority>0</priority>
   </url>

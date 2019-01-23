@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Eclipse Vorto</title>
-    <link>https://www.eclipse.org/vorto/</link>
-    <description>Recent content on Eclipse Vorto</description>
+    <title>Eclipse Vorto on Elate theme</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in Eclipse Vorto on Elate theme</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 28 May 2018 21:07:13 +0100</lastBuildDate>
     
-	<atom:link href="https://www.eclipse.org/vorto/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>What is Vorto?</title>
-      <link>https://www.eclipse.org/vorto/introduction/</link>
+      <link>http://localhost:1313/introduction/</link>
       <pubDate>Mon, 28 May 2018 21:07:13 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/introduction/</guid>
+      <guid>http://localhost:1313/introduction/</guid>
       <description>TL;DR Vorto provides a Vorto Repository managing IoT device descriptions and providing code generators to integrate devices easily with various IoT platforms, e.g. Bosch IoT Suite, AWS IoT, ThingWorx and more.
  The indented use of the Vorto project is that a IoT Device is described using Vorto DSL. By providing a unified way to describe an IoT Device, a variety of services can be employed that draw on the information contained in the description.</description>
     </item>
     
     <item>
       <title>Getting Started</title>
-      <link>https://www.eclipse.org/vorto/gettingstarted/</link>
+      <link>http://localhost:1313/gettingstarted/</link>
       <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/gettingstarted/</guid>
-      <description>Vorto provides a simple language (Vorto DSL) to describe the capabilities and functionality of a device as an Information Model. Information Models are assembled from re-usable, abstract and technology-agnostic Function Blocks. IoT Solutions process the Function Block specific data, to be able to stay agnostic of the actual device(s). Take a look at the Blog Post to find out about the Vorto benefits.
-Let me walk you through an easy example, where we are going to describe a TI Sensor Tag device using abstract Vorto Function Blocks which on the other hand define specific piece of functionality and data of the sensors provided by the TI SensorTag.</description>
+      <guid>http://localhost:1313/gettingstarted/</guid>
+      <description>Vorto provides a simple language to describe the capabilities and functionality of devices as Information Models. But how can these models be consumed to help IoT solution development ?
+I think, it will get clearer, if we walk you through an easy example. In this example we are going to describe a TI Sensor Tag device using abstract Vorto Function Blocks which on the other hand define specific piece of functionality and data.</description>
     </item>
     
     <item>
       <title>Connecting an ESP8266 to Eclipse Hono</title>
-      <link>https://www.eclipse.org/vorto/tutorials/arduino/</link>
+      <link>http://localhost:1313/tutorials/arduino/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/tutorials/arduino/</guid>
+      <guid>http://localhost:1313/tutorials/arduino/</guid>
       <description>&lt;p&gt;This tutorial explains how to generate an Arduino sketch for a given Information Model and send the device data to Eclipse Hono via MQTT.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -44,10 +44,10 @@ Let me walk you through an easy example, where we are going to describe a TI Sen
     
     <item>
       <title>Connecting a GrovePi to Eclipse Hono</title>
-      <link>https://www.eclipse.org/vorto/tutorials/grovepi/</link>
+      <link>http://localhost:1313/tutorials/grovepi/</link>
       <pubDate>Fri, 09 Mar 2018 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/tutorials/grovepi/</guid>
+      <guid>http://localhost:1313/tutorials/grovepi/</guid>
       <description>&lt;p&gt;This tutorial explains how to generate a simple Python application for you GrovePi that sends sensor data to Eclipse Hono using MQTT.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -55,39 +55,39 @@ Let me walk you through an easy example, where we are going to describe a TI Sen
     
     <item>
       <title>How to describe a TI SensorTag device with Vorto</title>
-      <link>https://www.eclipse.org/vorto/tutorials/tisensor/</link>
+      <link>http://localhost:1313/tutorials/tisensor/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/tutorials/tisensor/</guid>
+      <guid>http://localhost:1313/tutorials/tisensor/</guid>
       <description>This tutorial explains how to describe a device with Vorto using the example of a TI SensorTag. Read more about the benefits of Vorto in this blog post.
 Prerequisite  Github account Device you want to describe Related specifications  Let&amp;rsquo;s get started Before you start, you need to understand what kind of information you need to describe your device with Vorto. You might find yourself confronted with a long list of specifications, but not all of them are needed.</description>
     </item>
     
     <item>
       <title>Developer Guide</title>
-      <link>https://www.eclipse.org/vorto/developerguide/</link>
+      <link>http://localhost:1313/developerguide/</link>
       <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/developerguide/</guid>
+      <guid>http://localhost:1313/developerguide/</guid>
       <description>Vorto Repository Plugin SDK   Code Generator Plugin Learn how to write your own generator and deploy and hook it into the Vorto Repository as a (micro) service Read more   Importer Plugin Importers convert device descriptions from other formats to the Vorto language. Learn how to write such an importer plugin and run and hook it as a (micro)service into the Vorto Repository. Coming soon   Repository Import API If you want to manage other existing (standardized) device descriptions with the Vorto Repository, you can implement a custom importer using the Importer API.</description>
     </item>
     
     <item>
       <title>Community</title>
-      <link>https://www.eclipse.org/vorto/community/</link>
+      <link>http://localhost:1313/community/</link>
       <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/community/</guid>
+      <guid>http://localhost:1313/community/</guid>
       <description>Publications &amp;ldquo;Avoid tight-coupling of devices in IoT solutions&amp;rdquo;  Author: Alexander Edelmann (Bosch Software Innovations) Click to read  Presentations Here you can find links to arbitrary material covering Eclipse Vorto which has been presented at events, conferences and meet-ups.
 &amp;ldquo;Eclipse Vorto: A Smart Approach to Connecting Industrial Products&amp;rdquo; (OMA Seminar October 2016)  Speaker : Alexander Edelmann (Bosch Software Innovations) Slides  &amp;ldquo;Eclipse Vorto: Device Payload Mapping&amp;rdquo; (Singapore Meetup 2018)  Speaker : Alexander Edelmann (Bosch Software Innovations) Slides  &amp;ldquo;Eclipse Vorto: Rapid Prototyping&amp;rdquo; (Eclipse Virtual IoT Meetup, July 2017)  Speaker : Alexander Edelmann (Bosch Software Innovations) Video  Mailing List A great way to stay up to date with Vorto activity is to subscribe to the Mailing list provided by Eclipse.</description>
     </item>
     
     <item>
       <title>Release Notes</title>
-      <link>https://www.eclipse.org/vorto/release-notes/</link>
+      <link>http://localhost:1313/release-notes/</link>
       <pubDate>Wed, 09 Mar 2016 20:10:46 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/release-notes/</guid>
+      <guid>http://localhost:1313/release-notes/</guid>
       <description>0.10.0 milestone 10 Fixes and Enhancements
  Various Bug-fixes Various Stabilization fixes  0.10.0 milestone 9 Fixes and Enhancements
  Support for model inheritance during Code Generation Model Details and Mapping Editor now gives immediate feedback to developer if model is invalid Boost of performance upon model search and retrieval Various UI fixes, e.g Pagination in search etc. Various Stabilization fixes  0.10.0 milestone 8 Fixes and Enhancements
@@ -96,40 +96,40 @@ Prerequisite  Github account Device you want to describe Related specifications 
     
     <item>
       <title>Vorto DSL Help</title>
-      <link>https://www.eclipse.org/vorto/userguide/quickhelp_dsl/</link>
+      <link>http://localhost:1313/userguide/quickhelp_dsl/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/userguide/quickhelp_dsl/</guid>
+      <guid>http://localhost:1313/userguide/quickhelp_dsl/</guid>
       <description>&lt;p&gt;This section gets you started with using the Vorto DSL to describe devices as well as use the Mapping DSL to map device descriptions to spec platform models, e.g. LwM2M or even IoT Digital Twin Services.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Vorto Model States</title>
-      <link>https://www.eclipse.org/vorto/userguide/model_states/</link>
+      <link>http://localhost:1313/userguide/model_states/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/userguide/model_states/</guid>
+      <guid>http://localhost:1313/userguide/model_states/</guid>
       <description>&lt;p&gt;Vorto Models have a lifecycle and undergo various states. This section gives you an overview of these states and the actions that are possible.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Code Generators</title>
-      <link>https://www.eclipse.org/vorto/userguide/generators/</link>
+      <link>http://localhost:1313/userguide/generators/</link>
       <pubDate>Wed, 09 May 2018 10:58:37 +0800</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/userguide/generators/</guid>
+      <guid>http://localhost:1313/userguide/generators/</guid>
       <description>&lt;p&gt;This section gives an overview of currently available Vorto Code Generators.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Payload Mapping</title>
-      <link>https://www.eclipse.org/vorto/userguide/mappingengine/</link>
+      <link>http://localhost:1313/userguide/mappingengine/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/userguide/mappingengine/</guid>
+      <guid>http://localhost:1313/userguide/mappingengine/</guid>
       <description>&lt;p&gt;The payload mapping feature in Eclipse Vorto can be used to transform arbitrary payload to standardized Vorto messages and vice versa.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
@@ -137,80 +137,80 @@ Prerequisite  Github account Device you want to describe Related specifications 
     
     <item>
       <title>Steps to create Model</title>
-      <link>https://www.eclipse.org/vorto/userguide/create_model/</link>
+      <link>http://localhost:1313/userguide/create_model/</link>
       <pubDate>Sun, 02 Dec 2018 10:58:37 +0800</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/userguide/create_model/</guid>
+      <guid>http://localhost:1313/userguide/create_model/</guid>
       <description>This section would lead you through the various ways to create a new model, say either a Information model or function block or data type. Prerequisite The user needs to be logged in to repository to create models.
 Create a model  There are 2 ways to create new models in the repository   Using the Web Editor with the repository Using any 3rd party tool and importing the models, refer: Model Importing  Here we will be seeing the steps to create models through the Web Editor</description>
     </item>
     
     <item>
       <title>Vorto Meta Model</title>
-      <link>https://www.eclipse.org/vorto/appendix/metamodel_uml/</link>
+      <link>http://localhost:1313/appendix/metamodel_uml/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/appendix/metamodel_uml/</guid>
+      <guid>http://localhost:1313/appendix/metamodel_uml/</guid>
       <description>&lt;p&gt;This image describes the Vorto Meta Model.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Steps to Version an existing Model</title>
-      <link>https://www.eclipse.org/vorto/userguide/model_versioning/</link>
+      <link>http://localhost:1313/userguide/model_versioning/</link>
       <pubDate>Sun, 02 Dec 2018 11:58:37 +0800</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/userguide/model_versioning/</guid>
+      <guid>http://localhost:1313/userguide/model_versioning/</guid>
       <description>This section would lead you through the steps to create a new version of an existing model.
 Prerequisite  Any user who wants to version an existing model need to be logged in to Vorto repository. The user needs to select a specific model that he/she wants to version.  Creating a New Version of an Model  In the model details page, click on the Create Version button. This will lead to the Create Model Version Dialog dialog box as shown below.</description>
     </item>
     
     <item>
       <title>Steps to Import Model</title>
-      <link>https://www.eclipse.org/vorto/userguide/import_model/</link>
+      <link>http://localhost:1313/userguide/import_model/</link>
       <pubDate>Sun, 02 Dec 2018 10:58:37 +0800</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/userguide/import_model/</guid>
+      <guid>http://localhost:1313/userguide/import_model/</guid>
       <description>&lt;p&gt;In this page you will shown how to import an existing model.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Information Model DSL</title>
-      <link>https://www.eclipse.org/vorto/appendix/infomodel_dsl/</link>
+      <link>http://localhost:1313/appendix/infomodel_dsl/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/appendix/infomodel_dsl/</guid>
+      <guid>http://localhost:1313/appendix/infomodel_dsl/</guid>
       <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Information Model.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Function Block DSL</title>
-      <link>https://www.eclipse.org/vorto/appendix/function_block_dsl/</link>
+      <link>http://localhost:1313/appendix/function_block_dsl/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/appendix/function_block_dsl/</guid>
+      <guid>http://localhost:1313/appendix/function_block_dsl/</guid>
       <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Function Block.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Datatype DSL</title>
-      <link>https://www.eclipse.org/vorto/appendix/datatype_dsl/</link>
+      <link>http://localhost:1313/appendix/datatype_dsl/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/appendix/datatype_dsl/</guid>
+      <guid>http://localhost:1313/appendix/datatype_dsl/</guid>
       <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Datatype&amp;hellip;.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Mapping DSL</title>
-      <link>https://www.eclipse.org/vorto/appendix/mappings_dsl/</link>
+      <link>http://localhost:1313/appendix/mappings_dsl/</link>
       <pubDate>Wed, 09 Mar 2016 20:08:11 +0100</pubDate>
       
-      <guid>https://www.eclipse.org/vorto/appendix/mappings_dsl/</guid>
+      <guid>http://localhost:1313/appendix/mappings_dsl/</guid>
       <description>&lt;p&gt;This section describes the DSL grammer for a Vorto Mapping.
 &lt;/p&gt;</description>
     </item>
