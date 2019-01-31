@@ -10,5 +10,14 @@
 	<atom:link href="https://eclipse.org/vorto/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Redirect</title>
+      <link>https://eclipse.org/vorto/redirect/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://eclipse.org/vorto/redirect/</guid>
+      <description>&amp;lt;!DOCTYPE html&amp;gt;   https://example.com/posts/my-intended-url</description>
+    </item>
+    
   </channel>
 </rss>
