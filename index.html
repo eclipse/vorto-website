@@ -65,6 +65,30 @@
     
     
 
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#edeff5",
+                        "text": "#838391"
+                    },
+                    "button": {
+                        "background": "#4b81e8"
+                    }
+                },
+                "type": "opt-out",
+                "content": {
+                    "message": "Some Eclipse Foundation pages use cookies to better serve you when you return to the site. You can set your browser to notify you before you receive a cookie or turn off cookies. If you do so, however, some areas of some sites may not function properly.",
+                    "link": "https://www.eclipse.org/legal/"
+                }
+            })
+        });
+    </script>
+
     </head>
     <body>
             <header role="banner" id="fh5co-header">
@@ -589,7 +613,7 @@
 				<div class="col-md-3 col-sm-6 col-xs-12">
 					<div class="fh5co-counter to-animate">
 						<i class="fh5co-counter-icon icon-star to-animate-2"></i>
-						<span class="fh5co-counter-number js-counter" data-from="0" data-to="91" data-speed="5000" data-refresh-interval="50">91</span>
+						<span class="fh5co-counter-number js-counter" data-from="0" data-to="103" data-speed="5000" data-refresh-interval="50">103</span>
 						<span class="fh5co-counter-label">Github stars</span>
 					</div>
 				</div>
@@ -702,6 +726,8 @@
 					
 					</ul>
 					<a href="https://www.eclipse.org/projects/what-is-incubation.php"><img src="https://www.eclipse.org/mita/images/incubating.png"></a>
+					<a href="https://www.eclipse.org/"><img
+						src="https://www.eclipse.org/artwork/images/v2/eclipse_foundation_logo.jpg" width="250" /></a>
 				</div>
 			</div>
 		</div>
