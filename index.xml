@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vorto</title>
+    <title>Eclipse Vorto</title>
     <link>https://eclipse.org/vorto/</link>
-    <description>Recent content on Vorto</description>
+    <description>Recent content on Eclipse Vorto</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
