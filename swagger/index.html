@@ -1,43 +1,89 @@
 <!-- HTML for static distribution bundle build -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Eclipse Vorto Repository API</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.20.5/swagger-ui.css" >
-    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
-    <style>
-      html
-      {
-        box-sizing: border-box;
-        overflow: -moz-scrollbars-vertical;
-        overflow-y: scroll;
-      }
-      *,
-      *:before,
-      *:after
-      {
-        box-sizing: inherit;
-      }
-      body
-      {
-        margin:0;
-        background: #fafafa;
-      }
-    </style>
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <title>Eclipse Vorto APIs</title>
+  <link rel="stylesheet" type="text/css" href="../css/swagger-ui.css">
+  <link rel="stylesheet" type="text/css" href="../css/override.css">
+  <link rel="stylesheet" type="text/css" href="../css/swagger-vorto-custom.css">
+  <link rel="icon" type="image/png" href="../images/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" href="../images/favicon.ico" sizes="16x16" />
+  <style>
+    html {
+      box-sizing: border-box;
+      overflow: -moz-scrollbars-vertical;
+      overflow-y: scroll;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      background: #fafafa;
+    }
+  </style>
+</head>
+
+<body class="apidocs" onload="chooseApi()">
+  <div class="swagger-ui">
+    <section data-reactroot="" class="swagger-ui swagger-container">
+      <div class="topbar">
+        <div class="wrapper">
+          <div class="topbar-wrapper">
+            <div class="topbar-wrapper-logo-section">
+              <div class="vorto-header-logo">
+              <a  href="index.html">
+                <img  src="../images/vorto_small.png">
+              </a>
+            </div>
+            <div>
+              <a class="navbar-brand" href="index.html">                
+                Eclipse Vorto
+              </a>
+            </div>
+            </div>
+
+            <form class="download-url-wrapper">
+              <label class="select-label" for="select"><span>Select a definition</span>
+                <select id="select" onchange="chooseApi()">
+                  <option id="repoapi" selected="selected"
+                    value="https://raw.githubusercontent.com/eclipse/vorto/development/docs/specs/vorto_repository-1.0.yml">
+                    Vorto Repository API</option>
+                  <option id="generatorapi"
+                    value="https://raw.githubusercontent.com/eclipse/vorto/development/docs/specs/vorto_generator_plugin-2.0.yml">
+                    Vorto Generator Plugin API</option>
+                  <option id="importerapi"
+                    value="https://raw.githubusercontent.com/eclipse/vorto/development/docs/specs/vorto_importer_plugin-2.0.yml">
+                    Vorto Importer Plugin API</option>
+                </select>
+              </label>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
     <div id="swagger-ui"></div>
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.20.5/swagger-ui-bundle.js"> </script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.20.5/swagger-ui-standalone-preset.js"> </script>
-    <script>
-    window.onload = function() {
-      // Begin Swagger UI call region
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.20.5/swagger-ui-bundle.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.20.5/swagger-ui-standalone-preset.js"> </script>
+  <script>
+
+    function chooseApi() {
+      defaultSupportedSubmitMethods = ["get", "put", "post", "delete", "options", "head", "patch", "trace"];
+      if (document.getElementById('select').selectedIndex  > 0) {
+        defaultSupportedSubmitMethods = [];
+      }
       const ui = SwaggerUIBundle({
-        url: "https://raw.githubusercontent.com/eclipse/vorto/development/repository/apiDocs/vorto_openapi3.yaml",
+        url: document.getElementById('select').value,
+        supportedSubmitMethods: defaultSupportedSubmitMethods,
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
@@ -51,7 +97,9 @@
       })
       // End Swagger UI call region
       window.ui = ui
-    }
+    };
+
   </script>
-  </body>
+</body>
+
 </html>

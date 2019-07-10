@@ -1,0 +1,10 @@
+.vorto-header-logo {
+    width: 35%;
+    padding-right: 10px;
+}
+
+.topbar-wrapper-logo-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
